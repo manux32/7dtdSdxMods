@@ -214,6 +214,21 @@
 			</recipe>
 
 			<!-- plastic feathers arrows -->
+			<recipe name="arrow" count="1">
+				<ingredient name="rockSmall" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
+			<recipe name="ironArrow" count="1">
+				<ingredient name="ironArrowHead" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
+			<recipe name="steelArrow" count="1">
+				<ingredient name="steelArrowHead" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
 			<recipe name="ironCrossbowBolt" count="1">
 				<ingredient name="ironArrowHead" count="1"/>
 				<ingredient name="wood" count="1"/>
