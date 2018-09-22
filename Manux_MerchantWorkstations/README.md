@@ -1,6 +1,6 @@
 # Manux_MerchantWorkstations
 
-A modified/improved version of *Valmar's* merchant workstations.  
+A modified/improved version of **Valmar**'s merchant workstations.  
 If you are tired of running arround the map to go sell your loot or to find the rare item you are missing, this is the mod for you.
 
 ### Workstations
