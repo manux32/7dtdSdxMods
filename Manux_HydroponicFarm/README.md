@@ -1,4 +1,4 @@
-# Manux_HydroponicFarm
+# Hydroponic Farming Device ![hydroFarm](Icons/hydroponicFarmPower.png)
 
 This is one of the mods I'm the most proud of.  
 If like me, you're not a big fan of the 7d2d farming workflow (lagging, tedious, repetitive, annoying planting/harvesting UI), you will most likely enjoy this mod.  
@@ -7,7 +7,7 @@ It works indoors and is more performant than regular outdoor farming.
 It requires 20W of power to work, crops stop growing(crafting) when there is no power.  
 
 ### Progression:
-- An Hydropnics book must be found to be able to use the device.
+- ![hydroBook](Icons/hydroponicsBook.png) An Hydropnics book must be found to be able to use the device.
 - 2 levels of *Hydroponics Mastery* must be purchased to acquire more plants recipes and to be able to craft the device. The device can also be bought from Traders or found in the world.
 
 ### Quick testing of the Mod:
