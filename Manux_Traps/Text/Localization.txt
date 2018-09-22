@@ -7,6 +7,8 @@ trapDartAutoTurret,blocks,Electricity,EnChanged,Darts Auto-Turret
 trapDartAutoTurretDesc,blocks,Electricity,EnChanged,"A motion sensing Darts hose. Cheaper on ammnunition than the other turrets."
 trapFlamingDartAutoTurret,blocks,Electricity,EnChanged,Flaming Darts Auto-Turret
 trapFlamingDartAutoTurretDesc,blocks,Electricity,EnChanged,A motion sensing Flaming Darts hose.
+flamingDart,items,Item Gun,EnChanged,Flaming Dart
+flamingDartDesc,items,Item Gun,EnChanged,Steel Dart that burns.
 burnAndShock,buffs,Buff,EnChanged,Burned and Shocked
 burnAndShockDesc,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"
 burnAndShockTooltip,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"
