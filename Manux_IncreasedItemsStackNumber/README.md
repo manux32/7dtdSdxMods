@@ -1,1 +1,30 @@
-# Manux_...
+# Increased Items StackNumber
+
+This mod increases the StackNumber (number of items that fit in 1 item slot) for the following items:
+- aloeCream, bandage(includes first aid bandage and first aid kit): 20
+- foodYuccaFruit: 500 (like all other fruits/veggies)
+- radiator: 10
+- All drinks to 50 (just like food items)
+  - foodYuccaJuice
+  - canMurkyWater
+  - canBoiledWater
+  - bottledWater
+  - goldenRodTea
+  - redTea
+  - beer
+  - coffee
+  - grainAlcohol
+  - foodHoney
+- All ressources to 6000 (like the majority)
+  - ironFragment
+  - cobblestones
+  - cement
+  - concreteMix
+  - gunPowder
+- All ammo to 500
+  - feather
+  - shotgunShell, shotgunSlug
+  - buckshot
+  - blunderbussAmmo
+  - arrows
+  - crossbowBolts
