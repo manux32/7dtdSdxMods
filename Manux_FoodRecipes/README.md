@@ -6,15 +6,15 @@ Some recipes and icons come from **Valmar**'s mod.
 The idea for me was not to do a big change to food, but just add a bit more variety and especially alternatives for foods that can fill you up.
 
 ### New Items/Recipes:
-- Assorted Vegetables
-- Burger And Fries
-- Bacon Egg Sandwich
-- Scrambled Eggs
-- Omelet
-- Raw Pasta
-- Sheperds Pie
-- Pad Thai
-- Steak Sandwich
+- ![Assorted Vegetables](Icons/assortedVegetables.png) Assorted Vegetables
+- ![Burger And Fries](Icons/burgerAndFries.png) Burger And Fries
+- ![Bacon Egg Sandwich](Icons/baconEggSandwich.png) Bacon Egg Sandwich
+- ![Scrambled Eggs](Icons/scrambledEggs.png) Scrambled Eggs
+- ![Omelet](Icons/Omelet.png) Omelet
+- ![Raw Pasta](Icons/rawPasta.png) Raw Pasta
+- ![Sheperds Pie](Icons/sheperdsPie.png) Sheperds Pie
+- ![Pad Thai](Icons/padThai.png) Pad Thai
+- ![Steak Sandwich](Icons/steakSandwich.png) Steak Sandwich
 
 ### Alternative Recipes:
 Meat and Vegetable Stews can be crafted with Assorted Vegetables instead of the vanilla veggie ingredients.
