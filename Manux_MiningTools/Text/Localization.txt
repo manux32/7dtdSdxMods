@@ -1,0 +1,7 @@
+Key,Source,Context,Changes,English
+weedCleaver,items,Melee,EnChanged,Weed Cleaver
+weedCleaverDesc,items,Melee,EnChanged,"To get rid of those pesky weeds quicly."
+quickaxe,items,Melee,EnChanged,Quick Axe
+quickaxeDesc,items,Melee,EnChanged,"A versatile and powerful mining tool."
+diamondaxe,items,Melee,EnChanged,Diamond Axe
+diamondaxeDesc,items,Melee,EnChanged,"The most versatile and powerful mining tool."

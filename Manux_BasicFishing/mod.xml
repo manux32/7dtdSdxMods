@@ -1,0 +1,18 @@
+<mod>
+	<info>
+		<!-- Information about the Mod, the author and version information -->
+		<!-- These are displayed in the SDX Launcher -->
+		<author>manux (adapted from Clocwork Orange and Carzilla's mods)</author>
+		<name>Manux - Basic Fishing</name>
+		<description>Manux - Basic Fishing SDX Mod</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.4</game_version>
+		<launcher_version>0.7.2</launcher_version>
+	</info>
+	
+	<!-- This references any config files that SDX needs to merge into your files -->
+	<config_mods>
+		<import file="Config\BasicFishing.xml" />
+    </config_mods>
+	
+</mod>

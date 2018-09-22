@@ -1,0 +1,895 @@
+<configs>
+	<config name="items">	
+		<set xpath="/items/item[@name='crossbow']/property[@class='Action0']/property[@name='Magazine_items']/@value">ironCrossbowBolt,steelCrossbowBolt,explodingCrossbowBolt,flamingCrossbowBolt</set>
+		<append xpath="/items">
+			<!-- MANUX Ranged Weapons -->
+			<!-- GUNS PARTS -->
+			<item id="" name="gunSilencer">
+				<property name="Extends" value="partsMaster"/>
+				<property name="DescriptionKey" value="partsSilencerDesc"/>
+				<property name="PartType" value="Stock"/>
+				<property name="Weight" value="10"/>
+				<property class="Attributes">
+					<property name="DegradationRate" value="10,10"/>
+					<property name="DegradationMax" value="700,4000"/>
+				</property>
+					<property name="EconomicValue" value="3000"/>
+				</item>
+			<item id="" name="gunChoke">
+				<property name="Extends" value="partsPumpShotgun_barrel"/>
+				<property name="DescriptionKey" value="partsChokeDesc"/>
+				<property class="Attributes">
+					<property name="Accuracy" value="1, 0.01"/>
+				</property>
+				<property name="EconomicValue" value="3000"/>
+			</item>
+			<item id="" name="gunScope">
+				<property name="Extends" value="partsSniperRifle_receiver"/>
+				<property name="DescriptionKey" value="partsScopeDesc"/>
+				<property class="Attributes">
+					<!--<property name="FalloffRange" value="96,160"/>	MANU original scope values -->
+					<!--<property name="FalloffRange" value="70,250"/>	VALMAR -->
+					<property name="FalloffRange" value="150,250"/>
+				</property>
+				<property name="EconomicValue" value="3000"/>
+			</item>
+			<!-- GUNS -->
+			<item id="" name="gunPistolSilenced">
+				<property name="Extends" value="gunPistol"/>
+				<property name="DescriptionKey" value="gunPistolSilencedDesc"/>
+				<property class="Parts">
+					<property name="Stock" value="gunSilencer"/>
+				</property>
+				<property class="Action0">
+					<property name="Sound_start" value="bullethitcloth"/>
+				</property>
+				<property name="EconomicValue" value="4648"/>
+			</item>
+			<item id="" name="gun44MagnumSilenced">
+				<property name="Extends" value="gun44Magnum"/>
+				<property name="DescriptionKey" value="gun44MagnumSilencedDesc"/>
+				<property class="Parts">
+					<property name="Stock" value="gunSilencer"/>
+				</property>
+				<property class="Action0">
+					<property name="Sound_start" value="bullethitcloth"/>
+				</property>
+				<property name="EconomicValue" value="7500"/>
+			</item>
+			<item id="" name="gunMP5Silenced">
+				<property name="Extends" value="gunMP5"/>
+				<property name="DescriptionKey" value="gunMP5SilencedDesc"/>
+				<property class="Parts">
+					<property name="Pump" value="gunSilencer"/>
+				</property>
+				<property class="Action0">
+					<property name="Sound_start" value="bullethitcloth"/>
+					<property name="Sound_repeat" value="bullethitcloth"/>
+					<property name="Sound_end" value="weapon_empty"/>
+				</property>
+				<property name="EconomicValue" value="7500"/>
+			</item>
+			<item id="" name="gunPumpShotgunChoked">
+				<property name="Extends" value="gunPumpShotgun"/>
+				<property name="DescriptionKey" value="gunPumpShotgunChokedDesc"/>
+				<property class="Parts">
+					<property name="Barrel" value="gunChoke"/>
+				</property>
+				<property class="Action0">
+				<property name="Magazine_item_ray_spreads" value="0.55, 0.20, 0.55"/>
+				</property>
+				<property name="EconomicValue" value="5400"/>
+			</item>
+			<item id="" name="gunAK47Silenced">
+				<property name="CustomIcon" value="gunAK47"/>
+				<property name="Extends" value="gunAK47"/>
+				<property name="DescriptionKey" value="gunAK47SilencedDesc"/>
+				<property class="Parts">
+					<property name="Stock" value="gunSilencer"/>
+				</property>
+				<property class="Action0">
+					<property name="Sound_start" value="bullethitcloth"/>
+					<property name="Sound_repeat" value="bullethitcloth"/>
+					<property name="Sound_end" value="weapon_empt"/>
+				</property>
+				<property name="EconomicValue" value="9000"/>
+			</item>
+			<item id="" name="gunSniperSilenced">
+				<property name="CustomIcon" value="SilencedSniper"/>
+				<property name="Extends" value="gunSniperRifle"/>
+				<property name="DescriptionKey" value="gunSniperSilencedDesc"/>
+				<property class="Parts">
+					<property name="Stock" value="gunSilencer"/>
+				</property>
+				<property class="Action0">
+					<property name="Magazine_size" value="20"/>
+					<property name="Sound_start" value="bullethitcloth"/>
+				</property>
+				<property name="EconomicValue" value="6500"/>
+			</item>
+			<item id="" name="gunSniperRifleHPScope">
+				<property name="CustomIcon" value="gunSniperRifle"/>
+				<property name="Extends" value="gunSniperRifle"/>
+				<property name="DescriptionKey" value="gunSniperRifleHPScopeDesc"/>
+				<property class="Parts">
+					<property name="Receiver" value="gunScope"/>
+				</property>
+				<property class="Action0">
+					<property name="Range" value="300"/>
+					<property name="Magazine_size" value="20"/>
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_overlay" value="Items/Weapons/HUD/sniper_zoom_overlay"/>
+					<property name="Zoom_max_out" value="40"/>
+					<property name="Zoom_max_in" value="5"/>
+				</property>
+				<property name="EconomicValue" value="6500"/>
+			</item>
+			<item id="" name="gunSniperRifleHPScopeSilenced">
+				<property name="CustomIcon" value="SilencedSniper"/>
+				<property name="Extends" value="gunSniperRifleHPScope"/>
+				<property name="DescriptionKey" value="gunSniperRifleHPScopeSilencedDesc"/>
+				<property class="Parts">
+					<property name="Stock" value="gunSilencer"/>
+					<property name="Receiver" value="gunScope"/>
+				</property>
+				<property class="Action0">
+					<property name="Magazine_size" value="20"/>
+					<property name="Sound_start" value="bullethitcloth"/>
+				</property>
+				<property name="EconomicValue" value="9500"/>
+			</item>
+			<!-- CROSSBOWS AND SLINGSHOTS -->
+			<item id="" name="slingshot">
+				<!--<property name="Extends" value="crossbow"/>-->
+				<property name="Extends" value="woodenBow"/>
+				<property name="DescriptionKey" value="slingshotDesc"/>
+				<property name="Material" value="wood"/>
+				<property name="RepairTools" value="wood"/>
+				<property name="Meshfile" value="#SlingShot?SlingShotPrefab" />	
+				<property class="Action0">
+					<!-- regular pistol values
+					<property name="Range" value="22,50"/>	
+					<property name="Reload_time" value="2"/> -->
+					<property name="Range" value="50"/>
+					<!--<property name="Reload_time" value="0.9"/>-->
+					<property name="Magazine_items" value="slingshotRockAmmo,slingshotSteelAmmo"/>
+				</property>
+				<property class="Attributes">
+					<!-- regular pistol values
+					<property name="EntityDamage" value="13,19"/>
+					<property name="BlockDamage" value="7,13"/>-->
+					<property name="EntityDamage" value="6,9"/>
+					<property name="BlockDamage" value="1,5"/>
+					<property name="DegradationRate" value="1,1"/>
+					<property name="DegradationMax" value="150,300"/>
+				</property>
+				<!--<property name="EconomicValue" value="5"/>    regular bow value -->
+				<property name="EconomicValue" value="5"/>
+			</item>
+			<item id="" name="ironSlingshot">
+				<property name="Extends" value="slingshot"/>
+				<property name="DescriptionKey" value="ironSlingshotDesc"/>
+				<property name="Material" value="metal"/>
+				<property name="RepairTools" value="forgedIron"/>
+				<property name="Meshfile" value="#SlingShot?IronSlingShotPrefab" />	
+				<property class="Action0">
+					<!-- regular pistol values
+					<property name="Range" value="22,50"/>	
+					<property name="Reload_time" value="2"/> -->
+					<property name="Range" value="100"/>
+					<!--<property name="Reload_time" value="0.7"/>-->
+					<property name="Magazine_items" value="slingshotRockAmmo,slingshotSteelAmmo,flamingSlingshotAmmo,shockingSlingshotAmmo,explodingSlingshotAmmo"/>
+				</property>
+				<property class="Attributes">
+					<!-- regular pistol values
+					<property name="EntityDamage" value="13,19"/>
+					<property name="BlockDamage" value="7,13"/>-->
+					<property name="EntityDamage" value="10,15"/>
+					<property name="BlockDamage" value="2,8"/>
+					<property name="DegradationRate" value="1,1"/>
+					<property name="DegradationMax" value="250,600"/>
+				</property>
+				<!--<property name="EconomicValue" value="5"/>    regular bow value -->
+				<property name="EconomicValue" value="300"/>
+			</item>
+			<item id="" name="slingshotRepeater">
+				<property name="Extends" value="crossbow"/>
+				<property name="DescriptionKey" value="slingshotRepeaterDesc"/>
+				<property class="Action0">
+					<property name="Magazine_items" value="slingshotRockAmmo,slingshotSteelAmmo,flamingSlingshotAmmo,shockingSlingshotAmmo,explodingSlingshotAmmo"/>
+					<property name="Magazine_size" value="20"/>
+					<property name="Range" value="100"/>
+					<property name="Reload_time" value="3"/>
+					<property name="Sound_reload" value="blunderbuss_reload"/>
+				</property>
+				<property name="EconomicValue" value="1200"/>
+			</item>
+			<item id="" name="slingshotRepeaterHPScope">
+				<property name="Extends" value="slingshotRepeater"/>
+				<property name="DescriptionKey" value="slingshotRepeaterHPScopeDesc"/>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_overlay" value="Items/Weapons/HUD/sniper_zoom_overlay"/>
+					<property name="Zoom_max_out" value="40"/>
+					<property name="Zoom_max_in" value="15"/>
+				</property>
+				<property name="EconomicValue" value="4200"/>
+			</item>
+			<item id="" name="ironBow">
+				<property name="Extends" value="woodenBow"/>
+				<property name="Material" value="metal"/>
+				<property name="RepairTools" value="forgedIron"/>
+				<property name="DescriptionKey" value="ironBowDesc"/>
+				<property class="Action0">
+					<!-- regular bow values	
+					<property name="Reload_time" value="0.9"/> -->
+					<property name="Range" value="180"/>
+					<property name="Reload_time" value="0.7"/>
+					<property name="Magazine_items" value="arrow,ironArrow,steelArrow,flamingArrow"/>
+				</property>
+				<property class="Attributes">
+					<!-- regular bow values
+					<property name="EntityDamage" value="18,45"/>
+					<property name="BlockDamage" value="1,11"/>
+					<property name="DegradationMax" value="175,350"/>
+					Valmar bow value:
+					<property name="DegradationMax" value="100,850"/>
+					<property name="EntityDamage" value="5,10"/>-->
+					<property name="EntityDamage" value="25,50"/>
+					<property name="BlockDamage" value="2,12"/>
+					<property name="DegradationRate" value="1,1"/>
+					<property name="DegradationMax" value="250,500"/>
+				</property>
+				<!--<property name="EconomicValue" value="5"/>    regular bow value -->
+				<property name="EconomicValue" value="120"/>
+			</item>
+			<item id="" name="ironCrossbow">
+				<property name="Extends" value="crossbow"/>
+				<property name="DescriptionKey" value="ironCrossbowDesc"/>
+				<property class="Action0">
+					<!-- regular crossbow values
+					<property name="Range" value="200"/>	
+					<property name="Reload_time" value="2"/> -->
+					<property name="Range" value="250"/>
+					<property name="Reload_time" value="1.5"/>
+				</property>
+				<property class="Attributes">
+					<!-- regular crossbow values
+					<property name="EntityDamage" value="25,55"/>
+					<property name="BlockDamage" value="6,11"/>
+					<property name="DegradationMax" value="240,600"/>
+						regular sniper values
+					<property name="EntityDamage" value="41.4,69"/>
+					<property name="BlockDamage" value="8,14"/>
+						Valmar crossbow value:
+					<property name="DegradationMax" value="50,650"/>
+					<property name="EntityDamage" value="5,10"/>-->
+					<property name="EntityDamage" value="35,60"/>
+					<property name="BlockDamage" value="7,12"/>
+					<property name="DegradationRate" value="1,1"/>
+					<property name="DegradationMax" value="350,850"/>
+				</property>
+				<!--<property name="EconomicValue" value="220"/>    regular crossbow value -->
+				<property name="EconomicValue" value="600"/>
+			</item>
+			<item id="" name="crossbowHPScope">
+				<property name="Extends" value="crossbow"/>
+				<property name="DescriptionKey" value="crossbowHPScopeDesc"/>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_overlay" value="Items/Weapons/HUD/sniper_zoom_overlay"/>
+					<property name="Zoom_max_out" value="40"/>
+					<property name="Zoom_max_in" value="10"/>
+				</property>
+				<property name="EconomicValue" value="3200"/>
+			</item>
+			<item id="" name="ironCrossbowHPScope">
+				<property name="Extends" value="ironCrossbow"/>
+				<property name="DescriptionKey" value="ironCrossbowHPScopeDesc"/>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_overlay" value="Items/Weapons/HUD/sniper_zoom_overlay"/>
+					<property name="Zoom_max_out" value="40"/>
+					<property name="Zoom_max_in" value="10"/>
+				</property>
+				<property name="EconomicValue" value="3800"/>
+			</item>
+			<item id="" name="crossbowRepeater">
+				<property name="Extends" value="ironCrossbow"/>
+				<property name="DescriptionKey" value="crossbowRepeaterDesc"/>
+				<property class="Action0">
+					<property name="Magazine_size" value="5"/>
+				</property>
+				<!--<property name="EconomicValue" value="220"/>    regular crossbow value -->
+				<property name="EconomicValue" value="2000"/>
+			</item>
+			<item id="" name="crossbowRepeaterHPScope">
+				<property name="Extends" value="crossbowRepeater"/>
+				<property name="DescriptionKey" value="crossbowRepeaterHPScopeDesc"/>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_overlay" value="Items/Weapons/HUD/sniper_zoom_overlay"/>
+					<property name="Zoom_max_out" value="40"/>
+					<property name="Zoom_max_in" value="10"/>
+				</property>
+				<property name="EconomicValue" value="5000"/>
+			</item>
+			<!-- AMMO -->
+			<item id="" name="slingshotRockAmmo">
+				<property name="DescriptionKey" value="slingshotRockAmmoDesc"/>
+				<property name="Meshfile" value="#SlingShot?SlingShotAmmoPrefab" />	
+				<property name="HoldType" value="23"/>
+				<property name="Material" value="stone"/>
+				<property name="Stacknumber" value="500"/>
+				<property name="EconomicValue" value="6"/>
+				<property name="EconomicBundleSize" value="50"/>
+				<property class="Action1">
+					<property name="Class" value="Projectile"/>
+					<property name="Explosion.ParticleIndex" value="0"/> <!-- no expl. -->
+					<property name="Velocity" value="30"/>
+					<property name="FlyTime" value="0"/>
+					<property name="Gravity" value="-6"/>
+					<property name="LifeTime" value="12"/>
+					<property name="DamageBonus.head" value="5"/>
+					<property name="DamageBonus.glass" value="1"/>
+					<property name="DamageBonus.wood" value="0.1"/>
+					<property name="DamageBonus.earth" value="0"/>
+					<property name="DamageBonus.metal" value="0"/>
+					<property name="DamageBonus.cloth" value="0"/>
+				</property>
+				<property class="Attributes">
+					<property name="GetQualityFromWeapon" value="true"/>
+					<property name="EntityDamage" value="9,15"/>
+					<property name="BlockDamage" value="0.5,1.5"/>
+					<property name="ApplyBuff" value="0.15,0.15" param1="arrowCriticalBleedout"/>
+				</property>
+				<property name="Group" value="Ammo/Weapons"/>
+				<property name="CraftingSkillGroup" value="craftSkillWeapons"/>
+			</item>
+			<item id="" name="slingshotSteelAmmo">
+				<property name="Extends" value="slingshotRockAmmo"/>
+				<property name="DescriptionKey" value="slingshotSteelAmmoDesc"/>
+				<property name="Material" value="metal"/>
+				<property name="EconomicValue" value="30"/>
+				<property class="Action1">
+					<property name="Velocity" value="45"/>
+					<property name="Gravity" value="-5"/>
+				</property>
+				<property class="Attributes">
+					<property name="EntityDamage" value="15,30"/>
+					<property name="BlockDamage" value="1,3"/>
+					<property name="ApplyBuff" value="0.25,0.25" param1="arrowCriticalBleedout"/>
+				</property>
+			</item>
+			<item id="" name="flamingSlingshotAmmo">
+				<property name="Extends" value="slingshotSteelAmmo"/>
+				<property name="DescriptionKey" value="flamingSlingshotAmmoDesc"/>
+				<property name="EconomicValue" value="45"/>
+				<property class="Action1">
+					<property name="Velocity" value="30"/>
+					<property name="Gravity" value="-6"/>
+					<property name="DamageBonus.wood" value="1"/>
+				</property>
+				<property class="Attributes">
+					<property name="ApplyBuff" value="1,1" param1="rangedBurningMedium"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+			<item id="" name="shockingSlingshotAmmo">
+				<property name="Extends" value="slingshotSteelAmmo"/>
+				<property name="DescriptionKey" value="shockingSlingshotAmmoDesc"/>
+				<property name="EconomicValue" value="55"/>
+				<property class="Action1">
+					<property name="Velocity" value="30"/>
+					<property name="Gravity" value="-6"/>
+				</property>
+				<property class="Attributes">
+					<property name="ApplyBuff" value="1,1" param1="rangedShockedBuffSmall"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>	
+			<item id="" name="explodingSlingshotAmmo">
+				<property name="Extends" value="slingshotSteelAmmo"/>
+				<property name="DescriptionKey" value="explodingSlingshotAmmoDesc"/>
+				<property name="FuelValue" value="6"/>
+				<property name="EconomicValue" value="65"/>
+				<property name="EconomicBundleSize" value="1"/>
+				<!--<property name="Explosion.BlastPower" value="25"/>-->
+				<property class="Action1">
+					<property name="Explosion.ParticleIndex" value="0"/> <!-- no expl. -->
+					<property name="Velocity" value="30"/>
+					<property name="Gravity" value="-6"/>
+					<property name="LifeTime" value="12"/>
+					<property name="Explosion.BlockDamage" value="5"/>
+					<property name="Explosion.EntityDamage" value="40"/>
+					<property name="Explosion.ParticleIndex" value="1"/>
+					<property name="Explosion.RadiusBlocks" value="1.5"/>
+					<property name="Explosion.RadiusEntities" value="2"/>
+					<property name="Explosion.DamageBonus.stone" value="0.15"/>
+					<property name="Explosion.DamageBonus.metal" value="0.05"/>
+					<property name="Explosion.DamageBonus.earth" value="0"/> <!-- should work? -->
+					<property name="Explosion.DamageBonus.wood" value="0.25"/>
+					<property name="Explosion.DamageBonus.water" value="0"/>
+				</property>
+				<property class="Attributes">
+					<property name="EntityDamage" value="18,30"/>
+					<property name="ApplyBuff" value="0,0" param1="arrowCriticalBleedout"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+			<item id="" name="flamingCrossbowBolt">
+				<property name="Extends" value="steelCrossbowBolt"/>
+				<property name="DescriptionKey" value="flamingCrossbowBoltDesc"/>
+				<property name="UsableUnderwater" value="false"/>
+				<property name="FuelValue" value="12"/>
+				<property name="EconomicValue" value="55"/>
+				<property name="EconomicBundleSize" value="1"/>
+				<property class="Action1">
+					<property name="Explosion.ParticleIndex" value="0"/> <!-- no expl. -->
+					<property name="Velocity" value="65"/>
+					<property name="Gravity" value="-6"/>
+					<property name="Explosion.DamageBonus.wood" value="2"/>
+				</property>
+				<property class="Attributes">
+					<property name="ApplyBuff" value="1,1" param1="burning"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+			<item id="" name="miniHPBattery">
+				<property name="DescriptionKey" value="miniHPBatteryDesc"/>
+				<property name="Material" value="lead"/>
+				<property name="Stacknumber" value="500"/>
+				<property name="HoldType" value="45"/>
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="EconomicValue" value="10"/>
+				<property name="EconomicBundleSize" value="10"/>
+				<property name="CraftingIngredientTime" value="10"/>
+				<property name="Group" value="Resources"/>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+		</append>
+	</config>
+	<config name="buffs">	
+		<append xpath="/buffs">
+			<!-- MANUX Ranged Weapons -->
+			<buff id="rangedShockedBuffSmall" duration="3" stack="discard" debuffif="ShockAmount equals 0" buffif="ShockAmount greater 0"
+				actions="attach(ParticleEffects/p_electric_shock, @impact)" castsound="electric_fence_impact"
+				icon="ui_game_symbol_electric_power" name_key="shockedBuffName" description_key="shockedBuffDesc" tooltip_key="shockedBuffTooltip">
+				<modify id="0" stat="health" amount="-1.8" rate="0.5"/>
+				<modify id="1" stat="speedmodifier" mulValue="0.2" duration="2.5"/>
+			</buff>
+			<buff id="rangedBurningMedium" mutex="burning,cannotBreath,drowning,extinguishFireBuff" duration="12.5" stack="reset" debuffif="+water > 1" ffcheck="true" actions="attach(ParticleEffects/p_onFire, @impact);damage(0,1,0,1);damage(0,2.5,0,0)" icon="ui_game_symbol_fire" name_key="burningSmall" description_key="burningSmallDesc" tooltip_key="burningSmallTooltip" cures="canBoiledWater,bottledWater,goldenRodTea,redTea">
+				<modify id="1" stat="health" amount="-6" rate="1"/>
+			</buff>
+		</append>
+	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='craftSkillWeapons']">
+			<!-- MANUX Ranged Weapons -->
+			<recipe name="ironSlingshot" unlock_level="3"/>
+			<recipe name="slingshotRepeater" unlock_level="5"/>
+			<recipe name="slingshotRepeaterHPScope" unlock_level="5"/>
+			<recipe name="crossbowHPScope" unlock_level="3"/>
+			<recipe name="ironBow" unlock_level="3"/>
+			<recipe name="ironCrossbow" unlock_level="4"/>
+			<recipe name="ironCrossbowHPScope" unlock_level="4"/>
+			<recipe name="crossbowRepeater" unlock_level="6"/>
+			<recipe name="crossbowRepeaterHPScope" unlock_level="6"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
+			<!-- MANUX Ranged Weapons -->
+			<recipe name="ironSlingshot" unlock_level="2"/>
+			<recipe name="slingshotRepeater" unlock_level="3"/>
+			<recipe name="slingshotRepeaterHPScope" unlock_level="3"/>
+			<recipe name="crossbowHPScope" unlock_level="1"/>
+			<recipe name="ironBow" unlock_level="2"/>
+			<recipe name="ironCrossbow" unlock_level="2"/>
+			<recipe name="ironCrossbowHPScope" unlock_level="2"/>
+			<recipe name="crossbowRepeater" unlock_level="4"/>
+			<recipe name="crossbowRepeaterHPScope" unlock_level="4"/>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Ranged Weapons -->
+			<!-- FORGE and scrap -->
+			<recipe name="slingshotRockAmmo" count="1" craft_area="forge" material_based="true" craft_time = "1" craft_exp_gain="0">
+				<ingredient name="unit_stone" count="5"/>
+			</recipe>
+			<recipe name="slingshotRockAmmo" count="1" tooltip="ttScrapMetalBrass">
+				<wildcard_forge_category />
+			</recipe>
+			<recipe name="slingshotSteelAmmo" count="1" craft_area="forge" material_based="true" craft_time = "1" craft_exp_gain="0">
+				<ingredient name="unit_iron" count="2"/>
+			</recipe>
+			<recipe name="slingshotSteelAmmo" count="1" tooltip="ttScrapMetalIron">
+				<wildcard_forge_category />
+			</recipe>
+			<!-- GUNS -->
+			<recipe name="gunSilencer" count="1" craft_area="workbench">
+				<ingredient name="partsSniperRifle_barrel" count="1"/>
+				<ingredient name="forgedSteel" count="25"/>	
+				<ingredient name="potassiumNitratePowder" count="100"/>
+				<ingredient name="mechanicalParts" count="10"/>
+				<ingredient name="repairKit" count="2"/>
+			</recipe>
+			<recipe name="gunPistolSilenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="partsPistol_parts" count="1"/>
+				<ingredient name="partsPistol_barrel" count="1"/>
+				<ingredient name="partsPistol_receiver" count="1"/>
+				<ingredient name="gunSilencer" count="1" />
+			</recipe>			
+			<recipe name="gun44MagnumSilenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="parts44Magnum_frame" count="1"/>
+				<ingredient name="parts44Magnum_cylinder" count="1"/>
+				<ingredient name="parts44Magnum_parts" count="1"/>
+				<ingredient name="gunSilencer" count="1" />
+			</recipe>	
+			<recipe name="gunMP5Silenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0"/>
+				<ingredient name="partsMP5_stock" count="1"/>
+				<ingredient name="partsMP5_receiver" count="1"/>
+				<ingredient name="partsMP5_barrel" count="1"/>
+				<ingredient name="gunSilencer" count="1" />
+			</recipe>	
+			<recipe name="gunPumpShotgunChoked" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="gunChoke" count="1" />
+				<ingredient name="partsPumpShotgun_receiver" count="1"/>
+				<ingredient name="partsPumpShotgun_parts" count="1"/>
+				<ingredient name="partsPumpShotgun_stock" count="1"/>
+			</recipe>		
+			<recipe name="gunAK47Silenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="partsAK47_barrel" count="1"/>
+				<ingredient name="gunSilencer" count="1" />
+				<ingredient name="partsAK47_receiver" count="1"/>
+				<ingredient name="partsAK47_parts" count="1"/>
+			</recipe>
+			<recipe name="gunSniperSilenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="partsSniperRifle_barrel" count="1"/>
+				<ingredient name="partsSniperRifle_receiver" count="1" />
+				<ingredient name="gunSilencer" count="1" />
+				<ingredient name="partsSniperRifle_parts" count="1"/>
+			</recipe>
+			<recipe name="gunSniperRifleHPScope" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="partsSniperRifle_barrel" count="1" />
+				<ingredient name="gunScope" count="1" />
+				<ingredient name="partsSniperRifle_stock" count="1" />
+				<ingredient name="partsSniperRifle_parts" count="1" />
+			</recipe>
+			<recipe name="gunSniperRifleHPScopeSilenced" count="1"  craft_area="assembly">
+				<ingredient name="flashlight02" count="0" />
+				<ingredient name="partsSniperRifle_barrel" count="1" />
+				<ingredient name="gunScope" count="1" />
+				<ingredient name="gunSilencer" count="1" />
+				<ingredient name="partsSniperRifle_parts" count="1" />
+			</recipe>
+			<!-- SLINGSHOTS AND CROSSBOWS -->
+			<recipe name="ironBow" count="1" craft_time = "30">
+				<ingredient name="forgedIron" count="8"/>
+				<ingredient name="leather" count="1"/>
+				<ingredient name="glue" count="1"/>
+				<ingredient name="ductTape" count="1"/>
+				<ingredient name="yuccaFibers" count="6"/>
+			</recipe>
+			<recipe name="ironCrossbow" count="1" craft_time = "60">
+				<ingredient name="forgedIron" count="20"/>
+				<ingredient name="leather" count="4"/>
+				<ingredient name="glue" count="2"/>
+				<ingredient name="ductTape" count="1"/>
+				<ingredient name="wood" count="10"/>
+			</recipe>	
+			<recipe name="crossbowRepeater" count="1" craft_area="workbench" craft_time = "300">
+				<ingredient name="ironCrossbow" count="1"/>
+				<ingredient name="spring" count="5"/>
+				<ingredient name="mechanicalParts" count="10"/>
+			</recipe>
+			<recipe name="crossbowHPScope" count="1">
+				<ingredient name="crossbow" count="1"/>
+				<ingredient name="gunScope" count="1"/>
+				<ingredient name="ductTape" count="2"/>
+			</recipe>
+			<recipe name="ironCrossbowHPScope" count="1">
+				<ingredient name="ironCrossbow" count="1"/>
+				<ingredient name="gunScope" count="1"/>
+				<ingredient name="ductTape" count="2"/>
+			</recipe>
+			<recipe name="crossbowRepeaterHPScope" count="1">
+				<ingredient name="crossbowRepeater" count="1"/>
+				<ingredient name="gunScope" count="1"/>
+				<ingredient name="ductTape" count="2"/>
+			</recipe>
+			<recipe name="slingshot" count="1" craft_time = "30">
+				<ingredient name="wood" count="4"/>
+				<ingredient name="leather" count="1"/>
+				<ingredient name="ductTape" count="1"/>
+				<ingredient name="yuccaFibers" count="2"/>
+			</recipe>
+			<recipe name="ironSlingshot" count="1" craft_time = "30">	
+				<ingredient name="forgedIron" count="5"/>
+				<ingredient name="leather" count="2"/>
+				<ingredient name="glue" count="1"/>
+				<ingredient name="ductTape" count="1"/>
+				<ingredient name="yuccaFibers" count="3"/>
+			</recipe>
+			<recipe name="slingshotRepeater" count="1" craft_area="workbench" craft_time = "300">
+				<ingredient name="ironSlingshot" count="1"/>
+				<ingredient name="spring" count="3"/>
+				<ingredient name="mechanicalParts" count="4"/>
+			</recipe>
+			<recipe name="slingshotRepeaterHPScope" count="1">
+				<ingredient name="slingshotRepeater" count="1"/>
+				<ingredient name="gunScope" count="1"/>
+				<ingredient name="ductTape" count="1"/>
+			</recipe>
+			<!-- AMMO -->
+			<recipe name="slingshotRockAmmo" count="1">
+				<ingredient name="rockSmall" count="1"/>
+			</recipe>
+			<recipe name="slingshotSteelAmmo" count="1" craft_area="forge" craft_tool="anvil" material_based="true">
+				<ingredient name="unit_iron" count="3"/>
+				<ingredient name="unit_clay" count="1"/>
+			</recipe>
+			<recipe name="flamingSlingshotAmmo" count="1">
+				<ingredient name="slingshotSteelAmmo" count="1"/>
+				<ingredient name="gunPowder" count="1"/>
+				<ingredient name="tallow" count="1"/>
+			</recipe>
+			<recipe name="shockingSlingshotAmmo" count="1" craft_area="workbench">
+				<ingredient name="slingshotSteelAmmo" count="1"/>
+				<ingredient name="miniHPBattery" count="1"/>
+				<ingredient name="electricParts" count="1"/>
+				<ingredient name="ductTape" count="1"/>
+			</recipe>
+			<recipe name="explodingSlingshotAmmo" count="1" craft_area="workbench">
+				<ingredient name="slingshotSteelAmmo" count="1"/>
+				<ingredient name="gunPowder" count="4"/>
+				<ingredient name="ductTape" count="1"/>
+			</recipe>
+			<recipe name="flamingCrossbowBolt" count="1" craft_area="workbench">
+				<ingredient name="steelCrossbowBolt" count="1"/>
+				<ingredient name="gunPowder" count="2"/>
+				<ingredient name="cloth" count="1"/>
+				<ingredient name="tallow" count="1"/>
+			</recipe>
+			<recipe name="miniHPBattery" count="50" craft_area="chemistryStation">
+				<ingredient name="carBattery" count="1"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingCrossbowBolt" count="1,8" prob="0.1"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='weaponsCrossbow+ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="ironBow" count="1" prob="0.7"/>
+			<item name="ironCrossbow" count="1" prob="0.5"/>
+			<item name="crossbowRepeater" count="1" prob="0.2"/>
+			<item name="crossbowHPScope" count="1" prob="0.4"/>
+			<item name="ironCrossbowHPScope" count="1" prob="0.3"/>
+			<item name="crossbowRepeaterHPScope" count="1" prob="0.1"/>
+			<item name="flamingCrossbowBolt" count="5,15" prob="0.2"/>
+			<item name="slingshot" count="1"/>
+			<item name="ironSlingshot" count="1" prob="0.2"/>
+			<item name="slingshotRepeater" count="1" prob="0.1"/>
+			<item name="slingshotRepeaterHPScope" count="1" prob="0.05"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='weaponsBasicGuns+ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSilencer" prob="0.1"/>
+			<item name="gunScope" prob="0.1"/>
+			<item name="gunChoke" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='weaponsSniperRifle+ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSniperSilenced" count="0,1" prob="0.1"/>
+			<item name="gunSniperRifleHPScope" count="0,1" prob="0.1"/>
+			<item name="gunSniperRifleHPScopeSilenced" count="0,1" prob="0.05"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='weaponsMilitaryParts']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSilencer" prob="0.2"/>
+			<item name="gunScope" prob="0.2"/>
+			<item name="gunChoke" prob="0.4"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='treasureAmmo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingCrossbowBolt" count="20,50" prob="0.5"/>
+			<item name="slingshotSteelAmmo" count="50,100"/>
+			<item name="flamingSlingshotAmmo" count="30,60" prob="0.8"/>
+			<item name="shockingSlingshotAmmo" count="30,60" prob="0.8"/>
+			<item name="explodingSlingshotAmmo" count="30,60" prob="0.8"/>
+		</append>
+		<!-- bandit ranged -->
+		<append xpath="/lootcontainers/lootcontainer[@id='72']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="slingshot" count="1"/>
+			<item name="ironSlingshot" count="1" prob="0.2"/>
+			<item name="slingshotRepeater" count="1" prob="0.1"/>
+			<item name="slingshotRepeaterHPScope" count="1" prob="0.05"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.2"/>
+		</append>
+		<!-- ZombieSkateboarder -->
+		<append xpath="/lootcontainers/lootcontainer[@id='80']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="slingshot" count="1"/>
+			<item name="ironSlingshot" count="1" prob="0.2"/>
+			<item name="slingshotRepeater" count="1" prob="0.1"/>
+			<item name="slingshotRepeaterHPScope" count="1" prob="0.05"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.2"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='electricalDevices']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='cupboard']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='junk']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='automotive']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='tools']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='workingStiffs']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='sportingGoods']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='backpacks']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<!-- night stands and dressers, pistol, ammo, magazines, books -->
+		<append xpath="/lootcontainers/lootcontainer[@id='6']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<!-- kitchen sink, cupboards (lower), cleaning chemicals, plates, silverware, pots and pans -->
+		<append xpath="/lootcontainers/lootcontainer[@id='8']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<!-- lockers -->
+		<append xpath="/lootcontainers/lootcontainer[@id='43']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<!-- purse -->
+		<append xpath="/lootcontainers/lootcontainer[@id='48']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+		<!-- Shamway Cardboard Loot-->
+		<append xpath="/lootcontainers/lootcontainer[@id='59']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="1,10"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='weaponsCrossbow+ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="ironBow" count="1" prob="0.7"/>
+			<item name="ironCrossbow" count="1" prob="0.5"/>
+			<item name="crossbowRepeater" count="1" prob="0.2"/>
+			<item name="crossbowHPScope" count="1" prob="0.4"/>
+			<item name="ironCrossbowHPScope" count="1" prob="0.3"/>
+			<item name="crossbowRepeaterHPScope" count="1" prob="0.1"/>
+			<item name="flamingCrossbowBolt" count="5,15" prob="0.1"/>
+			<item name="slingshot" count="1"/>
+			<item name="ironSlingshot" count="1" prob="0.8"/>
+			<item name="slingshotRepeater" count="1" prob="0.3"/>
+			<item name="slingshotRepeaterHPScope" count="1" prob="0.2"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='ammo']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingCrossbowBolt" count="10,30" prob="0.1"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.5"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSilencer" count="1"/>
+			<item name="gunChoke" count="1"/>
+			<item name="gunScope" count="1"/>
+			<item name="flamingCrossbowBolt" count="10,30" prob="0.5"/>
+			<item name="ironBow" count="1" prob="0.7"/>
+			<item name="ironCrossbow" count="1" prob="0.5"/>
+			<item name="crossbowRepeater" count="1" prob="0.2"/>
+			<item name="crossbowHPScope" count="1" prob="0.4"/>
+			<item name="ironSlingshot" count="1" prob="0.8"/>
+			<item name="slingshotRepeater" count="1" prob="0.3"/>
+			<item name="slingshotRockAmmo" count="50,100"/>
+			<item name="slingshotSteelAmmo" count="25,50" prob="0.8"/>
+			<item name="flamingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="shockingSlingshotAmmo" count="15,35" prob="0.3"/>
+			<item name="explodingSlingshotAmmo" count="15,35" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSilencer" count="1"/>
+			<item name="gunChoke" count="1"/>
+			<item name="gunScope" count="1"/>
+			<item name="gunSniperSilenced" count="1"/>
+			<item name="gunSniperRifleHPScope" count="1"/>
+			<item name="gunSniperRifleHPScopeSilenced" count="1" prob="0.6"/>
+			<item name="flamingCrossbowBolt" count="10,30"/>
+			<item name="ironBow" count="1"/>
+			<item name="ironCrossbow" count="1"/>
+			<item name="crossbowRepeater" count="1"/>
+			<item name="crossbowHPScope" count="1"/>
+			<item name="ironCrossbowHPScope" count="1" prob="0.8"/>
+			<item name="crossbowRepeaterHPScope" count="1" prob="0.6"/>
+			<item name="ironSlingshot" count="1"/>
+			<item name="slingshotRepeater" count="1"/>
+			<item name="slingshotRepeaterHPScope" count="1"/>
+			<item name="slingshotSteelAmmo" count="50,100"/>
+			<item name="flamingSlingshotAmmo" count="25,50"/>
+			<item name="shockingSlingshotAmmo" count="25,50"/>
+			<item name="explodingSlingshotAmmo" count="25,50"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='weaponsMilitaryParts']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="gunSilencer" count="1"/>
+			<item name="gunChoke" count="1"/>
+			<item name="gunScope" count="1"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='generalResources']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="10,30"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderGeneral']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="10,30"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderElectrical']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="miniHPBattery" count="10,30"/>
+		</append>
+	</config>
+</configs>

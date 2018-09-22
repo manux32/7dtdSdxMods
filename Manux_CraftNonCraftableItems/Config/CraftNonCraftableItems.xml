@@ -1,0 +1,397 @@
+<configs>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<block id="" name="porchLight04_player">
+				<property name="Extends" value="porchLight04"/>
+				<property name="CreativeMode" value="Player"/>
+				<property name="DescriptionKey" value="lightPlayerGroupDesc"/>
+				<property name="CustomIcon" value="porchLight04"/>
+				<property name="RuntimeSwitch" value="true"/>
+				<property name="HandleFace" value="West"/>
+				<property name="TakeDelay" value="5"/>
+			</block>
+			<block id="" name="signShopOpen_player">
+				<property name="Extends" value="signShopOpen"/>
+				<property name="CreativeMode" value="Player"/>
+				<property name="DescriptionKey" value="lightPlayerGroupDesc"/>
+				<property name="CustomIcon" value="signShopOpenSwitch"/>
+				<property name="RuntimeSwitch" value="true"/>
+				<property name="TakeDelay" value="5"/>
+			</block>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Craft Non-Craftable Items -->
+			<!-- misc additions -->
+			<recipe name="canEmpty" count="1" craft_area="forge" craft_tool="anvil" material_based="true">
+				<ingredient name="unit_iron" count="5"/>
+				<ingredient name="unit_clay" count="5"/>
+			</recipe>
+			<recipe name="solarCell" count="1" craft_area="workbench">
+				<ingredient name="glassCTRSheet" count="1"/>
+				<ingredient name="scrapLead" count="50"/>
+				<ingredient name="forgedIron" count="10"/>
+				<ingredient name="electricParts" count="10"/>
+				<ingredient name="electronicParts" count="10"/>
+			</recipe>
+			<recipe name="solarCell" count="1" craft_area="workbench">
+				<ingredient name="repairKit" count="1"/>
+				<ingredient name="solarCell" count="1"/>
+				<ingredient name="forgedIron" count="5"/>
+				<ingredient name="electronicParts" count="5"/>
+				<ingredient name="electricParts" count="5"/>
+			</recipe>
+			<recipe name="solarbank" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="20"/>
+				<ingredient name="electricParts" count="10"/>
+				<ingredient name="electronicParts" count="10"/>
+				<ingredient name="scrapPlastics" count="5"/>
+			</recipe>
+			<recipe name="steelPolish" count="1" craft_area="chemistryStation" craft_time="150">
+				<ingredient name="oil" count="2"/>
+				<ingredient name="aloeCream" count="1"/>
+			</recipe>
+			<recipe name="beaker" count="1" craft_area="forge" craft_tool="forgeCrucible" material_based="true">
+				<ingredient name="unit_glass" count="200"/>
+				<ingredient name="unit_clay" count="50"/>
+				<ingredient name="unit_lead" count="10"/>
+			</recipe>
+			<recipe name="carBattery" count="1">
+				<ingredient name="scrapLead" count="20"/>
+				<ingredient name="scrapPlastics" count="10"/>
+				<ingredient name="scrapIron" count="10"/>
+				<ingredient name="bottledWater" count="4"/>
+			</recipe>
+			<recipe name="carBattery" count="1">
+				<ingredient name="scrapLead" count="5"/>
+				<ingredient name="scrapPlastics" count="5"/>
+				<ingredient name="scrapIron" count="5"/>
+				<ingredient name="bottledWater" count="2"/>
+				<ingredient name="carBattery" count="1"/>
+			</recipe>
+			<recipe name="smallEngine" count="1" craft_area="workbench" craft_time="600">
+				<ingredient name="forgedSteel" count="20"/>
+				<ingredient name="mechanicalParts" count="20"/>
+				<ingredient name="spring" count="10"/>
+				<ingredient name="shortMetalPipe" count="10"/>
+			</recipe>
+			<recipe name="smallEngine" count="1" craft_area="workbench" craft_time="300">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="mechanicalParts" count="10"/>
+				<ingredient name="spring" count="5"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+				<ingredient name="smallEngine" count="1"/>
+			</recipe>
+			<recipe name="scrapPlastics" count="10" craft_area="chemistryStation">	
+				<ingredient name="potassiumNitratePowder" count="10"/>
+				<ingredient name="oil" count="2"/>
+			</recipe>
+			<recipe name="scrapPlastics" count="10" craft_area="chemistryStation">	
+				<ingredient name="potassiumNitratePowder" count="10"/>
+				<ingredient name="gasCan" count="10"/>
+			</recipe>
+			<recipe name="minibikeWheels" count="1" craft_area="workbench">
+				<ingredient name="minibikeWheels" count="1"/>
+				<ingredient name="repairKit" count="1"/>
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="ductTape" count="10"/>
+			</recipe>
+			
+			<!-- POI blocks -->
+			<recipe name="porchLight01_player" count="1" craft_area="workbench">
+				<ingredient name="forgedIron" count="2"/>
+				<ingredient name="electricParts" count="6"/>
+			</recipe>
+			<recipe name="houseFrontDoor1_v1" craft_area="workbench">
+				<ingredient name="wood" count="10"/>
+			</recipe>
+			<recipe name="commercialDoor1_v1" craft_area="workbench">
+				<ingredient name="forgedIron" count="8"/>
+			</recipe>
+			<recipe name="commercialDoor2_v1" craft_area="workbench">
+				<ingredient name="forgedIron" count="8"/>
+			</recipe>
+			<recipe name="commercialDoor4_v1" craft_area="workbench">
+				<ingredient name="forgedIron" count="8"/>
+			</recipe>
+			<recipe name="treeCactus01" count="1">
+				<ingredient name="sand" count="1"/>
+				<ingredient name="foodYuccaFruit" count="5"/>
+			</recipe>
+			
+			<!-- ressources -->
+			<recipe name="potassiumNitratePowder" count="50" craft_area="chemistryStation">
+				<ingredient name="dirtFragment" count="50"/>
+				<ingredient name="grainAlcohol" count="10"/>
+				<ingredient name="bottledRiverWater" count="1"/>
+				<ingredient name="wood" count="10"/>
+				<ingredient name="turd" count="1"/>
+			</recipe>
+			<recipe name="scrapBrass" count="10" craft_area="chemistryStation">
+				<ingredient name="dirtFragment" count="20"/>
+				<ingredient name="clayLump" count="5"/>
+				<ingredient name="scrapIron" count="5"/>
+			</recipe>
+			<recipe name="scrapLead" count="10" craft_area="chemistryStation">
+				<ingredient name="rockSmall" count="250"/>
+			</recipe>
+			<recipe name="coal" count="5" craft_area="cementMixer">
+				<ingredient name="wood" count="50"/>
+				<ingredient name="torch" count="5"/>
+			</recipe>
+			<recipe name="dirtFragment" count="50" craft_area="cementMixer">
+				<ingredient name="wood" count="100"/>
+				<ingredient name="yuccaFibers" count="10"/>
+			</recipe>
+			
+			<!-- armors -->
+			<recipe name="militaryFiber" count="1" craft_area="chemistryStation">
+				<ingredient name="cloth" count="5"/>
+				<ingredient name="scrapIron" count="20"/>
+			</recipe>
+			<recipe name="militaryGloves" count="1" craft_area="chemistryStation">
+				<ingredient name="militaryFiber" count="15"/>
+				<ingredient name="leather" count="5"/>
+			</recipe>
+			<recipe name="militaryHelmet" count="1" craft_area="chemistryStation">
+				<ingredient name="militaryFiber" count="15"/>
+				<ingredient name="leather" count="5"/>
+				<ingredient name="scrapIron" count="5"/>
+			</recipe>
+			<recipe name="militaryBoots" count="1" craft_area="chemistryStation">
+				<ingredient name="militaryFiber" count="20"/>
+				<ingredient name="leather" count="5"/>
+			</recipe>
+			<recipe name="militaryLegArmor" count="1" craft_area="chemistryStation">
+				<ingredient name="militaryFiber" count="30"/>
+				<ingredient name="leather" count="10"/>
+			</recipe>
+			<recipe name="militaryVest" count="1" craft_area="chemistryStation">
+				<ingredient name="militaryFiber" count="30"/>
+				<ingredient name="leather" count="10"/>
+			</recipe>
+			
+			<!-- tools parts -->
+			<recipe name="partsNailgun_frame" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="5"/>
+			</recipe>
+			<recipe name="partsNailgun_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2"/>
+				<ingredient name="spring" count="2"/>
+			</recipe>
+			<recipe name="partsNailgun_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2"/>
+				<ingredient name="spring" count="2"/>
+			</recipe>
+			<recipe name="partsNailgun_battery" count="1" craft_area="workbench">
+				<ingredient name="carBattery" count="1"/>
+			</recipe>
+			<recipe name="partsNailgun_battery" count="1" craft_area="workbench">
+				<ingredient name="miniHPBattery" count="10"/>
+				<ingredient name="scrapPlastics" count="2"/>
+			</recipe>
+
+			<recipe name="partsChainsaw_blade" count="1" craft_area="workbench">
+				<ingredient name="repairKit" count="1"/>
+				<ingredient name="mechanicalParts" count="30"/>
+				<ingredient name="forgedSteel" count="5"/>
+			</recipe>
+			<recipe name="partsChainsaw_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="50"/>
+				<ingredient name="mechanicalParts" count="25"/>
+				<ingredient name="spring" count="15"/>
+			</recipe>
+
+			<recipe name="partsAuger_blade" count="1" craft_area="workbench">
+				<ingredient name="repairKit" count="1"/>
+				<ingredient name="forgedSteel" count="100"/>
+			</recipe>
+			<recipe name="partsAuger_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="50"/>
+				<ingredient name="mechanicalParts" count="25"/>
+				<ingredient name="spring" count="15"/>
+			</recipe>
+
+			<!-- plastic feathers arrows -->
+			<recipe name="ironCrossbowBolt" count="1">
+				<ingredient name="ironArrowHead" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
+			<recipe name="steelCrossbowBolt" count="1">
+				<ingredient name="steelArrowHead" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
+			<recipe name="explodingCrossbowBolt" count="1" craft_area="workbench">
+				<ingredient name="steelArrowHead" count="1"/>
+				<ingredient name="gunPowder" count="8"/>
+				<ingredient name="ductTape" count="1"/>
+				<ingredient name="wood" count="1"/>
+				<ingredient name="scrapPlastics" count="1"/>
+			</recipe>
+			
+			<!-- weapons parts -->
+			<recipe name="partsPistol_grip" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>	
+			<recipe name="partsPistol_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsPistol_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsPistol_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="parts44Magnum_grip" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="parts44Magnum_cylinder" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="parts44Magnum_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="parts44Magnum_frame" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="partsPumpShotgun_stockShort" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsPumpShotgun_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsPumpShotgun_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsPumpShotgun_barrelShort" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+			<recipe name="partsPumpShotgun_stock" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsPumpShotgun_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="partsAK47_stock" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsAK47_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsAK47_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+			<recipe name="partsAK47_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+
+			<recipe name="partsSniperRifle_stock" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsSniperRifle_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsSniperRifle_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsSniperRifle_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="partsHuntingRifle_stock" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsHuntingRifle_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsHuntingRifle_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsHuntingRifle_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="partsRocketLauncher_stock" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsRocketLauncher_receiver" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsRocketLauncher_parts" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsRocketLauncher_barrel" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="20"/>
+			</recipe>
+
+			<recipe name="partsMP5_stock">
+				<ingredient name="forgedSteel" count="2" />
+				<ingredient name="wood" count="5" />
+			</recipe>
+			<recipe name="partsMP5_receiver">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsMP5_parts">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="spring" count="5"/>
+			</recipe>
+			<recipe name="partsMP5_barrel">
+				<ingredient name="forgedSteel" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+			</recipe>
+
+			<recipe name="partsCompoundBow_body" count="1">
+				<ingredient name="wood" count="20"/>
+				<ingredient name="forgedSteel" count="2"/>
+			</recipe>
+			<recipe name="partsCompoundBow_grip" count="1">
+				<ingredient name="leather" count="10"/>
+			</recipe>
+			<recipe name="partsCompoundBow_parts" count="1">
+				<ingredient name="forgedSteel" count="5"/>
+				<ingredient name="mechanicalParts" count="5"/>
+				<ingredient name="ductTape" count="2"/>
+			</recipe>
+			<recipe name="partsCompoundBow_string" count="1">
+				<ingredient name="yuccaFibers" count="25"/>
+				<ingredient name="glue" count="2"/>
+			</recipe>
+		</append>
+	</config>
+</configs>

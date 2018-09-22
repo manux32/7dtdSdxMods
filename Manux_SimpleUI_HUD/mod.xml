@@ -1,0 +1,18 @@
+<mod>
+  <info>
+    <!-- Information about the Mod, the author and version information -->
+    <!-- These are displayed in the SDX Launcher -->
+    <author>stedman420(Simple UI mod), manux (packaged HUD as SDX mod)</author>
+    <name>Manux - Simple UI HUD</name>
+    <description>Manux - Simple UI HUD SDX Mod</description>
+    <mod_version>1.0</mod_version>
+    <game_version>16.4</game_version>
+    <launcher_version>0.7.2</launcher_version>
+  </info>
+
+  <!-- This references any config files that SDX needs to merge into your files -->
+  <config_mods>
+	<import file="Config\SimpleUI_HUD.xml" />
+  </config_mods>
+
+</mod>

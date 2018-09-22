@@ -1,0 +1,584 @@
+<configs>
+	<config name="entitygroups">	
+		<append xpath="/entitygroups">
+			<!-- MANUX Survivors And Bandits -->
+			<!-- MELEE -->
+			<entitygroup name="BanditsMeleePunk">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerPunk" 							prob="0.5"/>	
+				<entity name="BndtMachetePunk" 								prob="0.7"/>	
+				<entity name="BndtFireaxePunk" 								prob="0.7"/>	
+				<entity name="BndtSpkClbPunk" 							prob="0.5"/>	
+				<entity name="BndtKnifePunk" 							prob="0.7"/>	
+				<entity name="BndtChainsawPunk" 								prob="0.2"/>	
+			</entitygroup>	  
+			<entitygroup name="BanditsMeleeColdPunk">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerPunkCold" 						prob="0.5"/>	
+				<entity name="BndtMachetePunkCold" 							prob="0.7"/>	
+				<entity name="BndtFireaxePunkCold" 							prob="0.7"/>	
+				<entity name="BndtSpkClbPunkCold" 						prob="0.5"/>	
+				<entity name="BndtKnifePunkCold" 						prob="0.7"/>	
+				<entity name="BndtChainsawPunkCold" 							prob="0.2"/>	
+			</entitygroup>	
+			
+			<entitygroup name="SurvivorsMeleeAdv">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerAdv" 							prob="0.5"/>	
+				<entity name="SurvMacheteAdv" 									prob="0.7"/>
+				<entity name="SurvFireaxeAdv" 									prob="0.7"/>
+				<entity name="SurvSpkClbAdv" 								prob="0.5"/>
+				<entity name="SurvKnifeAdv" 							prob="0.7"/>	
+				<entity name="SurvChainsawAdv" 								prob="0.2"/>	
+			</entitygroup>	
+			<entitygroup name="SurvivorsMeleeColdAdv">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerAdvCold" 						prob="0.5"/>	
+				<entity name="SurvMacheteAdvCold" 								prob="0.7"/>
+				<entity name="SurvFireaxeAdvCold" 								prob="0.7"/>
+				<entity name="SurvSpkClbAdvCold" 							prob="0.5"/>
+				<entity name="SurvKnifeAdvCold" 						prob="0.7"/>	
+				<entity name="SurvChainsawAdvCold" 							prob="0.2"/>	
+			</entitygroup>
+			
+			<entitygroup name="BanditsMeleeBarb">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerBarb" 						prob="0.5"/>	
+				<entity name="BndtMacheteBarb" 							prob="0.7"/>	
+				<entity name="BndtFireaxeBarb" 							prob="0.7"/>	
+				<entity name="BndtSpkClbBarb" 						prob="0.5"/>	
+				<entity name="BndtKnifeBarb" 						prob="0.7"/>	
+				<entity name="BndtChainsawBarb" 							prob="0.2"/>	
+			</entitygroup>	  
+			<entitygroup name="BanditsMeleeColdBarb">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerBarbCold" 					prob="0.5"/>	
+				<entity name="BndtMacheteBarbCold" 						prob="0.7"/>	
+				<entity name="BndtFireaxeBarbCold" 						prob="0.7"/>	
+				<entity name="BndtSpkClbBarbCold" 					prob="0.5"/>	
+				<entity name="BndtKnifeBarbCold" 					prob="0.7"/>	
+				<entity name="BndtChainsawBarbCold" 						prob="0.2"/>	
+			</entitygroup>	
+			
+			<entitygroup name="SurvivorsMeleeHilb">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerHilb" 						prob="0.5"/>	
+				<entity name="SurvMacheteHilb" 								prob="0.7"/>
+				<entity name="SurvFireaxeHilb" 								prob="0.7"/>
+				<entity name="SurvSpkClbHilb" 							prob="0.5"/>
+				<entity name="SurvKnifeHilb" 						prob="0.7"/>	
+				<entity name="SurvChainsawHilb" 							prob="0.2"/>	
+			</entitygroup>	
+			<entitygroup name="SurvivorsMeleeColdHilb">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerHilbCold" 					prob="0.5"/>	
+				<entity name="SurvMacheteHilbCold" 							prob="0.7"/>
+				<entity name="SurvFireaxeHilbCold" 							prob="0.7"/>
+				<entity name="SurvSpkClbHilbCold" 						prob="0.5"/>
+				<entity name="SurvKnifeHilbCold" 					prob="0.7"/>	
+				<entity name="SurvChainsawHilbCold" 						prob="0.2"/>	
+			</entitygroup>
+			
+			<entitygroup name="BanditsMeleeNazi">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerNazi" 						prob="0.5"/>	
+				<entity name="BndtMacheteNazi" 							prob="0.7"/>	
+				<entity name="BndtFireaxeNazi" 							prob="0.7"/>	
+				<entity name="BndtSpkClbNazi" 						prob="0.5"/>	
+				<entity name="BndtKnifeNazi" 						prob="0.7"/>	
+				<entity name="BndtChainsawNazi" 							prob="0.2"/>	
+			</entitygroup>	  
+			<entitygroup name="BanditsMeleeColdNazi">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerNaziCold" 					prob="0.5"/>	
+				<entity name="BndtMacheteNaziCold" 						prob="0.7"/>	
+				<entity name="BndtFireaxeNaziCold" 						prob="0.7"/>	
+				<entity name="BndtSpkClbNaziCold" 					prob="0.5"/>	
+				<entity name="BndtKnifeNaziCold" 					prob="0.7"/>	
+				<entity name="BndtChainsawNaziCold" 						prob="0.2"/>	
+			</entitygroup>	
+			
+			<entitygroup name="SurvivorsMeleeRasta">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerRasta" 						prob="0.5"/>	
+				<entity name="SurvMacheteRasta" 							prob="0.7"/>
+				<entity name="SurvFireaxeRasta" 							prob="0.7"/>
+				<entity name="SurvSpkClbRasta" 							prob="0.5"/>
+				<entity name="SurvKnifeRasta" 						prob="0.7"/>	
+				<entity name="SurvChainsawRasta" 							prob="0.2"/>	
+			</entitygroup>	
+			<entitygroup name="SurvivorsMeleeColdRasta">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerRastaCold" 					prob="0.5"/>	
+				<entity name="SurvMacheteRastaCold" 						prob="0.7"/>
+				<entity name="SurvFireaxeRastaCold" 						prob="0.7"/>
+				<entity name="SurvSpkClbRastaCold" 						prob="0.5"/>
+				<entity name="SurvKnifeRastaCold" 					prob="0.7"/>	
+				<entity name="SurvChainsawRastaCold" 						prob="0.2"/>	
+			</entitygroup>
+			
+			<entitygroup name="BanditsMeleeClown">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerClown" 						prob="0.5"/>	
+				<entity name="BndtMacheteClown" 							prob="0.7"/>	
+				<entity name="BndtFireaxeClown" 							prob="0.7"/>	
+				<entity name="BndtSpkClbClown" 						prob="0.5"/>	
+				<entity name="BndtKnifeClown" 						prob="0.7"/>	
+				<entity name="BndtChainsawClown" 							prob="0.2"/>	
+			</entitygroup>	  
+			<entitygroup name="BanditsMeleeColdClown">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+				<entity name="BndtHammerClownCold" 					prob="0.5"/>	
+				<entity name="BndtMacheteClownCold" 						prob="0.7"/>	
+				<entity name="BndtFireaxeClownCold" 						prob="0.7"/>	
+				<entity name="BndtSpkClbClownCold" 					prob="0.5"/>	
+				<entity name="BndtKnifeClownCold" 					prob="0.7"/>	
+				<entity name="BndtChainsawClownCold" 						prob="0.2"/>	
+			</entitygroup>	
+			
+			<entitygroup name="SurvivorsMeleeTeen">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerTeen" 						prob="0.5"/>	
+				<entity name="SurvMacheteTeen" 								prob="0.7"/>
+				<entity name="SurvFireaxeTeen" 								prob="0.7"/>
+				<entity name="SurvSpkClbTeen" 							prob="0.5"/>
+				<entity name="SurvKnifeTeen" 						prob="0.7"/>	
+				<entity name="SurvChainsawTeen" 							prob="0.2"/>	
+			</entitygroup>	
+			<entitygroup name="SurvivorsMeleeColdTeen">	                        
+				<entity name="invisibleAnimalEnemy" 							prob="30" />
+				<entity name="SurvHammerTeenCold" 					prob="0.5"/>	
+				<entity name="SurvMacheteTeenCold" 							prob="0.7"/>
+				<entity name="SurvFireaxeTeenCold" 							prob="0.7"/>
+				<entity name="SurvSpkClbTeenCold" 						prob="0.5"/>
+				<entity name="SurvKnifeTeenCold" 					prob="0.7"/>	
+				<entity name="SurvChainsawTeenCold" 						prob="0.2"/>	
+			</entitygroup>
+			
+			<!-- LEADERS -->
+			<entitygroup name="BanditsLeaders">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="80" />
+				<entity name="BndtLeaderPunkMale" 							prob="1"/>
+				<entity name="BndtLeaderBarbMale" 							prob="1"/>
+				<entity name="BndtLeaderNaziMale" 							prob="1"/>
+				<entity name="BndtLeaderClownMale" 							prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsLeadersCold">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="80" />
+				<entity name="BndtLeaderPunkMaleCold" 						prob="1"/>
+				<entity name="BndtLeaderBarbMaleCold" 						prob="1"/>
+				<entity name="BndtLeaderNaziMaleCold" 						prob="1"/>
+				<entity name="BndtLeaderClownMaleCold" 						prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsLeaders">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="40" />
+				<entity name="SurvLeaderAdvMale" 					    	prob="1"/>
+				<entity name="SurvLeaderHilbMale" 					    	prob="1"/>
+				<entity name="SurvLeaderRastaMale" 					    	prob="1"/>
+				<entity name="SurvLeaderTeenFm" 					    prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsLeadersCold">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="40" />
+				<entity name="SurvLeaderAdvMaleCold" 					    prob="1"/>
+				<entity name="SurvLeaderHilbMaleCold" 					    prob="1"/>
+				<entity name="SurvLeaderRastaMaleCold" 					    prob="1"/>
+				<entity name="SurvLeaderTeenFmCold" 					prob="1"/>
+			</entitygroup>
+			
+			
+			<!-- BRUTES -->
+			<entitygroup name="BanditsBrutes">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="80" />
+				<entity name="BndtBrutePunkMale" 								prob="1"/>
+				<entity name="BndtBruteBarbMale" 								prob="1"/>
+				<entity name="BndtBruteNaziMale" 								prob="1"/>
+				<entity name="BndtBruteClownMale" 								prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsBrutesCold">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="80" />
+				<entity name="BndtBrutePunkMaleCold" 							prob="1"/>
+				<entity name="BndtBruteBarbMaleCold" 							prob="1"/>
+				<entity name="BndtBruteNaziMaleCold" 							prob="1"/>
+				<entity name="BndtBruteClownMaleCold" 						prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsBrutes">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="40" />
+				<entity name="SurvBruteAdvMale" 					    	prob="1"/>
+				<entity name="SurvBruteHilbMale" 					    	prob="1"/>
+				<entity name="SurvBruteRastaMale" 					    	prob="1"/>
+				<entity name="SurvBruteTeenFm" 					    	prob="1"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsBrutesCold">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="40" />
+				<entity name="SurvBruteAdvMaleCold" 					    prob="1"/>
+				<entity name="SurvBruteHilbMaleCold" 					    prob="1"/>
+				<entity name="SurvBruteRastaMaleCold" 					    prob="1"/>
+				<entity name="SurvBruteTeenFmCold" 					    prob="1"/>
+			</entitygroup>
+			
+			
+			<!-- GUNS -->
+			<entitygroup name="BanditsGunsPunk">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolPunk" 							    prob="1"/>
+				<entity name="Bndt44MagnumPunk" 						    	prob="0.5"/>
+				<entity name="BndtSmShotgunPunk" 			    	prob="0.4"/>
+				<entity name="BndtShotgunPunk" 					    	prob="0.4"/>
+				<entity name="BndtMP5Punk" 							    	prob="0.2"/>
+				<entity name="BndtAK47Punk" 							    	prob="0.2"/>
+				<entity name="BndtHuntRifPunk" 					    	prob="0.3"/>
+				<entity name="BndtSniperPunk" 					    	prob="0.1"/>
+				<entity name="BndtRocketPunk" 					    prob="0.05"/>
+																				
+				<entity name="BndtPistolFmPunk" 					    	prob="1"/>
+				<entity name="Bndt44MagnumFmPunk" 					    prob="0.5"/>
+				<entity name="BndtSmShotgunFmPunk"		    	prob="0.4"/>
+				<entity name="BndtShotgunFmPunk" 				    	prob="0.4"/>
+				<entity name="BndtMP5FmPunk" 						    	prob="0.2"/>
+				<entity name="BndtAK47FmPunk" 						    prob="0.2"/>
+				<entity name="BndtHuntRifFmPunk" 				    prob="0.3"/>
+				<entity name="BndtSniperFmPunk" 				    	prob="0.1"/>
+				<entity name="BndtRocketFmPunk" 			    	prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsGunsColdPunk">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolPunkCold" 							prob="1"/>
+				<entity name="Bndt44MagnumPunkCold" 						    prob="0.5"/>
+				<entity name="BndtSmShotgunPunkCold" 			    prob="0.4"/>
+				<entity name="BndtShotgunPunkCold" 					    prob="0.4"/>
+				<entity name="BndtMP5PunkCold" 							    prob="0.2"/>
+				<entity name="BndtAK47PunkCold" 							    prob="0.2"/>
+				<entity name="BndtHuntRifPunkCold" 					    prob="0.3"/>
+				<entity name="BndtSniperPunkCold" 					    prob="0.1"/>
+				<entity name="BndtRocketPunkCold" 					prob="0.05"/>
+																				
+				<entity name="BndtPistolFmPunkCold" 					    prob="1"/>
+				<entity name="Bndt44MagnumFmPunkCold" 					prob="0.5"/>
+				<entity name="BndtSmShotgunFmPunkCold"		    prob="0.4"/>
+				<entity name="BndtShotgunFmPunkCold" 				    prob="0.4"/>
+				<entity name="BndtMP5FmPunkCold" 						    prob="0.2"/>
+				<entity name="BndtAK47FmPunkCold" 						prob="0.2"/>
+				<entity name="BndtHuntRifFmPunkCold" 				prob="0.3"/>
+				<entity name="BndtSniperFmPunkCold" 				    prob="0.1"/>
+				<entity name="BndtRocketFmPunkCold" 			    prob="0.05"/>
+			</entitygroup>                                                      
+																					
+			<entitygroup name="SurvivorsGunsAdv">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolAdv" 					    			prob="1"/>
+				<entity name="Surv44MagnumAdv" 				    			prob="0.5"/>
+				<entity name="SurvSmShotgunAdv" 		    			prob="0.4"/>
+				<entity name="SurvShotgunAdv" 				    			prob="0.4"/>
+				<entity name="SurvMP5Adv" 						    			prob="0.2"/>
+				<entity name="SurvAK47Adv" 					    			prob="0.2"/>
+				<entity name="SurvHuntRifAdv" 			    			prob="0.3"/>
+				<entity name="SurvSniperAdv" 				    			prob="0.1"/>
+				<entity name="SurvRocketAdv" 			    			prob="0.05"/>
+																				
+				<entity name="SurvPistolFmAdv" 			    			prob="1"/>
+				<entity name="Surv44MagnumFmAdv" 			    			prob="0.5"/>
+				<entity name="SurvSmShotgunFmAdv"    			prob="0.4"/>
+				<entity name="SurvShotgunFmAdv" 		    			prob="0.4"/>
+				<entity name="SurvMP5FmAdv" 				    			prob="0.2"/>
+				<entity name="SurvAK47FmAdv" 				    			prob="0.2"/>
+				<entity name="SurvHuntRifFmAdv" 		    			prob="0.3"/>
+				<entity name="SurvSniperFmAdv" 		    			prob="0.1"/>
+				<entity name="SurvRocketFmAdv" 	    			prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsGunsColdAdv">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolAdvCold" 					    		prob="1"/>	
+				<entity name="Surv44MagnumAdvCold" 				    		prob="0.5"/>	
+				<entity name="SurvSmShotgunAdvCold" 		    		prob="0.4"/>	
+				<entity name="SurvShotgunAdvCold" 				    		prob="0.4"/>	
+				<entity name="SurvMP5AdvCold" 						    		prob="0.2"/>	
+				<entity name="SurvAK47AdvCold" 					    		prob="0.2"/>	
+				<entity name="SurvHuntRifAdvCold" 			    		prob="0.3"/>	
+				<entity name="SurvSniperAdvCold" 				    		prob="0.1"/>	
+				<entity name="SurvRocketAdvCold" 			    		prob="0.05"/>	
+																				
+				<entity name="SurvPistolFmAdvCold" 			    		prob="1"/>	
+				<entity name="Surv44MagnumFmAdvCold" 			    		prob="0.5"/>	
+				<entity name="SurvSmShotgunFmAdvCold"    		prob="0.4"/>	
+				<entity name="SurvShotgunFmAdvCold" 		    		prob="0.4"/>	
+				<entity name="SurvMP5FmAdvCold" 				    		prob="0.2"/>	
+				<entity name="SurvAK47FmAdvCold" 				    		prob="0.2"/>	
+				<entity name="SurvHuntRifFmAdvCold" 		    		prob="0.3"/>	
+				<entity name="SurvSniperFmAdvCold" 		    		prob="0.1"/>	
+				<entity name="SurvRocketFmAdvCold" 	    		prob="0.05"/>	
+			</entitygroup>
+			
+			
+			<entitygroup name="BanditsGunsBarb">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolBarb" 							prob="1"/>
+				<entity name="Bndt44MagnumBarb" 						   	prob="0.5"/>
+				<entity name="BndtSmShotgunBarb" 			    prob="0.4"/>
+				<entity name="BndtShotgunBarb" 					    prob="0.4"/>
+				<entity name="BndtMP5Barb" 							    prob="0.2"/>
+				<entity name="BndtAK47Barb" 							    prob="0.2"/>
+				<entity name="BndtHuntRifBarb" 					    prob="0.3"/>
+				<entity name="BndtSniperBarb" 					    prob="0.1"/>
+				<entity name="BndtRocketBarb" 					prob="0.05"/>
+																				
+				<entity name="BndtPistolFmBarb" 					    prob="1"/>
+				<entity name="Bndt44MagnumFmBarb" 					prob="0.5"/>
+				<entity name="BndtSmShotgunFmBarb"		    prob="0.4"/>
+				<entity name="BndtShotgunFmBarb" 				    prob="0.4"/>
+				<entity name="BndtMP5FmBarb" 						    prob="0.2"/>
+				<entity name="BndtAK47FmBarb" 						prob="0.2"/>
+				<entity name="BndtHuntRifFmBarb" 				prob="0.3"/>
+				<entity name="BndtSniperFmBarb" 				    prob="0.1"/>
+				<entity name="BndtRocketFmBarb" 			    prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsGunsColdBarb">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolBarbCold" 						prob="1"/>
+				<entity name="Bndt44MagnumBarbCold" 						prob="0.5"/>
+				<entity name="BndtSmShotgunBarbCold" 			prob="0.4"/>
+				<entity name="BndtShotgunBarbCold" 					prob="0.4"/>
+				<entity name="BndtMP5BarbCold" 							prob="0.2"/>
+				<entity name="BndtAK47BarbCold" 							prob="0.2"/>
+				<entity name="BndtHuntRifBarbCold" 					prob="0.3"/>
+				<entity name="BndtSniperBarbCold" 					prob="0.1"/>
+				<entity name="BndtRocketBarbCold" 				prob="0.05"/>
+																				
+				<entity name="BndtPistolFmBarbCold" 					prob="1"/>
+				<entity name="Bndt44MagnumFmBarbCold" 				prob="0.5"/>
+				<entity name="BndtSmShotgunFmBarbCold"		prob="0.4"/>
+				<entity name="BndtShotgunFmBarbCold" 				prob="0.4"/>
+				<entity name="BndtMP5FmBarbCold" 						prob="0.2"/>
+				<entity name="BndtAK47FmBarbCold" 					prob="0.2"/>
+				<entity name="BndtHuntRifFmBarbCold" 			prob="0.3"/>
+				<entity name="BndtSniperFmBarbCold" 				prob="0.1"/>
+				<entity name="BndtRocketFmBarbCold" 			prob="0.05"/>
+			</entitygroup>                                                      
+																					
+			<entitygroup name="SurvivorsGunsHilb">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolHilb" 					    		prob="1"/>
+				<entity name="Surv44MagnumHilb" 				    		prob="0.5"/>
+				<entity name="SurvSmShotgunHilb" 		    		prob="0.4"/>
+				<entity name="SurvShotgunHilb" 				    		prob="0.4"/>
+				<entity name="SurvMP5Hilb" 						    		prob="0.2"/>
+				<entity name="SurvAK47Hilb" 					    		prob="0.2"/>
+				<entity name="SurvHuntRifHilb" 			    		prob="0.3"/>
+				<entity name="SurvSniperHilb" 				    		prob="0.1"/>
+				<entity name="SurvRocketHilb" 			    		prob="0.05"/>
+																				
+				<entity name="SurvPistolFmHilb" 			    		prob="1"/>
+				<entity name="Surv44MagnumFmHilb" 			    		prob="0.5"/>
+				<entity name="SurvSmShotgunFmHilb"    		prob="0.4"/>
+				<entity name="SurvShotgunFmHilb" 		    		prob="0.4"/>
+				<entity name="SurvMP5FmHilb" 				    		prob="0.2"/>
+				<entity name="SurvAK47FmHilb" 				    		prob="0.2"/>
+				<entity name="SurvHuntRifFmHilb" 		    		prob="0.3"/>
+				<entity name="SurvSniperFmHilb" 		    		prob="0.1"/>
+				<entity name="SurvRocketFmHilb" 	    		prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsGunsColdHilb">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolHilbCold" 					    	prob="1"/>	
+				<entity name="Surv44MagnumHilbCold" 				    	prob="0.5"/>	
+				<entity name="SurvSmShotgunHilbCold" 		    	prob="0.4"/>	
+				<entity name="SurvShotgunHilbCold" 				    	prob="0.4"/>	
+				<entity name="SurvMP5HilbCold" 						    	prob="0.2"/>	
+				<entity name="SurvAK47HilbCold" 					    	prob="0.2"/>	
+				<entity name="SurvHuntRifHilbCold" 			    	prob="0.3"/>	
+				<entity name="SurvSniperHilbCold" 				    	prob="0.1"/>	
+				<entity name="SurvRocketHilbCold" 			    	prob="0.05"/>	
+																				
+				<entity name="SurvPistolFmHilbCold" 			    	prob="1"/>	
+				<entity name="Surv44MagnumFmHilbCold" 			    	prob="0.5"/>	
+				<entity name="SurvSmShotgunFmHilbCold"    	prob="0.4"/>	
+				<entity name="SurvShotgunFmHilbCold" 		    	prob="0.4"/>	
+				<entity name="SurvMP5FmHilbCold" 				    	prob="0.2"/>	
+				<entity name="SurvAK47FmHilbCold" 				    	prob="0.2"/>	
+				<entity name="SurvHuntRifFmHilbCold" 		    	prob="0.3"/>	
+				<entity name="SurvSniperFmHilbCold" 		    	prob="0.1"/>	
+				<entity name="SurvRocketFmHilbCold" 	    	prob="0.05"/>	
+			</entitygroup>
+			
+			
+			<entitygroup name="BanditsGunsNazi">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolNazi" 							prob="1"/>
+				<entity name="Bndt44MagnumNazi" 						   	prob="0.5"/>
+				<entity name="BndtSmShotgunNazi" 			    prob="0.4"/>
+				<entity name="BndtShotgunNazi" 					    prob="0.4"/>
+				<entity name="BndtMP5Nazi" 							    prob="0.2"/>
+				<entity name="BndtAK47Nazi" 							    prob="0.2"/>
+				<entity name="BndtHuntRifNazi" 					    prob="0.3"/>
+				<entity name="BndtSniperNazi" 					    prob="0.1"/>
+				<entity name="BndtRocketNazi" 					prob="0.05"/>
+																				
+				<entity name="BndtPistolFmNazi" 					    prob="1"/>
+				<entity name="Bndt44MagnumFmNazi" 					prob="0.5"/>
+				<entity name="BndtSmShotgunFmNazi"		    prob="0.4"/>
+				<entity name="BndtShotgunFmNazi" 				    prob="0.4"/>
+				<entity name="BndtMP5FmNazi" 						    prob="0.2"/>
+				<entity name="BndtAK47FmNazi" 						prob="0.2"/>
+				<entity name="BndtHuntRifFmNazi" 				prob="0.3"/>
+				<entity name="BndtSniperFmNazi" 				    prob="0.1"/>
+				<entity name="BndtRocketFmNazi" 			    prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsGunsColdNazi">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolNaziCold" 						prob="1"/>
+				<entity name="Bndt44MagnumNaziCold" 						prob="0.5"/>
+				<entity name="BndtSmShotgunNaziCold" 			prob="0.4"/>
+				<entity name="BndtShotgunNaziCold" 					prob="0.4"/>
+				<entity name="BndtMP5NaziCold" 							prob="0.2"/>
+				<entity name="BndtAK47NaziCold" 							prob="0.2"/>
+				<entity name="BndtHuntRifNaziCold" 					prob="0.3"/>
+				<entity name="BndtSniperNaziCold" 					prob="0.1"/>
+				<entity name="BndtRocketNaziCold" 				prob="0.05"/>
+																				
+				<entity name="BndtPistolFmNaziCold" 					prob="1"/>
+				<entity name="Bndt44MagnumFmNaziCold" 				prob="0.5"/>
+				<entity name="BndtSmShotgunFmNaziCold"		prob="0.4"/>
+				<entity name="BndtShotgunFmNaziCold" 				prob="0.4"/>
+				<entity name="BndtMP5FmNaziCold" 						prob="0.2"/>
+				<entity name="BndtAK47FmNaziCold" 					prob="0.2"/>
+				<entity name="BndtHuntRifFmNaziCold" 			prob="0.3"/>
+				<entity name="BndtSniperFmNaziCold" 				prob="0.1"/>
+				<entity name="BndtRocketFmNaziCold" 			prob="0.05"/>
+			</entitygroup>                                                      
+																					
+			<entitygroup name="SurvivorsGunsRasta">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolRasta" 					    		prob="1"/>
+				<entity name="Surv44MagnumRasta" 				    		prob="0.5"/>
+				<entity name="SurvSmShotgunRasta" 		    	prob="0.4"/>
+				<entity name="SurvShotgunRasta" 				    	prob="0.4"/>
+				<entity name="SurvMP5Rasta" 						    	prob="0.2"/>
+				<entity name="SurvAK47Rasta" 					    		prob="0.2"/>
+				<entity name="SurvHuntRifRasta" 			    		prob="0.3"/>
+				<entity name="SurvSniperRasta" 				    	prob="0.1"/>
+				<entity name="SurvRocketRasta" 			    		prob="0.05"/>
+																				
+				<entity name="SurvPistolFmRasta" 			    		prob="1"/>
+				<entity name="Surv44MagnumFmRasta" 			    		prob="0.5"/>
+				<entity name="SurvSmShotgunFmRasta"    		prob="0.4"/>
+				<entity name="SurvShotgunFmRasta" 		    		prob="0.4"/>
+				<entity name="SurvMP5FmRasta" 				    		prob="0.2"/>
+				<entity name="SurvAK47FmRasta" 				    		prob="0.2"/>
+				<entity name="SurvHuntRifFmRasta" 		    		prob="0.3"/>
+				<entity name="SurvSniperFmRasta" 		    		prob="0.1"/>
+				<entity name="SurvRocketFmRasta" 	    		prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsGunsColdRasta">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolRastaCold" 					    	prob="1"/>	
+				<entity name="Surv44MagnumRastaCold" 				    	prob="0.5"/>	
+				<entity name="SurvSmShotgunRastaCold" 		    prob="0.4"/>	
+				<entity name="SurvShotgunRastaCold" 				    prob="0.4"/>	
+				<entity name="SurvMP5RastaCold" 						    prob="0.2"/>	
+				<entity name="SurvAK47RastaCold" 					    	prob="0.2"/>	
+				<entity name="SurvHuntRifRastaCold" 			    	prob="0.3"/>	
+				<entity name="SurvSniperRastaCold" 				    prob="0.1"/>	
+				<entity name="SurvRocketRastaCold" 			    	prob="0.05"/>	
+																				
+				<entity name="SurvPistolFmRastaCold" 			    	prob="1"/>	
+				<entity name="Surv44MagnumFmRastaCold" 			    	prob="0.5"/>	
+				<entity name="SurvSmShotgunFmRastaCold"    	prob="0.4"/>	
+				<entity name="SurvShotgunFmRastaCold" 		    	prob="0.4"/>	
+				<entity name="SurvMP5FmRastaCold" 				    	prob="0.2"/>	
+				<entity name="SurvAK47FmRastaCold" 				    	prob="0.2"/>	
+				<entity name="SurvHuntRifFmRastaCold" 		    	prob="0.3"/>	
+				<entity name="SurvSniperFmRastaCold" 		    	prob="0.1"/>	
+				<entity name="SurvRocketFmRastaCold" 	    	prob="0.05"/>	
+			</entitygroup>
+				
+			<entitygroup name="BanditsGunsClown">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolClown" 							prob="1"/>
+				<entity name="Bndt44MagnumClown" 						   	prob="0.5"/>
+				<entity name="BndtSmShotgunClown" 			    prob="0.4"/>
+				<entity name="BndtShotgunClown" 					    prob="0.4"/>
+				<entity name="BndtMP5Clown" 							    prob="0.2"/>
+				<entity name="BndtAK47Clown" 							    prob="0.2"/>
+				<entity name="BndtHuntRifClown" 					    prob="0.3"/>
+				<entity name="BndtSniperClown" 					    prob="0.1"/>
+				<entity name="BndtRocketClown" 					prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="BanditsGunsColdClown">
+				<entity name="invisibleAnimalEnemy" 							prob="60" />
+																				
+				<entity name="BndtPistolClownCold" 						prob="1"/>
+				<entity name="Bndt44MagnumClownCold" 						prob="0.5"/>
+				<entity name="BndtSmShotgunClownCold" 			prob="0.4"/>
+				<entity name="BndtShotgunClownCold" 					prob="0.4"/>
+				<entity name="BndtMP5ClownCold" 							prob="0.2"/>
+				<entity name="BndtAK47ClownCold" 							prob="0.2"/>
+				<entity name="BndtHuntRifClownCold" 					prob="0.3"/>
+				<entity name="BndtSniperClownCold" 					prob="0.1"/>
+				<entity name="BndtRocketClownCold" 				prob="0.05"/>
+			</entitygroup>                                                      
+																					
+			<entitygroup name="SurvivorsGunsTeen">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																				
+				<entity name="SurvPistolFmTeen" 			    		prob="1"/>
+				<entity name="Surv44MagnumFmTeen" 			    		prob="0.5"/>
+				<entity name="SurvSmShotgunFmTeen"    		prob="0.4"/>
+				<entity name="SurvShotgunFmTeen" 		    		prob="0.4"/>
+				<entity name="SurvMP5FmTeen" 				    		prob="0.2"/>
+				<entity name="SurvAK47FmTeen" 				    		prob="0.2"/>
+				<entity name="SurvHuntRifFmTeen" 		    		prob="0.3"/>
+				<entity name="SurvSniperFmTeen" 		    		prob="0.1"/>
+				<entity name="SurvRocketFmTeen" 	    		prob="0.05"/>
+			</entitygroup>
+			
+			<entitygroup name="SurvivorsGunsColdTeen">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="30" />
+																					
+				<entity name="SurvPistolFmTeenCold" 			    	prob="1"/>	
+				<entity name="Surv44MagnumFmTeenCold" 			    	prob="0.5"/>	
+				<entity name="SurvSmShotgunFmTeenCold"    	prob="0.4"/>	
+				<entity name="SurvShotgunFmTeenCold" 		    	prob="0.4"/>	
+				<entity name="SurvMP5FmTeenCold" 				    	prob="0.2"/>	
+				<entity name="SurvAK47FmTeenCold" 				    	prob="0.2"/>	
+				<entity name="SurvHuntRifFmTeenCold" 		    	prob="0.3"/>	
+				<entity name="SurvSniperFmTeenCold" 		    	prob="0.1"/>	
+				<entity name="SurvRocketFmTeenCold" 	    	prob="0.05"/>	
+			</entitygroup>
+			
+			<!-- currently not used -->
+			<entitygroup name="wanderingTraders">                          
+				<entity name="invisibleAnimalEnemy" 						    prob="10" />
+				<entity name="npcTraderJoel" 					    			prob="1"/>
+				<entity name="npcTraderRekt" 					    			prob="1"/>
+				<entity name="npcTraderHugh" 					    			prob="1"/>
+				<entity name="npcTraderBob" 					    			prob="1"/>
+				<entity name="npcTraderJimmy" 					    			prob="1"/>
+			</entitygroup>
+		</append>
+	</config>
+</configs>

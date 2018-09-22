@@ -1,0 +1,326 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX Food Recipes -->
+			<item id="" name="assortedVegetables">
+				<property name="DescriptionKey" value="assortedVegetablesDesc"/>
+				<property name="Meshfile" value="Items/Food/blueberriesPrefab"/>
+				<property name="Material" value="assortedVegetables"/>
+				<property name="HoldType" value="23"/>
+				<property name="Stacknumber" value="500"/> <!-- STK resource -->
+				<property name="EconomicValue" value="5"/>
+				<property name="CraftingIngredientTime" value="5"/>
+				<property name="Weight" value="5"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="1"/>
+					<property name="Gain_water" value="1"/>
+					<property name="Gain_wellness" value="0"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="DropScale" value="4"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="steakSandwich">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="Stacknumber" value="50"/> <!-- STK food -->
+				<property name="EconomicValue" value="80"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="30"/>
+					<property name="Buff" value="eatFood_12_Trigger"/>
+					<property name="Gain_water" value="-1"/>
+					<property name="Gain_wellness" value="3"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="Smell" value="exLargeSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="burgerAndFries">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="EconomicValue" value="150"/>
+				<property name="Stacknumber" value="50"/> <!-- STK food -->
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="40"/>
+					<property name="Gain_water" value="-5"/>
+					<property name="Gain_wellness" value="4"/>
+					<property name="Sound_start" value="player_eating"/>
+					<property name="Buff" value="eatFood_15_Trigger"/>
+				</property>
+				<property name="Smell" value="exLargeSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="baconEggSandwich">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="21"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="80"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="21"/>
+					<property name="Buff" value="eatFood_15_Trigger"/>
+					<property name="Gain_wellness" value="2"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="Group" value="Food/Cooking"/>
+				<property class="Preview">
+					<property name="Zoom" value="25"/>
+					<property name="Pos" value="0,-0.05"/>
+					<property name="Rot" value="90,45,0"/>
+				</property>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="scrambledEggs">
+				<property name="CraftingIngredientTime" value="3"/>
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="50"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Buff" value="eatFood_3_Trigger"/>
+					<property name="Gain_food" value="12"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="1"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="Omelet">
+				<property name="Meshfile" value="Items/Food/blueberry_pie"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="23"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="150"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Buff" value="eatFood_15_Trigger"/>
+					<property name="Gain_food" value="40"/>
+					<property name="Gain_water" value="1"/>
+					<property name="Gain_wellness" value="4"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="Smell" value="smallSmell"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="rawPasta">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="HoldType" value="31"/>
+				<property name="Material" value="organic"/>
+				<property name="Stacknumber" value="50"/> <!-- STK food -->
+				<property name="EconomicValue" value="20"/>
+				<property name="CraftingIngredientTime" value="5"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="5"/>
+					<property name="Buff" value="eatFood_3_Trigger"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="0"/>
+					<property name="Sound_start" value="player_eating"/>
+					<property name="Create_item" value="emptyJar"/>
+				</property>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="sheperdsPie">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Stacknumber" value="50"/> <!-- STK food -->
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="60"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="6"/>
+					<property name="Sound_start" value="player_eating"/>
+					<property name="Buff" value="stewWarming,eatFood_78_Trigger"/>
+				</property>
+				<property name="Smell" value="mediumSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<item id="" name="padThai">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Stacknumber" value="50"/> <!-- STK food -->
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="60"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="6"/>
+					<property name="Sound_start" value="player_eating"/>
+					<property name="Buff" value="stewWarming,eatFood_78_Trigger"/>
+					<property name="Gain_stamina" value="0" />
+					<property name="Create_item" value="emptyJar"/>
+				</property>
+				<property name="Smell" value="mediumSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Food Recipes -->
+			<recipe name="assortedVegetables" count="1" tooltip="ttScrapVeggies" craft_time="0.1" craft_exp_gain="0">
+				<wildcard_forge_category />
+			</recipe>
+			<recipe name="assortedVegetables" count="1">
+				<ingredient name="potato" count="1"/>
+			</recipe>
+			<recipe name="assortedVegetables" count="1">
+				<ingredient name="corn" count="1"/>
+			</recipe>
+			<recipe name="assortedVegetables" count="1">
+				<ingredient name="mushrooms" count="1"/>
+			</recipe>
+			<recipe name="assortedVegetables" count="4">
+				<ingredient name="potato" count="1"/>
+				<ingredient name="corn" count="1"/>
+				<ingredient name="mushrooms" count="1"/>
+			</recipe>
+			<recipe name="meatStew" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="rawMeat" count="5"/>
+				<ingredient name="assortedVegetables" count="10"/>
+				<ingredient name="bottledWater" count="1"/>
+			</recipe>
+			<recipe name="vegetableStew" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="assortedVegetables" count="15"/>
+				<ingredient name="bottledWater" count="1"/>
+			</recipe>		
+			<recipe name="steakSandwich" count="1" craft_area="campfire" craft_tool="cookingGrill">
+				<ingredient name="rawMeat" count="2"/>
+				<ingredient name="cornBread" count="1"/>
+				<ingredient name="assortedVegetables" count="2"/>
+			</recipe>
+			<recipe name="burgerAndFries" count="1" craft_area="campfire" craft_tool="cookingGrill">
+				<ingredient name="rawMeat" count="2"/>
+				<ingredient name="cornBread" count="1"/>
+				<ingredient name="assortedVegetables" count="1"/>
+				<ingredient name="potato" count="2"/>
+				<ingredient name="animalFat" count="1"/>
+			</recipe>
+			<recipe name="rawPasta" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="potato" count="1"/>
+				<ingredient name="cornMeal" count="1"/>
+				<ingredient name="bottledWater" count="1"/>
+			</recipe>
+			<recipe name="sheperdsPie" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="rawMeat" count="5"/>
+				<ingredient name="potato" count="5"/>
+				<ingredient name="corn" count="5"/>
+			</recipe>
+			<recipe name="padThai" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="rawMeat" count="5"/>
+				<ingredient name="rawPasta" count="1"/>
+				<ingredient name="assortedVegetables" count="5"/>
+				<ingredient name="animalFat" count="1"/>
+			</recipe>
+			<recipe name="baconEggSandwich" count="1" >
+				<ingredient name="baconAndEggs" count="1"/>
+				<ingredient name="cornBread" count="1"/>
+			</recipe>
+			<recipe name="scrambledEggs" count="1" craft_area="campfire" craft_tool="cookingPot" >
+				<ingredient name="egg" count="2"/>
+				<ingredient name="animalFat" count="1"/>
+			</recipe>
+			<recipe name="Omelet" count="1" craft_area="campfire" craft_tool="cookingPot" >
+				<ingredient name="egg" count="2"/>
+				<ingredient name="animalFat" count="1"/>
+				<ingredient name="rawMeat" count="2"/>
+				<ingredient name="assortedVegetables" count="2"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="materials">
+		<append xpath="/materials">
+			<!-- MANUX Food Recipes -->
+			<material id="assortedVegetables">
+				<property name="damage_category" value="cloth" />
+				<property name="surface_category" value="cloth" />
+				<property name="forge_category" value="assortedVegetables" />
+				<property name="Hardness" type="float" value="1" />
+				<property name="stepsound" value="wood" />
+				<property name="stability_glue" value="24" />
+				<property name="Mass" type="int" value="6" />
+				<property name="MaxDamage" value="20" />
+			</material>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='coldfood']">
+			<!-- MANUX Food Recipes -->
+			<item name="assortedVegetables" count="1,10"/>
+			<item name="rawPasta" count="1,10"/>
+			<item name="baconEggSandwich"/>
+			<item name="padThai"/>
+			<item name="sheperdsPie"/>
+			<item name="burgerAndFries"/>
+			<item name="Omelet"/>
+			<item name="scrambledEggs"/>
+			<item name="steakSandwich"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='foodSupplies']">
+			<!-- MANUX Food Recipes -->
+			<item name="assortedVegetables" count="5,15"/>
+			<item name="rawPasta" count="5,15"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='preparedFood']">
+			<!-- MANUX Food Recipes -->
+			<item name="baconEggSandwich"/>
+			<item name="padThai"/>
+			<item name="sheperdsPie"/>
+			<item name="burgerAndFries"/>
+			<item name="Omelet"/>
+			<item name="scrambledEggs"/>
+			<item name="steakSandwich"/>
+		</append>
+	</config>
+</configs>

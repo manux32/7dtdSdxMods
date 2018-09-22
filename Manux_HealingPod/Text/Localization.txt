@@ -1,0 +1,4 @@
+Key,Source,Context,Changes,English
+healingPod,blocks,Electricity,EnChanged,Healing Pod
+healingPodDesc,blocks,Electricity,EnChanged,"A healing pod heals you and cures everything quickly when you step on it. We don't know what kind of magic makes this thing do all that, all we know is it cannot be crafted, only purchased or found in the world".
+healingPodTooltip,buffs,Buff,EnChanged,This healing pod is quickly healing all your problems.

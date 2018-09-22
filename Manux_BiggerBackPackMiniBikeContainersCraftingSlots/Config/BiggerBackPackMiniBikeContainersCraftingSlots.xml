@@ -1,0 +1,828 @@
+<configs>
+	<!-- MANUX Bigger BackPack MiniBike Containers -->
+	<config name="loot">
+		<!-- empty, storage containers the player crafts-->
+		<set xpath="/lootcontainers/lootcontainer[@id='10']/@size">14,13</set>
+		<!-- player dropped backpacks -->
+		<set xpath="/lootcontainers/lootcontainer[@id='41']/@size">10,14</set>
+		<!-- minibike storage -->
+		<set xpath="/lootcontainers/lootcontainer[@id='62']/@size">12,15</set>
+	</config>
+	<config name="xui">
+		<!-- main scale of all UIs -->
+		<set xpath="/xui/ruleset[@name='default']/@scale">1.05</set>
+		<set xpath="/xui/ruleset[@name='default']/@stackpanel_scale">0.90</set>
+		<!-- crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='crafting']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<!-- campfire crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_campfire']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_campfire']/window[@name='windowOutput']/@name">S420windowOutput</set>
+		<!-- forge crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_forge']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_forge']/window[@name='windowForgeInput']/@name">S420windowForgeInput</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_forge']/window[@name='windowOutput']/@name">S420windowOutput</set>
+		<!-- cement mixer crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_cementMixer']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_cementMixer']/window[@name='windowOutput']/@name">S420windowOutput</set>
+		<!-- workbench crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_workbench']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_workbench']/window[@name='windowOutput']/@name">S420windowOutput</set>
+		<!-- chem station crafting slots -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_chemistryStation']/window[@name='windowCraftingQueue']/@name">S420windowCraftingQueue</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='workstation_chemistryStation']/window[@name='windowOutput']/@name">S420windowOutput</set>
+		<!-- looting window -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='looting']/window[@name='windowLooting']/@name">S420windowLooting</set>
+		<!-- minibike window -->
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='vehicle']/window[@name='windowVehicle']/@name">S420windowVehicle</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='vehicle']/window[@name='windowNonPagingHeader']/@name">S420windowNonPagingHeaderLeft</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='vehicle']/window[@name='windowVehicleStats']/@name">S420windowVehicleStats</set>
+		<set xpath="/xui/ruleset[@name='default']/window_group[@name='vehicle']/window[@name='windowVehicleStorage']/@name">S420windowVehicleStorage</set>
+	</config>
+	<config name="XUi/controls">
+		<append xpath="/controls">
+			<!-- S420 Start -->
+			<!-- Increased toolbelt slot size and new background -->
+			<S420_item_stack>
+				<rect controller="ItemStack" style="S420itemStack, hover" collider_scale="1.1">
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="88" height="88" color="[transparent]" type="sliced" fillcenter="false" />	
+					<sprite depth="3" name="background" sprite="menu_empty3px" width="83" height="83" color="[darkGrey]" type="sliced" globalopacity="true" fillcenter="false"/>
+					<sprite depth="2" name="highlightOverlay" width="82" height="82" color="[darkGrey]" pos="0,0" type="sliced" globalopacity="true" visible="false"/>
+					<sprite depth="3" name="backgroundTexture" size="83,83" color="[black_half_alpha]" type="sliced" />
+					<sprite depth="4" name="itemIcon" width="76" height="56" atlas="ItemIconAtlas" sprite="{itemicon}" pos="42,-35" pivot="center" foregroundlayer="true" color="{iconcolor}" />
+					<sprite depth="8" name="lockTypeIcon" width="24" height="24" sprite="" pos="2,-2" foregroundlayer="true"/>
+					<sprite depth="3" name="durabilityBackground" width="75" height="10" sprite="menu_empty3px" color="[darkGrey]" type="sliced" pos="4, -70" foregroundlayer="true"/>
+					<sprite depth="4" name="durability" width="75" height="10" sprite="menu_empty2px" color="[transparent]" type="filled" pos="4, -70" foregroundlayer="true"/>
+					<sprite depth="5" name="disabledOverlay" width="82" height="82" color="[darkGrey_half_alpha]" pos="1,-1" type="sliced" visible="false"/>
+					<label depth="7" name="stackValue" pos="5,-54" width="70" height="28" text="{itemcount}" font_size="26" effect="outline" justify="center" />
+					<label depth="7" name="timer" pos="35,-38" width="70" height="24" font_size="24" justify="center" pivot="center" effect="outline" color="[beige]"/>
+					<sprite depth="9" name="cancel" sprite="ui_game_symbol_x" width="70" height="70" color="255,0,0,255" type="sliced" visible="false" foregroundlayer="true"/>
+					<label depth="12" name="itemName" pos="36,-35" width="0" height="0" text="" font_size="26" justify="center" overflow="resizefreely" effect="outline" pivot="center" above_soft_cursor="true"/>
+					<sprite depth="13" name="assembleIcon" size="40,40" sprite="ui_game_symbol_lock" visible="{isassemblelocked}" pos="14,-14" foregroundlayer="true" />
+				</rect>
+			</S420_item_stack>
+			<!-- Quest Tracker - I've only added an outline so far -->
+			<S420_quest_objective_tracker_entry>
+				<rect width="300" height="26" controller="QuestTrackerObjectiveEntry" visible="{hasobjective}" >
+					<sprite depth="2" name="iconTrack" style="icon22px" pos="280,0" color="{objectivecompletecolor}" sprite="{objectivecompletesprite}" visible="{objectiveshowicon}" />
+					<label depth="1" pos="0,4" text="{objectiveoptional}{objectivedescription} [{objectivecompletehexcolor}]{objectivestate}[-]" upper_case="true" font_size="26" justify="right" visible="{hasobjective}" width="{objectivetextwidth}" effect="outline" />
+				</rect>
+			</S420_quest_objective_tracker_entry>
+			<!-- Minibike part slots -->
+			<S420_vehicle_part_slot>
+				<rect controller="VehiclePartStack" style="S420vehicleStack, hover" >
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="350" height="50" color="[black]" type="sliced" fillcenter="false" />	
+					<sprite name="background" color="[darkGrey]" height="46" pos="0,1" type="sliced"/>
+					<label depth="4" pos="14,-8" width="250" height="28" text="{partname}" font_size="26" justify="left" />
+					<label depth="4" pos="228,-8" width="50" height="28" text="{partquality}" font_size="26" justify="right" />
+					<sprite depth="2" width="255" pos="15,-35" height="10" type="sliced" color="[black]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" width="253" pos="16,-36" height="8" type="sliced" color="[mediumGrey]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" name="sprFill" width="253" pos="16,-36" height="8" type="filled" color="{partcolor}" fill="{partfill}" visible="{partvisible}" foregroundlayer="true" />
+					<sprite name="itemIcon" depth="4" width="50" height="40" atlas="{partatlas}" sprite="{particon}" pos="311,-26" pivot="center" color="{particoncolor}" foregroundlayer="true" />
+				</rect>
+			</S420_vehicle_part_slot>
+			<!-- S420 End -->
+		</append>
+		<!-- Dust2Death bigger spawn menu. A new button without the effects so that there is less vertices and doesn't bug when adding more buttons -->
+		<!-- Does not work anymore to make a new button type, so I'm just changing the effect of the regular button to none (this affects all buttons everywhere) -->
+		<set xpath="/controls/simplebutton/rect/label/@effect">none</set>
+	</config>
+	<config name="XUi/styles">
+		<append xpath="/styles">
+			<!-- S420 Start-->
+			<!-- Increased toolbelt slot size and new holding color - holding color below will change toolbelt holding color. Use a color from this styles.xml below or use an rgb color code. -->
+			<style name="S420itemStack">
+				<style_entry name="select_color" value="[beige]"/>
+				<style_entry name="press_color" value="[limeGreen]"/>
+				<style_entry name="final_pressed_color" value="[lightGrey]"/>
+				<style_entry name="background_color" value="[mediumGrey]"/>
+				<style_entry name="highlight_color" value="[hoverColor]"/>
+				<style_entry name="holding_color" value="[green]"/>
+				<style_entry name="width" value="82"/>
+				<style_entry name="height" value="82"/>
+				<style_entry name="hover_icon_grow" value="1.5"/>
+				<style_entry name="on_press" value="true"/>
+				<style_entry name="sound_volume" value="0.75"/>
+				<style_entry name="pickup_sound" value="[pickup_click]"/>
+				<style_entry name="place_sound" value="[place_click]"/>
+			</style>
+			<style name="S420vehicleStack">
+				<style_entry name="background_color" value="[darkGrey]"/>
+				<style_entry name="highlight_color" value="[lightGrey]"/>
+				<style_entry name="width" value="344"/>
+				<style_entry name="height" value="48"/>
+				<style_entry name="hover_icon_grow" value="1.5"/>
+				<style_entry name="on_press" value="true"/>
+				<style_entry name="sound_volume" value="0.75"/>
+				<style_entry name="pickup_sound" value="[pickup_click]"/>
+				<style_entry name="place_sound" value="[place_click]"/>
+			</style>
+			<style type="sprite" name="icon26px">
+				<style_entry name="color" value="[iconColor]"/>
+				<style_entry name="width" value="26"/>
+				<style_entry name="height" value="26"/>
+				<style_entry name="foregroundlayer" value="true" />
+			</style>
+			<!-- S420 End -->
+		</append>
+	</config>
+	<config name="XUi/windows">
+		<!-- windowCraftingList -->
+		<!--<set xpath="/windows/window[@name='windowCraftingList']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowCraftingList']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowCraftingList']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite pos="4,-5" depth="2" name="windowIcon" style="icon32px" sprite="Craft_Icon_Basics" />
+				<label style="header.name" text="basics" text_key="xuiBasics" />
+				<label pos="387, -6" depth="2" name="unlockedCount" width="64" height="32" text="0/65" font_size="32" color="[lightGrey]" justify="right" pivot="topright" />
+				<sprite pos="328, -5" depth="2" name="unlockedIcon" style="icon32px" sprite="ui_game_symbol_book" color="[lightGrey]" pivot="topright" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowCraftingList']/panel[@name='content']/@pos">0,37</set>
+		
+		<!-- windowCraftingQueue -->
+		<set xpath="/windows/window[@name='windowCraftingQueue']/rect[@controller='CraftingQueue']/@pos">96,80</set>
+		
+		<!-- windowCreative -->
+		<!--<set xpath="/windows/window[@name='windowCreative']/panel[@name='header']/@pos">0,80</set>-->	
+		<remove xpath="/windows/window[@name='windowCreative']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowCreative']/sprite[@name='background']">
+			<panel name="header" pos="0,80" height="43" depth="0" disableautobackground="true">
+				<sprite depth="1" name="headerbackground" sprite="ui_game_panel_header" />
+				<sprite depth="2" name="windowicon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_lightbulb" />
+				<label style="header.name" text="CREATIVE" text_key="xuiCreative" />
+				<label depth="2" name="resultCount" width="100" height="32" text="" color="[lightGrey]" font_size="32" justify="right" anchor_side="right" pivot="right" anchor_run_once="false" anchor_offset="-10,0" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowCreative']/sprite[@name='background']/@pos">2,31</set>
+		<set xpath="/windows/window[@name='windowCreative']/rect[@name='searchControls']/@pos">3,31</set>
+		<set xpath="/windows/window[@name='windowCreative']/sprite[@name='backgroundMain']/@pos">0,-17</set>
+		<set xpath="/windows/window[@name='windowCreative']/grid[@name='queue']/@pos">3,-17</set>
+		
+		<!-- craftingInfoPanel -->
+		<!--<set xpath="/windows/window[@name='craftingInfoPanel']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='craftingInfoPanel']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='craftingInfoPanel']/rect[@name='contentCraftingInfo']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="{itemgroupicon}" />
+				<label style="header.name" text="{itemname}" />
+				<rect pos="350,0" name="requiredToolOverlay">
+					<sprite size="24,24" depth="2" name="requiredToolCheckmark" pos="0,-8" sprite="ui_game_symbol_check" color="[red]" />
+					<label depth="2" pos="35,-8" name="requiredToolText" width="200" height="32" text="Required" text_key="xuiRequired" font_size="32" upper_case="true" justify="left" />
+				</rect>
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='craftingInfoPanel']/rect[@name='contentCraftingInfo']/@pos">0,34</set>
+		
+		<!-- emptyInfoPanel -->
+		<!--<set xpath="/windows/window[@name='emptyInfoPanel']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='emptyInfoPanel']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='emptyInfoPanel']/rect[@name='contentCraftingInfo']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_search" />
+				<label style="header.name" text="INSPECT" text_key="xuiInspect" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='emptyInfoPanel']/rect[@name='contentCraftingInfo']/@pos">0,34</set>
+		
+		<!-- itemInfoPanel -->
+		<!--<set xpath="/windows/window[@name='itemInfoPanel']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='itemInfoPanel']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='itemInfoPanel']/rect[@name='contentInfo']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="{itemgroupicon}" />
+				<label depth="2" name="windowName" pos="39,-6" width="500" height="32" text="{itemname}" font_size="32" />
+				<label depth="2" pos="350,-8" width="225" height="28" text="{pricelabel} {itemcost}{markup}" color="[lightGrey]" justify="right" />
+				<sprite depth="4" name="costIcon" sprite="ui_game_symbol_coin" size="24,24" pos="577,-10" color="[white]" foregroundlayer="true" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='itemInfoPanel']/rect[@name='contentInfo']/@pos">0,34</set>
+		
+		<!-- windowBackpack -->
+		<set xpath="/windows/window[@name='windowBackpack']/@width">1128</set>
+		<set xpath="/windows/window[@name='windowBackpack']/@height">646</set>
+		<!--<set xpath="/windows/window[@name='windowBackpack']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowBackpack']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowBackpack']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<button depth="3" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" sprite="ui_game_symbol_backpack" tooltip_key="lblSortInventory" sound="[paging_click]" />
+				<label depth="3" name="windowName" pos="42,-6" width="250" height="32" text="INVENTORY" text_key="xuiInventory" font_size="32" />
+				<label depth="2" pos="472,-8" width="100" height="28" text="{currencyamount}" color="[mediumGrey]" justify="right" />
+				<sprite depth="4" name="costIcon" sprite="ui_game_symbol_coin" size="24,24" pos="577,-10" color="[white]" foregroundlayer="true" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@height">603</set>
+		<set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@rows">8</set>
+		<set xpath="/windows/window[@name='windowBackpack']/panel[@name='content']/grid[@name='inventory']/@cols">15</set>
+		
+		<!-- windowToolsForge -->
+		<!--<set xpath="/windows/window[@name='windowToolsForge']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowToolsForge']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowToolsForge']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_wrench" />
+				<label style="header.name" text="TOOLS" text_key="xuiTools" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowToolsForge']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowToolsCampfire -->
+		<!--<set xpath="/windows/window[@name='windowToolsCampfire']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowToolsCampfire']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowToolsCampfire']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_cookware" />
+				<label style="header.name" text="TOOLS" text_key="xuiTools" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowToolsCampfire']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowFuel -->
+		<!--<set xpath="/windows/window[@name='windowFuel']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowFuel']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowFuel']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_fire" />
+				<label style="header.name" text="FUEL" text_key="xuiFuel" />
+				<label style="header.timer" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowFuel']/rect[@name='content']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowFuel']/panel[@name='buttonContent']/@pos">0,-41</set>
+		
+		<!-- windowInput -->
+		<!--<set xpath="/windows/window[@name='windowInput']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowInput']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowInput']/rect[@on_press='true']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_campfire" />
+				<label style="header.name" text="INPUT" text_key="xuiInput" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowInput']/rect[@on_press='true']/@pos">0,34</set>
+		
+		<!-- windowForgeInput -->
+		<!--<set xpath="/windows/window[@name='windowForgeInput']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowForgeInput']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowForgeInput']/sprite[@name='backgroundMain']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_forge" />
+				<label style="header.name" text="INPUT" text_key="xuiSmelting" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowForgeInput']/sprite[@name='backgroundMain']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowForgeInput']/rect[@name='content']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowForgeInput']/rect[@name='content2']/@pos">78,34</set>
+		
+		<!-- windowOutput -->
+		<!--<set xpath="/windows/window[@name='windowOutput']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowOutput']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowOutput']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_loot_sack" />
+				<label style="header.name" text="OUTPUT" text_key="xuiOutput" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowOutput']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowCombine -->
+		<set xpath="/windows/window[@name='windowCombine']/panel[@style='header.panel']/@pos">0,80</set>
+		<remove xpath="/windows/window[@name='windowCombine']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowCombine']/rect[@controller='CombineGrid']">
+			<panel style="header.panel" pos="0,80">
+				<sprite style="header.icon" sprite="ui_game_symbol_add" />
+				<label style="header.name" text="COMBINE" text_key="xuiCombine" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowCombine']/rect[@controller='CombineGrid']/@pos">0,34</set>
+		
+		<!-- CharacterFrameWindow -->
+		<!--<set xpath="/windows/window[@name='CharacterFrameWindow']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='CharacterFrameWindow']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='CharacterFrameWindow']/panel[@name='previewFrame']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_character" />
+				<label depth="2" name="characterName" pos="42,-6" width="150" height="32" text="" font_size="32" />
+				<sprite depth="2" name="windowIcon" width="26" height="26" pos="200,-8" sprite="ui_game_symbol_trophy" color="[mediumGrey]" />
+				<label depth="2" name="levelNumber" pos="240,-10" width="80" height="28" text="" color="[lightGrey]" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='CharacterFrameWindow']/panel[@name='previewFrame']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='CharacterFrameWindow']/panel[@name='equipment']/@pos">256,34</set>
+		
+		<!-- PlayerStatsWindow -->
+		<!--<set xpath="/windows/window[@name='PlayerStatsWindow']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='PlayerStatsWindow']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='PlayerStatsWindow']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_muscle" />
+				<label depth="2" name="characterName" pos="42,-6" width="230" height="32" text="PLAYER STATS" text_key="xuiPlayerStats" font_size="32" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='PlayerStatsWindow']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- ActiveBuffsWindow -->
+		<!--<set xpath="/windows/window[@name='ActiveBuffsWindow']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='ActiveBuffsWindow']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='ActiveBuffsWindow']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_medical" />
+				<label depth="2" name="characterName" pos="42,-6" width="250" height="32" text="ACTIVE EFFECTS" text_key="xuiActiveEffects" font_size="32" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='ActiveBuffsWindow']/panel[@name='content']/@pos">0,40</set>
+		
+		<!-- buffInfoPanel -->
+		<!--<set xpath="/windows/window[@name='buffInfoPanel']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='buffInfoPanel']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='buffInfoPanel']/rect[@name='contentBuffInfo']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="{bufficon|once}" />
+				<label style="header.name" text="{buffname|once}" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='buffInfoPanel']/rect[@name='contentBuffInfo']/@pos">0,34</set>
+		
+		<!-- mapArea -->
+		<set xpath="/windows/window[@name='mapArea']/panel[@name='header']/@pos">95,-72</set>
+		<set xpath="/windows/window[@name='mapArea']/panel[@name='content']/@pos">92,-115</set>
+		<!-- mapAreaSetWaypoint -->
+		<set xpath="/windows/window[@name='mapAreaSetWaypoint']/@pos">200,-200</set>
+		<!-- mapAreaChooseWaypoint -->
+		<set xpath="/windows/window[@name='mapAreaChooseWaypoint']/@pos">200,-200</set>
+		<!-- mapAreaEnterWaypointName -->
+		<set xpath="/windows/window[@name='mapAreaEnterWaypointName']/@pos">200,-200</set>
+		<!-- mapTracking -->
+		<set xpath="/windows/window[@name='mapTracking']/panel[@name='header']/@pos">95,-72</set>
+		<set xpath="/windows/window[@name='mapTracking']/rect[@name='content']/@pos">92,-115</set>
+		<!-- mapInvites -->
+		<set xpath="/windows/window[@name='mapInvites']/panel[@name='header']/@pos">95,-72</set>
+		<set xpath="/windows/window[@name='mapInvites']/rect[@name='toolbar']/@pos">98,-121</set>
+		<set xpath="/windows/window[@name='mapInvites']/rect[@name='content']/@pos">92,-115</set>
+		
+		<!-- players -->
+		<!--<set xpath="/windows/window[@name='players']/panel[@depth='1']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='players']/panel[@depth='1']"/>
+		<insertBefore xpath="/windows/window[@name='players']/panel[@depth='0']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="1" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_players" />
+				<label style="header.name" text="PLAYERS" text_key="xuiPlayers" />
+				<label depth="1" name="numberOfPlayers" pos="1094,-12" width="60" height="28" text="1/1" font_size="22" color="[lightGrey]" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='players']/panel[@depth='0']/@pos">-3,37</set>
+		<set xpath="/windows/window[@name='players']/grid[@name='playersList']/@pos">3,-58</set>
+		<set xpath="/windows/window[@name='players']/rect[@depth='3']/@pos">3,-656</set>
+		
+		<!-- windowAssemble -->
+		<set xpath="/windows/window[@name='windowAssemble']/panel[@name='header']/@pos">3,80</set>
+		<set xpath="/windows/window[@name='windowAssemble']/panel[@name='content']/@pos">0,37</set>
+		
+		<!-- windowSkillList -->
+		<!--<set xpath="/windows/window[@name='windowSkillList']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowSkillList']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowSkillList']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite pos="4,-5" depth="2" name="windowIcon" style="icon32px" sprite="{categoryicon}" />
+				<label style="header.name" text="{titlename}" />
+				<label pos="635, -9" depth="2" name="unlockedCount" width="84" height="28" text="{totalskills}" font_size="26" color="[lightGrey]" justify="right" pivot="topright" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowSkillList']/panel[@name='content']/@pos">-3,37</set>
+		
+		<!-- windowSkillInfo -->
+		<!--<set xpath="/windows/window[@name='windowSkillInfo']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowSkillInfo']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowSkillInfo']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite pos="4,-5" depth="2" name="windowIcon" style="icon32px" sprite="ui_game_symbol_skills" />
+				<label style="header.name" text="{groupname}" />
+				<label pos="594, -9" depth="2" width="300" height="28" text="{skillpointsavailable}" font_size="26" color="[lightGrey]" justify="right" pivot="topright" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowSkillInfo']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowSkillStats -->
+		<!--<set xpath="/windows/window[@name='windowSkillStats']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowSkillStats']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowSkillStats']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite pos="10,-5" depth="2" name="windowIcon" style="icon32px" sprite="Craft_Icon_Basics" />
+				<label style="header.name" text="Skill Stats" text_key="xuiSkillStats" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowSkillStats']/panel[@name='content']/@pos">0,34</set>
+		
+		<!-- windowQuestList -->
+		<set xpath="/windows/window[@name='windowQuestList']/panel[@name='header']/@pos">3,80</set>
+		<set xpath="/windows/window[@name='windowQuestList']/rect[@name='content']/@pos">0,37</set>
+		
+		<!-- windowQuestDescription -->
+		<!--<set xpath="/windows/window[@name='windowQuestDescription']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowQuestDescription']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowQuestDescription']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_quest" />
+				<label style="header.name" text="{questtitle}" width="500" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowQuestDescription']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowQuestObjectives -->
+		<!--<set xpath="/windows/window[@name='windowQuestObjectives']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowQuestObjectives']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowQuestObjectives']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_quest" />
+				<label style="header.name" text="OBJECTIVES" text_key="xuiObjectives" />
+				<label depth="2" pos="545,-8" width="100" height="28" text="{questdifficulty}" color="[lightGrey]" justify="right" upper_case="true" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowQuestObjectives']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowQuestRewards -->
+		<!--<set xpath="/windows/window[@name='windowQuestRewards']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowQuestRewards']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowQuestRewards']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_quest" />
+				<label style="header.name" text="REWARDS" text_key="xuiRewards" />
+				<label depth="2" pos="345,-8" width="300" height="28" text="{finishtime}" color="[lightGrey]" justify="right" upper_case="true" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowQuestRewards']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowQuestTracker -->
+		<set xpath="/windows/window[@name='windowQuestTracker']/@pos">-255,-48</set>
+		<!-- windowJournalList -->
+		<set xpath="/windows/window[@name='windowJournalList']/panel[@name='header']/@pos">3,80</set>
+		<set xpath="/windows/window[@name='windowJournalList']/rect[@name='content']/@pos">0,37</set>
+		
+		<!-- windowJournalEntryDescription -->
+		<!--<set xpath="/windows/window[@name='windowJournalEntryDescription']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowJournalEntryDescription']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowJournalEntryDescription']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_pen" />
+				<label depth="2" pos="345,-8" width="300" height="28" text="{timestamp}" color="[lightGrey]" justify="right" upper_case="true" />
+				<label style="header.name" text="{entrytitle}" width="500" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowJournalEntryDescription']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowTrader -->
+		<!--<set xpath="/windows/window[@name='windowTrader']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowTrader']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowTrader']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite pos="4,-5" depth="2" name="windowIcon" style="icon32px" sprite="ui_game_symbol_map_trader" />
+				<label style="header.name" size="350,32" />
+				<label depth="2" pos="340,-8" width="300" height="28" text="{restocklabel}: {timeleft}" color="[lightGrey]" justify="right" visible="{showrestock}" />
+				<label pos="600, -6" depth="2" name="availableMoney" width="64" height="32" text="{availablemoney}" font_size="32" color="[lightGrey]" justify="right" pivot="topright" visible="{isowner}" />
+				<sprite pos="638, -5" depth="2" name="coinIcon" style="icon32px" sprite="ui_game_symbol_coin" color="[lightGrey]" pivot="topright" visible="{isowner}" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowTrader']/panel[@name='content']/@pos">0,37</set>
+		
+		<!-- windowColorPicker -->
+		<!--<set xpath="/windows/window[@name='windowColorPicker']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowColorPicker']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowColorPicker']/panel[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<label style="header.name" text="Slots and Layers" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowColorPicker']/panel[@name='content']/@pos">0,34</set>
+		
+		<!-- windowSignEdit -->
+		<!--<set xpath="/windows/window[@name='windowSignEdit']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowSignEdit']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowSignEdit']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_pen" />
+				<label style="header.name" text="SIGN" text_key="xuiSign" width="100" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowSignEdit']/rect[@name='content']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowSignEdit']/rect[@name='btnClose']/@pos">0,-81</set>
+		
+		<!-- serviceInfoPanel -->
+		<!--<set xpath="/windows/window[@name='serviceInfoPanel']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='serviceInfoPanel']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='serviceInfoPanel']/rect[@name='contentInfo']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="{servicegroupicon}" />
+				<label depth="2" name="windowName" pos="39,-6" width="500" height="32" text="{servicename}" font_size="32" />
+				<label depth="2" pos="350,-8" width="225" height="28" text="{pricelabel} {servicecost}" color="[mediumGrey]" justify="right" />
+				<sprite depth="4" name="costIcon" sprite="ui_game_symbol_coin" size="24,24" pos="577,-10" color="[white]" foregroundlayer="true" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='serviceInfoPanel']/rect[@name='contentInfo']/@pos">0,34</set>
+		
+		<!-- windowPowerSourceStats -->
+		<!--<set xpath="/windows/window[@name='windowPowerSourceStats']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerSourceStats']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerSourceStats']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="{powersourceicon}" />
+				<label style="header.name" text="STATS" text_key="xuiStats" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerSourceStats']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowPowerTriggerOptions -->
+		<!--<set xpath="/windows/window[@name='windowPowerTriggerOptions']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerTriggerOptions']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerTriggerOptions']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_electric_power" />
+				<label style="header.name" text="OPTIONS" text_key="btnOptions" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerTriggerOptions']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowPowerSourceSlots -->
+		<!--<set xpath="/windows/window[@name='windowPowerSourceSlots']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerSourceSlots']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerSourceSlots']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_electric_power" />
+				<label style="header.name" text="SLOTS" text_key="xuiSlots" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerSourceSlots']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- windowPowerTrapSlots -->
+		<!--<set xpath="/windows/window[@name='windowPowerTrapSlots']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerTrapSlots']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerTrapSlots']/rect[@name='content']">
+			<panel style="header.panel" pos="0,80">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_electric_power" />
+				<label style="header.name" text="AMMO" text_key="xuiAmmo" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerTrapSlots']/rect[@name='content']/@pos">0,34</set>
+		<set xpath="/windows/window[@name='windowPowerTrapSlots']/rect[@name='btnOn']/@pos">0,-42</set>
+		
+		<!-- windowPowerRangedTrapOptions -->
+		<!--<set xpath="/windows/window[@name='windowPowerRangedTrapOptions']/panel[@name='header']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerRangedTrapOptions']/panel[@name='header']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerRangedTrapOptions']/rect[@name='content']">
+			<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_electric_power" />
+				<label style="header.name" text="TARGETING" text_key="xuiTargeting" />
+				<!-- text_key="btnOptions" -->
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerRangedTrapOptions']/rect[@name='content']/@pos">0,34</set>
+		
+		<!-- spawnMenu: now supports 792 entities, but the bottom rows could be behind the toolbelt if you reach that many. -->
+		<remove xpath="/windows/window[@name='spawnMenu']"/>
+		<insertBefore xpath="/windows/window[@name='ingameMenu']">
+			<window name="spawnMenu" anchor="CenterTop" pos="-1100,-50" width="2200" height="1000" >
+				<panel name="header" pos="0,0" height="33" depth="60" disableautobackground="true" >
+					<sprite depth="1" name="backgroundMain" sprite="menu_empty3px" pos="0,0" height="33" color="[black]" type="sliced" fillcenter="true" globalopacity="true" globalopacitymod="0.7" />
+					<label style="header.name" pos="6,-3" text_key="xuiSpawnEntities" />
+				</panel>
+				<panel name="content" pos="0,-33" height="950" depth="90" pivot="center" disableautobackground="true" controller="SpawnMenu">
+					<togglebutton name="toggleLookAtYou" caption_key="xuiSpawnEntitiesLookAtYou" width="190" height="28" pos="6, -7" depth="3" />
+					<togglebutton name="toggleSpawn25" caption_key="xuiSpawnEntitiesSpawn25" width="190" height="28" pos="202, -7" depth="3" />
+					<togglebutton name="toggleFromDynamic" caption_key="xuiSpawnEntitiesDynamicSpawner" width="190" height="28" pos="452, -7" depth="3" />
+					<togglebutton name="toggleFromStatic" caption_key="xuiSpawnEntitiesStaticSpawner" width="190" height="28" pos="648, -7" depth="3" />
+					<togglebutton name="toggleFromBiome" caption_key="xuiSpawnEntitiesBiomeSpawner" width="190" height="28" pos="844, -7" depth="3" />
+					<grid name="entities" pos="-1,-38" rows="33" cols="24" width="400" height="800" cell_width="92" cell_height="33" repeat_content="true" >
+						<simplebutton name="btnSpawn" depth="100" pos="0, 0" width="92" height="33" caption="-SpawnName-" justify="center" overflow="resizefreely" />
+					</grid>
+					<rect name="position" pos="1094,-7">
+						<simplebutton name="btnLevelStartPoint" depth="3" pos="0, 0" width="190" height="28" caption_key="xuiSpawnEntitiesLevelStartPoint" />
+						<simplebutton name="btnEntitySpawner" depth="3" pos="196, 0" width="190" height="28" caption_key="xuiSpawnEntitiesEntitySpawner" />
+						<simplebutton name="btnSleeperVolume" depth="3" pos="392, 0" width="190" height="28" caption_key="xuiSpawnEntitiesSleeperVolume" />
+						<simplebutton name="btnSleeperSpawner" depth="3" pos="588, 0" width="190" height="28" caption_key="xuiSpawnEntitiesSleeperSpawner" />
+					</rect>
+				</panel>
+			</window>
+		</insertBefore>
+
+		<!-- windowPowerCameraControl -->
+		<!--<set xpath="/windows/window[@name='windowPowerCameraControl']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerCameraControl']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerCameraControl']/panel[@name='cameraDrag']">
+			<panel style="header.panel" pos="0,80">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_map_cursor" />
+				<label style="header.name" text="Camera Control" text_key="xuiCameraControl" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerCameraControl']/panel[@name='cameraDrag']/@pos">0,34</set>
+		
+		<!-- windowPowerCameraControlPreview -->
+		<!--<set xpath="/windows/window[@name='windowPowerCameraControlPreview']/panel[@style='header.panel']/@pos">0,80</set>-->
+		<remove xpath="/windows/window[@name='windowPowerCameraControlPreview']/panel[@style='header.panel']"/>
+		<insertBefore xpath="/windows/window[@name='windowPowerCameraControlPreview']/panel[@name='cameraClick']">
+			<panel style="header.panel" pos="0,80">
+				<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_search" />
+				<label style="header.name" text="Camera Preview" text_key="xuiCameraPreview" />
+			</panel>
+		</insertBefore>
+		<set xpath="/windows/window[@name='windowPowerCameraControlPreview']/panel[@name='cameraClick']/@pos">0,34</set>
+		
+		<append xpath="/windows">
+			<!-- S420 Start-->
+			<!-- Expanded player built storage -->
+			<window name="S420windowLooting" width="378" height="378" controller="LootWindow" panel="Left" anchor_side="bottomright" visible="false" cursor_area="true" >
+				<panel name="header" pos="0,80" height="43" depth="0" disableautobackground="true">
+					<sprite depth="1" name="headerbackground" sprite="ui_game_panel_header"/>
+					<button depth="3" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" sprite="ui_game_symbol_loot_sack" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label depth="2" name="lootName" pos="39,-6" width="172" height="32" text="LOOT" text_key="xuiLoot" font_size="32" />
+					<label depth="2" name="takeAllLabel" width="32" height="30" font_size="30" color="[mediumGrey]" justify="left" pos="260,-8"/>
+					<sprite depth="2" name="takeAllIcon" style="icon32px" sprite="ui_game_symbol_hand" color="[mediumGrey]" pos="220, -4"/>
+				</panel>
+				<sprite depth="0" name="gridBackground" color="255,255,255,1" type="sliced" pos="0, 0" globalopacity="true" on_press="true" />
+				<rect name="content" pos="3,31" >
+					<grid depth="12" name="queue" rows="13" cols="14" cell_width="75" cell_height="75" repeat_content="true" controller="LootContainer">
+						<item_stack name="0"/>
+					</grid>
+				</rect>
+			</window>
+
+			<!-- Expanded Minibike Storage - Part 1 -->
+			<window name="S420windowVehicle" width="353" height="400" panel="Right" anchor="CenterTop" controller="VehicleFrameWindow" cursor_area="true" >
+				<panel name="header" pos="-520,144" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_minibike"/>
+					<label style="header.name" text="{vehiclenamequality}" />
+					<sprite depth="2" width="112" pos="220, -17" height="10" type="sliced" color="[black]" />
+					<sprite depth="2" width="110" pos="221, -18" height="8" type="sliced" color="[mediumGrey]" />
+					<sprite depth="2" name="sprVehicleQuality" width="110" pos="221, -18" height="8" type="filled" color="{vehiclequalitycolor}" />
+				</panel>
+				<panel name="content" depth="0" pos="-520,104" disableautobackground="true">
+					<sprite color="[darkGrey]" pos="3,-3" height="234" />
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="3,-3" width="350" height="256" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+					<rect depth="1" pos="3,-3" width="350" height="234">
+						<rect pos="3,-3" width="344" height="218">
+							<sprite color="[mediumGrey]" type="sliced" />
+							<texture depth="2" name="vehiclePreview" material="Materials/Transparent Colored" size="344,218" />
+							<label depth="3" pos="14,-20" font_size="26" text="{vehiclequalitytitle}: [DECEA3]{vehiclequality}[-]" width="200" height="30"/>
+							<label depth="3" pos="14,-50" font_size="26" text="{vehicledurabilitytitle}: [DECEA3]{vehicledurability}[-]" width="200" height="30"/>
+						</rect>
+						<grid name="parts" rows="4" cols="2" pos="2,-254" cell_width="350" cell_height="50" repeat_content="true" controller="VehiclePartStackGrid">
+							<S420_vehicle_part_slot />
+						</grid>
+						<rect name="btnRepair" depth="3" pos="0, -213" height="36">
+							<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+							<rect depth="3" name="background" pos="3,-5" width="345" height="28">
+								<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="105,-1" sprite="ui_game_symbol_wrench"/>
+								<label depth="2" name="windowName" pos="0,-1" justify="center" text="REPAIR" text_key="xuiRepair" font_size="28" />
+							</rect>
+						</rect>
+					</rect>
+				</panel>
+			</window>
+
+			<!-- Expanded Minibike Storage - Part 2 -->
+			<window name="S420windowVehicleStats" width="350" height="250" panel="Right" anchor="CenterTop" controller="VehicleStats" cursor_area="true" >
+				<panel name="header" pos="-166,553" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_minibike"/>
+					<label style="header.name" text="{vehiclename} {vehiclestatstitle}" />
+				</panel>
+				<rect name="content" depth="0" pos="-166,510" height="250">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<sprite depth="1" color="[darkGrey]" type="sliced" width="350" height="247" pos="0,-3" />
+					<rect depth="2" pos="6,-5">
+						<grid name="stats" rows="5" cols="1" pos="3,-5" cell_width="345" cell_height="40" repeat_content="false" >
+							<panel height="30" width="340" disableautobackground="true">
+								<sprite depth="1" name="windowIcon" style="icon26px" pos="2,-2" sprite="ui_game_symbol_speed"/>
+								<label depth="1" width="180" pos="30,-2" name="lblSpeed" font_size="24" text="{speedtitle}: [DECEA3]{speed}m/s ({speedtext})[-]" />
+							</panel>
+							<panel height="30" width="340" disableautobackground="true">
+								<sprite depth="1" name="windowIcon" style="icon26px" pos="2,-2" sprite="ui_game_symbol_noise"/>
+								<label depth="1" width="180" pos="30,-2" name="lblNoise" font_size="24" text="{noisetitle}: [DECEA3]{noise}[-]" />
+							</panel>
+							<panel height="30" width="340" disableautobackground="true">
+								<sprite depth="1" name="windowIcon" style="icon26px" pos="2,-2" sprite="ui_game_symbol_defense"/>
+								<label depth="1" width="180" pos="30,-2" name="lblProtection" font_size="24" text="{protectiontitle}: [DECEA3]{protection}%[-]" />
+							</panel>
+							<panel height="30" width="340" disableautobackground="true">
+								<sprite depth="1" name="windowIcon" style="icon26px" pos="2,-2" sprite="ui_game_symbol_seats"/>
+								<label depth="1" width="180" pos="30,-2" name="lblPassengers" font_size="24" text="{passengerstitle}: [DECEA3]{passengers|once}[-]" />
+							</panel>
+							<panel height="30" width="340" disableautobackground="true">
+								<sprite depth="1" name="windowIcon" style="icon26px" pos="2,-2" sprite="ui_game_symbol_gas"/>
+								<label depth="1" width="100" pos="30,-2" font_size="24" text="{fueltitle}: [DECEA3]{fuel}%[-]" />
+								<sprite depth="2" width="200" pos="105, -13" height="10" type="sliced" color="[black]" />
+								<sprite depth="2" width="198" pos="106, -14" height="8" type="sliced" color="[mediumGrey]" />
+								<sprite depth="2" name="sprFillPotential" width="198" pos="106, -15" height="6" type="filled" color="[beige]" fill="{potentialfuelfill}" />
+								<sprite depth="2" name="sprFuelFill" width="198" pos="106, -14" height="8" type="filled" color="181,57,57" fill="{fuelfill}" />
+							</panel>
+						</grid>
+					</rect>
+					<rect name="btnRefuel" depth="3" pos="0,-213" height="36" >
+						<sprite depth="8" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+						<sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="348" height="32" color="[darkGrey]" type="sliced" />
+						<rect depth="3" pos="1,-3" width="348" height="31">
+							<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" />
+							<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,-3" sprite="ui_game_symbol_gas" color="[black_half_alpha]"/>
+							<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,-3" sprite="ui_game_symbol_gas" color="[black_half_alpha]"/>
+							<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,-1" sprite="ui_game_symbol_gas" color="[black_half_alpha]"/>
+							<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,-1" sprite="ui_game_symbol_gas" color="[black_half_alpha]"/>
+							<sprite depth="2" name="windowIcon" width="24" height="24" pos="105,-2" color="[iconColor]" sprite="ui_game_symbol_gas"/>
+							<label depth="2" name="windowName" pos="0,-4" justify="center" text="REFUEL" text_key="xuiRefuel" font_size="24" />
+						</rect>
+					</rect>
+				</rect>
+				<!-- Anabella's combine feature on minibike -->
+				<rect name="position" pos="-8,53">
+					<panel pos="0, 0" style="header.panel" width="230">			
+						<sprite style="header.icon" sprite="ui_game_symbol_add"/>
+						<label style="header.name" text="COMBINE" text_key="xuiCombine"/>
+					</panel>
+					<rect pos="0, -46" height="115" width="230" controller="CombineGrid">
+						<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="0,1" width="230" height="115" color="[black]" type="sliced" fillcenter="false" />
+						<sprite name="background" color="[darkGrey]" pos="0,1" type="sliced"/>
+
+						<grid name="parts" rows="1" cols="3" pos="3,-38" cell_width="76" cell_height="76" repeat_content="true" >
+							<required_item_stack />
+						</grid>
+
+						<label depth="3" pos="12,-4" text="Item A" text_key="xuiCombineItemA" />
+						<label depth="3" pos="88,-4" text="Item B" text_key="xuiCombineItemB"/>
+						<label depth="3" pos="160,-4" text="Result" text_key="xuiResult"/>
+					</rect>	
+				</rect>
+			</window>
+
+			<!-- Expanded Minibike Storage - Part 3 -->
+			<window name="S420windowVehicleStorage" width="903" height="262" depth="5" panel="Right" anchor="CenterTop" backgroundcolor="[black]" cursor_area="true" >
+				<panel name="header" pos="220,806" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="1" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" sprite="ui_game_symbol_loot_sack" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label style="header.name" text="MINIBIKE STORAGE" text_key="xuiMinibikeStorage" />
+				</panel>
+				<grid depth="2" name="inventory" rows="15" cols="12" pos="226,763" cell_width="75" cell_height="75" repeat_content="true" controller="VehicleContainer">
+					<item_stack name="0"/>
+				</grid>
+				<panel name="emptyPanel" height="1125" depth="" pos="223,763" backgroundcolor="[darkGrey]" bordercolor="[black]" visible="false">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<label pos="0,-180" depth="3" name="descriptionText" width="100%" height="80" text="ADD BASKET TO ACCESS STORAGE." text_key="xuiEmptyVehicleStorage" justify="center" font_size="24"/>
+				</panel>
+			</window>
+
+			<!-- Expanded Minibike Storage - Part 4 -->
+			<window name="S420windowNonPagingHeaderLeft" controller="WindowNonPagingHeader" pos="100,-9" size="400,43" anchor="LeftTop">
+				<sprite style="paging.window.background.border"/>
+				<sprite style="nonpaging.window.background"/>
+				<sprite style="nonpaging.window.name.background"/>
+				<sprite style="nonpaging.window.name.foreground"/>
+				<label style="nonpaging.window.name"/>
+			</window>
+
+			<!-- Extra Forge Input -->
+			<window name="S420windowForgeInput" width="228" height="279" panel="Right"
+				controller="WorkstationMaterialInputWindow" materials_accepted="iron,brass,lead,glass,stone,clay" valid_materials_color="[green]" invalid_materials_color="[red]" cursor_area="true" >
+
+				<panel style="header.panel" pos="0,80">
+					<sprite style="header.icon" sprite="ui_game_symbol_forge"/>
+					<label style="header.name" text="INPUT" text_key="xuiSmelting" />
+				</panel>
+				<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="0,34" height="228" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+				<rect name="content" depth="1" pos="0,34" height="223">
+					<grid depth="7" rows="3" cols="1" pos="3,-3" cell_width="75" cell_height="75" controller="WorkstationMaterialInputGrid" repeat_content="true">
+						<item_stack name="0"/>
+					</grid>
+				</rect>
+				<rect name="content2" depth="0" pos="78,34" width="147" height="223">
+					<sprite depth="1" color="[mediumGrey]" type="sliced" on_press="true"/>
+					<grid rows="6" cols="1" pos="6,-12" cell_width="147" cell_height="34"  repeat_content="true">
+						<forge_material name="0"/>
+					</grid>
+				</rect>
+			</window>
+
+			<!-- Extra Crafting Queue Slot -->
+			<window name="S420windowCraftingQueue" width="397" height="78" panel="Left" cursor_area="true" >
+				<rect depth="0" pos="19,80" width="378" controller="CraftingQueue">
+					<grid name="queue" rows="1" cols="5" pos="3,-13" cell_width="75" cell_height="75" repeat_content="true">
+						<recipe_stack name="0"/>
+					</grid>
+				</rect>
+			</window>
+
+			<!-- Expanded Workstation Output -->
+			<window name="S420windowOutput" width="228" height="273" anchor="CenterTop" panel="Right" cursor_area="true" >
+				<panel style="header.panel" pos="0,80">
+					<sprite style="header.icon" sprite="ui_game_symbol_loot_sack"/>
+					<label style="header.name" text="OUTPUT" text_key="xuiOutput" />
+				</panel>
+				<rect name="content" depth="0" pos="0,34" height="225" disablefallthrough="true" on_press="true">
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" height="150" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+						<grid name="inventory" rows="3" cols="3" pos="3,-3" cell_width="75" cell_height="75" controller="WorkstationOutputGrid" repeat_content="true">
+							<item_stack name="0"/>
+						</grid>
+				</rect>
+			</window>
+			<!-- S420 End -->
+		</append>
+	</config>
+</configs>

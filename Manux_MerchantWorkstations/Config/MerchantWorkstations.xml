@@ -1,0 +1,131 @@
+<configs>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Merchant Workstations -->
+			<block id="" name="workstationMerchant">
+				<property name="Group" value="Science"/>
+				<property name="DescriptionKey" value="workstationMerchantDesc"/>
+				<property name="CustomIcon" value="cntVendingMachineTrader"/>
+				<property name="Material" value="Mmetal_medium"/>
+				<property name="LightOpacity" value="0"/>
+				<property name="StabilitySupport" value="false"/>
+				<property name="Class" value="VendingMachine_pickable, Mods"/>
+				<property name="Shape" value="ModelEntity"/>
+				<property name="Model" value="Entities/LootContainers/vending_machine_traderPrefab"/>
+				<property name="MultiBlockDim" value="1,2,1"/>
+				<property name="ImposterExchange" value="imposterBlock" param1="143"/>
+				<property name="OnlySimpleRotations" value="true"/>
+				<property name="Place" value="TowardsPlacerInverted"/>
+				<property class="RepairItems"> <property name="forgedIron" value="5"/> </property>
+				<property name="TraderID" value="1"/>
+				<property name="Stacknumber" value="1"/>
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="EconomicValue" value="4000"/>
+				<property name="Buff" value="shockedBuff"/>
+				<drop event="Destroy" count="0"/>
+			</block>
+			<block id="" name="workstationQuest">
+				<property name="Group" value="Science"/>
+				<property name="DescriptionKey" value="workstationQuestDesc"/>
+				<property name="Material" value="Mmetal_medium"/>
+				<property name="StabilitySupport" value="false" />
+				<property name="Stacknumber" value="1" />
+				<property name="Class" value="VendingMachine_pickable, Mods" />
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#QuestsBoard?QuestsBoardPrefab" />
+				<property name="Place" value="TowardsPlacerInverted"/>
+				<property name="ImposterExchange" value="imposterBlock" param1="2"/>
+				<property name="TraderID" value="21" />
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="EconomicValue" value="2000"/>
+				<property name="Buff" value="shockedBuff"/>
+				<drop event="Destroy" count="0"/>
+			</block>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Merchant Workstations -->
+			<recipe name="workstationMerchant" count="1" craft_area="workbench" craft_time="3200">
+				<ingredient name="forgedIron" count="20"/>
+				<ingredient name="scrapIron" count="40"/>
+				<ingredient name="mechanicalParts" count="15"/>
+				<ingredient name="electronicParts" count="10"/>
+				<ingredient name="scrapPlastics" count="15"/>
+				
+			</recipe>
+			<recipe name="workstationQuest" count="1" craft_area="workbench" craft_time="3200">
+				<ingredient name="forgedIron" count="10"/>
+				<ingredient name="scrapIron" count="20"/>
+				<ingredient name="mechanicalParts" count="8"/>
+				<ingredient name="electronicParts" count="5"/>
+				<ingredient name="scrapPlastics" count="8"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="xui">
+		<append xpath="/xui/ruleset" >
+			<!-- MANUX Merchant Workstations -->
+			<window_group name="workstation_workstationMerchant" controller="XUiC_TraderWindowGroup">
+				<window name="windowTrader"/>
+				<window name="windowNonPagingHeader" />
+				<window name="serviceInfoPanel"/>
+			</window_group>
+		</append>
+	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='Secret Stash']">
+			<!-- MANUX Merchant Workstations -->
+			<recipe name="workstationMerchant" unlock_level="3"/>
+			<recipe name="workstationQuest" unlock_level="3"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
+			<!-- MANUX Merchant Workstations -->
+			<recipe name="workstationMerchant" unlock_level="5"/>
+			<recipe name="workstationQuest" unlock_level="5"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Merchant Workstations -->
+			<item name="workstationMerchant" count="1"/>
+			<item name="workstationQuest" count="1"/>
+		</append>
+		<append xpath="/traders">
+			<!-- MANUX Merchant Workstations -->
+			<!-- Merchant Delivery Box -->
+			<trader_info id="20" reset_interval="2" override_buy_markup="1.0" allow_sell="true" min_inventory="6" max_inventory="13" min_items_swapped="6" max_items_swapped="13">
+				<trader_items count="10">
+					<item name="bottledWater" count="1,2"/>
+					<item name="goldenRodTea" count="1,2"/>
+					<item name="redTea" count="1,2"/>
+					<item name="beer" count="1,2"/>
+					<item name="canSoup" count="1,2"/>
+					<item group="traderAlways"/>
+					<item group="traderGeneral" count="4,8"/>
+					<item group="generalResources" count="9,14"/>
+					<item group="constructionSupplies" count="2,8"/>
+					<item group="tools" count="0,2"/>
+					<item group="weaponsCommonParts" count="0,3"/>
+					<item group="weaponsMilitaryParts" count="1"/>
+					<item group="weaponsGunsCommon" count="1" prob="0.3"/>
+					<item group="weaponsGunsMilitary" count="1" prob="0.1"/>
+					<item group="ammo" count="2,3" prob="0.4"/>
+					<item group="heavyArmor" count="1" prob="0.4"/>
+					<item group="banditArmor" count="1" prob="0.1"/>
+					<item name="miningHelmet" prob="0.5"/>
+					<item name="solarbank" count="1" prob="0.5"/>
+					<item name="solarCell" count="1,3" prob="0.3"/>
+				</trader_items>
+			</trader_info>
+			<!-- Quest Board -->
+			<trader_info id="21" reset_interval="2" override_buy_markup="1.0" allow_sell="true" min_inventory="6" max_inventory="13" min_items_swapped="6" max_items_swapped="13">
+				<trader_items count="10">
+					<item group="questChallenge" count="1"/>
+				</trader_items>
+			</trader_info>
+		</append>
+	</config>
+</configs>

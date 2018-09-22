@@ -1,0 +1,1877 @@
+<configs>
+	<config name="entityclasses">	
+		<append xpath="/entity_classes">
+		  <!-- MANUX Survivors And Bandits -->
+		  <!-- TEMPLATES -->
+		  <entity_class name="BndtTemplate">
+			<property name="Faction" value="bandits"/>
+			<property name="Mesh" value="Player/Male/player_maleRagdoll"/>
+			<property name="NPCID" value="bandits"/>
+
+			<!--<property name="AIPackages" value="Bandit Basic, Bandit Melee"/>-->
+
+			<!-- ITEMS -->
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="clubSpiked"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="clubSpiked"/>
+			<!-- Avatar -->
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="Class" value="EntityBandit"/>
+			<property name="AvatarController" value="AvatarUMAController"/>
+			<property name="PhysicsBody" value="Player"/>
+			<property name="ModelType" value="NpcUMA"/>
+			<property name="EntityType" value="Zombie"/>
+			<property name="Prefab" value="NPC"/>
+			<property name="Parent" value="Enemies"/>
+			<property name="HasRagdoll" value="true"/>
+			<property name="IsEnemyEntity" value="true"/>
+			<property name="SurfaceCategory" value="organic"/>
+			<property name="ParticleOnDeath" value="blood_death"/>
+			<!-- AI -->
+			<!--<property name="AIPackages" value="Human Basic, Bandit Ranged"/>-->
+			<property name="AITask-1" value="RangedAttackTarget2" 			param1="0" param2="5"/>
+			<property name="AITask-2" value="ApproachAndAttackTarget" 		param1="EntitySurvivor"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" 		param1="EntityPlayer"/>
+			<property name="AITask-4" value="ApproachAndAttackTarget" 		param1="EntityZombie"/>
+			<property name="AITask-5" value="ApproachAndAttackTarget" 		param1="EntityZombieCop"/>
+			<property name="AITask-6" value="ApproachAndAttackTarget" 		param1="EntityZombieDog"/>
+			<property name="AITask-7" value="ApproachAndAttackTarget" 		param1="EntityZombieCrawl"/>
+			<property name="AITask-8" value="ApproachAndAttackTarget" 		param1="EntityVulture"/>
+			<property name="AITask-9" value="ApproachAndAttackTarget" 		param1="EntityAnimalBear"/>
+			<property name="AITask-10" value="ApproachAndAttackTarget" 		param1="EntityAnimalStag"/>
+			<property name="AITask-11" value="ApproachAndAttackTarget" 		param1="EntityAnimalRabbit"/>
+			<property name="AITask-12" value="BreakDoor" />
+			<property name="AITask-13" value="BreakBlock" />
+			<property name="AITask-14" value="Swim"/>
+			<property name="AITask-15" value="ApproachSpot"/>
+			<property name="AITask-16" value="Wander"/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" 			param1="EntitySurvivor"/>
+			<property name="AITarget-2" value="SetAsTargetIfHurt" 			param1="EntityPlayer"/>
+			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityZombieCop"/>
+			<property name="AITarget-4" value="SetAsTargetIfHurt" 			param1="EntityZombieDog"/>
+			<property name="AITarget-5" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
+			<property name="AITarget-6" value="SetAsTargetIfHurt" 			param1="EntityZombieCrawl"/>
+			<property name="AITarget-7" value="SetAsTargetIfHurt" 			param1="EntityVulture"/>
+			<property name="AITarget-8" value="SetAsTargetIfHurt" 			param1="EntityAnimalBear"/>
+			<property name="AITarget-9" value="SetAsTargetIfHurt" 			param1="EntityAnimalStag"/>
+			<property name="AITarget-10" value="SetAsTargetIfHurt" 			param1="EntityAnimalRabbit"/>
+			<property name="AITarget-11" value="SetNearestEntityAsTarget" 	param1="EntitySurvivor"/>
+			<property name="AITarget-12" value="SetNearestEntityAsTarget" 	param1="EntityPlayer"/>
+			<property name="AITarget-13" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
+			<property name="AITarget-14" value="SetNearestEntityAsTarget" 	param1="EntityZombieCop"/>
+			<property name="AITarget-15" value="SetNearestEntityAsTarget" 	param1="EntityZombieDog"/>
+			<property name="AITarget-16" value="SetNearestEntityAsTarget" 	param1="EntityZombieCrawl"/>
+			<property name="AITarget-17" value="SetNearestEntityAsTarget" 	param1="EntityVulture"/>
+			<property name="AITarget-18" value="SetNearestEntityAsTarget" 	param1="EntityAnimalBear"/>
+			<property name="AITarget-19" value="SetNearestEntityAsTarget" 	param1="EntityAnimalStag"/>
+			<property name="AITarget-20" value="SetNearestEntityAsTarget" 	param1="EntityAnimalRabbit"/>
+
+			<!-- Movement -->
+			<property name="WanderSpeed" value="0.5"/>
+			<property name="ApproachSpeed" value="1"/>
+			<property name="NightWanderSpeed" value="0.5"/>
+			<property name="NightApproachSpeed" value="1"/>
+			<property name="PanicSpeed" value="1.15"/>
+			<property name="CanClimbLadders" value="true"/>
+			<property name="SwimOffset" value="1.0"/>
+			<!-- Sounds -->
+			<property name="SoundRandomTime" value="200.0"/>
+			<property name="SoundRandom" value="malehateroam"/>
+			<property name="SoundAlert" value="malehatealert"/>
+			<property name="SoundSense" value="malehatesense"/>
+			<property name="SoundHurt" value="malehatepain"/>
+			<property name="SoundDeath" value="malehatedeath"/>
+			<property name="SoundAttack" value="malehateattack"/>
+			<!-- Stats -->
+			<property name="MaxHealth" value="150"/>
+			<property name="ExperienceGain" value="1275"/>
+			<property name="CorpseBlock" value="GoreBlock1Prefab"/>
+			<property name="CorpseBlockChance" value="1"/>
+			<!--<property name="MaxViewAngle" value="270"/>-->
+			<property name="MaxViewAngle" value="300"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			
+			<property name="TimeStayAfterDeath" value="5"/>
+			<property name="DeadBodyHitPoints" value="350"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="Weight" value="70"/>
+
+			<!--<property name="SightRange" value="100"/>-->
+			<!--<property name="SightRange" value="120"/>-->
+			<property name="SightRange" value="80"/>
+			<property name="SightScale" value="-2,50"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtFmTemplate" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2LandHard"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtMeleeTemplate" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSledgeHammer"/>
+			<property name="ApproachSpeed" value="1.1"/>
+			<property name="NightApproachSpeed" value="1.1"/>
+			<property name="MaxHealth" value="350"/>
+			<property name="ExperienceGain" value="1275"/>
+			<!--<property name="AIPackages" value="Human Basic, Bandit Melee"/>-->
+		  </entity_class>
+
+		  <entity_class name="BndtLeaderTemplate" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditLeaderPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="3"/>
+			<property name="MaxHealth" value="1750"/>
+			<property name="ExperienceGain" value="4500"/>
+			<property name="MaxViewAngle" value="360"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<!--<property name="LootListOnDeath" value="254"/>-->
+			<property name="CorpseBlock" value="banditLeaderCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtLeaderFmTemplate" extends="BndtFmTemplate">
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="3"/>
+			<property name="MaxHealth" value="1750"/>
+			<property name="ExperienceGain" value="4500"/>
+			<property name="MaxViewAngle" value="360"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<!--<property name="LootListOnDeath" value="254"/>-->
+			<property name="CorpseBlock" value="banditLeaderCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtBruteTemplate" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditBrutePunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="MaxHealth" value="3000"/>
+			<property name="ExperienceGain" value="5000"/>
+			<property name="ApproachSpeed" value="0.7"/>
+			<property name="NightApproachSpeed" value="0.7"/>
+			<property name="MaxViewAngle" value="300"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<property name="CorpseBlock" value="banditBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  
+		  
+		  <!-- SURVIVORS Templates -->
+		  <entity_class name="SurvTemplate">
+			<property name="Faction" value="survivor"/>
+			<property name="Mesh" value="Player/Male/player_maleRagdoll"/>
+			<property name="NPCID" value="survivor"/>
+
+			<!--<property name="AIPackages" value="Bandit Basic, Bandit Melee"/>-->
+
+			<!-- ITEMS -->
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="clubSpiked"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="clubSpiked"/>
+			<!-- Avatar -->
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="Class" value="EntitySurvivor"/>
+			<property name="AvatarController" value="AvatarUMAController"/>
+			<property name="PhysicsBody" value="Player"/>
+			<property name="ModelType" value="NpcUMA"/>
+			<property name="EntityType" value="Player"/>
+			<property name="Prefab" value="NPC"/>
+			<property name="Parent" value="Players"/>
+			<property name="HasRagdoll" value="true"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="SurfaceCategory" value="organic"/>
+			<property name="ParticleOnDeath" value="blood_death"/>
+			<!-- AI -->
+			<!--<property name="AIPackages" value="Human Basic, Survivor Ranged"/>-->
+			
+			<property name="AITask-1" value="RangedAttackTarget2" 			param1="0" param2="5"/>
+			<property name="AITask-2" value="ApproachAndAttackTarget" 		param1="EntityBandit"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" 		param1="EntityZombie"/>
+			<property name="AITask-4" value="ApproachAndAttackTarget" 		param1="EntityZombieCop"/>
+			<property name="AITask-5" value="ApproachAndAttackTarget" 		param1="EntityZombieDog"/>
+			<property name="AITask-6" value="ApproachAndAttackTarget" 		param1="EntityZombieCrawl"/>
+			<property name="AITask-7" value="ApproachAndAttackTarget" 		param1="EntityVulture"/>
+			<property name="AITask-8" value="ApproachAndAttackTarget" 		param1="EntityAnimalBear"/>
+			<property name="AITask-9" value="ApproachAndAttackTarget" 		param1="EntityAnimalStag"/>
+			<property name="AITask-10" value="ApproachAndAttackTarget" 		param1="EntityAnimalRabbit"/>
+			<property name="AITask-11" value="BreakDoor" />
+			<property name="AITask-12" value="BreakBlock" />
+			<property name="AITask-13" value="Swim"/>
+			<property name="AITask-14" value="ApproachSpot"/>
+			<property name="AITask-15" value="Wander"/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" 			param1="EntityBandit"/>
+			<property name="AITarget-2" value="SetAsTargetIfHurt" 			param1="EntityZombieCop"/>
+			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityZombieDog"/>
+			<property name="AITarget-4" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
+			<property name="AITarget-5" value="SetAsTargetIfHurt" 			param1="EntityZombieCrawl"/>
+			<property name="AITarget-6" value="SetAsTargetIfHurt" 			param1="EntityVulture"/>
+			<property name="AITarget-7" value="SetAsTargetIfHurt" 			param1="EntityAnimalBear"/>
+			<property name="AITarget-8" value="SetAsTargetIfHurt" 			param1="EntityAnimalStag"/>
+			<property name="AITarget-9" value="SetAsTargetIfHurt" 			param1="EntityAnimalRabbit"/>
+			<property name="AITarget-10" value="SetNearestEntityAsTarget" 	param1="EntityBandit"/>
+			<property name="AITarget-11" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
+			<property name="AITarget-12" value="SetNearestEntityAsTarget" 	param1="EntityZombieCop"/>
+			<property name="AITarget-13" value="SetNearestEntityAsTarget" 	param1="EntityZombieDog"/>
+			<property name="AITarget-14" value="SetNearestEntityAsTarget" 	param1="EntityZombieCrawl"/>
+			<property name="AITarget-15" value="SetNearestEntityAsTarget" 	param1="EntityVulture"/>
+			<property name="AITarget-16" value="SetNearestEntityAsTarget" 	param1="EntityAnimalBear"/>
+			<property name="AITarget-17" value="SetNearestEntityAsTarget" 	param1="EntityAnimalStag"/>
+			<property name="AITarget-18" value="SetNearestEntityAsTarget" 	param1="EntityAnimalRabbit"/>
+
+			<!-- Movement -->
+			<property name="WanderSpeed" value="0.5"/>
+			<property name="ApproachSpeed" value="1"/>
+			<property name="NightWanderSpeed" value="0.5"/>
+			<property name="NightApproachSpeed" value="1"/>
+			<property name="PanicSpeed" value="1.15"/>
+			<property name="CanClimbLadders" value="true"/>
+			<property name="SwimOffset" value="1.0"/>
+			<!-- Sounds -->
+			<!--<property name="SoundRandomTime" value="200.0"/>
+			<property name="SoundRandom" value="malehateroam"/>
+			<property name="SoundAlert" value="malehatealert"/>
+			<property name="SoundSense" value="malehatesense"/>
+			<property name="SoundHurt" value="malehatepain"/>
+			<property name="SoundDeath" value="malehatedeath"/>
+			<property name="SoundAttack" value="malehateattack"/>-->
+			<property name="SoundRandom" value="malehateroam"/>
+			<property name="SoundAlert" value="malehatealert"/>
+			<property name="SoundSense" value="malehatesense"/>
+			<property name="SoundHurt" value="player1painlg"/>
+			<property name="SoundDeath" value="player1death"/>
+			<property name="SoundAttack" value="malehateattack"/>
+			
+			<!-- Stats -->
+			<property name="MaxHealth" value="150"/>
+			<property name="ExperienceGain" value="1275"/>
+			<property name="CorpseBlock" value="GoreBlock1Prefab"/>
+			<property name="CorpseBlockChance" value="1"/>
+			<!--<property name="MaxViewAngle" value="270"/>-->
+			<property name="MaxViewAngle" value="300"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			
+			<property name="TimeStayAfterDeath" value="5"/>
+			<property name="DeadBodyHitPoints" value="350"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="Weight" value="70"/>
+
+			<!--<property name="SightRange" value="100"/>-->
+			<property name="SightRange" value="120"/>
+			<property name="SightScale" value="-2,50"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvFmTemplate" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvMeleeTemplate" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSledgeHammer"/>
+			<property name="ApproachSpeed" value="1.1"/>
+			<property name="NightApproachSpeed" value="1.1"/>
+			<property name="MaxHealth" value="350"/>
+			<property name="ExperienceGain" value="1275"/>
+		  </entity_class>
+
+		  <entity_class name="SurvLeaderTemplate" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvLeaderAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="3"/>
+			<property name="MaxHealth" value="1750"/>
+			<property name="ExperienceGain" value="4500"/>
+			<property name="MaxViewAngle" value="360"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<property name="CorpseBlock" value="survivorLeaderCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvLeaderFmTemplate" extends="SurvFmTemplate">
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="3"/>
+			<property name="MaxHealth" value="1750"/>
+			<property name="ExperienceGain" value="4500"/>
+			<property name="MaxViewAngle" value="360"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<property name="CorpseBlock" value="survivorLeaderCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvBruteTemplate" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvBruteAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="MaxHealth" value="3000"/>
+			<property name="ExperienceGain" value="5000"/>
+			<property name="ApproachSpeed" value="0.7"/>
+			<property name="NightApproachSpeed" value="0.7"/>
+			<property name="MaxViewAngle" value="300"/>
+			<property name="MaxTurnSpeed" value="145"/>
+			<property name="LegsExplosionDamageMultiplier" value="0.5"/>
+			<property name="ArmsExplosionDamageMultiplier" value="0.5"/>
+			<property name="HeadExplosionDamageMultiplier" value="0.5"/>
+			<property name="ChestExplosionDamageMultiplier" value="0.5"/>
+			<property name="CorpseBlock" value="survivorBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvBruteFmTemplate" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteTeenFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteFireaxe"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  
+
+		  <!-- LEADERS -->
+		  <entity_class name="BndtLeaderPunkMale" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderPunkMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtLeaderPunkMaleCold" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderAdvMale" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderAdvMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderAdvMaleCold" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderAdvMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtLeaderBarbMale" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtLeaderBarbMaleCold" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderHilbMale" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderHilbMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="survivorLeaderRocketLauncherCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderHilbMaleCold" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderHilbMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="survivorLeaderRocketLauncherCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtLeaderNaziMale" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderNaziMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="banditLeaderRocketLauncherCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtLeaderNaziMaleCold" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderNaziMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="banditLeaderRocketLauncherCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderRastaMale" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderRastaMaleCold" extends="SurvLeaderTemplate">
+			<property name="Archetype" value="manuSurvLeaderRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtLeaderClownMale" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtLeaderClownMaleCold" extends="BndtLeaderTemplate">
+			<property name="Archetype" value="manuBanditLeaderClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderTeenFm" extends="SurvLeaderFmTemplate">
+			<property name="Archetype" value="manuSurvLeaderTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvLeaderTeenFmCold" extends="SurvLeaderFmTemplate">
+			<property name="Archetype" value="manuSurvLeaderTeenFemaleCold"/>
+		  </entity_class>
+
+		  
+		  <!-- BRUTES -->
+		  <entity_class name="BndtBrutePunkMale" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBrutePunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="CorpseBlock" value="banditBruteChainsawCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtBrutePunkMaleCold" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBrutePunkMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="CorpseBlock" value="banditBruteChainsawCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteAdvMale" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="CorpseBlock" value="survivorBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteAdvMaleCold" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteAdvMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="CorpseBlock" value="survivorBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtBruteBarbMale" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteBarbMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSledgeHammer"/>
+			<property name="CorpseBlock" value="banditBruteSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtBruteBarbMaleCold" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteBarbMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSledgeHammer"/>
+			<property name="CorpseBlock" value="banditBruteSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteHilbMale" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteHilbMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteFireaxe"/>
+			<property name="CorpseBlock" value="survivorBruteFireaxeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteHilbMaleCold" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteHilbMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteFireaxe"/>
+			<property name="CorpseBlock" value="survivorBruteFireaxeCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtBruteNaziMale" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteNaziMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="CorpseBlock" value="banditBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtBruteNaziMaleCold" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteNaziMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSpikedClub"/>
+			<property name="CorpseBlock" value="banditBruteSpikedClubCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteRastaMale" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteRastaMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSledgeHammer"/>
+			<property name="CorpseBlock" value="survivorBruteSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteRastaMaleCold" extends="SurvBruteTemplate">
+			<property name="Archetype" value="manuSurvBruteRastaMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteSledgeHammer"/>
+			<property name="CorpseBlock" value="survivorBruteSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtBruteClownMale" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteClownMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="CorpseBlock" value="banditBruteChainsawCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtBruteClownMaleCold" extends="BndtBruteTemplate">
+			<property name="Archetype" value="manuBanditBruteClownMaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteChainsaw,BanditGasCan"/>
+			<property name="CorpseBlock" value="banditBruteChainsawCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteTeenFm" extends="SurvBruteFmTemplate">
+			<property name="Archetype" value="manuSurvBruteTeenFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteFireaxe"/>
+			<property name="CorpseBlock" value="survivorBruteFireaxeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvBruteTeenFmCold" extends="SurvBruteFmTemplate">
+			<property name="Archetype" value="manuSurvBruteTeenFemaleCold"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="bruteFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="bruteFireaxe"/>
+			<property name="CorpseBlock" value="survivorBruteFireaxeCorpse"/>
+		  </entity_class>
+		  
+
+		  <!-- GUNS Templates (Punks) -->
+		  <entity_class name="BndtPistolPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditPistolCorpse"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="CorpseBlock" value="bandit44MagnumCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="banditSawedOffPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="banditPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5Punk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditMP5Corpse"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47Punk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditAK47Corpse"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditHuntingRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditSniperRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketPunk" extends="BndtTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="banditRocketLauncherCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditPistolCorpse"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="CorpseBlock" value="bandit44MagnumCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="banditSawedOffPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="banditPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditMP5Corpse"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditAK47Corpse"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditHuntingRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="banditSniperRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmPunk" extends="BndtFmTemplate">
+			<property name="Archetype" value="manuBanditPunkFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="banditRocketLauncherCorpse"/>
+		  </entity_class>
+		  
+		  <!-- MELEE WEAPONS templates -->
+		  <entity_class name="BndtHammerPunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSledgeHammer"/>
+			<!--<property name="LootListOnDeath" value="248"/>-->
+			<property name="CorpseBlock" value="banditSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtMachetePunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditMachete"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditMachete"/>
+			<!--<property name="LootListOnDeath" value="249"/>-->
+			<property name="CorpseBlock" value="banditMacheteCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxePunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditFireaxe"/>
+			<!--<property name="LootListOnDeath" value="250"/>-->
+			<property name="CorpseBlock" value="banditFireaxeCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbPunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSpikedClub"/>
+			<!--<property name="LootListOnDeath" value="251"/>-->
+			<property name="CorpseBlock" value="banditSpikedClubCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifePunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditHuntingKnife"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditHuntingKnife"/>
+			<!--<property name="LootListOnDeath" value="252"/>-->
+			<property name="CorpseBlock" value="banditHuntingKnifeCorpse"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawPunk" extends="BndtMeleeTemplate">
+			<property name="Archetype" value="manuBanditPunkMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditChainsaw,BanditGasCan"/>
+			<!--<property name="LootListOnDeath" value="253"/>-->
+			<property name="CorpseBlock" value="banditChainsawCorpse"/>
+		  </entity_class>
+
+		  
+		<!-- SURVIVORS (Adventurers) -->
+		  <entity_class name="SurvHammerAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSledgeHammer"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSledgeHammer"/>
+			<property name="CorpseBlock" value="survivorSledgeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditMachete"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditMachete"/>
+			<property name="CorpseBlock" value="survivorMacheteCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditFireaxe"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditFireaxe"/>
+			<property name="CorpseBlock" value="survivorFireaxeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditSpikedClub"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditSpikedClub"/>
+			<property name="CorpseBlock" value="survivorSpikedClubCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditHuntingKnife"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditHuntingKnife"/>
+			<property name="CorpseBlock" value="survivorHuntingKnifeCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawAdv" extends="SurvMeleeTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="meleeBanditChainsaw,BanditGasCan"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="meleeBanditChainsaw,BanditGasCan"/>
+			<property name="CorpseBlock" value="survivorChainsawCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorPistolCorpse"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="CorpseBlock" value="survivor44MagnumCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="survivorSawedOffPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="survivorPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5Adv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorMP5Corpse"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47Adv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorAK47Corpse"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorHuntingRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorSniperRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketAdv" extends="SurvTemplate">
+			<property name="Archetype" value="manuSurvAdvMaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="survivorRocketLauncherCorpse"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPistol,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorPistolCorpse"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBandit44Magnum,44MagBanditBullet"/>
+			<property name="CorpseBlock" value="survivor44MagnumCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSawedOffPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="survivorSawedOffPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditPumpShotgun,shotgunBanditShell"/>
+			<property name="CorpseBlock" value="survivorPumpShotgunCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditMP5,9mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorMP5Corpse"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditAK47,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorAK47Corpse"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditHuntingRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorHuntingRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditSniperRifle,762mmBanditBullet"/>
+			<property name="CorpseBlock" value="survivorSniperRifleCorpse"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmAdv" extends="SurvFmTemplate">
+			<property name="Archetype" value="manuSurvAdvFemaleWarm"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalSP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="ItemsOnEnterGame.GameModeSurvivalMP" value="gunBanditRocketLauncher,BanditRocket"/>
+			<property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="12"/>
+			<property name="CorpseBlock" value="survivorRocketLauncherCorpse"/>
+		  </entity_class>
+		  
+		  
+		  <!-- Bandits Cold (Punks) -->
+		  <entity_class name="BndtHammerPunkCold" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMachetePunkCold" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxePunkCold" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbPunkCold" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifePunkCold" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawPunkCold" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolPunkCold" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumPunkCold" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunPunkCold" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunPunkCold" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5PunkCold" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47PunkCold" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifPunkCold" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperPunkCold" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketPunkCold" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditPunkMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmPunkCold" extends="BndtPistolFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmPunkCold" extends="Bndt44MagnumFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmPunkCold" extends="BndtSmShotgunFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmPunkCold" extends="BndtShotgunFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmPunkCold" extends="BndtMP5FmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmPunkCold" extends="BndtAK47FmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmPunkCold" extends="BndtHuntRifFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmPunkCold" extends="BndtSniperFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmPunkCold" extends="BndtRocketFmPunk">
+			<property name="Archetype" value="manuBanditPunkFemaleCold"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Cold (Adventurers) -->
+		  <entity_class name="SurvHammerAdvCold" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteAdvCold" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeAdvCold" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbAdvCold" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeAdvCold" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawAdvCold" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolAdvCold" extends="SurvPistolAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumAdvCold" extends="Surv44MagnumAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunAdvCold" extends="SurvSmShotgunAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunAdvCold" extends="SurvShotgunAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5AdvCold" extends="SurvMP5Adv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47AdvCold" extends="SurvAK47Adv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifAdvCold" extends="SurvHuntRifAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperAdvCold" extends="SurvSniperAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketAdvCold" extends="SurvRocketAdv">
+			<property name="Archetype" value="manuSurvAdvMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmAdvCold" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmAdvCold" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmAdvCold" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmAdvCold" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmAdvCold" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmAdvCold" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmAdvCold" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmAdvCold" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmAdvCold" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvAdvFemaleCold"/>
+		  </entity_class>
+
+		 
+		   <!-- Bandits Warm (Barbarians) -->
+		  <entity_class name="BndtHammerBarb" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteBarb" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeBarb" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbBarb" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeBarb" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawBarb" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolBarb" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumBarb" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunBarb" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunBarb" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5Barb" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47Barb" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifBarb" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperBarb" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketBarb" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditBarbMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmBarb" extends="BndtPistolFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmBarb" extends="Bndt44MagnumFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmBarb" extends="BndtSmShotgunFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmBarb" extends="BndtShotgunFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmBarb" extends="BndtMP5FmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmBarb" extends="BndtAK47FmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmBarb" extends="BndtHuntRifFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmBarb" extends="BndtSniperFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmBarb" extends="BndtRocketFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleWarm"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Warm (Hillbillies) -->
+		  <entity_class name="SurvHammerHilb" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteHilb" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeHilb" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbHilb" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeHilb" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawHilb" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolHilb" extends="SurvPistolAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumHilb" extends="Surv44MagnumAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunHilb" extends="SurvSmShotgunAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunHilb" extends="SurvShotgunAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5Hilb" extends="SurvMP5Adv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47Hilb" extends="SurvAK47Adv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifHilb" extends="SurvHuntRifAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperHilb" extends="SurvSniperAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketHilb" extends="SurvRocketAdv">
+			<property name="Archetype" value="manuSurvHilbMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmHilb" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmHilb" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmHilb" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmHilb" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmHilb" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmHilb" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmHilb" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmHilb" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmHilb" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleWarm"/>
+		  </entity_class>
+		 
+
+		   <!-- Bandits Cold (Barbarians) -->
+		  <entity_class name="BndtHammerBarbCold" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteBarbCold" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeBarbCold" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbBarbCold" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeBarbCold" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawBarbCold" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolBarbCold" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumBarbCold" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunBarbCold" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunBarbCold" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5BarbCold" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47BarbCold" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifBarbCold" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperBarbCold" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketBarbCold" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditBarbMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmBarbCold" extends="BndtPistolFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmBarbCold" extends="Bndt44MagnumFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmBarbCold" extends="BndtSmShotgunFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmBarbCold" extends="BndtShotgunFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmBarbCold" extends="BndtMP5FmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmBarbCold" extends="BndtAK47FmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmBarbCold" extends="BndtHuntRifFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmBarbCold" extends="BndtSniperFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmBarbCold" extends="BndtRocketFmPunk">
+			<property name="Archetype" value="manuBanditBarbFemaleCold"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Cold (Hillbillies) -->
+		  <entity_class name="SurvHammerHilbCold" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteHilbCold" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeHilbCold" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbHilbCold" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeHilbCold" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawHilbCold" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolHilbCold" extends="SurvPistolAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumHilbCold" extends="Surv44MagnumAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunHilbCold" extends="SurvSmShotgunAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunHilbCold" extends="SurvShotgunAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5HilbCold" extends="SurvMP5Adv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47HilbCold" extends="SurvAK47Adv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifHilbCold" extends="SurvHuntRifAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperHilbCold" extends="SurvSniperAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketHilbCold" extends="SurvRocketAdv">
+			<property name="Archetype" value="manuSurvHilbMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmHilbCold" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmHilbCold" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmHilbCold" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmHilbCold" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmHilbCold" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmHilbCold" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmHilbCold" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmHilbCold" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmHilbCold" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvHilbFemaleCold"/>
+		  </entity_class>
+		 
+		 
+			<!-- Bandits Warm (Nazi) -->
+		  <entity_class name="BndtHammerNazi" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteNazi" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeNazi" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbNazi" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeNazi" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawNazi" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolNazi" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumNazi" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunNazi" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunNazi" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5Nazi" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47Nazi" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifNazi" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperNazi" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketNazi" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditNaziMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmNazi" extends="BndtPistolFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmNazi" extends="Bndt44MagnumFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmNazi" extends="BndtSmShotgunFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmNazi" extends="BndtShotgunFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmNazi" extends="BndtMP5FmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmNazi" extends="BndtAK47FmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmNazi" extends="BndtHuntRifFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmNazi" extends="BndtSniperFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmNazi" extends="BndtRocketFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleWarm"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Warm (Rasta) -->
+		  <entity_class name="SurvHammerRasta" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteRasta" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeRasta" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbRasta" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeRasta" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawRasta" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolRasta" extends="SurvPistolAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumRasta" extends="Surv44MagnumAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunRasta" extends="SurvSmShotgunAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunRasta" extends="SurvShotgunAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5Rasta" extends="SurvMP5Adv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47Rasta" extends="SurvAK47Adv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifRasta" extends="SurvHuntRifAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperRasta" extends="SurvSniperAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketRasta" extends="SurvRocketAdv">
+			<property name="Archetype" value="manuSurvRastaMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmRasta" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmRasta" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmRasta" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmRasta" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmRasta" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmRasta" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmRasta" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmRasta" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmRasta" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleWarm"/>
+		  </entity_class>
+		 
+
+		   <!-- Bandits Cold (Nazi) -->
+		  <entity_class name="BndtHammerNaziCold" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteNaziCold" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeNaziCold" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbNaziCold" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeNaziCold" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawNaziCold" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolNaziCold" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumNaziCold" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunNaziCold" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunNaziCold" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5NaziCold" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47NaziCold" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifNaziCold" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperNaziCold" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketNaziCold" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditNaziMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolFmNaziCold" extends="BndtPistolFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumFmNaziCold" extends="Bndt44MagnumFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunFmNaziCold" extends="BndtSmShotgunFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunFmNaziCold" extends="BndtShotgunFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5FmNaziCold" extends="BndtMP5FmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47FmNaziCold" extends="BndtAK47FmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifFmNaziCold" extends="BndtHuntRifFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperFmNaziCold" extends="BndtSniperFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketFmNaziCold" extends="BndtRocketFmPunk">
+			<property name="Archetype" value="manuBanditNaziFemaleCold"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Cold (Rasta) -->
+		  <entity_class name="SurvHammerRastaCold" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteRastaCold" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeRastaCold" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbRastaCold" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeRastaCold" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawRastaCold" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolRastaCold" extends="SurvPistolAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumRastaCold" extends="Surv44MagnumAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunRastaCold" extends="SurvSmShotgunAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunRastaCold" extends="SurvShotgunAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5RastaCold" extends="SurvMP5Adv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47RastaCold" extends="SurvAK47Adv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifRastaCold" extends="SurvHuntRifAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperRastaCold" extends="SurvSniperAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketRastaCold" extends="SurvRocketAdv">
+			<property name="Archetype" value="manuSurvRastaMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="SurvPistolFmRastaCold" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmRastaCold" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmRastaCold" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmRastaCold" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmRastaCold" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmRastaCold" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmRastaCold" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmRastaCold" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmRastaCold" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvRastaFemaleCold"/>
+		  </entity_class>
+		 
+		 
+			 <!-- Bandits Warm (Clowns) -->
+		  <entity_class name="BndtHammerClown" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteClown" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeClown" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbClown" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeClown" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawClown" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolClown" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumClown" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunClown" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunClown" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5Clown" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47Clown" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifClown" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperClown" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketClown" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditClownMaleWarm"/>
+		  </entity_class>
+
+		  
+		  <!-- Survs Warm (Teen Girls) -->
+		  <entity_class name="SurvHammerTeen" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteTeen" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeTeen" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbTeen" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeTeen" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawTeen" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		 
+		  
+		  <entity_class name="SurvPistolFmTeen" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmTeen" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmTeen" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmTeen" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmTeen" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmTeen" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmTeen" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmTeen" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmTeen" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleWarm"/>
+		  </entity_class>
+		 
+
+		   <!-- Bandits Cold (Clowns) -->
+		  <entity_class name="BndtHammerClownCold" extends="BndtHammerPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMacheteClownCold" extends="BndtMachetePunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtFireaxeClownCold" extends="BndtFireaxePunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSpkClbClownCold" extends="BndtSpkClbPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtKnifeClownCold" extends="BndtKnifePunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtChainsawClownCold" extends="BndtChainsawPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  
+		  <entity_class name="BndtPistolClownCold" extends="BndtPistolPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="Bndt44MagnumClownCold" extends="Bndt44MagnumPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSmShotgunClownCold" extends="BndtSmShotgunPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtShotgunClownCold" extends="BndtShotgunPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtMP5ClownCold" extends="BndtMP5Punk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtAK47ClownCold" extends="BndtAK47Punk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtHuntRifClownCold" extends="BndtHuntRifPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtSniperClownCold" extends="BndtSniperPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  <entity_class name="BndtRocketClownCold" extends="BndtRocketPunk">
+			<property name="Archetype" value="manuBanditClownMaleCold"/>
+		  </entity_class>
+		  
+		  <!-- Survivors Cold (Teen Girls) -->
+		  <entity_class name="SurvHammerTeenCold" extends="SurvHammerAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvMacheteTeenCold" extends="SurvMacheteAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvFireaxeTeenCold" extends="SurvFireaxeAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvSpkClbTeenCold" extends="SurvSpkClbAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvKnifeTeenCold" extends="SurvKnifeAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		  <entity_class name="SurvChainsawTeenCold" extends="SurvChainsawAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+			<property name="SoundRandom" value="Player_Female/player2stamina"/>
+			<property name="SoundAlert" value="Player_Female/player2jump"/>
+			<property name="SoundSense" value="Player_Female/player2stamina"/>
+			<property name="SoundHurt" value="Player_Female/player2painlg"/>
+			<property name="SoundDeath" value="Player_Female/player2death"/>
+			<property name="SoundAttack" value="Player_Female/player2painsm"/>
+		  </entity_class>
+		 
+		  <entity_class name="SurvPistolFmTeenCold" extends="SurvPistolFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="Surv44MagnumFmTeenCold" extends="Surv44MagnumFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSmShotgunFmTeenCold" extends="SurvSmShotgunFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvShotgunFmTeenCold" extends="SurvShotgunFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvMP5FmTeenCold" extends="SurvMP5FmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvAK47FmTeenCold" extends="SurvAK47FmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvHuntRifFmTeenCold" extends="SurvHuntRifFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvSniperFmTeenCold" extends="SurvSniperFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		  <entity_class name="SurvRocketFmTeenCold" extends="SurvRocketFmAdv">
+			<property name="Archetype" value="manuSurvTeenFemaleCold"/>
+		  </entity_class>
+		</append>
+	</config>
+</configs>

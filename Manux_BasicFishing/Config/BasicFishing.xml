@@ -1,0 +1,638 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX Basic Fishing -->
+			<!-- Fish recipes -->
+			<item id="" name="rawFish">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="10"/>
+				<property name="CraftingIngredientTime" value="15"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="2"/>
+					<property name="Gain_food" value="15"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_stamina" value="0"/>
+					<property name="Gain_sickness" value="30"/>
+					<property name="Buff" value="foodPoisoning"/>
+					<property name="Buff_chance" value="0.5"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="DescriptionKey" value="rawFishDesc"/>
+				<property name="Smell" value="ExLargeSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+			</item>
+			<item id="" name="grilledFish">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="HoldType" value="31"/>
+				<property name="Material" value="organic"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="24"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="15"/>
+					<property name="Gain_water" value="-2"/>
+					<property name="Gain_wellness" value="0.042"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="DescriptionKey" value="rawFishDesc"/>
+				<property name="Smell" value="mediumSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+			</item>
+			<item id="" name="boiledFish">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="10"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="15"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="0.084"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="DescriptionKey" value="rawFishDesc"/>
+				<property name="Smell" value="mediumSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+			</item>
+			<item id="" name="charredFish">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="10"/>
+				<property name="SellableToTrader" value="false"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="15"/>
+					<property name="Gain_water" value="-5"/>
+					<property name="Gain_wellness" value="0"/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="DescriptionKey" value="rawFishDesc"/>
+				<property name="Smell" value="largeSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+			</item>
+			<item id="" name="fishStew">
+				<property name="Meshfile" value="Items/Food/venison_stewPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="23"/>
+				<property name="Stacknumber" value="50"/>
+				<property name="EconomicValue" value="65"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="40"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="4"/>
+					<property name="Sound_start" value="player_drinking"/>
+					<property name="Buff" value="stewWarming,eatFood_12_Trigger"/>
+					<property name="Create_item" value="emptyJar"/>
+				</property>
+				<property name="Group" value="Food/Cooking"/>
+			</item>
+			<item id="" name="fishAndChips">
+				<property name="Meshfile" value="Items/Misc/parcelPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="31"/>
+				<property name="EconomicValue" value="100"/>
+				<property name="Stacknumber" value="50"/>
+				<property class="Action1">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2.1"/>
+					<property name="Use_time" value="..."/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_food" value="30"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_wellness" value="3"/>
+					<property name="Sound_start" value="player_eating"/>
+					<property name="Buff" value="eatFood_15_Trigger"/>
+					<property name="Create_item" value="emptyJar"/>
+				</property>
+				<property name="Smell" value="mediumSmell"/>
+				<property name="Group" value="Food/Cooking"/>
+				<property name="CraftingSkillGroup" value="Cooking"/>
+			</item>
+			<!-- Fishing Gear -->
+			<item id="" name="fishBait">
+				<property name="Meshfile" value="Items/Food/meat_rabbit"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="21"/>
+				<property name="Stacknumber" value="250"/>
+				<property name="CraftingIngredientTime" value="2" />
+				<property class="Action1">
+					<property name="Class" value="Eat" />
+					<property name="Delay" value="1.0" />
+					<property name="Use_time" value="..." />
+					<property name="Gain_health" value="0" />
+					<property name="Gain_food" value="5" />
+					<property name="Gain_water" value="0" />
+					<property name="Gain_stamina" value="0" />
+					<property name="Gain_sickness" value="30" />
+					<property name="Buff" value="foodPoisoning" />
+					<property name="Sound_start" value="UseActions/player_eating" />
+				</property>
+				<!--<property class="Action1">
+					<property name="Class" value="PlaceAsBlock"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Blockname" value="fishBaitBasket"/>
+					<property name="Sound_start" value="bucketplace_water"/>
+				</property>-->
+				<property name="Smell" value="smallSmell" />
+				<property name="Group" value="Food/Cooking" />
+				<property name="DescriptionKey" value="fishBaitDesc"/>
+			</item>
+			<item id="" name="fishingRod">
+				<property name="DescriptionKey" value="fishingRodDesc"/>
+				<property name="Meshfile" value="Items/Weapons/Ranged/Bows/WoodenBow/WoodenBowPrefab"/>
+				<property name="Material" value="Mplastics"/>
+				<property name="HoldType" value="18"/>
+				<property name="Stacknumber" value="1"/>
+				<property name="EconomicValue" value="500"/>
+				<property name="EconomicBundleSize" value="1"/>
+				<property name="SellableToTrader" value="true"/>
+				<property class="Action0">
+					<property name="Class" value="Repair"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Repair_amount" value="250"/>
+					<property name="Upgrade_hit_offset" value="-3"/>
+					<property name="Sound_start" value="repair_block"/>
+					<property name="Allowed_upgrade_items" value="fishBait"/>
+				</property>
+				<property class="Action1">
+					<property name="Class" value="ExchangeItem"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Range" value="2.4"/>
+					<property name="Sphere" value="0.2"/>
+					<property name="Change_item_to" value="fishingRodBaited"/>
+					<property name="Focused_blockname_1" value="fishBaitInBasket"/>
+					<property name="Sound_start" value="organicdestroy1"/>
+				</property>	
+				<property name="Group" value="Tools/Traps,Basics"/>
+				<property name="ActionSkillGroup" value="Mining Tools"/>
+				<property name="CraftingSkillGroup" value="craftSkillTools"/>
+			</item>
+			<item id="" name="fishingRodBaited">
+				<property name="Extends" value="fishingRod"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property class="Action1">
+					<property name="Class" value="ExchangeItem"/>
+					<property name="Delay" value="5"/>
+					<property name="Range" value="2.4"/>
+					<property name="Sphere" value="0.2"/>
+					<property name="Change_item_to" value="fishingRodFull"/>
+					<property name="Focused_blockname_1" value="water"/>
+					<property name="Focused_blockname_2" value="waterMoving"/>
+					<property name="Focused_blockname_3" value="waterStaticBucket"/>
+					<property name="Focused_blockname_4" value="waterMovingBucket"/>
+					<property name="Focused_blockname_5" value="waterSource8"/>
+					<property name="Sound_start" value="bucketplace_water"/>
+				</property>
+			</item>
+			<item id="" name="fishingRodFull">
+				<property name="Extends" value="fishingRod"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="HoldType" value="45"/>
+				<property class="Action1">
+					<property name="Class" value="PlaceAsBlock"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Blockname" value="dummyLivewell"/>
+					<property name="Change_item_to" value="fishingRod"/>
+					<property name="Sound_start" value="bucketplace_water"/>
+				</property>
+			</item>
+			<item id="" name="fishingTrap">
+				<property name="DescriptionKey" value="fishingTrapDesc"/>
+				<!--<property name="Meshfile" value="Items/Crafting/radiator" />-->
+				<property name="Meshfile" value="Items/Misc/car_battery"/>
+				<property name="Material" value="Mmetal_weak" />
+				<property name="HoldType" value="21" />
+				<!--<property name="HoldType" value="17" />-->
+				<property name="Stacknumber" value="1" />
+				<property name="EconomicValue" value="1000"/>
+				<property name="EconomicBundleSize" value="1"/>
+				<property name="SellableToTrader" value="true"/>
+				<property class="Action1">
+					<property name="Class" value="ExchangeItem"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Range" value="2.4"/>
+					<property name="Sphere" value="0.2"/>
+					<property name="Change_item_to" value="fishingTrapBaited"/>
+					<property name="Focused_blockname_1" value="fishBaitInFishingTrapBasket"/>
+					<property name="Sound_start" value="organicdestroy1"/>
+				</property>
+				<property name="Group" value="Tools/Traps,Basics"/>
+				<property name="ActionSkillGroup" value="Mining Tools"/>
+				<property name="CraftingSkillGroup" value="craftSkillTools"/>
+			</item>
+			<item id="" name="fishingTrapBaited">
+				<property name="Extends" value="fishingTrap"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property class="Action1">
+					<property name="Class" value="ExchangeItem"/>
+					<property name="Delay" value="5"/>
+					<property name="Range" value="2.4"/>
+					<property name="Sphere" value="0.2"/>
+					<property name="Change_item_to" value="fishingTrapFull"/>
+					<property name="Focused_blockname_1" value="water"/>
+					<property name="Focused_blockname_2" value="waterMoving"/>
+					<property name="Focused_blockname_3" value="waterStaticBucket"/>
+					<property name="Focused_blockname_4" value="waterMovingBucket"/>
+					<property name="Focused_blockname_5" value="waterSource8"/>
+					<property name="Sound_start" value="bucketplace_water"/>
+				</property>
+			</item>
+			<item id="" name="fishingTrapFull">
+				<property name="Extends" value="fishingTrap"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="HoldType" value="45"/>
+				<property class="Action1">
+					<property name="Class" value="PlaceAsBlock"/>
+					<property name="Delay" value="0.5"/>
+					<property name="Blockname" value="dummyFishingTrapLivewell"/>
+					<property name="Change_item_to" value="fishingTrap"/>
+					<property name="Sound_start" value="bucketplace_water"/>
+				</property>
+			</item>
+		</append>
+	</config>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Basic Fishing -->
+			<block id="" name="dummyLivewell">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="livewell"/>
+				<property name="Material" value="Mplastics"/>
+				<property name="Shape" value="Ext3dModel"/>
+				<property name="Mesh" value="models"/>
+				<property name="Model" value="LootContainers/cooler" param1="main_mesh"/>
+				<property name="Class" value="PlantGrowing" />
+				<property class="PlantGrowing">
+					<property name="FertileLevel" value="0" />
+					<property name="Next" value="livewell" />
+					<property name="GrowthRate" value="0" />
+					<property name="LightLevelStay" value="0" />
+					<property name="IsRandom" value="false" />
+					<property name="LightLevelGrow" value="0"/>
+				</property>	
+				<drop event="Destroy" count="0"/>
+			</block>
+			<block id="" name="livewell">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Class" value="Loot" />
+				<property name="Material" value="Mplastics"/>
+				<property name="MaxDamage" value="100"/>
+				<property name="StabilitySupport" value="false"/>
+				<property name="Shape" value="Ext3dModel"/>
+				<property name="Mesh" value="models"/>
+				<property name="Model" value="LootContainers/cooler" param1="main_mesh"/>
+				<property name="LootList" value="145" />
+				<drop event="Destroy" count="0"/>
+				<property name="Group" value="Decor/Miscellaneous"/>
+				<property name="DescriptionKey" value="furnitureGroupDesc"/>
+				<property name="SellableToTrader" value="false"/>
+			</block>
+			<block id="" name="fishBaitBasket">
+				<property name="DescriptionKey" value="fishBaitBasketDesc"/>
+				<property name="Stacknumber" value="1"/>
+				<property name="Material" value="Mplastics"/>
+				<property name="StabilitySupport" value="false"/>
+				<property name="Shape" value="Ext3dModel"/>	<property name="Texture" value="293"/>
+				<property name="Mesh" value="models"/>
+				<property name="Model" value="LootContainers/shopping_basket_empty" param1="main_mesh"/>
+				<property name="Place" value="TowardsPlacerInverted"/>
+				<property name="ModelOffset" value="0,0,0"/>
+				<property name="CanPickup" value="true"/>
+				<property class="UpgradeBlock">
+						<property name="ToBlock" value="fishBaitInBasket"/>
+						<property name="Item" value="fishBait"/>
+						<property name="ItemCount" value="1"/>
+						<property name="UpgradeHitCount" value="1"/>
+				</property>
+				<drop event="Destroy" name="scrapPlastics" count="3,8" prob="1"/>
+				<drop event="Destroy" name="scrapIron" count="1,4" prob="1"/>
+				<drop event="Destroy" name="mechanicalParts" count="1" prob="1"/>
+			</block>
+			<block id="" name="fishBaitInBasket">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="fishBait"/>
+				<property name="Material" value="organic"/>
+				<property name="Shape" value="ModelEntity"/>
+				<property name="Model" value="Entities/Gore/animal_remainsPrefab"/>
+				<property name="Class" value="PlantGrowing" />
+				<property class="PlantGrowing">
+					<property name="FertileLevel" value="0" />
+					<property name="Next" value="fishBaitBasket" />
+					<property name="GrowthRate" value="0.1" />
+					<property name="LightLevelStay" value="0" />
+					<property name="IsRandom" value="false" />
+					<property name="LightLevelGrow" value="0"/>
+				</property>
+				<drop event="Destroy" count="0"/>
+				<drop event="Fall" count="0"/>
+			</block>
+			<block id="" name="dummyFishingTrapLivewell">
+				<property name="Extends" value="dummyLivewell"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="fishingTrapLivewell"/>
+				<property name="Material" value="Mmetal_weak"/>
+				<property name="Shape" value="CubeCutoutBackFaces" />
+				<property name="Mesh" value="cutout" />
+				<property name="Texture" value="289" />
+				<property name="Class" value="PlantGrowing" />
+				<property class="PlantGrowing">
+					<property name="Next" value="fishingTrapLivewell" />
+				</property>	
+				<drop event="Destroy" count="0"/>
+			</block>
+			<block id="" name="fishingTrapLivewell">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Class" value="Loot" />
+				<property name="Material" value="Mmetal_weak"/>
+				<property name="MaxDamage" value="300"/>
+				<property name="StabilitySupport" value="false"/>
+				<property name="Shape" value="CubeCutoutBackFaces" />
+				<property name="Mesh" value="cutout" />
+				<property name="Texture" value="289" />
+				<property name="Collide" value="movement,rocket,melee" />
+				<property name="LootList" value="146" />
+				<drop event="Destroy" count="0"/>
+				<property name="Group" value="Decor/Miscellaneous"/>
+				<property name="DescriptionKey" value="furnitureGroupDesc"/>
+				<property name="SellableToTrader" value="false"/>
+			</block>
+			<block id="" name="fishingTrapBaitBasket">
+				<property name="Extends" value="fishBaitBasket"/>
+				<property name="DescriptionKey" value="fishingTrapBaitBasketDesc"/>
+				<property class="UpgradeBlock">
+					<property name="ToBlock" value="fishBaitInFishingTrapBasket"/>
+					<property name="ItemCount" value="5"/>
+				</property>
+				<drop event="Destroy" name="scrapIron" count="80,150" prob="1"/>
+			</block>
+			<block id="" name="fishBaitInFishingTrapBasket">
+				<property name="Extends" value="fishBaitInBasket"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Class" value="PlantGrowing" />
+				<property class="PlantGrowing">
+					<property name="Next" value="fishingTrapBaitBasket" />
+				</property>
+			</block>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Basic Fishing -->
+			<!-- Fish recipes -->
+			<recipe name="boiledFish" count="1" craft_time = "8" craft_area="campfire" craft_tool="cookingPot" >
+				<ingredient name="rawFish" count="1"/>
+				<ingredient name="bottledWater" count="1"/>
+			</recipe>
+			<recipe name="grilledFish" count="1" craft_time = "8" craft_area="campfire" craft_tool="cookingGrill" >
+				<ingredient name="rawFish" count="1"/>
+			</recipe>
+			<recipe name="charredFish" count="1" craft_time = "8" craft_area="campfire">
+				<ingredient name="rawFish" count="1"/>
+			</recipe>
+			<recipe name="fishStew" count="1" craft_area="campfire" craft_tool="cookingPot">
+				<ingredient name="rawFish" count="1"/>
+				<ingredient name="potato" count="1"/>
+				<ingredient name="corn" count="1"/>
+				<ingredient name="bottledWater" count="1"/>
+			</recipe>
+			<recipe name="fishAndChips" count="1" craft_area="campfire" craft_tool="cookingGrill">
+				<ingredient name="rawFish" count="1"/>
+				<ingredient name="cornMeal" count="1"/>
+				<ingredient name="potato" count="1"/>
+				<ingredient name="animalFat" count="1"/>
+			</recipe>
+			<!-- Fishing Gear -->
+			<recipe name="fishingRod" count="1" scrapable="False" >
+				<ingredient name="scrapPlastics" count="20"/>
+				<ingredient name="scrapIron" count="10"/>
+				<ingredient name="scrapLead" count="5"/>
+				<ingredient name="mechanicalParts" count="5"/>
+				<ingredient name="ductTape" count="5"/>
+			</recipe>
+			<recipe name="fishBait" count="6" scrapable="False" >
+				<ingredient name="rawMeat" count="1"/>
+			</recipe>
+			<recipe name="fishBait" count="6" scrapable="False">
+				<ingredient name="moldyBread" count="1"/>
+			</recipe>
+			<recipe name="fishBait" count="4" scrapable="False" >
+				<ingredient name="rawFish" count="1"/>
+			</recipe>
+			<recipe name="fishBait" count="2" scrapable="False" >
+				<ingredient name="rottingFlesh" count="1"/>
+			</recipe>
+			<recipe name="fishBaitBasket" count="1" scrapable="False" >
+				<ingredient name="scrapPlastics" count="10"/>
+				<ingredient name="scrapIron" count="5"/>
+				<ingredient name="mechanicalParts" count="2"/>
+				<ingredient name="ductTape" count="2"/>
+			</recipe>
+			<recipe name="fishingTrap" count="1" craft_area="workbench" >
+				<ingredient name="scrapPlastics" count="20"/>
+				<ingredient name="scrapIron" count="100"/>
+				<ingredient name="scrapLead" count="50"/>
+				<ingredient name="mechanicalParts" count="10"/>
+				<ingredient name="ductTape" count="10"/>
+			</recipe>
+			<recipe name="fishingTrapBaitBasket" count="1" scrapable="False" >
+				<ingredient name="scrapPlastics" count="20"/>
+				<ingredient name="scrapIron" count="10"/>
+				<ingredient name="mechanicalParts" count="5"/>
+				<ingredient name="ductTape" count="5"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="buffs">	
+		<append xpath="/buffs">
+			<!-- MANUX Basic Fishing -->
+			<buff id="caughtFish" duration="2" castsound="ImpactSurface/organichitwater1" icon="ui_game_symbol_water" name_key="caughtFish" description_key="caughtFishDesc" tooltip_key="caughtFishTooltip"/>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='coldfood']">
+			<!-- MANUX Basic Fishing -->
+			<item name="rawFish" count="1,2"/>
+			<item name="boiledFish"/>
+			<item name="charredFish"/>
+			<item name="fishStew"/>
+			<item name="fishAndChips"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='junk']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishBait" count="1,5"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='rareTools']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingTrap" prob="0.2"/>
+			<item name="fishingTrapBaitBasket" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='tools']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='sportingGoods']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+			<item name="fishingTrap" prob="0.05"/>
+			<item name="fishingTrapBaitBasket" prob="0.05"/>
+			<item name="fishBait" count="1,5"/>
+		</append>
+		<!-- garage stuff, tools, etc -->
+		<append xpath="/lootcontainers/lootcontainer[@id='22']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+			<item name="fishingTrap" prob="0.05"/>
+			<item name="fishingTrapBaitBasket" prob="0.05"/>
+			<item name="fishBait" count="1,5"/>
+		</append>
+		<!-- birds nest-->
+		<append xpath="/lootcontainers/lootcontainer[@id='25']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishBait" count="1,3" prob="0.1"/>
+		</append>
+		<!-- Supply Crate General, the normal airdrop -->
+		<append xpath="/lootcontainers/lootcontainer[@id='34']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+		</append>
+		<!-- cooler loot -->
+		<append xpath="/lootcontainers/lootcontainer[@id='45']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishBait" count="1,5"/>
+		</append>
+		<!-- Treasure chest -->
+		<append xpath="/lootcontainers/lootcontainer[@id='70']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.5"/>
+			<item name="fishBaitBasket" prob="0.5"/>
+			<item name="fishingTrap" prob="0.2"/>
+			<item name="fishingTrapBaitBasket" prob="0.2"/>
+		</append>
+		<!-- ZombieFarmer -->
+		<append xpath="/lootcontainers/lootcontainer[@id='85']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+			<item name="fishingTrap" prob="0.05"/>
+			<item name="fishingTrapBaitBasket" prob="0.05"/>
+			<item name="fishBait" count="1,5"/>
+		</append>
+		<append xpath="/lootcontainers">
+			<!-- MANUX Basic Fishing -->
+			<lootgroup name="fishingJunk"  count="1">
+				<item name="yuccaFibers" count="1,10" prob="6"/>
+				<item name="emptyJar" count="1"/>
+				<item name="canEmpty" count="1"/>
+				<item name="bottledWater" count="1"/>
+				<item name="bottledRiverWater" count="1"/>
+				<item name="paper" count="1,10"/>
+				<item name="oldCash" count="1,10" prob="0.3"/>
+				<item name="cloth" count="1,10"/>
+				<item name="leather"  count="1,5" prob="0.3"/>
+				<item group="trophyGroup"/>
+				<item name="candleStick"/>
+				<item name="doorKnob" count="1"/>
+				<item name="oil" count="1,6"/>
+				<item name="fishingWeight" count="1,3"/>
+				<item name="scrapLead" count="1,10"/>
+				<item name="wood" count="1,10"/>
+				<item name="glue" count="1"/>
+				<item name="feather" count="1,10"/>
+				<item name="ductTape" count="1,3"/>
+				<item group="rottenFood" count="1,3"/>
+				<item group="books"/>
+				<item group="questChallenge" count="1" prob="0.11"/> 	<!-- 0.06 = .23 % -->
+				<item group="treasureMaps" count="1" prob="0.092"/>
+				<item name="femur" count="1"/>
+				<item name="scrapPlastics" count="1,5" prob="0.3"/>
+				<item group="Armor" count="1" prob="0.5"/>
+			</lootgroup>
+			<lootgroup name="fishingLivewell" count="1">
+				<item group="fishingJunk" count="1" prob="1"/>
+				<item name="rawFish" count="1" prob="0.3"/>
+			</lootgroup>
+			<lootcontainer id="145" count="1" size="2,2" destroy_on_close="true" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="baseTemplate">
+				<item group="fishingLivewell" prob="1"/>
+			</lootcontainer>
+			<lootgroup name="fishingTrapFull" count="2,6">
+				<item group="fishingJunk" count="1" prob="1"/>
+				<item name="rawFish" count="1" prob="0.65"/>
+			</lootgroup>
+			<lootcontainer id="146" count="1" size="5,5" destroy_on_close="true" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="baseTemplate">
+				<item group="fishingTrapFull" prob="1"/>
+			</lootcontainer>
+		</append>	
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='foodSupplies']">
+			<!-- MANUX Basic Fishing -->
+			<item name="rawFish" count="2,6"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='preparedFood']">
+			<!-- MANUX Basic Fishing -->
+			<item name="boiledFish" count="1,3"/>
+			<item name="charredFish" count="1,3"/>
+			<item name="fishStew" count="1,2"/>
+			<item name="fishAndChips" count="1,2"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='generalResources']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+			<item name="fishBait" count="5,20"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='tools']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.2"/>
+			<item name="fishBaitBasket" prob="0.2"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareTools']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingTrap" prob="0.2"/>
+			<item name="fishingTrapBaitBasket" prob="0.2"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderGeneral']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishBait" count="5,20"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingRod" prob="0.5"/>
+			<item name="fishBaitBasket" prob="0.5"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Basic Fishing -->
+			<item name="fishingTrap" prob="0.5"/>
+			<item name="fishingTrapBaitBasket" prob="0.5"/>
+		</append>
+	</config>
+</configs>

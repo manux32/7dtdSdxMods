@@ -1,0 +1,5 @@
+Key,Source,Context,Changes,English
+workstationMerchant,blocks,Block Building,EnChanged,Merchant Delivery Box
+workstationMerchantDesc,blocks,Block Building,EnChanged,"This workstation can be used to buy and sell various goods. Like having a Trader at home!"
+workstationQuest,blocks,Block Building,EnChanged,Quest Board
+workstationQuestDesc,blocks,Block Building,EnChanged,This quest board can be used to purchase various quests.

@@ -1,0 +1,150 @@
+<configs>
+	<config name="quests">	
+		<append xpath="/quests">
+			<!-- MANUX Admin Tools: get skill points quests -->
+			<quest id="adminskill5" name_key="5 Skill Points" subtitle_key="5 Skill Points" description_key="5 Admin Skill Points for Testing" icon="misc_crafting"  repeatable="true" category_key="challenge" difficulty="easy">
+				<reward type="SkillPoints" value="5"/>
+			</quest>
+			<quest id="adminskill15" name_key="15 Skill Points" subtitle_key="15 Skill Points" description_key="15 Admin Skill Points for Testing" icon="misc_crafting"  repeatable="true" category_key="challenge" difficulty="easy">
+				<reward type="SkillPoints" value="15"/>
+			</quest>
+			<quest id="adminskill25" name_key="25 Skill Points" subtitle_key="25 Skill Points" description_key="25 Admin Skill Points for Testing" icon="misc_crafting"  repeatable="true" category_key="challenge" difficulty="easy">
+				<reward type="SkillPoints" value="25"/>
+			</quest>
+			<quest id="adminskill50" name_key="50 Skill Points" subtitle_key="50 Skill Points" description_key="50 Admin Skill Points for Testing" icon="misc_crafting"  repeatable="true" category_key="challenge" difficulty="easy">
+				<reward type="SkillPoints" value="50"/>
+			</quest>
+		</append>
+	</config>
+	<config name="buffs">	
+		<append xpath="/buffs">
+			<!-- MANUX Admin Tools: Bad Company black pill -->
+			<buff id="blackPillBuff" duration="5" actions="setvar(beers,0);setvar(BDKbloodLoss,0);setvar(CTRbed,0);setvar(CTRbedroll,0);setvar(CTRbigbed,0);setvar(CTRblockBurn2,0);setvar(CTRblockBurn3,0);setvar(CTRroadrun,0);setvar(CTRsnowberry,0);setvar(CTRtrapDmg1,0);debuff(infection);debuff(infection1);debuff(infection2);debuff(infection3);debuff(brokenLeg);debuff(sprainedLeg)">
+				<modify id="0" stat="food" amount="25" rate="1"/>
+				<modify id="1" stat="water" amount="25" rate="1"/>
+				<modify id="2" stat="health" amount="50" rate="1"/>
+			 </buff>
+		</append>
+	</config>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX Admin Tools: some from Bad Company -->
+			<item id="" name="blackPill">
+				<property name="Extends" value="painkillers"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="DescriptionKey" value="blackPillDesc"/>
+				<property name="CustomIcon" value="painkillers"/>
+				<property name="CustomIconTint" value="353535"/>
+				<property name="SellableToTrader" value="false"/>
+				<property class="Action1">
+					<property name="Gain_food" value="0"/>
+					<property name="Gain_water" value="0"/>
+					<property name="Gain_health" value="0"/>
+					<property name="Gain_stamina" value="100"/>
+					<property name="Gain_wellness" value="400"/>
+					<property name="Buff" value="blackPillBuff"/>
+				</property>
+			</item>
+			<item id="" name="superDigger">
+				<property name="DescriptionKey" value="superDiggerDesc"/>
+				<property name="CustomIcon" value="gunMP5"/>
+				<property name="CustomIconTint" value="FF0000"/>
+				<Property name="TintColor" value="255,160,160"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="SellableToTrader" value="false"/>
+				<property name="Meshfile" value="Items/Weapons/Ranged/MP5/MP5Prefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="6"/>
+				<property name="Stacknumber" value="1"/>
+				<property name="DegradationBreaksAfter" value="true"/>
+				<property name="Degradation" value="99999" param1="true"/>
+				<property name="SoundJammed" value="weapon_jam"/>
+				<property name="CrosshairUpAfterShot" value="false"/>
+				<property name="CrosshairOnAim" value="true"/>
+				<property class="Action0">
+					<property name="Class" value="Ranged"/>
+					<property name="Hitmask_override" value="Melee"/>
+					<property name="Delay" value="0.150"/>
+					<property name="Range" value="300"/>
+					<property name="Auto_fire" value="true"/>
+					<property name="Rays_per_shot" value="1"/>
+					<property name="Rays_spread" value="0"/>
+					<property name="Crosshair_min_distance" value="5"/>
+					<property name="Crosshair_max_distance" value="8"/>
+					<property name="DamageBlock" value="3000"/>
+					<property name="DamageEntity" value="0.1"/>
+					<property name="Single_magazine_usage" value="true"/>
+					<property name="Infinite_ammo" value="true"/>
+					<property name="Magazine_items" value="9mmBullet"/>
+					<property name="Reload_time" value="4.1"/>
+					<property name="Bullet_icon" value="uzi"/>
+					<property name="Sound_start" value=""/>
+					<property name="Sound_repeat" value=""/>
+					<property name="Sound_end" value=""/>
+					<property name="Sound_empty" value="weapon_empty"/>
+					<property name="Sound_reload" value="mp5_reload"/>
+					<property name="Particles_muzzle_fire" value="nozzleflashuzi"/>
+					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi"/>
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Zoom"/>
+					<property name="Zoom_max_out" value="38"/>
+					<property name="Zoom_max_in" value="10"/>
+				</property>
+			</item>
+			<item id="" name="grassBomb">
+				<property name="Class" value="ItemClassTimeBomb"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="DescriptionKey" value="grassBombDesc"/>
+				<property name="SellableToTrader" value="false"/>
+				<property name="Meshfile" value="Items/Weapons/Ranged/PipeBomb/PipeBombPrefab"/>
+				<property name="CustomIcon" value="treeForestGrassDiagonal"/>
+				<property name="CustomIconTint" value="FF0000"/>
+				<property name="Material" value="metal"/>
+				<property name="HoldType" value="25"/>
+				<property name="Stacknumber" value="500"/>
+				<property name="Explosion.ParticleIndex" value="7"/>
+				<property name="Explosion.RadiusBlocks" value="20"/>
+				<property name="Explosion.BlockDamage" value="10"/>
+				<property name="Explosion.RadiusEntities" value="0"/>
+				<property name="Explosion.EntityDamage" value="0"/>
+				<property name="Explosion.DamageBonus.boulder" value="0"/>
+				<property name="Explosion.DamageBonus.cloth" value="0"/>
+				<property name="Explosion.DamageBonus.concrete" value="0"/>
+				<property name="Explosion.DamageBonus.glass" value="0"/>
+				<property name="Explosion.DamageBonus.metal" value="0"/>
+				<property name="Explosion.DamageBonus.snow" value="0"/>
+				<property name="Explosion.DamageBonus.stone" value="0"/>
+				<property name="Explosion.DamageBonus.organic" value="0"/>
+				<property name="Explosion.DamageBonus.plants" value="0" />
+				<property name="Explosion.DamageBonus.leaves" value="0" />
+				<!-- weirdly, seems like .earth takes care of grass -->
+				<property name="Explosion.DamageBonus.earth" value="0.1"/>
+				<!-- and .wood takes care of plants -->
+				<property name="Explosion.DamageBonus.wood" value="0.1"/>
+				<property name="Explosion.BlastPower" value="150"/>
+				<property name="ExplodeOnHit" value="true"/>
+				<property name="FuseTime" value="4"/>
+				<property name="DropScale" value="2"/>
+				<property class="Action0">
+					<property name="Class" value="ThrowAway"/>
+					<property name="Delay" value="0"/>
+					<property name="Throw_strength_default" value="30"/>
+					<property name="Throw_strength_max" value="30"/>
+					<property name="Max_strain_time" value="0.5"/>
+					<property name="Sound_start" value="swoosh"/>
+				</property>
+				<property name="ThrowableDecoy" value="true"/>
+			</item>
+			<item id="" name="terrainCleanerBomb">
+				<property name="Extends" value="grassBomb"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="DescriptionKey" value="terrainCleanerBombDesc"/>
+				<property name="CustomIcon" value="treeMaple16m"/>
+				<property name="CustomIconTint" value="FF0000"/>
+				<property name="Explosion.DamageBonus.stone" value="25"/>
+				<property name="Explosion.DamageBonus.wood" value="25"/>
+			</item>
+		</append>
+	</config>
+</configs>

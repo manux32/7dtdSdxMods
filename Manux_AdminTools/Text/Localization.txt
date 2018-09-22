@@ -1,0 +1,9 @@
+Key,Source,Context,Changes,English
+blackPill,items,Medical,EnChanged,Blue Pill
+blackPillDesc,items,Medical,EnChanged,"Admin Tool: Gain Health, Stamina, Wellness, Food and Water."
+superDigger,items,Tool,EnChanged,Admin: Super Digger
+superDiggerDesc,items,Tool,EnChanged,"Admin Tool: A gun that destroys any block with 1 hit."
+grassBomb,items,Tool,EnChanged,Admin: Grass Bomb
+grassBombDesc,items,Tool,EnChanged,"Admin Tool: A throwable that gets rid of grass and plants quickly."
+terrainCleanerBomb,items,Tool,EnChanged,Admin: Terrain Cleaner Bomb
+terrainCleanerBombDesc,items,Tool,EnChanged,"Admin Tool: A throwable that cleans a terrain quickly (grass, plants, wood, rocks)."

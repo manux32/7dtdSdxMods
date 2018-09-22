@@ -1,0 +1,237 @@
+<configs>
+	<config name="spawning">	
+		<!-- Warm weather clothing versions -->
+		<append xpath="/spawning/biome[@name='city']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='city_wasteland']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='wasteland_hub']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='plains']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='desert']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='wasteland']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='burnt_forest']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeaders"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutes"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutes"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleePunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsClown"/>
+		</append>
+		
+		<!-- Cold weather clothing versions -->
+		<append xpath="/spawning/biome[@name='forest']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutesCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutesCold"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdPunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='pine_forest']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutesCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutesCold"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdPunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdClown"/>
+		</append>
+		<append xpath="/spawning/biome[@name='snow']">
+			<!-- MANUX Survivors And Bandits -->
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsLeadersCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="SurvivorsBrutesCold"/>
+			<spawn maxcount="1" respawndelay="5" time="Any" entitygroup="BanditsBrutesCold"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdAdv"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdHilb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdRasta"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="SurvivorsMeleeColdTeen"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdPunk"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdBarb"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdNazi"/>
+			<spawn maxcount="4" respawndelay="5" time="Any" entitygroup="BanditsMeleeColdClown"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdAdv"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdHilb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdRasta"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="SurvivorsGunsColdTeen"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdPunk"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdBarb"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdNazi"/>
+			<spawn maxcount="2" respawndelay="5" time="Any" entitygroup="BanditsGunsColdClown"/>
+		</append>
+	</config>
+</configs>

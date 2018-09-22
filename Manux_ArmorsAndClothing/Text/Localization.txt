@@ -1,0 +1,15 @@
+Key,Source,Context,Changes,English
+steelBoots,items,Item Clothes,EnChanged,Steel Boots
+steelLegs,items,Item Clothes,EnChanged,Steel Legs
+steelChestplate,items,Item Clothes,EnChanged,Steel Chestplate
+steelHelmet,items,Item Clothes,EnChanged,Steel Helmet
+steelGloves,items,Item Clothes,EnChanged,Steel Gloves
+HelmetLightDesc,items,Item Clothes,EnChanged,This helmet has a flashlight taped to its side to double as a headlamp.
+ironHelmetLight,items,Item Clothes,EnChanged,Iron Helmet (Light)
+militaryHelmetLight,items,Item Clothes,EnChanged,Military Helmet (Light)
+swatHelmetLight,items,Item Clothes,EnChanged,Swat Helmet (Light)
+scrapHelmetLight,items,Item Clothes,EnChanged,Scrap Helmet (Light)
+steelHelmetLight,items,Item Clothes,EnChanged,Steel Helmet (Light)
+ledAviatorGoggles,items,Item Clothes,EnChanged,Mole Goggles
+ledGoggles,items,Item Clothes,EnChanged,LED Goggles
+LEDHelmetDesc,items,Item Clothes,EnChanged,Wear this to be able to toggle on the LED light.

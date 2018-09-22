@@ -1,0 +1,18 @@
+<mod>
+  <info>
+    <!-- Information about the Mod, the author and version information -->
+    <!-- These are displayed in the SDX Launcher -->
+    <author>stedman420(Simple UI Plus xmls), sphereii(backpack slots C# scripts), anabella (minibike combine), manux (adaptation/bugs fixing/packaged as SDX mod)</author>
+    <name>Manux - Bigger BackPack(120) MiniBike(180) Containers(182) Crafting Slots(+1in +3out)</name>
+    <description>Manux - Bigger BackPack(120) MiniBike(180) Containers(182) Crafting Slots(+1in +3out) SDX Mod</description>
+    <mod_version>1.0</mod_version>
+    <game_version>16.4</game_version>
+    <launcher_version>0.7.2</launcher_version>
+  </info>
+
+  <!-- This references any config files that SDX needs to merge into your files -->
+  <config_mods>
+	<import file="Config\BiggerBackPackMiniBikeContainersCraftingSlots.xml" />
+  </config_mods>
+
+</mod>

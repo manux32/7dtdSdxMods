@@ -1,0 +1,34 @@
+<configs>
+	<config name="npc">	
+		<append xpath="/npc">
+			<!-- MANUX Survivors And Bandits -->
+			<npc_info
+				id="bandits"
+				name="Traitor Joel"
+				name_key="npc_traderRekt"
+				faction="bandits"
+				greeting_type="nearby" />
+			
+			<npc_info
+				id="survivor"
+				name="Traitor Joel"
+				name_key="npc_traderRekt"
+				faction="survivor"
+				greeting_type="nearby" />
+		</append>
+		<append xpath="/npc/factions">
+			<!-- MANUX Survivors And Bandits -->
+			<faction name="bandits">
+				<relationship name="bandits" value="neutral"/>
+				<relationship name="*" value="hate"/>
+			</faction>
+			<faction name="survivor">
+				<relationship name="undead" value="hate"/>
+				<relationship name="bandits" value="hate"/>
+				<relationship name="animals" value="dislike"/>
+				<relationship name="survivor" value="neutral"/>
+				<relationship name="*" value="neutral"/>
+			</faction>
+		</append>
+	</config>
+</configs>

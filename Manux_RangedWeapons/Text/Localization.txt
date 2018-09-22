@@ -1,0 +1,59 @@
+Key,Source,Context,Changes,English
+gunPistolSilenced,items,Item Gun,EnChanged,Pistol (Silenced)
+gunPistolSilencedDesc,items,Item Gun,EnChanged,A silenced pistol.
+gunSilencer,items,Item Gun,EnChanged,Weapon Silencer
+partsSilencerDesc,items,Item Gun,EnChanged,A silencer to attach to guns.
+gunChoke,items,Item Gun,,Shotgun Choke
+partsChokeDesc,items,Item Gun,EnChanged,Attach this weapon choke to a shotgun to reduce spread and increase accuracy.
+gun44MagnumSilenced,items,Item Gun,EnChanged,.44 Magnum (Silenced)
+gun44MagnumSilencedDesc,items,Item Gun,EnChanged,A silenced magnum.
+gunScope,items,Item Gun,EnChanged,High-Powered Scope
+partsScopeDesc,items,Item Gun,EnChanged,A high-powered scope to attach to compatible weapons for increased magnification.
+gunMP5Silenced,items,Item Gun,EnChanged,SMG (Silenced)
+gunMP5SilencedkDesc,items,Item Gun,EnChanged,A silenced SMG.
+gunSniperSilenced,items,Item Gun,EnChanged,Sniper Rifle (Silenced)
+gunSniperSilencedkDesc,items,Item Gun,EnChanged,A silenced sniper rifle.
+gunPumpShotgunChoked,items,Item Gun,EnChanged,Pump Shotgun (Choked)
+gunPumpShotgunChokedDesc,items,Item Gun,EnChanged,Pump shotgun with an attached choke for reduced spread and improved accuracy.
+gunAK47Silenced,items,Item Gun,EnChanged,AK-47 Assault Rifle (Silenced)
+gunAK47SilencedDesc,items,Item Gun,EnChanged,A silenced AK-47 assault rifle
+gunSniperRifleHPScope,items,Item Gun,EnChanged,Sniper Rifle (High-Powered Scope)
+gunSniperRifleHPScopeDesc,items,Item Gun,EnChanged,This sniper rifle features a high-powered scope to allow for further magnification.
+gunSniperRifleHPScopeSilenced,items,Item Gun,EnChanged,Sniper Rifle (High-Powered Scope/Silenced)
+gunSniperRifleHPScopeSilencedDesc,items,Item Gun,EnChanged,This silenced sniper rifle features a high-powered scope to allow for further magnification.
+flamingCrossbowBolt,items,Item Gun,EnChanged,Flaming Crossbow Bolt
+flamingCrossbowBoltDesc,items,Item Gun,EnChanged,Steel crossbow bolt that burns.
+ironBow,items,Item Gun,EnChanged,Iron Bow
+ironBowDesc,items,Item Gun,EnChanged,"This bow deals more damage, has further range and improved durability than a normal bow."
+ironCrossbow,items,Item Gun,EnChanged,Iron Crossbow
+ironCrossbowDesc,items,Item Gun,EnChanged,"This crossbow deals more damage, has further range and improved durability than a normal crossbow."
+crossbowRepeater,items,Item Gun,EnChanged,Repeater Crossbow
+crossbowRepeaterDesc,items,Item Gun,EnChanged,This crossbow is rigged to fire one bolt after another to a maximum of five bolts before requiring a reload.
+crossbowHPScope,items,Item Gun,EnChanged,Crossbow (High-Powered Scope)
+crossbowHPScopeDesc,items,Item Gun,EnChanged,Crossbow with a High-Powered Scope.
+ironCrossbowHPScope,items,Item Gun,EnChanged,Iron Crossbow (High-Powered Scope)
+ironCrossbowHPScopeDesc,items,Item Gun,EnChanged,Iron Crossbow with a High-Powered Scope.
+crossbowRepeaterHPScope,items,Item Gun,EnChanged,Repeater Crossbow (High-Powered Scope)
+crossbowRepeaterHPScopeDesc,items,Item Gun,EnChanged,Repeater Crossbow with a High-Powered Scope.
+slingshot,items,Item Gun,EnChanged,Slingshot
+slingshotDesc,items,Item Gun,EnChanged,"A good old slingshot. Not the most powerful ranged weapon, but easy to craft and bullets are cheap!"
+ironSlingshot,items,Item Gun,EnChanged,Iron Slingshot
+ironSlingshotDesc,items,Item Gun,EnChanged,"This slingshot deals more damage, has further range and improved durability than a normal slingshot."
+ironSlingshotHPScope,items,Item Gun,EnChanged,Iron Slingshot (High-Powered Scope)
+ironSlingshotHPScopeDesc,items,Item Gun,EnChanged,Iron slingshot with a High-Powered Scope.
+slingshotRepeater,items,Item Gun,EnChanged,Repeater Slingshot
+slingshotRepeaterDesc,items,Item Gun,EnChanged,"Because the ammo is so small, this Slingshot comes with an amazing magazine of 20 ammo. Takes longer to reload, but it's needed less often."
+slingshotRepeaterHPScope,items,Item Gun,EnChanged,Repeater Slingshot (High-Powered Scope)
+slingshotRepeaterHPScopeDesc,items,Item Gun,EnChanged,Repeater Slingshot with a High-Powered Scope.
+slingshotRockAmmo,items,Item Gun,EnChanged,Slingshot Rock Ammo
+slingshotRockAmmoDesc,items,Item Gun,EnChanged,Craft them using small rocks.
+slingshotSteelAmmo,items,Item Gun,EnChanged,Slingshot Steel Ammo
+slingshotSteelAmmoDesc,items,Item Gun,EnChanged,"More deadly than Slingshot Rock Ammo, Craft them in the forge like steel darts."
+flamingSlingshotAmmo,items,Item Gun,EnChanged,Flaming Slingshot Ammo
+flamingSlingshotAmmoDesc,items,Item Gun,EnChanged,Slingshot Steel Ammo that burns
+explodingSlingshotAmmo,items,Item Gun,EnChanged,Exploding Slingshot Ammo
+explodingSlingshotAmmoDesc,items,Item Gun,EnChanged,Not as powerful as Exploding crossbow bolts but much cheaper
+shockingSlingshotAmmo,items,Item Gun,EnChanged,Shocking Slingshot Ammo
+shockingSlingshotAmmoDesc,items,Item Gun,EnChanged,A mini tazer packed in each ammo.
+miniHPBattery,items,Item Gun,EnChanged,Mini High-Powered Batteries
+miniHPBatteryDesc,items,Item Gun,EnChanged,You can make 50 of those from a car battery.

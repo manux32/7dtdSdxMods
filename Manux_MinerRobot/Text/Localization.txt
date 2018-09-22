@@ -1,0 +1,8 @@
+Key,Source,Context,Changes,English
+minerGeneric,blocks,Block Building,EnChanged,MINER ROBOT (GENERIC DEVICE)
+minerGenericDesc,blocks,Block Building,EnChanged,"Non-Active Generic Miner Robot. Convert to a specific ore group version of the device to activate it."
+minersDesc,blocks,Block Building,EnChanged,Upgrade the miner robots with gas using a clawhammer or wrench to have them mine ressources for you.
+minerRareOres,blocks,Block Building,EnChanged,MINER ROBOT (RARE ORES)
+minerRareOresHarvest,blocks,Block Building,EnChanged,Rare Ores harvest
+minerRegularOres,blocks,Block Building,EnChanged,MINER ROBOT (REGULAR ORES)
+minerRegularOresHarvest,blocks,Block Building,EnChanged,Regular Ores harvest

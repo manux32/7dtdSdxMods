@@ -1,0 +1,11 @@
+Key,Source,Context,Changes,English
+assortedVegetables,items,Item Food,EnChanged,Assorted Vegetables
+assortedVegetablesDesc,items,Item Food,EnChanged,The recipe using all 3 crops: Potato - Corn - and Mushrooms - produces more Assorted Vegetables.
+burgerAndFries,items,Item Food,EnChanged,Burger And Fries
+baconEggSandwich,items,Item Food,EnChanged,Bacon Egg Sandwich
+scrambledEggs,items,Item Food,EnChanged,Scrambled Eggs
+Omelet,items,Item Food,EnChanged,Omelet
+rawPasta,items,Item Food,EnChanged,Raw Pasta
+sheperdsPie,items,Item Food,EnChanged,Sheperds Pie
+padThai,items,Item Food,EnChanged,Pad Thai
+steakSandwich,items,Item Food,EnChanged,Steak Sandwich

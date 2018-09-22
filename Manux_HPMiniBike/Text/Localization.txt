@@ -1,0 +1,11 @@
+Key,Source,Context,Changes,English
+bigEngine,items,Part,EnChanged,High-Powered Engine
+bigEngineDesc,items,Part,EnChanged,"A bigger, more robust, and more powerful engine for your minibike. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!"
+robustMinibikeChassis,items,Part,EnChanged,Robust Minibike Chassis (Power suspension)
+robustMinibikeChassisDesc,items,Part,EnChanged,"A more robust minibike chassis equipped with power suspension. You almost don't get hurt anymore when jumping too high."
+professionalMinibikeHandlebars,items,Part,EnChanged,Professional Minibike Handlebars
+professionalMinibikeHandlebarsDesc,items,Part,EnChanged,"Have better control of your driving with these professional handlebars. They will also degrade slower than regular ones."
+HPminibikeWheels,items,Part,EnChanged,High Performance Minibike Wheels
+HPminibikeWheelsDesc,items,Part,EnChanged,"Have better traction and reduced drag with these beautiful minibike High Performance tires. They will also degrade slower than regular ones."
+deluxeMinibikeSeat,items,Part,EnChanged,Deluxe Minibike Seat
+deluxeMinibikeSeatDesc,items,Part,EnChanged,"A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower."

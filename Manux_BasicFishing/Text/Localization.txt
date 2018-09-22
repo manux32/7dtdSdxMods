@@ -1,0 +1,25 @@
+Key,Source,Context,Changes,English
+fishingRod,items,Tool,EnChanged,Fishing Rod
+fishingRodDesc,items,Tool,EnChanged,"A fishing rod is a long, flexible rod used to catch fish. Add bait to it using fish bait and a fish bait basket. You can then right-click a body of water to fish."
+fishingRodBaited,items,Tool,EnChanged,Fishing Rod Baited
+fishingRodFull,items,Tool,EnChanged,Fishing Rod Full
+fishBait,items,Item Food,EnChanged,Fish Bait
+fishBaitDesc,items,Tool,EnChanged,"Craft fishing bait to be able to arm a fishing Rod for fishing."
+fishBaitBasket,items,Item Food,EnChanged,Fish Bait Basket
+fishBaitBasketDesc,items,Tool,EnChanged,"Place the basket on the ground, then add fish bait to it by upgrading the basket with a hammer. You can then bait your fishing Rod by right-clicking with it on the corpse that replaced the basket. (hurry before the bait runs away)"
+fishingTrap,items,Tool,EnChanged,Fishing Trap
+fishingTrapDesc,items,Tool,EnChanged,"A fishing trap is a metal cage used to catch fish. Add bait to it using fish bait and a fish trap bait basket. You can then right-click a body of water to fish."
+fishingTrapBaited,items,Tool,EnChanged,Fishing Trap Baited
+fishingTrapFull,blocks,Block,EnChanged,Fishing Trap Full
+fishingTrapBaitBasket,items,Item Food,EnChanged,Fishing Trap Bait Basket
+fishingTrapBaitBasketDesc,items,Tool,EnChanged,"Place the basket on the ground, then add fish bait to it by upgrading the basket with a hammer. You can then bait your fishing Trap by right-clicking with it on the corpse that replaced the basket. (hurry before the bait runs away)"
+rawFish,items,Item Food,EnChanged,Raw Fish
+rawFishDesc,items,Item Food,EnChanged,"Fish can be eaten raw but is better when charred, grilled, boiled or made into fancier meals at a campfire. Can attract zombies if carried."
+grilledFish,items,Item Food,EnChanged,Grilled Fish
+boiledFish,items,Item Food,EnChanged,Boiled Fish
+charredFish,items,Item Food,EnChanged,Charred Fish
+fishStew,items,Item Food,EnChanged,Fish Stew
+fishAndChips,items,Item Food,EnChanged,Fish And Chips
+caughtFish,blocks,Electricity,EnChanged,Fished Something!
+caughtFishDesc,blocks,Electricity,EnChanged,"Finaly caught something! Place your Fishing Rod on the ground to be able to harvest from a Livewell."
+caughtFishTooltip,buffs,Buff,EnChanged,"Finaly caught something! Place your Fishing Rod on the ground to be able to harvest from a Livewell."

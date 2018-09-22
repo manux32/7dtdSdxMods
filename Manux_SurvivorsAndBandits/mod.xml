@@ -1,0 +1,24 @@
+<mod>
+	<info>
+		<!-- Information about the Mod, the author and version information -->
+		<!-- These are displayed in the SDX Launcher -->
+		<author>manux (inspired by Bad Company bandits)</author>
+		<name>Manux - Survivors And Bandits</name>
+		<description>Manux - Survivors And Bandits SDX Mod</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.4</game_version>
+		<launcher_version>0.7.2</launcher_version>
+	</info>
+	
+	<!-- This references any config files that SDX needs to merge into your files -->
+	<config_mods>
+		<import file="Config\archetypes.xml" />
+		<import file="Config\blocks.xml" />
+		<import file="Config\entityclasses.xml" />
+		<import file="Config\entitygroups.xml" />
+		<import file="Config\items.xml" />
+		<import file="Config\loot.xml" />
+		<import file="Config\npc.xml" />
+		<import file="Config\spawning.xml" />
+    </config_mods>	
+</mod>

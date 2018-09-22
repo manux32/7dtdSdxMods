@@ -1,0 +1,224 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX Traps -->
+			<item id="" name="flamingDart">
+				<property name="Extends" value="steelDart"/>
+				<property name="DescriptionKey" value="flamingDartDesc"/>
+				<property name="EconomicValue" value="45"/>
+				<property name="EconomicBundleSize" value="10"/>
+				<property class="Attributes">
+					<!--<property name="ApplyBuff" value="0.5,0.5" param1="trapBurningMedium"/>-->
+					<property name="ApplyBuff" value="0.5,0.5" param1="burningSmall"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+		</append>
+	</config>
+	<config name="materials">
+		<append xpath="/materials">
+			<!-- MANUX Traps -->
+			<material id="MadhesiveSteel">
+				<property name="damage_category" value="metal" />
+				<property name="surface_category" value="metal" />
+				<property name="forge_category" value="iron" />
+				<property name="Hardness" type="float" value="1" />
+				<property name="stepsound" value="metal" />
+				<property name="stability_glue" value="320" />
+				<property name="Mass" type="int" value="20" />
+				<property name="explosionresistance" value="1.5" />
+				<property name="MaxDamage" value="8000" />
+				<property name="movement_factor" value="0.03" />
+				<property name="Experience" value="7"/>
+			</material>
+		</append>
+	</config>
+	<config name="blocks">
+		<append xpath="/blocks/block[@name='steelLogSpike6']">
+				<!-- MANUX Traps -->
+				<property class="UpgradeBlock">
+					<property name="ToBlock" value="trapAdhesiveElectricSteelSpike"/>
+					<property name="Item" value="forgedSteel"/>
+					<property name="ItemCount" value="5"/>
+					<property name="UpgradeHitCount" value="1"/>
+				</property>
+		</append>		
+		<append xpath="/blocks">
+			<!-- MANUX Traps -->
+			<block id="" name="trapAdhesiveElectricSteelSpike">
+				<!--<property name="Class" value="TrunkTip"/>-->
+				<property name="Class" value="AdhesiveElectricSteelSpike, Mods"/>
+				<property name="RequiredPower" value="5"/>
+				<property name="Damage" value="8"/>
+				<property name="Damage_received" value="50"/>
+				<property name="Material" value="MadhesiveSteel"/>
+				<property name="MaxDamage" value="5000"/>
+				<property name="Shape" value="New"/>
+				<property name="LightOpacity" value="6"/>
+				<property name="Model" value="cone1m"/>
+				<!--<property name="Texture" value="356,355,356,356,356,356"/>-->
+				<property name="Texture" value="307"/>
+				<property name="ImposterExchange" value="imposterPyramid" param1="112"/>
+				<property name="ImposterDontBlock" value="true"/>
+				<property name="UseGlobalUV" value="Local"/>
+				<!--property name="DontDamageOnTouch" value="true" /-->
+				<property name="BuffsWhenWalkedOn" value="trapDamage1Trigger"/>	
+				<property class="RepairItems">
+					<property name="forgedIron" value="10"/>
+				</property>
+				<property name="CustomUpgradeSound" value="place_block_metal"/>
+				<property name="DowngradeBlock" value="steelLogSpike6"/>
+				<!--<drop event="Destroy" name="scrapIron" count="10,20" prob="1"/>-->
+				<drop event="Destroy" name="scrapIron" count="20,40" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="EconomicValue" value="215"/>
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="Group" value="Tools/Traps,Science"/>
+				<property name="DescriptionKey" value="trapAdhesiveElectricSteelSpikeDesc"/>
+				<property class="UpgradeBlock">
+					<property name="ToBlock" value="trapAdhesiveElectricSteelFireSpike"/>
+					<property name="Item" value="gasCan"/>
+					<property name="ItemCount" value="10"/>
+					<property name="UpgradeHitCount" value="1"/>
+				</property>
+			</block>
+			<block id="" name="trapAdhesiveElectricSteelFireSpike">
+				<!--<property name="Class" value="TrunkTip"/>-->
+				<property name="Class" value="AdhesiveElectricSteelFireSpike, Mods"/>
+				<property name="RequiredPower" value="5"/>
+				<property name="Damage" value="8"/>
+				<property name="Damage_received" value="50"/>
+				<property name="Material" value="MadhesiveSteel"/>
+				<property name="MaxDamage" value="5000"/>
+				<property name="Shape" value="New"/>
+				<property name="LightOpacity" value="6"/>
+				<property name="Model" value="cone1m"/>
+				<!--<property name="Texture" value="356,355,356,356,356,356"/>-->
+				<property name="Texture" value="352"/>
+				<property name="ImposterExchange" value="imposterPyramid" param1="112"/>
+				<property name="ImposterDontBlock" value="true"/>
+				<property name="UseGlobalUV" value="Local"/>
+				<!--property name="DontDamageOnTouch" value="true" /-->
+				<property name="BuffsWhenWalkedOn" value="trapDamage1TriggerAndBurningMedium"/>
+				<property class="RepairItems">
+					<property name="gasCan" value="10" />
+				</property>
+				<property name="CustomUpgradeSound" value="place_block_metal"/>
+				<property name="DowngradeBlock" value="trapAdhesiveElectricSteelSpike"/>
+				<!--<drop event="Destroy" name="scrapIron" count="10,20" prob="1"/>-->
+				<drop event="Destroy" name="scrapIron" count="20,40" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="EconomicValue" value="285"/>
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="Group" value="Tools/Traps,Science"/>
+				<property name="DescriptionKey" value="trapAdhesiveElectricSteelFireSpikeDesc"/>
+			</block>
+			<block id="" name="trapDartAutoTurret">
+				<property name="Extends" value="autoTurret"/>
+				<property name="DescriptionKey" value="trapDartAutoTurretDesc"/>
+				<property name="CustomIcon" value="shotgunTurret"/>
+				<property name="Model" value="Entities/Traps/AutoTurret/Auto_TurretShotgunPrefab"/>
+				<property name="AmmoItem" value="steelDart"/> <!-- does not use the damage value -->
+				<property name="MaxDistance" value="30"/>
+				<property name="EntityDamage" value="22"/> <!-- 146 dps, 330 / burst -->
+				<property name="BlockDamage" value="1"/>
+				<!--<property name="RaySpread" value="2.6"/>--> <!-- Spread 2.6deg: 1m cone (55% hit) @ 22m -->
+				<property name="RaySpread" value="0.012"/> <!-- crossbow spread -->
+
+				<property name="BustRoundCount" value="15"/>
+				<property name="BurstFireRate" value="0.5"/>
+				<property name="CooldownTime" value="2"/>
+				<property name="OvershootTime" value="0.4"/>
+
+				<property name="ParticlesMuzzleFire" value="nozzleflashuzi"/>
+				<property name="ParticlesMuzzleSmoke" value="nozzlesmokeuzi"/>
+
+				<property name="Buff" value="arrowCriticalBleedout"/>
+				<!--<property name="BuffChance" value="0.3,0.3"/>
+				<property name="BuffChance" value="0.8"/>-->
+				<property name="BuffChance" value="0.5"/>
+
+				<property name="WakeUpSound" value="crossbow_reload"/>
+				<!--<property name="FireSound" value="darttrap_fire"/>-->
+				<property name="FireSound" value="crossbow_fire"/>
+				<property name="EconomicValue" value="4000"/>
+				<property name="PickupJournalEntry" value="cameraTip"/>
+			</block>
+			<block id="" name="trapFlamingDartAutoTurret">
+				<property name="Extends" value="trapDartAutoTurret"/>
+				<property name="DescriptionKey" value="trapFlamingDartAutoTurretDesc"/>
+				<property name="AmmoItem" value="flamingDart"/> <!-- does not use the damage value -->
+				<!--<property name="Buff" value="arrowCriticalBleedout, trapBurningMedium"/>-->
+				<property name="Buff" value="arrowCriticalBleedout, burningSmall"/>
+				<!--<property name="BuffChance" value="0.3,0.3"/>
+				<property name="BuffChance" value="0.8"/>-->
+				<property name="BuffChance" value="0.5"/>
+				<property name="EconomicValue" value="5000"/>
+			</block>	
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Traps -->
+			<recipe name="flamingDart" count="1" craft_area="workbench">
+				<ingredient name="steelDart" count="1"/>
+				<ingredient name="gunPowder" count="1"/>
+				<ingredient name="tallow" count="1"/>
+			</recipe>
+			<recipe name="trapDartAutoTurret" count="1" craft_area="workbench"> <!-- trap -->
+				<ingredient name="motionsensor" count="1"/>
+				<ingredient name="crossbowRepeater" count="1"/>
+				<ingredient name="mechanicalParts" count="6"/>
+				<ingredient name="electricParts" count="4"/>
+				<ingredient name="electronicParts" count="4"/>
+			</recipe>
+			<recipe name="trapFlamingDartAutoTurret" count="1" craft_area="workbench"> <!-- trap -->
+				<ingredient name="motionsensor" count="1"/>
+				<ingredient name="crossbowRepeater" count="1"/>
+				<ingredient name="mechanicalParts" count="6"/>
+				<ingredient name="electricParts" count="4"/>
+				<ingredient name="electronicParts" count="4"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="buffs">	
+		<append xpath="/buffs">
+			<!-- MANUX Traps -->
+			<buff id="trapShockedBuffSmall" duration="3" stack="discard" debuffif="ShockAmount equals 0" buffif="ShockAmount greater 0"
+				actions="attach(ParticleEffects/p_electric_shock, @impact)" castsound="electric_fence_impact"
+				icon="ui_game_symbol_electric_power" name_key="shockedBuffName" description_key="shockedBuffDesc" tooltip_key="shockedBuffTooltip">
+				<modify id="0" stat="health" amount="-1.8" rate="0.5"/>
+				<modify id="1" stat="speedmodifier" mulValue="0.2" duration="2.5"/>
+			</buff>
+			<buff id="trapBurningMedium" mutex="burning,cannotBreath,drowning,extinguishFireBuff" duration="12.5" stack="reset" debuffif="+water > 1" ffcheck="true" actions="attach(ParticleEffects/p_onFire, @impact);damage(0,1,0,1);damage(0,2.5,0,0)" icon="ui_game_symbol_fire" name_key="burningSmall" description_key="burningSmallDesc" tooltip_key="burningSmallTooltip" cures="canBoiledWater,bottledWater,goldenRodTea,redTea">
+				<modify id="1" stat="health" amount="-6" rate="1"/>
+			</buff>
+			<buff id="trapBurnAndShock" duration="1" actions="buff(burning);buff(shockedBuff)" icon="ui_game_symbol_electric_power" name_key="burnAndShock" description_key="burnAndShockDesc" tooltip_key="burnAndShockTooltip">
+			</buff>
+			<buff id="trapBurnAndShockSmall" duration="1" actions="buff(trapBurningMedium);buff(trapShockedBuffSmall)" icon="ui_game_symbol_electric_power" name_key="burnAndShock" description_key="burnAndShockDesc" tooltip_key="burnAndShockTooltip">
+			</buff>
+			<buff id="trapDamage1TriggerAndBurningMedium" duration="1" actions="buff(trapBurningMedium);buff(trapDamage1Trigger)" icon="ui_game_symbol_fire" name_key="burningSmall" description_key="burningSmallDesc" tooltip_key="burningSmallTooltip">
+			</buff>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderElectrical']">
+			<!-- MANUX Traps -->
+			<item name="flamingDart" count="15,70" prob="0.2"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX Traps -->
+			<item name="flamingDart" count="15,70" prob="0.5"/>
+			<item name="trapDartAutoTurret" count="1,2" prob="0.5"/>
+			<item name="trapFlamingDartAutoTurret" count="1,2" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Traps -->
+			<item name="flamingDart" count="15,70" prob="1"/>
+			<item name="trapDartAutoTurret" count="1,3" prob="0.6"/>
+			<item name="trapFlamingDartAutoTurret" count="1,2" prob="0.5"/>
+		</append>
+	</config>
+</configs>

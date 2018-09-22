@@ -1,0 +1,68 @@
+<configs>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Healing Pod -->
+			<block id="" name="healingPod">
+				<property name="DescriptionKey" value="healingPodDesc"/>
+				<property name="Class" value="HealingPod, Mods"/>
+				<property name="RequiredPower" value="50"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="Material" value="Mmetal_medium" />
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#HealingPod?HealingPodPrefab" />
+				<property name="ModelOffset" value="0,0,0" />
+				<property name="WireOffset" value="0,-0.5,0" />
+				<property name="Place" value="TowardsPlacer" />	
+				<property name="Stacknumber" value="1"/>
+				<property name="HeatMapStrength" value="1.5"/>
+				<property name="HeatMapTime" value="1200"/>
+				<property name="HeatMapFrequency" value="25"/>
+				<property class="RepairItems">
+					<property name="forgedSteel" value="10"/>
+					<property name="electronicParts" value="5"/>
+					<property name="electricParts" value="4"/>
+				</property>
+				<drop event="Harvest" name="" count="0" tool_category="Disassemble"/>
+				<drop event="Destroy" count="0"/>	
+				<drop event="Destroy" name="forgedSteel" count="5,10" tool_category="Disassemble"/>
+				<drop event="Destroy" name="electricParts" count="3,10" tool_category="Disassemble"/>
+				<drop event="Destroy" name="electronicParts" count="3,10" tool_category="Disassemble"/>
+				<drop event="Destroy" name="scrapIron" count="20,60" tool_category="Disassemble"/>
+				<drop event="Destroy" name="scrapIron" count="80,150" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="Group" value="Science"/>
+				<property name="EconomicValue" value="12000"/>
+			</block>
+		</append>
+	</config>
+	<config name="buffs">	
+		<append xpath="/buffs">
+			<!-- MANUX Healing Pod -->
+			<buff id="healingPod" duration="2" stack="reset" type="healthup" requires="isPlayer" castsound="UseActions/player_firstaidkit" actions="buff(extinguishFireBuff);debuff(sprainedLeg);debuff(brokenLeg);debuff(splint);debuff(dysentery);debuff(dysentery2);debuff(infection);debuff(infection1);debuff(infection2);debuff(infection3);debuff(infection4)" icon="ui_game_symbol_medical" name_key="healingPod" description_key="healingPodDesc" tooltip_key="healingPodTooltip">  
+				<modify id="0" stat="health" amount="10" rate="1"/>
+				<modify id="1" stat="coretemp" setValue="70"/>
+			</buff>
+		</append>
+	</config>
+	<config name="loot">	
+		<append xpath="/lootcontainers/lootgroup[@name='rareMedicine']">
+			<!-- MANUX Healing Pod -->
+			<item name="healingPod" prob="0.01"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='airdropMedicine']">
+			<!-- MANUX Healing Pod -->
+			<item name="healingPod" prob="0.01"/>
+		</append>
+		<!-- treasure chests -->
+		<append xpath="/lootcontainers/lootcontainer[@id='70']">
+			<!-- MANUX Healing Pod -->
+			<item name="healingPod" prob="0.01"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Healing Pod -->
+			<item name="healingPod" count="1"/>
+		</append>
+	</config>
+</configs>

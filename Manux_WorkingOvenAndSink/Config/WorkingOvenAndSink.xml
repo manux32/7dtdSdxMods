@@ -1,0 +1,262 @@
+<configs>
+	<config name="items">	
+		<set xpath="/items/item[@name='wrench']/property[@class='Action1']/property[@name='Allowed_upgrade_items']/@value">wood,clayLump,dirtFragment,snowBall,scrapIron,forgedIron,forgedSteel,steelPolish,concreteMix,cobblestones,yuccaFibers,gasCan,plumbingKit,ovenKit</set>	
+		<append xpath="/items">
+			<!-- MANUX Working Oven And Sink -->
+			<item id="" name="plumbingKit">
+				<property name="DescriptionKey" value="plumbingKitDesc"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="HoldType" value="45"/>
+				<property name="Stacknumber" value="10"/>
+				<property name="Group" value="Resources,Basics"/>
+				<property name="RepairAmount" value="100"/>
+				<property name="LootExpValue" value="1"/>
+				<property name="CraftingIngredientTime" value="0.5"/>
+			</item>
+			<item id="" name="ovenKit">
+				<property name="Extends" value="plumbingKit"/>
+				<property name="DescriptionKey" value="ovenKitDesc"/>
+			</item>
+		</append>
+		<append xpath="/items/item[@name='emptyJar']">
+			<!-- MANUX Working Oven And Sink -->
+			<property class="Action0">
+				<property name="Class" value="ExchangeItem"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Change_item_to" value="bottledWater"/>
+				<property name="Focused_blockname_1" value="workingCabinetSink"/>
+				<property name="Focused_blockname_2" value="workingGranitSink"/>
+				<property name="Sound_start" value="bucketfill_water"/>
+			</property>
+		</append>
+		<append xpath="/items/item[@name='bucket']/property[@class='Action1']">
+				<!-- MANUX Working Oven And Sink -->
+				<property name="Focused_blockname_6" value="workingCabinetSink"/>
+				<property name="Focused_blockname_7" value="workingGranitSink"/>
+		</append>
+	</config>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Working Oven And Sink -->
+			<block id="" name="workstationOven">
+				<property name="DescriptionKey" value="workstationOvenDesc"/>
+				<property name="Class" value="Workstation" />
+				<property name="CustomIcon" value="cntWallOven" />
+				<property name="Place" value="TowardsPlacerInverted" />
+				<property name="Stacknumber" value="1" />
+				<property name="Material" value="wood_weak" />
+				<property name="Texture" value="346,345,341,345,262,345" />
+				<property name="LootList" value="130" />
+				<drop event="Destroy" name="workstationOven" count="1" />
+				<drop event="Fall" name="woodDebris" count="1" prob="1.0"  stick_chance=".75" />
+				<property name="HeatMapStrength" value="1"/>
+				<property name="HeatMapTime" value="1200"/>
+				<property name="HeatMapFrequency" value="25"/>
+				<property name="Group" value="Food/Cooking,Decor" />
+				<property name="ActiveRadiusEffects" value="+heatSource(3)"/>
+				<property class="Workstation">
+					<property name="Modules" value="tools,output,input"/>
+					<property name="CraftingAreaRecipes" value="campfire" />
+				</property>
+				<property name="TakeDelay" value="5"/>
+				<property class="RepairItems"> <property name="forgedSteel" value="5" />	</property>
+			</block>
+			<block id="" name="workingGranitSink">
+				<property name="DescriptionKey" value="WorkingSinkDesc"/>
+				<property name="CustomIcon" value="cntGraniteSink" />
+				<property name="Class" value="Workstation" />
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="Stacknumber" value="1" />
+				<property name="Material" value="metal"/>
+				<property name="Shape" value="New"/>
+				<property name="Model" value="counter_sink"/> <property name="Place" value="TowardsPlacerInverted"/>
+				<property name="IsDecoration" value="true"/>
+				<property name="Texture" value="373,261,262,345,345,345"/>
+				<property class="Workstation">
+					<property name="Modules" value="input"/>
+				</property>
+				<drop event="Destroy" name="scrapIron" count="5" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<drop event="Harvest" name="shortMetalPipe" count="4" tool_category="Disassemble"/>
+				<drop event="Harvest" name="scrapIron" count="10" tool_category="Disassemble"/>
+				<drop event="Fall" name="woodDebris" count="1" prob="0.75" stick_chance="1"/>
+				<property name="EconomicValue" value="80"/>
+				<property name="ImposterExchange" value="imposterBlock" param1="116"/>
+				<property class="RepairItems"> <property name="scrapIron" value="10" /> </property>
+				</block>
+			<block id="" name="workingCabinetSink">
+				<property name="Extends" value="workingGranitSink" />
+				<property name="CustomIcon" value="cntCabinetOldSink" />
+				<property name="Texture" value="374,78,79,84,84,84"/>
+			</block>
+		</append>
+		<append xpath="/blocks/block[@name='cntOven']">
+			<!-- MANUX Working Oven And Sink -->
+			<drop event="Harvest" name="cookingGrill"  prob="0.4" count="1" tool_category="Disassemble"/>
+			<property class="UpgradeBlock">
+				<property name="ToBlock" value="workstationOven"/>
+				<property name="Item" value="ovenKit"/>
+				<property name="ItemCount" value="1"/>
+				<property name="UpgradeHitCount" value="15"/>
+			</property>
+		</append>
+		<append xpath="/blocks/block[@name='cntWallOven']">
+			<!-- MANUX Working Oven And Sink -->
+			<drop event="Harvest" name="cookingGrill"  prob="0.4" count="1" tool_category="Disassemble"/>
+			<property class="UpgradeBlock">
+				<property name="ToBlock" value="workstationOven"/>
+				<property name="Item" value="ovenKit"/>
+				<property name="ItemCount" value="1"/>
+				<property name="UpgradeHitCount" value="15"/>
+			</property>
+		</append>
+		<append xpath="/blocks/block[@name='cntGraniteSink']">
+			<!-- MANUX Working Oven And Sink -->
+			<property class="UpgradeBlock">
+				<property name="ToBlock" value="workingGranitSink"/>
+				<property name="Item" value="plumbingKit"/>
+				<property name="ItemCount" value="1"/>
+				<property name="UpgradeHitCount" value="15"/>
+			</property>
+		</append>
+		<append xpath="/blocks/block[@name='cntCabinetOldSink']">
+			<!-- MANUX Working Oven And Sink -->
+			<property class="UpgradeBlock">
+				<property name="ToBlock" value="workingCabinetSink"/>
+				<property name="Item" value="plumbingKit"/>
+				<property name="ItemCount" value="1"/>
+				<property name="UpgradeHitCount" value="15"/>
+			</property>
+		</append>
+	</config>
+	<config name="xui">
+		<append xpath="/xui/ruleset" >
+			<!-- MANUX Working Oven And Sink -->
+			<window_group name="workstation_workstationOven" controller="XUiC_WorkstationWindowGroup">
+				<window name="windowCraftingList"/>
+				<window name="craftingInfoPanel"/>
+				<window name="windowCraftingQueue"/>
+				<!--<window name="S420windowCraftingQueue"/>-->		<!-- for Simple UI mod (5 input slots) --> 
+				<window name="windowToolsCampfire" />
+				<window name="windowOutput" />
+				<!--<window name="S420windowOutput" />-->			<!-- for Simple UI mod (9 output slots) --> 
+				<window name="windowNonPagingHeader" />
+			</window_group>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Working Oven And Sink -->
+			<recipe name="workstationOven" count="1" craft_area="workbench" >
+				<ingredient name="forgedIron" count="20" />
+				<ingredient name="cookingGrill" count="2" />
+				<ingredient name="ovenKit" count="1" />
+			</recipe>
+			<recipe name="workingCabinetSink" count="1" craft_area="workbench">
+				<ingredient name="wood" count="15" />
+				<ingredient name="forgedIron" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+				<ingredient name="plumbingKit" count="1" />
+			</recipe>
+			<recipe name="workingGranitSink" count="1" craft_area="workbench"> 
+				<ingredient name="wood" count="15" />
+				<ingredient name="cobblestones" count="5" />
+				<ingredient name="forgedIron" count="10"/>
+				<ingredient name="shortMetalPipe" count="5"/>
+				<ingredient name="plumbingKit" count="1" />
+			</recipe>
+			<recipe name="ovenKit" count="1">
+				<ingredient name="electricParts" count="5"/>
+				<ingredient name="cookingGrill" count="2" />
+				<ingredient name="shortMetalPipe" count="6"/>
+			</recipe>
+			<recipe name="plumbingKit" count="1">
+				<ingredient name="ductTape" count="5"/>
+				<ingredient name="shortMetalPipe" count="10"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
+			<!-- MANUX Working Oven And Sink -->
+			<recipe name="ovenKit" unlock_level="2"/>
+			<recipe name="plumbingKit" unlock_level="2"/>
+			<recipe name="workstationOven" unlock_level="6"/>
+			<recipe name="workingCabinetSink" unlock_level="6"/>
+			<recipe name="workingGranitSink" unlock_level="6"/>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='tools']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='rareTools']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='workingStiffs']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='ZombieUtilityWorker']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+		<!-- stove, cooking pots and pans rotten food -->
+		<append xpath="/lootcontainers/lootcontainer[@id='5']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+		</append>
+		<!-- kitchen sink, cupboards (lower), cleaning chemicals, plates, silverware, pots and pans -->
+		<append xpath="/lootcontainers/lootcontainer[@id='8']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="plumbingKit"/>
+		</append>
+		<append xpath="/lootcontainers/lootcontainer[@id='87']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+		<append xpath="/lootcontainers/lootcontainer[@id='88']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit"/>
+			<item name="plumbingKit"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='constructionSupplies']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit" prob="0.3"/>
+			<item name="plumbingKit" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='tools']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit" prob="0.3"/>
+			<item name="plumbingKit" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareTools']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit" prob="0.5"/>
+			<item name="plumbingKit" prob="0.5"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit" prob="0.5"/>
+			<item name="plumbingKit" prob="0.5"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Working Oven And Sink -->
+			<item name="ovenKit" count="1,3"/>
+			<item name="plumbingKit" count="1,3"/>
+		</append>
+	</config>
+</configs>

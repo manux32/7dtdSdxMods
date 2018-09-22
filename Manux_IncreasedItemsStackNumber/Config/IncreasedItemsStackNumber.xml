@@ -1,0 +1,31 @@
+<configs>
+	<config name="items">	
+		<!-- MANUX Increased Items Stack Number -->
+		<set xpath="/items/item[@name='aloeCream']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='foodYuccaFruit']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='foodYuccaJuice']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='canMurkyWater']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='canBoiledWater']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='bottledWater']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='goldenRodTea']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='redTea']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='beer']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='coffee']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='grainAlcohol']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='foodHoney']/property[@name='Stacknumber']/@value">50</set>
+		<set xpath="/items/item[@name='ironFragment']/property[@name='Stacknumber']/@value">6000</set>
+		<set xpath="/items/item[@name='bandage']/property[@name='Stacknumber']/@value">20</set>
+		<set xpath="/items/item[@name='radiator']/property[@name='Stacknumber']/@value">10</set>
+		<set xpath="/items/item[@name='cobblestones']/property[@name='Stacknumber']/@value">6000</set>
+		<set xpath="/items/item[@name='cement']/property[@name='Stacknumber']/@value">6000</set>
+		<set xpath="/items/item[@name='concreteMix']/property[@name='Stacknumber']/@value">6000</set>
+		<set xpath="/items/item[@name='feather']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='shotgunShell']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='shotgunSlug']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='buckshot']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='gunPowder']/property[@name='Stacknumber']/@value">6000</set>
+		<set xpath="/items/item[@name='blunderbussAmmo']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='arrow']/property[@name='Stacknumber']/@value">500</set>
+		<set xpath="/items/item[@name='ironCrossbowBolt']/property[@name='Stacknumber']/@value">500</set>
+	</config>
+</configs>

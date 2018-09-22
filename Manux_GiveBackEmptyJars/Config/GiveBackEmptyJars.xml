@@ -1,0 +1,48 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items/item[@name='cornOnTheCob']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='cornBread']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='boiledMeat']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='meatStew']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='eggboiled']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='blueberryPie']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='vegetableStew']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='herbalAntibiotics']/property[@class='Action0']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='herbalAntibiotics']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='antibiotics']/property[@class='Action0']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+		<append xpath="/items/item[@name='antibiotics']/property[@class='Action1']">
+				<!-- MANUX Give Back Empty Jars -->
+				<property name="Create_item" value="emptyJar" />
+		</append>
+	</config>
+</configs>

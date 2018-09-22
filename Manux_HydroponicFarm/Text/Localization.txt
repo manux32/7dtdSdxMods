@@ -1,0 +1,8 @@
+Key,Source,Context,Changes,English
+hydroponicFarmPower,blocks,Block Building,EnChanged,Hydroponic Farming Device
+hydroponicFarmWorkstation,blocks,Block Building,EnChanged,Hydroponic Farm Workstation (Dev)
+hydroponicFarmDesc,blocks,Block Building,EnChanged,"Using modern technology, grow great harvests quickly and easily. You need power to use the device."
+hydroponicsBook,items,Book,EnChanged,Hydroponic Farming book
+hydroponicsBookDesc,items,Book,EnChanged,"Read this book to learn Hydroponic Farming Basics and be able to grow basic crops with Hydroponic Farming Devices that work indoors and are more performant than regular outdoor farming. Additional perks can be purchased to learn new crops and eventually build your own Devices."
+hydroponicFarmingBasicsDesc,progression,Perk,EnChanged,"Learn Hydroponic Farming Basics and be able to grow basic crops with Hydroponic Farming Devices that work indoors and are more performant than regular outdoor farming. This skill cannot be purchased with skill points. Find the book or purchase it at a trader."
+hydroponicFarmingMasteryDesc,progression,Perk,EnChanged,"Learn how to grow more types of crops on Hydroponic Farming Devices. Level 2 will teach you the remaining crops and how to build your own Hydroponic Devices."

@@ -1,0 +1,242 @@
+<configs>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Survivors And Bandits -->
+			<block id="" name="banditLeaderCorpse">
+				<property name="IsDeveloper" value="true"/>
+				<property name="CustomIcon" value="GoreBlock1Prefab"/>
+				<property name="Class" value="Loot"/>
+				<property name="Material" value="organic"/>
+				<property name="Shape" value="ModelEntity"/>
+				<property name="Mesh" value="models"/>
+				<property name="Model" value="Entities/Gore/gore_block1_Prefab"/>
+				<property name="Texture" value="22"/>
+				<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+				<property name="Tag" value="Gore"/>
+				<property name="IsTerrainDecoration" value="true"/>
+				<property name="LootList" value="254"/>
+				<property name="UpgradeRated.Rate" value="25"/>
+				<property name="UpgradeRated.ToBlock" value="GoreBlock1Prefab"/>
+				<drop event="Harvest" name="" count="0" tool_category="Butcher"/>
+				<drop event="Destroy" count="0"/>
+				<drop event="Destroy" name="rawMeat" count="1" prob=".6" tool_category="Butcher"/>
+				<drop event="Destroy" name="animalFat" count="2" prob=".33" tool_category="Butcher"/>
+				<property name="DroppedEntityClass" value="EvisceratedRemains"/>
+			  </block>
+			  <block id="" name="banditPistolCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="239"/>
+			  </block>
+			  <block id="" name="bandit44MagnumCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="240"/>
+			  </block>
+			  <block id="" name="banditSawedOffPumpShotgunCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="241"/>
+			  </block>
+			  <block id="" name="banditPumpShotgunCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="242"/>
+			  </block>
+			  <block id="" name="banditMP5Corpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="243"/>
+			  </block>
+			  <block id="" name="banditAK47Corpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="244"/>
+			  </block>
+			  <block id="" name="banditHuntingRifleCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="245"/>
+			  </block>
+			  <block id="" name="banditSniperRifleCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="246"/>
+			  </block>
+			  <block id="" name="banditRocketLauncherCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="247"/>
+			  </block>
+			  
+			  <block id="" name="banditSledgeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="248"/>
+			  </block>
+			  <block id="" name="banditMacheteCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="249"/>
+			  </block>
+			  <block id="" name="banditFireaxeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="250"/>
+			  </block>
+			  <block id="" name="banditSpikedClubCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="251"/>
+			  </block>
+			  <block id="" name="banditHuntingKnifeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="252"/>
+			  </block>
+			  <block id="" name="banditChainsawCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="253"/>
+			  </block>
+			  
+			  <!-- SURVIVORS -->
+			  <block id="" name="survivorPistolCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="119"/>
+			  </block>
+			  <block id="" name="survivor44MagnumCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="120"/>
+			  </block>
+			  <block id="" name="survivorSawedOffPumpShotgunCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="121"/>
+			  </block>
+			  <block id="" name="survivorPumpShotgunCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="122"/>
+			  </block>
+			  <block id="" name="survivorMP5Corpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="123"/>
+			  </block>
+			  <block id="" name="survivorAK47Corpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="124"/>
+			  </block>
+			  <block id="" name="survivorHuntingRifleCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="125"/>
+			  </block>
+			  <block id="" name="survivorSniperRifleCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="126"/>
+			  </block>
+			  <block id="" name="survivorRocketLauncherCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="127"/>
+			  </block>
+			  
+			  <block id="" name="survivorSledgeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="128"/>
+			  </block>
+			  <block id="" name="survivorMacheteCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="129"/>
+			  </block>
+			  <block id="" name="survivorFireaxeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="130"/>
+			  </block>
+			  <block id="" name="survivorSpikedClubCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="131"/>
+			  </block>
+			  <block id="" name="survivorHuntingKnifeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="132"/>
+			  </block>
+			  <block id="" name="survivorChainsawCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="133"/>
+			  </block>
+			  <block id="" name="survivorLeaderCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="134"/>
+			  </block>
+			  
+			  <!-- BRUTES -->
+			  <block id="" name="banditBruteSledgeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="135"/>
+			  </block>
+			  <block id="" name="banditBruteFireaxeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="136"/>
+			  </block>
+			  <block id="" name="banditBruteSpikedClubCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="137"/>
+			  </block>
+			  <block id="" name="banditBruteChainsawCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="138"/>
+			  </block>
+			  
+			  <block id="" name="survivorBruteSledgeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="139"/>
+			  </block>
+			  <block id="" name="survivorBruteFireaxeCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="140"/>
+			  </block>
+			  <block id="" name="survivorBruteSpikedClubCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="141"/>
+			  </block>
+			  <block id="" name="survivorBruteChainsawCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="142"/>
+			  </block>
+			  
+			  <!-- LEADERS SPECIAL -->
+			  <block id="" name="banditLeaderRocketLauncherCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="143"/>
+			  </block>
+			  <block id="" name="survivorLeaderRocketLauncherCorpse">
+				<property name="Extends" value="banditLeaderCorpse"/>
+				<property name="IsDeveloper" value="true"/>
+				<property name="LootList" value="144"/>
+			  </block>	
+		</append>
+	</config>
+</configs>

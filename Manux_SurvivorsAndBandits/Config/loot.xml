@@ -1,0 +1,506 @@
+<configs>
+	<config name="loot">	
+		<append xpath="/lootcontainers">
+			  <!-- MANUX Survivors And Bandits -->
+			  <lootgroup name="weaponsSawedoffpumpshotgun+ammo" count="all">
+				<item name="gunSawedOffPumpShotgun"/>
+				<item name="shotgunShell" count="1,6"/>
+			  </lootgroup>
+			  <lootgroup name="weapons44magnum+ammo" count="all">
+				<item name="gun44Magnum"/>
+				<item name="44MagBullet" count="1,12"/>
+			  </lootgroup>
+
+			  <lootgroup name="banditsRare" count="0,1">
+				<item name="casinoCoin" count="10,100"/>
+				<item group="questChallenge" count="1" prob="0.2"/>
+				<item group="treasureMaps" count="1" prob="0.2"/>
+				<item group="rareTools" count="1" prob="0.05"/>
+				<item group="rareOres" count="1,3" prob="0.05"/>
+			  </lootgroup>
+			  <lootgroup name="banditsPistol" count="all">
+				<item group="weaponsPistol+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="bandits44Magnum" count="all">
+				<item group="weapons44magnum+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsSawedOffPumpShotgun" count="all">
+				<item group="weaponsSawedoffpumpshotgun+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsPumpShotgun" count="all">
+				<item group="weaponsLongShotgun+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsMP5" count="all">
+				<item group="weaponsMP5+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsAK47" count="all">
+				<item group="weaponsAK47+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsHuntingRifle" count="all">
+				<item group="weaponsHuntingRifle+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsSniperRifle" count="all">
+				<item group="weaponsSniperRifle+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsRocketLauncher" count="all">
+				<item group="weaponsRocketLauncher+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="banditsSledgeHammer" count="all">
+				<item name="sledgehammer"/>
+			  </lootgroup>
+			  <lootgroup name="banditsMachete" count="all">
+				<item name="machete"/>
+			  </lootgroup>
+			  <lootgroup name="banditsFireaxe" count="all">
+				<item name="fireaxeSteel"/>
+			  </lootgroup>
+			  <lootgroup name="banditsSpikedClub" count="all">
+				<item name="clubSpiked"/>
+			  </lootgroup>
+			  <lootgroup name="banditsHuntingKnife" count="all">
+				<item name="huntingKnife"/>
+			  </lootgroup>
+			  <lootgroup name="banditsChainsaw" count="all">
+				<item name="chainsaw"/>
+				<item name="gasCan" count="50,250"/>
+			  </lootgroup>
+
+			<lootgroup name="newBanditsArmor" count="1">
+				<item group="lightArmor" count="0,1"/>
+				<item group="heavyArmor" count="0,1" prob="0.3"/>
+				<item group="militaryArmor" count="0,1" prob="0.1"/>
+				<item group="banditArmor" count="0,1" prob="0.3"/>
+			</lootgroup>
+			<lootgroup name="newBanditsGeneral" count="1">
+				<item group="medicine"/>
+				<item group="cannedfood"/>
+				<item group="rottenFood"/>
+				<item group="junk"/>
+				<item name="bottledWater" count="1,3"/>
+				<item group="clothes"/>
+				<item name="facialPiercings" prob="0.1"/>
+				<item name="firstAidKit" count="1,2" prob="0.5"/>
+			</lootgroup>
+			  <lootgroup name="banditsLeaderBase" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="heavyArmor" count="0,2" prob="0.5"/>
+				<item group="militaryArmor" count="0,2" prob="0.5"/>
+				<item group="banditArmor" count="0,2" prob="0.5"/>
+				<item group="banditsRare" count="2,4"/>
+				<item name="casinoCoin" count="300,1000"/>
+				<item group="militaryAmmo" count="2"/>
+			  </lootgroup>
+			  
+			  <lootgroup name="banditsLeader+AK47" count="all">
+				<item group="banditsLeaderBase"/>
+				<item group="banditsAK47" count="1"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+Pistol" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsPistol" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+44Magnum" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="bandits44Magnum" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+SawedOffPumpShotgun" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsSawedOffPumpShotgun" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+PumpShotgun" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsPumpShotgun" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+MP5" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsMP5" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+AK47" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsAK47" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+HuntingRifle" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsHuntingRifle" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+SniperRifle" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsSniperRifle" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+RocketLauncher" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsRocketLauncher" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+SledgeHammer" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsSledgeHammer" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+Machete" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsMachete" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+Fireaxe" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsFireaxe" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+SpikedClub" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsSpikedClub" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+HuntingKnife" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsHuntingKnife" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+			  <lootgroup name="banditsThug+Chainsaw" count="all">
+				<item group="newBanditsGeneral" count="2,4"/>
+				<item group="newBanditsArmor" count="1,2"/>
+				<item group="banditsChainsaw" count="1"/>
+				<item group="banditsRare" count="0,2"/>
+			  </lootgroup>
+
+			  <lootgroup name="zombiesBase+Machete" count="all">
+				<item group="junk" count="2"/>
+				<item group="clothes" count="2"/>
+				<item group="banditsRare" count="1"/>
+				<item group="banditsMachete" count="1"/>
+			  </lootgroup>
+
+			  <lootcontainer id="239" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+Pistol" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="240" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+44Magnum" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="241" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+SawedOffPumpShotgun" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="242" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+PumpShotgun" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="243" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+MP5" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="244" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+AK47" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="245" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+HuntingRifle" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="246" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+SniperRifle" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="247" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+RocketLauncher" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="248" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+SledgeHammer" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="249" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+Machete" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="250" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+Fireaxe" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="251" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+SpikedClub" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="252" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+HuntingKnife" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="253" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsThug+Chainsaw" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="254" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditsLeader+AK47" prob="1"/>
+			  </lootcontainer>
+
+			  
+			<!-- SURVIVORS -->
+			<lootgroup name="survivorsGeneral" count="1">
+				<item group="medicine"/>
+				<item group="cannedfood"/>
+				<item group="junk"/>
+				<item name="bottledWater" 	count="1,3"/>
+				<item group="clothes"/>
+				<item group="tools"			count="1" prob="0.2"/>		
+				<item name="firstAidKit" 	count="1,2" prob="0.1"/>
+			</lootgroup>
+			<lootgroup name="survivorsRare" count="0,1">
+				<item name="casinoCoin" count="5,20"/>
+				<item group="questChallenge" count="1" prob="0.2"/>
+				<item group="treasureMaps" count="1" prob="0.2"/>
+				<item group="rareTools" count="1" prob="0.05"/>
+			</lootgroup>
+			<lootgroup name="survivorsArmor" count="1">
+				<item group="lightArmor" count="0,1"/>
+				<item group="heavyArmor" count="0,1" prob="0.1"/>
+				<item group="militaryArmor" count="0,1" prob="0.01"/>
+				<item group="banditArmor" count="0,1" prob="0.05"/>
+			</lootgroup>
+			<lootgroup name="survivorLeaderBase" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="1,2"/>
+				<item group="survivorsArmor"/>
+				<item group="heavyArmor" count="0,2" prob="0.2"/>
+				<item group="militaryArmor" count="0,2" prob="0.1"/>
+				<item group="banditArmor" count="0,2" prob="0.1"/>
+				<item name="casinoCoin" count="25,200" prob="0.5"/>
+			  </lootgroup>
+
+			<lootgroup name="survivorLeader" count="all">
+				<item group="survivorLeaderBase"/>
+				<item group="weaponsAK47+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorPistol" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsPistol+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivor44Magnum" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weapons44magnum+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorSawedOffPumpShotgun" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsSawedoffpumpshotgun+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorPumpShotgun" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsLongShotgun+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorMP5" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsMP5+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorAK47" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsAK47+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorHuntingRifle" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsHuntingRifle+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorSniperRifle" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsSniperRifle+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorRocketLauncher" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item group="weaponsRocketLauncher+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorSledgeHammer" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="heavyArmor" count="0,1" prob="0.3"/>
+				<item name="sledgehammer"/>
+			  </lootgroup>
+			  <lootgroup name="survivorMachete" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item name="machete"/>
+			  </lootgroup>
+			  <lootgroup name="survivorFireaxe" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item name="fireaxeSteel"/>
+			  </lootgroup>
+			  <lootgroup name="survivorSpikedClub" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="heavyArmor" count="0,1" prob="0.3"/>
+				<item name="clubSpiked"/>
+			  </lootgroup>
+			  <lootgroup name="survivorHuntingKnife" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item name="huntingKnife"/>
+			  </lootgroup>
+			  <lootgroup name="survivorChainsaw" count="all">
+				<item group="survivorsGeneral" count="1,3"/>
+				<item group="survivorsRare" count="0,1"/>
+				<item group="survivorsArmor" count="0,1"/>
+				<item name="chainsaw"/>
+				<item name="gasCan" count="50,250"/>
+			  </lootgroup>
+
+
+			<lootcontainer id="119" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorPistol" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="120" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivor44Magnum" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="121" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorSawedOffPumpShotgun" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="122" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorPumpShotgun" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="123" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorMP5" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="124" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorAK47" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="125" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorHuntingRifle" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="126" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorSniperRifle" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="127" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorRocketLauncher" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="128" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorSledgeHammer" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="129" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorMachete" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="130" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorFireaxe" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="131" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorSpikedClub" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="132" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorHuntingKnife" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="133" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorChainsaw" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="134" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorLeader" prob="1"/>
+			  </lootcontainer>
+			  
+			  <!-- BRUTES -->
+			  <lootgroup name="banditBruteSledgeHammer" count="all">
+				<item group="banditsLeaderBase"/>
+				<item name="sledgehammer"/>
+			  </lootgroup>
+			  <lootgroup name="banditBruteFireaxe" count="all">
+				<item group="banditsLeaderBase"/>
+				<item name="fireaxeSteel"/>
+			  </lootgroup>
+			  <lootgroup name="banditBruteSpikedClub" count="all">
+				<item group="banditsLeaderBase"/>
+				<item name="clubSpiked"/>
+			  </lootgroup>
+			  <lootgroup name="banditBruteChainsaw" count="all">
+				<item group="banditsLeaderBase"/>
+				<item name="chainsaw"/>
+				<item name="gasCan" count="50,250"/>
+			  </lootgroup>
+			  
+			  <lootgroup name="survivorBruteSledgeHammer" count="all">
+				<item group="survivorLeaderBase"/>
+				<item name="sledgehammer"/>
+			  </lootgroup>
+			  <lootgroup name="survivorBruteFireaxe" count="all">
+				<item group="survivorLeaderBase"/>
+				<item name="fireaxeSteel"/>
+			  </lootgroup>
+			  <lootgroup name="survivorBruteSpikedClub" count="all">
+				<item group="survivorLeaderBase"/>
+				<item name="clubSpiked"/>
+			  </lootgroup>
+			  <lootgroup name="survivorBruteChainsaw" count="all">
+				<item group="survivorLeaderBase"/>
+				<item name="chainsaw"/>
+				<item name="gasCan" count="50,250"/>
+			  </lootgroup>
+			  
+			  <lootcontainer id="135" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditBruteSledgeHammer" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="136" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditBruteFireaxe" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="137" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditBruteSpikedClub" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="138" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditBruteChainsaw" prob="1"/>
+			  </lootcontainer>
+			  
+			  <lootcontainer id="139" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorBruteSledgeHammer" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="140" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorBruteFireaxe" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="141" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorBruteSpikedClub" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="142" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorBruteChainsaw" prob="1"/>
+			  </lootcontainer>
+			  
+			  <!-- LEADERS SPECIAL -->
+			  <lootgroup name="banditLeaderRocketLauncher" count="all">
+				<item group="banditsLeaderBase"/>
+				<item group="weaponsRocketLauncher+ammo"/>
+			  </lootgroup>
+			  <lootgroup name="survivorLeaderRocketLauncher" count="all">
+				<item group="survivorLeaderBase"/>
+				<item group="weaponsRocketLauncher+ammo"/>
+			  </lootgroup>
+			  
+			  <lootcontainer id="143" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="banditLeaderRocketLauncher" prob="1"/>
+			  </lootcontainer>
+			  <lootcontainer id="144" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+				<item group="survivorLeaderRocketLauncher" prob="1"/>
+			  </lootcontainer>
+		</append>
+	</config>
+</configs>

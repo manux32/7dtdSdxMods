@@ -1,0 +1,12 @@
+Key,Source,Context,Changes,English
+trapAdhesiveElectricSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Spike
+trapAdhesiveElectricSteelSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence. Power it to also give electric shocks."
+trapAdhesiveElectricSteelFireSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Fire Spike
+trapAdhesiveElectricSteelFireSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence and that also puts them on fire. Power it to also give electric shocks."
+trapDartAutoTurret,blocks,Electricity,EnChanged,Darts Auto-Turret
+trapDartAutoTurretDesc,blocks,Electricity,EnChanged,"A motion sensing Darts hose. Cheaper on ammnunition than the other turrets."
+trapFlamingDartAutoTurret,blocks,Electricity,EnChanged,Flaming Darts Auto-Turret
+trapFlamingDartAutoTurretDesc,blocks,Electricity,EnChanged,A motion sensing Flaming Darts hose.
+burnAndShock,buffs,Buff,EnChanged,Burned and Shocked
+burnAndShockDesc,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"
+burnAndShockTooltip,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"

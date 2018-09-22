@@ -1,0 +1,207 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX Mining Tools -->
+			<item id="" name="weedCleaver">
+				<property name="DescriptionKey" value="weedCleaverDesc"/>
+				<property name="Meshfile" value="Items/Weapons/Melee/Knives/machetePrefab" />
+				<property name="Material" value="metal" />
+				<property name="EconomicValue" value="150" />
+				<property name="Degradation" value="500" param1="false" />
+				<property name="Description" value="Have grass? We can help. Patent Pending."/>
+				<property name="HoldType" value="47" />
+				<property name="Stacknumber" value="1" />
+				<property name="RepairTools" value="forgedIron" />
+				<property name="DegradationBreaksAfter" value="false" />
+				<property name="SoundJammed" value="ItemNeedsRepair" />
+				<property name="SoundDestroy" value="wooddestroy1" />
+				<property class="Action0">
+					<property name="Class" value="Melee" />
+					<property name="Delay" value="0.2" />
+					<property name="Range" value="2" />
+					<property name="Sphere" value="0.1" />
+					<property name="Block_range" value="10" />
+					<property name="DamageBlock" value="0" />
+					<property name="Sound_start" value="swoosh" />
+					<property name="Stamina_usage" value="1" />
+					<property name="DamageBonus.plants" value="25" />
+					<property name="DamageBonus.leaves" value="25" />
+					<property name="DamageBonus.earth" value="0" />
+					<property name="DamageBonus.organic" value=".2" />
+					<property name="ActionExp" value="1" />
+					<property name="ToolCategory.harvestingTools" value="8.0" param1="1"/>
+					<property name="ToolCategory.Butcher" value="2" param1="12"/>
+				</property>
+				<property class="Attributes">
+					<property name="EntityDamage" value="8,10" />
+					<property name="DegradationMax" value="250,5000" />
+					<property name="DegradationRate" value="1,1" />
+					<property name="DismembermentBaseChance" value="0.1,0.1"/>
+					<property name="DismembermentBonus" value="0,0"/>
+				</property>
+				<property name="ActionSkillGroup" value="Mining Tools"/>
+				<property name="CraftingSkillGroup" value="craftSkillTools"/>
+				<property name="PickupJournalEntry" value="miningTip" />
+			</item>
+			<item id="" name="quickaxe">
+				<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="forgedIron" />
+				<property name="HoldType" value="32" />
+				<property name="Description" value="It chops, it breaks, it digs, it's fast, and it's yours!"/>
+				<property name="DegradationBreaksAfter" value="false" />
+				<property name="SoundJammed" value="ItemNeedsRepair" />
+				<property name="SoundDestroy" value="metaldestroy1" />
+				<property name="FuelValue" value="30" />
+				<property name="EconomicValue" value="3000" />
+				<property class="Action0">
+					<property name="Class" value="Melee" />
+					<property name="Delay" value="0.8" />
+					<property name="Range" value="2" />
+					<property name="Sphere" value="0.1" />
+					<property name="Block_range" value="4" />
+					<property name="Sound_start" value="swoosh" />
+					<property name="Stamina_usage" value="3" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.stone" value="2" />
+					<property name="DamageBonus.wood" value="0.5" />
+					<property name="DamageBonus.earth" value="2" />
+					<property name="DamageBonus.organic" value=".2" />
+					<property name="ActionExp" value="1" />
+					<property name="ToolCategory.harvestingTools" value="1.4" param1="1"/>
+				</property>
+				<property name="Group" value="Tools/Traps" />
+				<property class="Attributes">
+					<property name="EntityDamage" value="6,20" />
+					<property name="BlockDamage" value="80,250" /> <!-- up to x4 from skills -->
+					<property name="DegradationMax" value="500,5000" />
+					<property name="DegradationRate" value="1,1" />
+					<property name="DismembermentBaseChance" value="0.05,0.15"/>
+					<property name="DismembermentBonus" value="0,0"/>
+				</property>
+				<property name="ActionSkillGroup" value="Mining Tools"/>
+				<property name="CraftingSkillGroup" value="craftSkillTools"/>
+				<property name="PickupJournalEntry" value="miningTip" />
+				<property name="RepairExpMultiplier" value="5.5"/>
+			</item>
+			<item id="" name="diamondaxe">
+				<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="forgedSteel" />
+				<property name="Description" value="Like the Quickaxe, only better!"/>
+				<property name="HoldType" value="32" />
+				<property name="DegradationBreaksAfter" value="false" />
+				<property name="SoundJammed" value="ItemNeedsRepair" />
+				<property name="SoundDestroy" value="metaldestroy1" />
+				<property name="FuelValue" value="30" />
+				<property name="EconomicValue" value="10000" />
+				<property class="Action0">
+					<property name="Class" value="Melee" />
+					<property name="Delay" value="0.8" />
+					<property name="Range" value="2.1" />
+					<property name="Sphere" value="0.1" />
+					<property name="Block_range" value="4" />
+					<property name="Sound_start" value="swoosh" />
+					<property name="Stamina_usage" value="3" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.stone" value="3" />
+					<property name="DamageBonus.wood" value="0.5" />
+					<property name="DamageBonus.earth" value="2" />
+					<property name="DamageBonus.organic" value=".2" />
+					<property name="ActionExp" value="1" />
+					<property name="ToolCategory.harvestingTools" value="5.0" param1="1"/>
+					<property name="ToolCategory.Butcher" value="1" param1="12"/>
+				</property>
+				<property name="Group" value="Tools/Traps" />
+				<property class="Attributes">
+					<property name="EntityDamage" value="20,50" />
+					<property name="BlockDamage" value="80,500" /> <!-- up to x4 from skills -->
+					<property name="DegradationMax" value="500,8000" />
+					<property name="DegradationRate" value="1,1" />
+					<property name="DismembermentBaseChance" value="0.05,0.15"/>
+					<property name="DismembermentBonus" value="0,0"/>
+				</property>
+				<property name="ActionSkillGroup" value="Mining Tools"/>
+				<property name="CraftingSkillGroup" value="craftSkillTools"/>
+				<property name="PickupJournalEntry" value="miningTip" />
+				<property name="RepairExpMultiplier" value="5.5"/>
+			</item>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Mining Tools -->
+			<recipe name="weedCleaver" count="1">
+				<ingredient name="forgedIron" count="4"/>
+				<ingredient name="wood" count="3"/>
+			</recipe>
+			<recipe name="quickaxe" count="1" craft_area="workbench">
+				<ingredient name="forgedIron" count="20"/>
+				<ingredient name="wood" count="10"/>
+			</recipe>
+			<recipe name="diamondaxe" count="1" craft_area="workbench">
+				<ingredient name="forgedSteel" count="20"/>
+				<ingredient name="rawDiamond" count="2"/>	
+			</recipe>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='tools']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='rareTools']">
+			<!-- MANUX Mining Tools -->
+			<item name="quickaxe" prob="0.3"/>
+			<item name="diamondaxe" prob="0.1"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='lumberjacks']">
+			<!-- MANUX Mining Tools -->
+			<item name="quickaxe" prob="0.3"/>
+			<item name="diamondaxe" prob="0.1"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='workingStiffs']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+		<!-- garage stuff, tools, etc -->
+		<append xpath="/lootcontainers/lootcontainer[@id='22']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+		<!-- Treasure chest -->
+		<append xpath="/lootcontainers/lootcontainer[@id='70']">
+			<!-- MANUX Mining Tools -->
+			<item name="quickaxe" prob="0.6"/>
+			<item name="diamondaxe" prob="0.2"/>
+		</append>
+		<!-- ZombieFarmer -->
+		<append xpath="/lootcontainers/lootcontainer[@id='85']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+		<!-- construction supplies shipping crate -->
+		<append xpath="/lootcontainers/lootcontainer[@id='88']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='tools']">
+			<!-- MANUX Mining Tools -->
+			<item name="weedCleaver"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareTools']">
+			<!-- MANUX Mining Tools -->
+			<item name="quickaxe" prob="0.8"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX Mining Tools -->
+			<item name="quickaxe"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Mining Tools -->
+			<item name="diamondaxe" prob="0.3"/>
+		</append>
+	</config>
+</configs>

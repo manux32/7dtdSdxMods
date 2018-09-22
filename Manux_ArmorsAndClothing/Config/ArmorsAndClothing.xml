@@ -1,0 +1,340 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item id="" name="steelBoots">
+				<property name="Extends" value="ironBoots"/>
+				<property name="EconomicValue" value="2000"/>
+				<property name="CustomIcon" value="scrapBoots"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Degradation" value="270" param1="true"/>
+				<property name="RepairTools" value="forgedSteel"/>
+				<property class="Attributes">
+					<property name="ConcussiveProtection" value="0.4, 0.9"/>
+					<property name="PunctureProtection" value="0.4, 0.8"/>
+					<property name="FireProtection" value="0.05, 0.2"/>
+					<property name="RadiationProtection" value="0.05, 0.2"/>
+					<property name="DegradationMax" value="40,600"/>
+				</property>
+				<property class="UMA">
+					<property name="Mesh" value="armor_scrap_metal_feet"/>
+					<property name="Overlay" value="gear_swat_helmet"/>
+					<property name="Layer" value="0"/>
+					<property name="UISlot" value="Footwear"/>
+				</property>
+			</item>
+			<item id="" name="steelLegs">
+				<property name="Extends" value="scrapLegArmor"/>
+				<property name="EconomicValue" value="4000"/>
+				<property name="CustomIcon" value="scrapLegArmor"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Degradation" value="270" param1="true"/>
+				<property name="RepairTools" value="forgedSteel"/>
+				<property class="Attributes">
+					<property name="ConcussiveProtection" value="0.4, 0.9"/>
+					<property name="PunctureProtection" value="0.3, 0.6"/>
+					<property name="FireProtection" value="0.05, 0.2"/>
+					<property name="RadiationProtection" value="0.05, 0.2"/>
+					<property name="DegradationMax" value="40,600"/>
+				</property>
+				<property class="UMA">
+					<property name="Overlay0" value="gear_swat_helmet"/>
+					<property name="Layer" value="3"/>
+					<property name="UISlot" value="LegArmor"/>
+				</property>
+			</item>
+			<item id="" name="steelChestplate">
+				<property name="Extends" value="scrapChestArmor"/>
+				<property name="EconomicValue" value="4000"/>
+				<property name="CustomIcon" value="scrapChestArmor"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Degradation" value="270" param1="true"/>
+				<property name="RepairTools" value="forgedSteel"/>
+				<property class="Attributes">
+					<property name="ConcussiveProtection" value="0.4, 0.9"/>
+					<property name="PunctureProtection" value="0.4, 0.6"/>
+					<property name="FireProtection" value="0.05, 0.2"/>
+					<property name="RadiationProtection" value="0.05, 0.2"/>
+					<property name="DegradationMax" value="40,600"/>
+				</property>
+				<property class="UMA">
+					<property name="Overlay0" value="gear_swat_helmet"/>
+					<property name="Layer" value="2"/>
+					<property name="UISlot" value="ChestArmor"/>
+				</property>
+			</item>
+			<item id="" name="steelHelmet">
+				<property name="Extends" value="scrapBoots"/>
+				<property name="EconomicValue" value="2500"/>
+				<property name="CustomIcon" value="scrapHelmet"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Meshfile" value="Items/Clothing/Head/swatHelmetPrefab"/>
+				<property name="HoldType" value="21"/>
+				<property name="Degradation" value="270" param1="true"/>
+				<property name="RepairTools" value="forgedSteel"/>
+				<property name="CraftingIngredientTime" value="5"/>
+				<property name="EquipSlot" value="Head"/>
+				<property class="Attributes">
+					<property name="ConcussiveProtection" value="0.4, 0.9"/>
+					<property name="PunctureProtection" value="0.4, 0.8"/>
+					<property name="FireProtection" value="0.08, 0.3"/>
+					<property name="RadiationProtection" value="0.08, 0.3"/>
+					<property name="DegradationMax" value="40,600"/>
+				</property>
+				<property class="UMA">
+					<property name="Mesh" value="armor_scrapmetal_helmet"/>
+					<property name="Overlay" value="gear_swat_helmet"/>
+					<property name="Layer" value="2"/>
+					<property name="UISlot" value="Headgear, xEyewear"/>
+					<property name="ShowHair" value="true"/>
+				</property>
+			</item>
+			<item id="" name="steelGloves">
+				<property name="Extends" value="ironGloves"/>
+				<property name="EconomicValue" value="2000"/>
+				<property name="CustomIcon" value="scrapGloves"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Degradation" value="270" param1="true"/>
+				<property name="RepairTools" value="forgedSteel"/>
+				<property class="Attributes">
+					<property name="ConcussiveProtection" value="0.4, 0.9"/>
+					<property name="PunctureProtection" value="0.4, 0.9"/>
+					<property name="FireProtection" value="0.08, 0.3"/>
+					<property name="RadiationProtection" value="0.08, 0.3"/>
+					<property name="DegradationMax" value="40,600"/>
+				</property>
+				<property class="UMA">
+					<property name="Mesh" value="armor_scrap_metal_hands"/>
+					<property name="Overlay" value="gear_swat_helmet"/>
+					<property name="Layer" value="3"/>
+				</property>
+			</item>
+			<!-- Helmets with Lights -->
+			<item id="" name="ironHelmetLight">
+				<property name="Extends" value="ironHelmet"/>
+				<property name="DescriptionKey" value="HelmetLightDesc"/>
+				<property name="EconomicValue" value="700"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="CustomIcon" value="ironHelmet"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="militaryHelmetLight">
+				<property name="Extends" value="militaryHelmet"/>
+				<property name="DescriptionKey" value="HelmetLightDesc"/>
+				<property name="EconomicValue" value="1800"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="swatHelmetLight">
+				<property name="Extends" value="swatHelmet"/>
+				<property name="DescriptionKey" value="HelmetLightDesc"/>
+				<property name="EconomicValue" value="1200"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="scrapHelmetLight">
+				<property name="Extends" value="scrapHelmet"/>
+				<property name="DescriptionKey" value="HelmetLightDesc"/>
+				<property name="EconomicValue" value="300"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="CustomIcon" value="scrapHelmet"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="steelHelmetLight">
+				<property name="Extends" value="steelHelmet"/>
+				<property name="DescriptionKey" value="HelmetLightDesc"/>
+				<property name="EconomicValue" value="2700"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="CustomIcon" value="scrapHelmet"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="ledAviatorGoggles">
+				<property name="Extends" value="aviatorGoggles"/>
+				<property name="DescriptionKey" value="LEDHelmetDesc"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+			<item id="" name="ledGoggles">
+				<property name="Extends" value="goggles"/>
+				<property name="DescriptionKey" value="LEDHelmetDesc"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Class" value="ItemClassToggle"/>
+				<property name="ActivateObject" value="miningHelmetLightSource(Clone)"/>
+				<property name="LightSource" value="Entities/Lighting/miningHelmetLightSource"/>
+				<property name="Meshfile" value="Items/Clothing/Head/MiningHelmetPrefab"/>
+			</item>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- Armors -->
+			<recipe name="steelBoots" count="1" craft_area="workbench" craft_exp_gain="15">
+				<ingredient name="forgedSteel" count="20" />
+				<ingredient name="leather" count="3" />
+			</recipe>
+			<recipe name="steelChestplate" count="1" craft_area="workbench" craft_exp_gain="15">
+				<ingredient name="leather" count="5"/>
+				<ingredient name="forgedSteel" count="30" />
+			</recipe>
+			<recipe name="steelGloves" count="1" craft_area="workbench" craft_exp_gain="15">
+				<ingredient name="forgedSteel" count="20" />
+				<ingredient name="leather" count="3" />
+			</recipe>
+			<recipe name="steelHelmet" count="1" craft_area="workbench" craft_exp_gain="15">
+				<ingredient name="forgedSteel" count="20" />
+				<ingredient name="leather" count="3"/>
+				</recipe>
+			<recipe name="steelLegs" count="1" craft_area="workbench" craft_exp_gain="15">
+				<ingredient name="leather" count="3"/>
+				<ingredient name="forgedSteel" count="30"/>
+			</recipe>
+			<!-- Helmets with Light -->	
+			<recipe name="ironHelmetLight" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="ironHelmet" count="1" />
+			</recipe>
+			<recipe name="militaryHelmetLight" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="militaryHelmet" count="1" />
+			</recipe>
+			<recipe name="swatHelmetLight" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="swatHelmet" count="1" />
+			</recipe>
+			<recipe name="scrapHelmetLight" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="scrapHelmet" count="1" />
+			</recipe>
+			<recipe name="steelHelmetLight" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="steelHelmet" count="1" />
+			</recipe>
+			<recipe name="ledGoggles" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="goggles" count="1" />
+			</recipe>
+			<recipe name="ledAviatorGoggles" count="1" >
+				<ingredient name="ductTape" count="1" />
+				<ingredient name="flashlight02" count="1" />
+				<ingredient name="aviatorGoggles" count="1" />
+			</recipe>
+			<!-- Hot weather clothing -->
+			<recipe name="hoodedSweatshirtBlack" count="1">
+				<ingredient name="cloth" count="7"/>
+			</recipe>
+			<recipe name="tshirtBlack" count="1">
+				<ingredient name="cloth" count="3"/>
+			</recipe>
+			<recipe name="denimShortsPantsBlack" count="1">
+				<ingredient name="cloth" count="5"/>
+			</recipe>
+			<recipe name="blackDenimPants" count="1">
+				<ingredient name="cloth" count="7"/>
+			</recipe>
+			<recipe name="skirtBlack" count="1">
+				<ingredient name="cloth" count="5"/>
+			</recipe>
+			<recipe name="shirtBlack" count="1">
+				<ingredient name="cloth" count="5"/>
+			</recipe>
+			<recipe name="tankTopBlue" count="1">
+				<ingredient name="cloth" count="3"/>
+			</recipe>
+			<recipe name="pufferCoatBlack" count="1">
+				<ingredient name="cloth" count="20"/>
+				<ingredient name="cottonPlant" count="30"/>
+			</recipe>
+			<recipe name="leatherDusterBlack" count="1">
+				<ingredient name="leather" count="30"/>
+				<ingredient name="cloth" count="10"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='clothes']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="ledGoggles" prob="0.2"/>
+			<item name="ledAviatorGoggles" prob="0.1"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='sportingGoods']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="ledGoggles"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='heavyArmor']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="steelBoots"/>
+			<item name="steelLegs"/>
+			<item name="steelChestplate"/>
+			<item name="steelGloves"/>
+			<item name="steelHelmet"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='militaryArmor']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="militaryHelmetLight"/>
+			<item name="swatHelmetLight"/>
+		</append>
+		<!-- zombie cop-->
+		<append xpath="/lootcontainers/lootcontainer[@id='17']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="swatHelmet" prob="0.1"/>
+			<item name="swatHelmetLight" prob="0.05"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='clothes']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="ledGoggles" prob="0.2"/>
+			<item name="ledAviatorGoggles" prob="0.1"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='heavyArmor']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="steelBoots" prob="0.2"/>
+			<item name="steelLegs" prob="0.2"/>
+			<item name="steelChestplate" prob="0.2"/>
+			<item name="steelGloves" prob="0.2"/>
+			<item name="steelHelmet" prob="0.2"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='militaryArmor']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="militaryHelmetLight" prob="0.5"/>
+			<item name="swatHelmetLight" prob="0.5"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="ledGoggles" prob="0.6"/>
+			<item name="ledAviatorGoggles" prob="0.3"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX (Valmar) Armors and clothing -->
+			<item name="steelBoots"/>
+			<item name="steelLegs"/>
+			<item name="steelChestplate"/>
+			<item name="steelGloves"/>
+			<item name="steelHelmet"/>
+			<item name="militaryHelmetLight"/>
+			<item name="swatHelmetLight"/>
+			<item name="steelHelmetLight"/>
+		</append>
+	</config>
+</configs>

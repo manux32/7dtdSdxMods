@@ -1,0 +1,9 @@
+Key,Source,Context,Changes,English
+flamingClubSpiked,items,Melee,EnChanged,Flaming Spiked Club
+flamingClubSpikedDesc,items,Melee,EnChanged,"A spiked club that puts enemies on fire. We don't know what kind of magic puts this weapon on fire, all we know is it cannot be crafted, only purchased or found in the world."
+flamingMachete,items,Melee,EnChanged,Flaming Machete
+flamingMacheteDesc,items,Melee,EnChanged,"A Machete that puts enemies on fire. We don't know what kind of magic puts this weapon on fire, all we know is it cannot be crafted, only purchased or found in the world."
+lightningClubSpiked,items,Melee,EnChanged,Lightning Spiked Club
+lightningClubSpikedDesc,items,Melee,EnChanged,"A spiked club that electrifies enemies. We don't know what kind of magic puts electricity in this weapon, all we know is it cannot be crafted, only purchased or found in the world."
+lightningMachete,items,Melee,EnChanged,Lightning Machete
+lightningMacheteDesc,items,Melee,EnChanged,"A Machete that electrifies enemies. We don't know what kind of magic puts electricity in this weapon, all we know is it cannot be crafted, only purchased or found in the world."

@@ -1,0 +1,256 @@
+<configs>
+	<config name="items">
+		<set xpath="/items/item[@name='wrench']/property[@class='Action1']/property[@name='Allowed_upgrade_items']/@value">wood,clayLump,dirtFragment,snowBall,scrapIron,forgedIron,forgedSteel,steelPolish,concreteMix,cobblestones,yuccaFibers,gasCan</set>
+		<set xpath="/items/item[@name='clawHammer']/property[@class='Action1']/property[@name='Allowed_upgrade_items']/@value">wood,clayLump,dirtFragment,snowBall,scrapIron,forgedIron,forgedSteel,steelPolish,concreteMix,cobblestones,yuccaFibers,nail,gasCan</set>
+	</config>
+	<config name="blocks">	
+		<append xpath="/blocks">
+			<!-- MANUX Miner -->
+			<block id="" name="minerGeneric">
+				<property name="Class" value="Miner, Mods"/>
+				<!-- Class Powered to be able to pickup the device and display it's name -->
+				<!--<property name="Class" value="Powered"/>-->
+				<property name="RequiredPower" value="0"/>
+				<property name="CanPickup" value="true"/>
+				<property name="TakeDelay" value="5"/>
+				<property name="DescriptionKey" value="minerGenericDesc"/>
+				<property name="Material" value="Mmetal_medium"/>
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#Miner?MinerPrefab" />
+				<property name="ModelOffset" value="0,0,0" />
+				<property name="MultiBlockDim" value="1,1,2"/>
+				<property name="Place" value="TowardsPlacerInverted" />	
+				<property name="Stacknumber" value="1"/>
+				<property name="HeatMapStrength" value="1.5"/>
+				<property name="HeatMapTime" value="1200"/>
+				<property name="HeatMapFrequency" value="25"/>
+				<property name="Sound_start" value="Miner_Start"/>
+				<property name="Sound_repeat" value="Miner_Idle"/>
+				<property name="Sound_end" value="Miner_Stop"/>
+				<property class="RepairItems">
+					<property name="forgedSteel" value="20"/>
+					<property name="electronicParts" value="5"/>
+					<property name="electricParts" value="4"/>
+				</property>
+				<drop event="Harvest" name="" count="0" tool_category="Disassemble"/>
+				<drop event="Destroy" count="0"/>	
+				<drop event="Destroy" name="smallEngine" count="1" tool_category="Disassemble"/>
+				<drop event="Destroy" name="partsAuger_parts" count="1" tool_category="Disassemble"/>
+				<drop event="Destroy" name="partsAuger_blade" count="1" tool_category="Disassemble"/>
+				<drop event="Destroy" name="forgedSteel" count="15,40" tool_category="Disassemble"/>
+				<drop event="Destroy" name="electronicParts" count="5,12" tool_category="Disassemble"/>
+				<drop event="Destroy" name="scrapIron" count="20,60" tool_category="Disassemble"/>
+				<drop event="Destroy" name="scrapIron" count="80,150" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="Group" value="Science"/>
+				<property name="EconomicValue" value="14000"/>
+			</block>
+
+			<!-- miner RARE ORES -->
+			<block id="" name="minerRareOres">
+				<property name="Extends" value="minerGeneric"/>
+				<property name="DescriptionKey" value="minersDesc"/>
+				<property name="CustomIcon" value="minerGeneric"/>
+				<property class="UpgradeBlock">
+						<property name="ToBlock" value="minerRareOresProcessing"/>
+						<property name="Item" value="gasCan"/>
+						<property name="ItemCount" value="1500"/>
+						<property name="UpgradeHitCount" value="1"/>
+				</property>
+				<drop event="Destroy" name="scrapIron" count="80,150" prob="1"/>
+			</block>
+			<block id="" name="minerRareOresProcessing">
+				<property name="Extends" value="minerGeneric"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="minerGeneric"/>
+				<property name="Class" value="PlantGrowing" />
+				<property class="PlantGrowing">
+					<property name="FertileLevel" value="0" />
+					<property name="Next" value="minerRareOres" />
+					<property name="GrowthRate" value="0" />
+					<property name="LightLevelStay" value="0" />
+					<property name="IsRandom" value="false" />
+					<property name="GrowIfAnythinOnTop" value="true"/>
+					<property name="IsGrowOnTopEnabled" value="true" />
+					<property name="GrowOnTop" value="minerRareOresGrowing" param1="1" param2="minerRareOresGrowing" />
+					<property name="LightLevelGrow" value="0"/>
+				</property>
+			</block>
+			<block id="" name="minerRareOresGrowing">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="minerGeneric"/>
+				<property name="CanPickup" value="false"/>
+				<property name="Material" value="air"/>
+				<property name="Shape" value="Invisible"/>
+				<property name="Texture" value="250"/>
+				<property name="Class" value="UpgradeRated" />
+				<property name="UpgradeRated.ToBlock" value="minerRareOresHarvest" />
+				<property name="UpgradeRated.Rate" value="2" />
+				<drop event="Destroy" count="0"/>
+			</block>
+			<block id="" name="minerRareOresHarvest">
+				<property name="CreativeMode" value="Dev"/>
+				<property name="Class" value="Loot"/>
+				<property name="CustomIcon" value="minerGeneric"/>
+				<property name="Material" value="wood+wood"/>
+				<property name="StabilitySupport" value="false"/>
+				<property name="Shape" value="Ext3dModel"/>	<property name="Texture" value="293"/>
+				<property name="Mesh" value="models"/>
+				<property name="Model" value="LootContainers/chest01" param1="main_mesh"/> <property name="HandleFace" value="Bottom"/>
+				<property name="ImposterExchange" value="imposterQuarter" param1="154"/>
+				<property name="IsTerrainDecoration" value="true"/>
+				<property name="LootList" value="100"/>
+				<property name="PlantGrowing.LightLevelGrow" value="0"/>
+				<drop event="Destroy" name="wood" count="1,3"/>
+				<drop event="Fall" name="woodDebris" count="1" prob="0.75" stick_chance="1"/>
+			</block>
+
+			<!-- miner REGULAR ORES --> 
+			<block id="" name="minerRegularOres">
+				<property name="Extends" value="minerRareOres"/>
+				<property class="UpgradeBlock">
+						<property name="ToBlock" value="minerRegularOresProcessing"/>
+						<property name="ItemCount" value="1000"/>
+				</property>
+			</block>
+			<block id="" name="minerRegularOresProcessing">
+				<property name="Extends" value="minerRareOresProcessing"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="PlantGrowing.Next" value="minerRegularOres"/>
+				<property name="PlantGrowing.GrowOnTop" value="minerRegularOresGrowing" param1="1" param2="minerRegularOresGrowing" />
+			</block>
+			<block id="" name="minerRegularOresGrowing">
+				<property name="Extends" value="minerRareOresGrowing"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="UpgradeRated.ToBlock" value="minerRegularOresHarvest" />
+				<property name="UpgradeRated.Rate" value="60" />
+			</block>
+			<block id="" name="minerRegularOresHarvest">
+				<property name="Extends" value="minerRareOresHarvest"/>
+				<property name="CreativeMode" value="Dev"/>
+				<property name="LootList" value="101" />
+			</block>
+		</append>
+	</config>
+	<config name="recipes">	
+		<append xpath="/recipes">
+			<!-- MANUX Miner -->
+			<recipe name="minerGeneric" count="1" craft_area="workbench" craft_time="3200">
+				<ingredient name="auger" count="1"/>
+				<ingredient name="forgedSteel" count="30"/>
+				<ingredient name="minibikeWheels" count="1"/>
+				<ingredient name="spotlightPlayer" count="1"/>
+				<ingredient name="electronicParts" count="15"/>
+			</recipe>
+			<recipe name="minerGeneric" count="1" craft_area="workbench" craft_time="60">
+				<ingredient name="minerRareOres" count="1"/>
+			</recipe>
+			<recipe name="minerGeneric" count="1" craft_area="workbench" craft_time="60">
+				<ingredient name="minerRegularOres" count="1"/>
+			</recipe>
+			<recipe name="minerRareOres" count="1" craft_area="workbench" craft_time="60">
+				<ingredient name="minerGeneric" count="1"/>
+				<ingredient name="coal" count="1"/>
+				<ingredient name="scrapLead" count="1"/>
+				<ingredient name="oilShale" count="1"/>
+				<ingredient name="potassiumNitratePowder" count="1"/>
+			</recipe>
+			<recipe name="minerRegularOres" count="1" craft_area="workbench" craft_time="60">
+				<ingredient name="minerGeneric" count="1"/>
+				<ingredient name="rockSmall" count="1"/>
+				<ingredient name="dirtFragment" count="1"/>
+				<ingredient name="crushedSand" count="1"/>
+				<ingredient name="clayLump" count="1"/>
+			</recipe>
+		</append>
+	</config>
+	<config name="loot">	
+		<append xpath="/lootcontainers">
+			<!-- MANUX Miner -->
+			<lootgroup name="minerRegularOres" count="2,4">
+				<item name="rockSmall" count="300,1200" prob="0.7"/>
+				<item name="dirtFragment" count="300,1200" prob="0.7"/>
+				<item name="crushedSand" count="300,1200" prob="0.7"/>
+				<item name="clayLump" count="300,1200" prob="0.5"/>
+			</lootgroup>
+			<lootgroup name="minerRareOres" count="2,5">
+				<item name="ironFragment" count="300,1200" prob="0.7"/>
+				<item name="coal" count="300,1200" prob="0.5"/>
+				<item name="oilShale" count="300,1200" prob="0.4"/>
+				<item name="scrapLead" count="300,1200" prob="0.3"/>
+				<item name="potassiumNitratePowder" count="300,1200" prob="0.3"/>
+			</lootgroup>
+			<lootgroup name="veryRareOres" count="1,2">
+				<item name="silverNugget" count="1,3" prob="0.3" />
+				<item name="goldNugget" count="1,2" prob="0.2"/>
+				<item name="rawDiamond" count="1" prob="0.1"/>
+			</lootgroup>
+
+			<lootcontainer id="100" count="1,2" size="6,6" destroy_on_close="true" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest">
+				<item group="minerRareOres" count="1,3"/>
+				<item group="veryRareOres" count="1" prob="0.1"/>
+			</lootcontainer>
+			<lootcontainer id="101" count="1" size="6,6" destroy_on_close="true" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest">
+				<item group="minerRegularOres" count="1,6"/>
+			</lootcontainer>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='rareTools']">
+			<!-- MANUX Miner -->
+			<item name="minerGeneric" prob="0.1"/>
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='minerLoot']">
+			<!-- MANUX Miner -->
+			<item name="minerGeneric" prob="0.05"/>
+		</append>
+		<!-- treasure chests -->
+		<append xpath="/lootcontainers/lootcontainer[@id='70']">
+			<!-- MANUX Miner -->
+			<item name="minerGeneric" prob="0.25"/>
+		</append>
+	</config>
+	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderElectrical']">
+			<!-- MANUX Miner -->
+			<item name="minerGeneric" count="1" prob="0.1"/>
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
+			<!-- MANUX Miner -->
+			<item name="minerGeneric" count="1"/>
+		</append>
+	</config>
+	<config name="sounds">
+		<append xpath="/Sounds">
+			<!-- MANUX Miner -->
+			<SoundDataNode name="Miner_Start">
+				<Noise ID="4" range="25" volume="20" time="2" heat_map_strength="0.2" heat_map_time="90"/>
+				<AudioSource name="Sounds/AudioSource_Impact"/>
+				<AudioClip ClipName="Sounds/Weapons/Motorized/Auger/Auger_Fire_Start"/>
+				<LocalCrouchVolumeScale name="1"/>
+				<CrouchNoiseScale name="1"/>
+				<NoiseScale name="1"/>
+				<MaxVoices name="3"/>
+				<MaxRepeatRate name="0.01"/>
+			</SoundDataNode>
+			<SoundDataNode name="Miner_Idle">
+				<Noise ID="4" range="25" volume="20" time="2" heat_map_strength="0.2" heat_map_time="90"/>
+				<AudioSource name="Sounds/AudioSource_Impact"/>
+				<AudioClip ClipName="Sounds/Weapons/Motorized/Auger/auger_fire_lp" Loop="true"/>
+				<LocalCrouchVolumeScale name="1"/>
+				<CrouchNoiseScale name="1"/>
+				<NoiseScale name="1"/>
+				<MaxVoices name="3"/>
+				<MaxRepeatRate name="0.01"/>
+			</SoundDataNode>
+			<SoundDataNode name="Miner_Stop">
+				<Noise ID="4" range="25" volume="20" time="2" heat_map_strength="0.2" heat_map_time="90"/>
+				<AudioSource name="Sounds/AudioSource_Impact"/>
+				<AudioClip ClipName="Sounds/Weapons/Motorized/Auger/auger_fire_end"/>
+				<LocalCrouchVolumeScale name="1"/>
+				<CrouchNoiseScale name="1"/>
+				<NoiseScale name="1"/>
+				<MaxVoices name="3"/>
+				<MaxRepeatRate name="0.01"/>
+			</SoundDataNode>
+		</append>
+	</config>
+</configs>
