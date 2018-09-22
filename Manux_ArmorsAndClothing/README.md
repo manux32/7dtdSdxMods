@@ -1,7 +1,7 @@
 # Manux_ArmorsAndClothing
-This is a couple of the Armor elements that can be found in the **Valmar** mods.
-I also added recipes for crafting hot weather black clothing.
-I didn't add schematics for the armors, will eventually do it...
+This is a couple of the Armor elements that can be found in the **Valmar** mods.  
+I also added recipes for crafting hot weather black clothing.  
+I didn't add schematics for the armors, will eventually do it...  
 
 ### Valmar Armors:
 - Steel Boots

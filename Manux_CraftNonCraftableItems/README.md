@@ -1,7 +1,7 @@
 # Manux_CraftNonCraftableItems
-A mod that adds recipes to craft items that exist in the game but that are not craftable.
-Many of those recipes were taken from various other mods and adpated to my liking. I didn't spend lots of time on adapting all recipes, I will have to review this eventually...
-I also didn't add any schematics or progression gates for the recipes.
+A mod that adds recipes to craft items that exist in the game but that are not craftable.  
+Many of those recipes were taken from various other mods and adpated to my liking. I didn't spend lots of time on adapting all recipes, I will have to review this eventually...  
+I also didn't add any schematics or progression gates for the recipes.  
 
 ### Player versions of existing POI items:
 - porchLight04_player

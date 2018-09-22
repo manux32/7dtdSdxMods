@@ -1,6 +1,6 @@
 # Manux_AdminTools
-A couple of simple useful admin Tools.
-Some of them are pieces I took from the **Bad Company** mod and adapted.
+A couple of simple useful admin Tools.  
+Some of them are pieces I took from the **Bad Company** mod and adapted.  
 
 - **Black Pill**: Cures pretty much everything, and fills Health, Stamina, Wellness, Food and Water.
 - **Super Digger**: The already existing commented Super Digger.
