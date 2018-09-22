@@ -11,7 +11,7 @@ Read the items in the localization file or in-game to know how to fish.
 - ![Fish bait baskets](Icons/fishBaitBasket.png) Fish bait baskets
 - ![Raw Fish](Icons/rawFish.png) Raw Fish
 - ![Grilled Fish](Icons/grilledFish.png) Grilled Fish
-- ![Boiled Fish](Icons/fishingTrap.png) Boiled Fish
+- ![Boiled Fish](Icons/boiledFish.png) Boiled Fish
 - ![Charred Fish](Icons/charredFish.png) Charred Fish
 - ![Fish Stew](Icons/fishStew.png) Fish Stew
 - ![Fish And Chips](Icons/fishAndChips.png) Fish And Chips
