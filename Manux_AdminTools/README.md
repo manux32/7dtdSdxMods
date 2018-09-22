@@ -11,3 +11,9 @@ Some of them are pieces I took from the **Bad Company** mod and adapted.
 	- adminskill15
 	- adminskill25
 	- adminskill50
+- A new console command to list all spawnable entities, with an optional "contains(string)" parameter:
+	- You will need StompyNZ's ConsoleCmd mod for this one to work.
+	- Command: *listspawnableentities* or *lse*
+	- *lse* : lists all spawnable entities.
+	- *lse yoursearchstring* : to list all spawnable entities that contain the specified string.
+	
