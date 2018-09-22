@@ -1,4 +1,4 @@
-# Manux_BiggerBackPackMiniBikeContainersCraftingSlots
+# More slots in BackPack, MiniBike, Containers / More Crafting Slots
 
 ### This mod adds more slots for the following: 
 - Backpack: 120 slots 
