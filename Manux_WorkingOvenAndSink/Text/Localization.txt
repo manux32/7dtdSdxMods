@@ -1,10 +1,10 @@
 Key,Source,Context,Changes,English
 workstationOven,blocks,Block Building,EnChanged,Working Oven
 workstationOvenDesc,blocks,Block Building,EnChanged,This working oven can be used to cook many different recipes without using a fuel source.
-WorkingSinkDesc,blocks,Block Building,EnChanged,This working sink can be used as a source of clean water. Fill your jars or bowls with water by left-clicking with them.
+WorkingSinkDesc,blocks,Block Building,EnChanged,This working sink can be used as a source of clean water. Fill your jars with water by left-clicking with them.
 workingGranitSink,blocks,Block Building,EnChanged,Working Granite Sink
 workingCabinetSink,blocks,Block Building,EnChanged,Working Sink
 plumbingKit,items,Item,EnChanged,Plumbing Kit
-plumbingKitDesc,items,Item,EnChanged,This kit when used with a wrench can upgrade broken sinks into working variants for a fresh source of water if you left-click them with an empty jar or bowl.
+plumbingKitDesc,items,Item,EnChanged,This kit when used with a wrench can upgrade broken sinks into working variants for a fresh source of water if you left-click them with an empty jar.
 ovenKit,items,Item,EnChanged,Oven Repair Kit
 ovenKitDesc,items,Item,EnChanged,This kit can used to upgrade broken ovens into new working variants with a wrench.
