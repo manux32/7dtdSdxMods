@@ -118,7 +118,6 @@
 			<block id="" name="trapDartAutoTurret">
 				<property name="Extends" value="autoTurret"/>
 				<property name="DescriptionKey" value="trapDartAutoTurretDesc"/>
-				<property name="CustomIcon" value="shotgunTurret"/>
 				<property name="Model" value="Entities/Traps/AutoTurret/Auto_TurretShotgunPrefab"/>
 				<property name="AmmoItem" value="steelDart"/> <!-- does not use the damage value -->
 				<property name="MaxDistance" value="30"/>
