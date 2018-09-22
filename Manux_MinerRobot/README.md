@@ -1,13 +1,13 @@
-# Manux_MinerRobot
+# Manux_MinerRobot ![miner](Icons/minerGeneric.png)
 
-This was inspired by **YoShIWoZ**'s Miner mod.  
+This was inspired by **YoShIWoZ**'s [Miner mod](https://7daystodie.com/forums/showthread.php?47379-Miner).  
 A Miner Robot is a device that mines ressources for you.  
 The device does not actually move arround to mine real blocks. It will just spawn a loot container on top of it when it's done "mining".
 
 ### Blocks:
-- **MINER ROBOT (GENERIC DEVICE)**: A non-Active Generic version of the Miner Robot. Convert it to a specific ore group version of the device to activate it.
-- **MINER ROBOT (REGULAR ORES)**: Harvests regular Ores (rockSmall, dirtFragment, crushedSand, clayLump)
-- **MINER ROBOT (RARE ORES)**: Harvests rare Ores (ironFragment, coal, oilShale, scrapLead, potassiumNitratePowder), and more rarely, very rare ores (silverNugget, goldNugget, rawDiamond)
+- **Miner Robot (Generic Device)**: A non-Active Generic version of the Miner Robot. Convert it to a specific ore group version of the device to activate it.
+- **Miner Robot (Regular Ores)**: Harvests regular Ores (rockSmall, dirtFragment, crushedSand, clayLump)
+- **Miner Robot (Rare Ores)**: Harvests rare Ores (ironFragment, coal, oilShale, scrapLead, potassiumNitratePowder), and more rarely, very rare ores (silverNugget, goldNugget, rawDiamond)
 
 ### Progression
 - You need craftSkillTools 6 and craftSkillScience 6 to craft the Generic Miner Robot.
