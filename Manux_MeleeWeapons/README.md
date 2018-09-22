@@ -1,1 +1,9 @@
-# Manux_...
+# Melee Weapons
+This adds new melee weapons.  
+It currently only adds 4 new weapons that are power magical weapons, and maybe a bit over-powered. ;)
+Each weapon uses a new version of the original weapons mesh and textures, with added particles and a light.
+
+- ![flamingClubSpiked](Icons/flamingClubSpiked.png) **Flaming Spiked Club**:  a spiked club that puts enemies on fire
+- ![flamingMachete](Icons/flamingMachete.png) **Flaming Machete**:  a machete that puts enemies on fire
+- ![lightningClubSpiked](Icons/lightningClubSpiked.png) **Lightning Spiked Club**:  a spiked club that electrifies enemies
+- ![lightningMachete](Icons/lightningMachete.png) **Lightning Machete**:  a machete that electrifies enemies
