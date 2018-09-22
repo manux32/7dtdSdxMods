@@ -1,4 +1,4 @@
-# Manux_HPMiniBike
+# High-Powered MiniBike
 
 This mod adds High-Powered versions of the minibike parts, in order to build a High-Powered Minibike.  
 I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
