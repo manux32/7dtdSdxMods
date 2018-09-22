@@ -164,6 +164,20 @@
 			</recipe>
 		</append>
 	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
+			<!-- MANUX Miner -->
+			<recipe name="minerGeneric" unlock_level="6"/>
+			<recipe name="minerRegularOres" unlock_level="4"/>
+			<recipe name="minerRareOres" unlock_level="7"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
+			<!-- MANUX Miner -->
+			<recipe name="minerGeneric" unlock_level="6"/>
+			<recipe name="minerRegularOres" unlock_level="3"/>
+			<recipe name="minerRareOres" unlock_level="7"/>
+		</append>
+	</config>
 	<config name="loot">	
 		<append xpath="/lootcontainers">
 			<!-- MANUX Miner -->
