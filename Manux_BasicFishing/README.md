@@ -1,4 +1,4 @@
-# Manux_BasicFishing
+# Basic Fishing
 A simple Fishing mod, inspired by **Clockwork Orange** and **Carzilla**'s Fishing mods.  
 I'm also using many icons from their mods.  
 The mods were adapted to what I wanted, especially making it easier to bait the Fishing Rod, without using a recipe each time.  
