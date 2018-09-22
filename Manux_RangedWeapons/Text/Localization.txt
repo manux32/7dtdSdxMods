@@ -39,8 +39,6 @@ slingshot,items,Item Gun,EnChanged,Slingshot
 slingshotDesc,items,Item Gun,EnChanged,"A good old slingshot. Not the most powerful ranged weapon, but easy to craft and bullets are cheap!"
 ironSlingshot,items,Item Gun,EnChanged,Iron Slingshot
 ironSlingshotDesc,items,Item Gun,EnChanged,"This slingshot deals more damage, has further range and improved durability than a normal slingshot."
-ironSlingshotHPScope,items,Item Gun,EnChanged,Iron Slingshot (High-Powered Scope)
-ironSlingshotHPScopeDesc,items,Item Gun,EnChanged,Iron slingshot with a High-Powered Scope.
 slingshotRepeater,items,Item Gun,EnChanged,Repeater Slingshot
 slingshotRepeaterDesc,items,Item Gun,EnChanged,"Because the ammo is so small, this Slingshot comes with an amazing magazine of 20 ammo. Takes longer to reload, but it's needed less often."
 slingshotRepeaterHPScope,items,Item Gun,EnChanged,Repeater Slingshot (High-Powered Scope)
