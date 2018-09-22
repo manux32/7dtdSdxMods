@@ -85,7 +85,7 @@
 				<property name="Texture" value="250"/>
 				<property name="Class" value="UpgradeRated" />
 				<property name="UpgradeRated.ToBlock" value="minerRareOresHarvest" />
-				<property name="UpgradeRated.Rate" value="2" />
+				<property name="UpgradeRated.Rate" value="60" />
 				<drop event="Destroy" count="0"/>
 			</block>
 			<block id="" name="minerRareOresHarvest">

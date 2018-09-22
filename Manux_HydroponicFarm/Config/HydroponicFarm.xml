@@ -224,72 +224,71 @@
 				<ingredient name="electricParts" count="10"/>
 				<ingredient name="electronicParts" count="10"/>
 			</recipe>
-			<!-- craft_time="3000" -->
-			<recipe name="potato" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="potato" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="potato" count="50"/>
 			</recipe>
-			<recipe name="corn" count="200" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="corn" count="200" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="corn" count="50"/>
 			</recipe>
-			<recipe name="aloePlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="aloePlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="aloePlant" count="50"/>
 			</recipe>
-			<recipe name="blueberries" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="blueberries" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="blueberries" count="50"/>
 			</recipe>
-			<recipe name="cottonPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="cottonPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="cottonPlant" count="50"/>
 			</recipe>
-			<recipe name="goldenrodPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="goldenrodPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="goldenrodPlant" count="50"/>
 			</recipe>
-			<recipe name="chrysanthemumPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="chrysanthemumPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="chrysanthemumPlant" count="50"/>
 			</recipe>
-			<recipe name="coffeeBeans" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="coffeeBeans" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="coffeeBeans" count="50"/>
 			</recipe>
-			<recipe name="hopsFlower" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="hopsFlower" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="hopsFlower" count="50"/>
 			</recipe>
-			<recipe name="foodYuccaFruit" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="foodYuccaFruit" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="foodYuccaFruit" count="50"/>
 			</recipe>
-			<recipe name="mushrooms" count="150" craft_area="hydroponicFarmWorkstation" craft_time="20">
+			<recipe name="mushrooms" count="150" craft_area="hydroponicFarmWorkstation" craft_time="6000">
 				<ingredient name="mushrooms" count="50"/>
 			</recipe>
 			
-			<recipe name="potato" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="potato" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedPotato1" count="50"/>
 			</recipe>
-			<recipe name="corn" count="200" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="corn" count="200" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedCorn1" count="50"/>
 			</recipe>
-			<recipe name="aloePlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="aloePlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedAloe1" count="50"/>
 			</recipe>
-			<recipe name="blueberries" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="blueberries" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedBlueberry1" count="50"/>
 			</recipe>
-			<recipe name="cottonPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="cottonPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedCotton1" count="50"/>
 			</recipe>
-			<recipe name="goldenrodPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="goldenrodPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedGoldenrod1" count="50"/>
 			</recipe>
-			<recipe name="chrysanthemumPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="chrysanthemumPlant" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedChrysanthemum1" count="50"/>
 			</recipe>
-			<recipe name="coffeeBeans" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="coffeeBeans" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedCoffee1" count="50"/>
 			</recipe>
-			<recipe name="hopsFlower" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="hopsFlower" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedHop1" count="50"/>
 			</recipe>
-			<recipe name="foodYuccaFruit" count="150" craft_area="hydroponicFarmWorkstation" craft_time="10">
+			<recipe name="foodYuccaFruit" count="150" craft_area="hydroponicFarmWorkstation" craft_time="3000">
 				<ingredient name="plantedYucca1" count="50"/>
 			</recipe>
-			<recipe name="mushrooms" count="150" craft_area="hydroponicFarmWorkstation" craft_time="20">
+			<recipe name="mushrooms" count="150" craft_area="hydroponicFarmWorkstation" craft_time="6000">
 				<ingredient name="plantedMushroom1" count="50"/>
 			</recipe>
 		</append>
