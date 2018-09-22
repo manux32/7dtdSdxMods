@@ -1,4 +1,4 @@
-# Healing Pod
+# Manux_HealingPod
 
 A healing pod heals you and cures everything quickly when you step on it.  
 It requires 50W of power to work.  
