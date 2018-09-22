@@ -1,6 +1,7 @@
 # Manux_HPMiniBike
 
 This mod adds High-Powered versions of the minibike parts, in order to build a High-Powered Minibike.  
+I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
 I haven't made new meshes for the new parts yet, so it looks the same as usual, it's just more powerful.
 
 ### New High-Powered Parts:
