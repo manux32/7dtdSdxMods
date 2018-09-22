@@ -9,12 +9,12 @@
   - **Warning**: To achieve this I had to deactivate the outline effect on the text of all buttons, otherwise it can't fit so many without console errors. Text might be a little bit harder to read on buttons, but I didn't notice much of a difference.
 
 
-The mod is in majority **stedman420**'s Simple UI Plus 120 mod packaged as an SDX mod, for easy merging with other SDX mods.  
+The mod is in majority **stedman420**'s [Simple UI Plus](https://7daystodie.com/forums/showthread.php?67506-Simple-UI-Plus) 120 mod packaged as an SDX mod, for easy merging with other SDX mods.  
 It does not include his UI HUD, I packaged that in the mod [Manux_SimpleUI_HUD](../Manux_SimpleUI_HUD).
 
-The backpack extra slots need a C# SDX PatchScript. I am using **sphereii**'s BiggerBackpack mod's c# script for that part, since I don't have stedman420's orignal patching code.
+The backpack extra slots need a C# SDX PatchScript. I am using **sphereii**'s [BiggerBackpack mod](https://github.com/7D2DSDX/Mods/tree/master/BiggerBackPack)'s c# script for that part, since I don't have stedman420's orignal patching code.
 
-The mod also includes a combine feature on the minibike window. Thanks to **Anabella**'s ExpandedMinibike mod for the original code. I modified it and made it horizontal to fit with stedman420's minibike UI.
+The mod also includes a combine feature on the minibike window. Thanks to **Anabella**'s [ExpandedMinibike](https://github.com/7D2DSDX/Mods/tree/master/ExpandedMinibike) mod for the original code. I modified it and made it horizontal to fit with stedman420's minibike UI.
 
 ### Bug Fixes:
 I fixed a couple of issues that were present in the Simple UI Plus 120 mod.
