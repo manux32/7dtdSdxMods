@@ -7,4 +7,4 @@ workingCabinetSink,blocks,Block Building,EnChanged,Working Sink
 plumbingKit,items,Item,EnChanged,Plumbing Kit
 plumbingKitDesc,items,Item,EnChanged,This kit when used with a wrench can upgrade broken sinks into working variants for a fresh source of water if you left-click them with an empty jar.
 ovenKit,items,Item,EnChanged,Oven Repair Kit
-ovenKitDesc,items,Item,EnChanged,This kit can used to upgrade broken ovens into new working variants with a wrench.
+ovenKitDesc,items,Item,EnChanged,This kit can be used to upgrade broken ovens into new working variants with a wrench.
