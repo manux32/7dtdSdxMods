@@ -1,4 +1,4 @@
-# Manux_FoodRecipes
+# Food Recipes
 
 New Food recipes and small variations to existing ones.  
 Some recipes and icons come from **Valmar**'s mod.  
