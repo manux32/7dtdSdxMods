@@ -64,7 +64,7 @@
 				<!--property name="DontDamageOnTouch" value="true" /-->
 				<property name="BuffsWhenWalkedOn" value="trapDamage1Trigger"/>	
 				<property class="RepairItems">
-					<property name="forgedIron" value="10"/>
+					<property name="forgedSteel" value="5"/>
 				</property>
 				<property name="CustomUpgradeSound" value="place_block_metal"/>
 				<property name="DowngradeBlock" value="steelLogSpike6"/>
