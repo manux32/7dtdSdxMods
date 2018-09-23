@@ -1,4 +1,4 @@
-<!-- Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_SurvivorsAndBandits -->
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_SurvivorsAndBandits-->
 # Bandits and Survivors
 
 Bandits are your enemies and Survivors are your allies. As it is set right now, they will all spawn equally in each biome. There is more Survivor spawns than Bandits spawns. But you can change all of that by editing the **entitygroups.xml** and **spawning.xml** files of the mod.  
