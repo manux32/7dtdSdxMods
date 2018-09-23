@@ -19,25 +19,9 @@ Bandits give you better loot thand Survivors.
 I learned how to make all of these by playing with the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) bandits. **Special thanks to them!**
 
 ## Entities specs:
-### Max Health:
-- **Ranged Soldier** = 150
-- **Melee Soldier** = 350
-- **Leader** = 1750
-- **Brute** = 3000
-### Approach Speed:
-- **Ranged Soldier** = 1
-- **Melee Soldier** = 1.1
-- **Leader** = 1
-- **Brute** = 0.7
-### Max View Angle:
-- **Ranged Soldier** = 300
-- **Melee Soldier** = 300
-- **Leader** = 360
-- **Brute** = 300
-### Sight Range:
-- **Bandits** = 80
-- **Survivors** = 120
-
+| **Max Health** | **Approach Speed** | **Max View Angle** | **Sight Range** |
+|:---:|:---:|:---:|:---:|
+| **Ranged Soldier** = 150 </br> **Melee Soldier** = 350 </br> **Leader** = 1750 </br> **Brute** = 3000 | **Ranged Soldier** = 1 </br> **Melee Soldier** = 1.1 </br> **Leader** = 1 </br> **Brute** = 0.7 | **Ranged Soldier** = 300 </br> **Melee Soldier** = 300 </br> **Leader** = 360 </br> **Brute** = 300 | **Bandits** = 80 </br> **Survivors** = 120 |
 
 ## Survivor Adventurers:
 ### warm weather
