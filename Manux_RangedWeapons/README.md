@@ -1,6 +1,6 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_RangedWeapons-->
 # Ranged Weapons
-Adaptation of **Valmar**'s ranged weapons as an SDX mod.  
+Adaptation of [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s ranged weapons as an SDX mod.  
 And additions of new variations including scoped crossbows and slingshots.  
 I initially added slingshots to have an early game ranged weapon that uses very cheap ammo, but I fell in love with the weapon, and added a bunch of ammo types for it. It can still be a cool weapon to use later in the game.
 

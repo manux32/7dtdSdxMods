@@ -1,7 +1,7 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_MerchantWorkstations-->
 # Manux_MerchantWorkstations
 
-A modified/improved version of **Valmar**'s merchant workstations.  
+A modified/improved version of [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s merchant workstations.  
 If you are tired of running arround the map to go sell your loot or to find the rare item you are missing, this is the mod for you.
 
 ### Workstations

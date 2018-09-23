@@ -1,7 +1,7 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_Traps-->
 # Traps
 
-The Steel Log Spikes upgrades were inspired by **Valmar**'s traps, but adapted to what I wanted, including being able to power them for an additonal shocking buff.  
+The Steel Log Spikes upgrades were inspired by [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s traps, but adapted to what I wanted, including being able to power them for an additonal shocking buff.  
 The hard-core players might find my traps a bit over-powered. :stuck_out_tongue_winking_eye:
 
 ### Adhesive Steel Electric Log Spike: ![taess](Icons/trapAdhesiveElectricSteelSpike.png)

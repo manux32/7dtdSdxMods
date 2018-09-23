@@ -15,6 +15,8 @@ Rocket Launchers have been set to not damage blocks, only entities, because I wa
 I tried to make the Bandits not too tough. If you want it more hardcore, you can edit all the xmls to your liking.  
 You can kill survivors for quick and dirty loot, but it's better to keep them alive to protect you from roaming bandits.  
 Bandits give you better loot thand Survivors.
+</br>
+I learned how to make all of these by playing with the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) bandits. **Special thanks to them!**
 
 ## Entities specs:
 ### Max Health:

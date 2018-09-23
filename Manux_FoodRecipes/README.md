@@ -2,7 +2,7 @@
 # Food Recipes
 
 New Food recipes and small variations to existing ones.  
-Some recipes and icons come from **Valmar**'s mod.  
+Some recipes and icons come from [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s mod.  
 
 The idea for me was not to do a big change to food, but just add a bit more variety and especially alternatives for foods that can fill you up.
 

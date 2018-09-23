@@ -1,6 +1,6 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_WorkingOvenAndSink-->
 # Working Oven And Sink
-A modified/improved version of **Valmar**'s working oven and sink.  
+A modified/improved version of [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s working oven and sink.  
 
 The main difference with Valmar's original features is that the workstations can be picked up to be placed somewhere else.  
 Buckets can also be filled using the sink.  
