@@ -1,5 +1,5 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods-->
-# My <img src="https://manux32.github.io/7dtd_miscImages/7dtd_logo_small.png" width="30%" height="30%"> SDX Mods
+# My <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/7dtd_logo_small.png" width="30%" height="30%"></a> SDX Mods
 
 
 Each mod has a readme file to give a quick overview of its features. It's formatted for github markdown, so it's better to read them directly in github, by clicking on each mod above, or in the Highlights section below. This way you get the hyperlinks and the images.  
@@ -18,7 +18,7 @@ I tried to make all mods as modular as possible so that you can deploy only the 
 | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleWarm.jpg) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 
-## [Bad Company Zombies](Manux_BadCompanyZombies)  [<img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%">](Manux_BadCompanyZombies)
+## [Bad Company Zombies](Manux_BadCompanyZombies) <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%"></a>  
 More than 100 new zombies and their variations. There's so many that you'll rarely see the same zombie twice!
 
 ## [High-Powered MiniBike](Manux_HPMiniBike)  
