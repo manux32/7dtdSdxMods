@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_FoodRecipes-->
 # Food Recipes
 
 New Food recipes and small variations to existing ones.  

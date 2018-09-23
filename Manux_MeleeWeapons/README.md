@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_MeleeWeapons-->
 # Melee Weapons
 This adds new melee weapons.  
 It currently only adds 4 new weapons that are power magical weapons, and maybe a bit over-powered. :stuck_out_tongue_winking_eye:  

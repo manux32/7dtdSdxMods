@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_Traps-->
 # Traps
 
 The Steel Log Spikes upgrades were inspired by **Valmar**'s traps, but adapted to what I wanted, including being able to power them for an additonal shocking buff.  

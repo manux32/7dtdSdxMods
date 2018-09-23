@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_MiningTools-->
 # Mining Tools
 Small adaptation of **Buggi**'s [Lightweight Builders Mod](https://7daystodie.com/forums/showthread.php?84086-Lightweight-Builders-Mod) mining tools, packaged as an SDX mod for easy merging with other SDX mods.  
 I think some of those originally came from **Valmar**'s mod.

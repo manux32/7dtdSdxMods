@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HealingPod-->
 # Healing Pod ![healingPod](Icons/healingPod.png)
 
 A healing pod heals you and cures everything quickly when you step on it.  

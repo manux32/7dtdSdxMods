@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_PerpetualMotionGenerator-->
 # Perpetual Motion Generator ![pmg](Icons/perpetualMotionGenerator.png)
 A generator that requires no fuel whatsoever.  
 We don't know who managed to invent this, it was considered scientifically impossible for ages.  

@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_IncreasedItemsStackNumber-->
 # Increased Items StackNumber
 
 This mod increases the StackNumber (number of items that fit in 1 item slot) for the following items:

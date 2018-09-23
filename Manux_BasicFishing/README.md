@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BasicFishing-->
 # Basic Fishing
 A simple Fishing mod, inspired by **Clockwork Orange** and **Carzilla**'s Fishing mods.  
 I'm also using many icons from their mods.  

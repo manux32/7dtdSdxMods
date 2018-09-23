@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_MinerRobot-->
 # Manux_MinerRobot ![miner](Icons/minerGeneric.png)
 
 This was inspired by **YoShIWoZ**'s [Miner mod](https://7daystodie.com/forums/showthread.php?47379-Miner).  

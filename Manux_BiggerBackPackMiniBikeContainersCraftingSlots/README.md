@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots-->
 # More slots in BackPack, MiniBike, Containers / More Crafting Slots
 
 ### This mod adds more slots for the following: 

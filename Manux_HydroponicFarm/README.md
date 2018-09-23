@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HydroponicFarm-->
 # Hydroponic Farming Device ![hydroFarm](Icons/hydroponicFarmPower.png)
 
 This is one of the mods I'm the most proud of.  

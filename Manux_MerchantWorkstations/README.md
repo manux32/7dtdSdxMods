@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_MerchantWorkstations-->
 # Manux_MerchantWorkstations
 
 A modified/improved version of **Valmar**'s merchant workstations.  

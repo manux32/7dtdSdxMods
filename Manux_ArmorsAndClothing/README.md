@@ -1,3 +1,4 @@
+<!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_ArmorsAndClothing-->
 # Armors And Clothing
 This is a couple of the Armor elements that can be found in the **Valmar** mods.  
 I also added recipes for crafting hot weather black clothing.  
