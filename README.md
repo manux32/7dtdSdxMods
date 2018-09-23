@@ -18,7 +18,7 @@ I tried to make all mods as modular as possible so that you can deploy only the 
 | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleWarm.jpg) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 
-## [Bad Company Zombies](Manux_BadCompanyZombies) <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%"></a>  
+## [Bad Company Zombies](Manux_BadCompanyZombies) <img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%">  
 More than 100 new zombies and their variations. There's so many that you'll rarely see the same zombie twice!
 
 ## [High-Powered MiniBike](Manux_HPMiniBike)  
