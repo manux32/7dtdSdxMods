@@ -7,7 +7,8 @@ I initially added slingshots to have an early game ranged weapon that uses very 
 ## Parts
 | ![img](Icons/gunSilencer.png) | ![img](Icons/gunChoke.png) | ![img](Icons/gunScope.png)
 |:---:|:---:|:---:|
-| Weapon Silencer | Shotgun Choke | High-Powered Scope |
+| **Weapon Silencer** | **Shotgun Choke** | **High-Powered Scope** |
+| csWeapons **7** / csScience **7** | csWeapons **7** / csScience **7** | csWeapons **7** / csScience **7** |
 
 ## Slingshots
 | ![img](Icons/slingshot.png) | ![img](Icons/ironSlingshot.png) | ![img](Icons/slingshotRepeater.png) | ![img](Icons/slingshotRepeaterHPScope.png) |
