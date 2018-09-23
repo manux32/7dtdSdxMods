@@ -30,7 +30,7 @@ You can kill survivors for quick and dirty loot, but it's better to keep them al
 - **Leader** = 360
 - **Brute** = 300
 ### Sight Range:
-- **Bandits** = 300
+- **Bandits** = 80
 - **Survivors** = 120
 
 
