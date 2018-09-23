@@ -23,3 +23,14 @@ The device does not actually move arround to mine real blocks. It will just spaw
 - You will see it's lights turn on, the auger blade will start to turn and you will hear its noise.
 - The mining time is currently arround 60 real-time minutes (random).
 - A lootable chest will appear on top of it when its done. The device will also turn off. 
+
+### Potential conflicts
+If you have other mods that modify the **Allowed_upgrade_items** value for the **wrench** or the **clawHammer** item, there could be a small conflict.  
+This mod sets that value to the following for both items: *```"wood,clayLump,dirtFragment,snowBall,scrapIron,forgedIron,forgedSteel,steelPolish,concreteMix,cobblestones,yuccaFibers,gasCan"```*.  
+It includes the items present in vanilla version, with the addition of *```gasCan```*.  
+
+You may need to modify that line in **MinerRobot.xml** so that it also includes the items from your other mods.  
+Or, depending of the order in which SDX deploys the mods, you may need to modify that line in the other mods to include: *```gasCan```*. Or put everything in both to be safe. :smiley:  
+
+Mods deploy in alphabetical order of the mods root folders from what I understand.  
+Sadly, SDX is not yet capable of inserting additional items in a multi-item string, it can only set the whole value to a new value.
