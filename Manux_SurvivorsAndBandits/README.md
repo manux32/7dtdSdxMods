@@ -4,9 +4,10 @@ Bandits are your enemies and Survivors are your allies. As it is set right now, 
 </br>
 Theres is 4 Bandit clans, and 4 Survivors clans. All Bandit clans are allies and all Survivor clans are allies.  
 Each clan has regular soldiers (male/female), a leader, and a Brute.  
-I made warm weather and cold weather versions of each entity ([see images below](#survivor-adventurers)). The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
+I made warm weather and cold weather versions of each entity ([see images below](#survivor-adventurers)).  
+The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
 </br>
-Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon(including a chainsaw). Leaders usually spawn with an AK-47, but some of them have other weapons.  
+Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon(including a chainsaw).   Leaders usually spawn with an AK-47, but some of them have other weapons.  
 Brutes only use melee weapons. I made bigger versions of melee weapons with custom meshes, so they don't look like toothpicks in their giants hands.  
 </br>
 I tried to make the Bandits not too tough. If you want it more hardcore, you can edit all the xmls to your liking.  
