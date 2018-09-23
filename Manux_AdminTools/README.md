@@ -1,5 +1,5 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_AdminTools-->
-# Admin/Creative Tools <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/repair_icon.png" width="10%" height="10%"></a> <a href="#">  
+# Admin/Creative Tools <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/repair_icon.png" width="10%" height="10%" align="left"></a> <a href="#">  
 A couple of simple useful admin Tools.  
 Some of them are pieces I took from the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) mod and adapted.  
 
