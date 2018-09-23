@@ -5,7 +5,7 @@ If you are tired of running arround the map to go sell your loot or to find the 
 
 ## Workstations
 Both workstations can be picked up if they are within a land claim block range.
-### ![img](https://manux32.github.io/7dtd_miscImages/traderVendingMachine.png) Merchant Delivery Box 
+### ![img](https://manux32.github.io/7dtd_miscImages/traderVendingMachine.png) Virtual Trader
 Like having a Trader at home. Buy or sell goods. Same items and UI as a Trader, even the secret stash is there.
 ### ![img](Icons/workstationQuest.png) Quest Board 
 Buy quests.  
