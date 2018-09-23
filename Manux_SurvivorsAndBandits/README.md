@@ -9,6 +9,7 @@ The Brutes are actually much taller in-game than what they look like in the imag
 </br>
 Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon(including a chainsaw).   Leaders usually spawn with an AK-47, but some of them have other weapons.  
 Brutes only use melee weapons. I made bigger versions of melee weapons with custom meshes, so they don't look like toothpicks in their giants hands.  
+Rocket Launchers have been set to not damage blocks, only entities, because I was finding it annoying to have them make big holes everywhere, but you can totally change that if you want.
 </br>
 I tried to make the Bandits not too tough. If you want it more hardcore, you can edit all the xmls to your liking.  
 You can kill survivors for quick and dirty loot, but it's better to keep them alive to protect you from roaming bandits. Bandits give you better loot thand Survivors.
