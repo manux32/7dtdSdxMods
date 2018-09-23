@@ -1,12 +1,13 @@
 # Bandits and Survivors
 
-Bandits are your enemies and Survivors are your allies.  
+Bandits are your enemies and Survivors are your allies. As it is set right now, they will all spawn equally in each biome. There is more Survivor spawns than Bandits spawns. But you can change all of that by editing the *entitygroups.xml* and *spawning.xml* files of the mod.  
+</br></br>
 Theres is 4 Bandit clans, and 4 Survivors clans. All Bandit clans are allies and all Survivor clans are allies.  
 Each clan has regular soldiers (male/female), a leader, and a Brute.  
 I made warm weather and cold weather versions of each entity (see images below). The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
-Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon (including a chainsaw).  
-Leaders usually spawn with an AK-47, but some of them have other weapons. Brutes only use melee weapons.  
-You can kill survivors for quick and dirty loot, but it's better to keep them alive to protect you from roaming bandits.  
+</br>
+Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon(including a chainsaw). Leaders usually spawn with an AK-47, but some of them have other weapons. Brutes only use melee weapons.   
+You can kill survivors for quick and dirty loot, but it's better to keep them alive to protect you from roaming bandits.
 
 
 ## Survivor Adventurers:
