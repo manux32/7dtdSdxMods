@@ -63,7 +63,7 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 - [Merchant Workstations](Manux_MerchantWorkstations): Like having a Trader at home!
 - [Working Oven and Sink](Manux_WorkingOvenAndSink)
 - [Steel Armors](Manux_ArmorsAndClothing)
-- [Bigger Backpack / Miniboke storage, etc...](Manux_BiggerBackPackMiniBikeContainersCraftingSlots)
+- [Bigger Backpack / MiniBike storage, etc...](Manux_BiggerBackPackMiniBikeContainersCraftingSlots)
 - [Craft Non-Craftable Items](Manux_CraftNonCraftableItems)
 - [Give Back Empty Jars](Manux_GiveBackEmptyJars)
 - [Increased Items StackNumber](Manux_IncreasedItemsStackNumber)
