@@ -1,5 +1,5 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots-->
-# More slots in BackPack, MiniBike, Containers / More Crafting Slots
+# <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/moreSlots_icon.png" width="10%" height="10%" align="left"></a>More slots in BackPack, MiniBike, Containers / More Crafting Slots  
 
 ### This mod adds more slots for the following: 
 - Backpack: 120 slots 
