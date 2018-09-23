@@ -24,4 +24,4 @@ You can also make crafting faster by lowering the craft time of all plants recip
 - You need either 50 seeds or 50 harvested plants/veggies/fruits to craft a recipe. It will output 3 times that when it's done. (4 times for corn).
 - Most recipes take 50 real-time minutes to craft. Mushrooms take double of that.
 - When a plant is growing/crafting, you will see that plant spawn on top of the workstation to indicate what is currently being grown by that device.
-- Power outage will pause crafting until is is restored.
+- Power outage will pause crafting until it is restored.
