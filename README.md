@@ -30,7 +30,7 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 
 ## [New Food Recipes](Manux_FoodRecipes)  
-| ![img](Manux_FoodRecipes/Icons/assortedVegetables.png) | ![img](Manux_FoodRecipes/Icons/burgerAndFries.png) | ![img](Manux_FoodRecipes/Icons/baconEggSandwich.png) | ![img](Manux_FoodRecipes/Icons/scrambledEggs.png) | ![img](Manux_FoodRecipes/Icons/Omelet.png) | ![img](Manux_FoodRecipes/Icons/rawPasta.png) | ![img](Manux_FoodRecipes/Icons/sheperdsPie.png) | ![img](Manux_FoodRecipes/Icons/padThai.png) | ![img](Manux_FoodRecipes/Icons/steakSandwich.png) |
+| ![img](Manux_FoodRecipes/Icons/assortedVegetables.png) | ![img](Manux_FoodRecipes/Icons/rawPasta.png) | ![img](Manux_FoodRecipes/Icons/baconEggSandwich.png) | ![img](Manux_FoodRecipes/Icons/scrambledEggs.png) | ![img](Manux_FoodRecipes/Icons/Omelet.png) | ![img](Manux_FoodRecipes/Icons/steakSandwich.png) | ![img](Manux_FoodRecipes/Icons/burgerAndFries.png) | ![img](Manux_FoodRecipes/Icons/sheperdsPie.png) | ![img](Manux_FoodRecipes/Icons/padThai.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 
 ## [Hydroponic Farming Device](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicFarmPower.png" width="15%" height="15%">](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicsBook.png" width="10%" height="10%">](Manux_HydroponicFarm)  
