@@ -67,6 +67,6 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 - [Craft Non-Craftable Items](Manux_CraftNonCraftableItems)
 - [Give Back Empty Jars](Manux_GiveBackEmptyJars)
 - [Increased Items StackNumber](Manux_IncreasedItemsStackNumber)
-- [Simple UI_HUD](Manux_SimpleUI_HUD)
+- [Simple UI HUD](Manux_SimpleUI_HUD)
 - [Admin/Creative Tools](Manux_AdminTools)
 
