@@ -1,5 +1,6 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_CraftNonCraftableItems-->
 # <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/craftArt_icons.png" width="15%" height="15%" align="left"></a>Craft Non-Craftable Items<br/>  
+<br/>  
 A mod that adds recipes to craft items that exist in the game but that are not craftable.  
 Many of those recipes were taken from various other mods and adpated to my liking. I didn't spend lots of time on adapting all recipes, I will have to review this eventually...  
 I also didn't add any schematics or progression gates for the recipes.  
