@@ -1,7 +1,7 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_AdminTools-->
 # Manux: Admin Tools
 A couple of simple useful admin Tools.  
-Some of them are pieces I took from the **Bad Company** mod and adapted.  
+Some of them are pieces I took from the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) mod and adapted.  
 
 - **Black Pill**: Cures pretty much everything, and fills Health, Stamina, Wellness, Food and Water.
 - **Super Digger**: The already existing commented Super Digger.
