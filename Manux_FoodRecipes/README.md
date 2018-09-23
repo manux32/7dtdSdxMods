@@ -18,5 +18,5 @@ The idea for me was not to do a big change to food, but just add a bit more vari
 - ![Steak Sandwich](Icons/steakSandwich.png) Steak Sandwich
 
 ### Alternative Recipes:
-Meat and Vegetable Stews can be crafted with Assorted Vegetables instead of the vanilla veggie ingredients.
+Meat and Vegetable Stews can be crafted with Assorted Vegetables instead of the vanilla veggie ingredients.  
 Assorted Vegetables can be crafted from potatoes, corn or mushrooms. If you use the 3 types of veggies to craft it, you get more out of it.
