@@ -18,8 +18,14 @@ Bandits give you better loot thand Survivors.
 </br>
 I learned how to make all of these by playing with the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) bandits. **Special thanks to them!**
 
+## Potential conflicts:
+This mod adds **42** new lootcontainers in **loot.xml**. IDs **119-144** and **239-254**.  
+Yes, it's a lot! This is because there is a different corpse block for each type of weapon that the entities can carry. And Survivors and Bandits also have different corpses because the loot is different (Bandits have better loot). 
+
+If you are using mods that already use those lootcontainers IDs, you will need to change them either in this mod or in the other mods. You need to change both the ID of the lootcontainer in **loot.xml**, but also the ID on the block that points to it in **blocks.xml** (the value of the property **LootList** of the block).
+
 ## Entities specs:
-| **Max Health** | **Approach Speed** | **Max View Angle** | **Sight Range** |
+| **```Max Health```** | **```Approach Speed```** | **```Max View Angle```** | **```Sight Range```** |
 |:---:|:---:|:---:|:---:|
 | **Ranged Soldier** = 150 </br> **Melee Soldier** = 350 </br> **Leader** = 1750 </br> **Brute** = 3000 | **Ranged Soldier** = 1 </br> **Melee Soldier** = 1.1 </br> **Leader** = 1 </br> **Brute** = 0.7 | **Ranged Soldier** = 300 </br> **Melee Soldier** = 300 </br> **Leader** = 360 </br> **Brute** = 300 | **Bandits** = 80 </br> **Survivors** = 120 |
 
