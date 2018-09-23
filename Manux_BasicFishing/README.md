@@ -4,6 +4,7 @@ A simple Fishing mod, inspired by [**Clockwork Orange**](https://7daystodie.com/
 I'm also using many icons from their mods.  
 The mods were adapted to what I wanted, especially making it easier to bait the Fishing Rod, without using a recipe each time.  
 Read the items in the localization file or in-game to know how to fish.  
+I did not yet add any progression gates for being able to craft these items.
 
 ## Items
 | ![Fishing Rod](Icons/fishingRod.png) | ![Fishing Trap](Icons/fishingTrap.png) | ![Fish Bait](Icons/fishBait.png) | ![Fish bait baskets](Icons/fishBaitBasket.png) | ![Raw Fish](Icons/rawFish.png) |
