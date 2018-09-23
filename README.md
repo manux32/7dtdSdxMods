@@ -59,8 +59,14 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 |:---:|:---:|:---:|
 | Weed Cleaver | Quick Axe | Diamond Axe |  
 
+## [Merchant Workstations](Manux_MerchantWorkstations)  
+| ![img](https://manux32.github.io/7dtd_miscImages/traderVendingMachine.png) | ![img](Manux_MerchantWorkstations/Icons/workstationQuest.png) | 
+|:---:|:---:|
+| Virtual Trader | Quest Board |  
+
+Like having a Trader at home!
+
 ## And a lot of other cool stuff
-- [Merchant Workstations](Manux_MerchantWorkstations): Like having a Trader at home!
 - [Working Oven and Sink](Manux_WorkingOvenAndSink)
 - [Steel Armors](Manux_ArmorsAndClothing)
 - [Bigger Backpack / MiniBike storage, etc...](Manux_BiggerBackPackMiniBikeContainersCraftingSlots)
