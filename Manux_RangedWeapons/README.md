@@ -30,10 +30,13 @@ Guns and Ammo don't yet have any progression gates.
 | craftSkillWeapons **4** <br/> craftSkillScience **2** | craftSkillWeapons **3** <br/> craftSkillScience **1** | craftSkillWeapons **4** <br/> craftSkillScience **2** | craftSkillWeapons **6** <br/> craftSkillScience **4** | craftSkillWeapons **6** <br/> craftSkillScience **4** |
 
 ## Guns
-| ![img](Icons/gunPistolSilenced.png) | ![img](Icons/gun44MagnumSilenced.png) | ![img](Icons/gunMP5Silenced.png) | ![img](https://manux32.github.io/7dtd_miscImages/Ak47.png) | ![img](Icons/gunPumpShotgunChoked.png) | ![img](Icons/SilencedSniper.png) | ![img](https://manux32.github.io/7dtd_miscImages/sniperRifle.png) | ![img](Icons/SilencedSniper.png) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Pistol (Silenced) | .44 Magnum (Silenced) | SMG (Silenced) | AK-47 (Silenced) | Pump Shotgun (Choked)| Sniper Rifle (Silenced) | Sniper Rifle (High-Powered Scope) | Sniper Rifle (High-Powered Scope/Silenced) |
+| ![img](Icons/gunPistolSilenced.png) | ![img](Icons/gun44MagnumSilenced.png) | ![img](Icons/gunMP5Silenced.png) | ![img](https://manux32.github.io/7dtd_miscImages/Ak47.png) |
+|:---:|:---:|:---:|:---:|
+| Pistol (Silenced) | .44 Magnum (Silenced) | SMG (Silenced) | AK-47 (Silenced) |  
 
+|![img](Icons/gunPumpShotgunChoked.png) | ![img](Icons/SilencedSniper.png) | ![img](https://manux32.github.io/7dtd_miscImages/sniperRifle.png) | ![img](Icons/SilencedSniper.png) |
+|:---:|:---:|:---:|:---:|
+| Pump Shotgun (Choked)| Sniper Rifle (Silenced) | Sniper Rifle (High-Powered Scope) | Sniper Rifle (High-Powered Scope/Silenced) |
 
 ## Ammo
 | ![img](Icons/flamingCrossbowBolt.png) | ![img](Icons/slingshotRockAmmo.png) | ![img](Icons/slingshotSteelAmmo.png) | ![img](Icons/flamingSlingshotAmmo.png) | ![img](Icons/shockingSlingshotAmmo.png) | ![img](Icons/explodingSlingshotAmmo.png) |
