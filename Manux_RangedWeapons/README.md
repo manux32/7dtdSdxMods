@@ -8,7 +8,7 @@ Guns and Ammo don't yet have any progression gates.
 ## Parts
 | ![img](Icons/gunSilencer.png) | ![img](Icons/gunChoke.png) | ![img](Icons/gunScope.png)
 |:---:|:---:|:---:|
-| **Weapon Silencer** | **Shotgun Choke** | **High-Powered Scope** |
+| Weapon Silencer | Shotgun Choke | High-Powered Scope |
 | craftSkillWeapons **7** <br/> craftSkillScience **7** | craftSkillWeapons **7** <br/> craftSkillScience **7** | craftSkillWeapons **7** <br/> craftSkillScience **7** |
 
 ## Slingshots
