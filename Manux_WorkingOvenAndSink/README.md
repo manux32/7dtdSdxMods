@@ -27,5 +27,5 @@ You may need to modify that line in **WorkingOvenAndSink.xml** so that it also i
 Or, depending of the order in which SDX deploys the mods, you may need to modify that line in the other mods to include: *```gasCan,plumbingKit,ovenKit```*. Or put everything in both to be safe. :smiley:  
 
 The reason ```gascan``` is there is because my [Miner Robot](Manux_MinerRobot) mod needs it, and it gets deployed before this one. I included it here, so that it is still there when you deploy both mods.  
-Mods deploy in alphabetical order of their root folder from what I understand.  
+Mods deploy in alphabetical order of the mods root folders from what I understand.  
 Sadly, SDX is not yet capable of inserting additional items in a multi-item string, it can only set the whole value to a new value.
