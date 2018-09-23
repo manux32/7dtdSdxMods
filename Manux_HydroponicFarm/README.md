@@ -9,7 +9,7 @@ It requires 20W of power to work, crops stop growing(crafting) when there is no 
 
 ### Progression:
 - ![hydroBook](Icons/hydroponicsBook.png) An Hydropnics book must be found to be able to use the device.
-- 2 levels of *Hydroponics Mastery* must be purchased to acquire more plants recipes and to be able to craft the device. The device can also be bought from Traders or found in the world.
+- 2 levels of **Hydroponics Mastery** must be purchased to acquire more plants recipes and to be able to craft the device. The device can also be bought from Traders or found in the world.
 
 ### Quick testing of the Mod:
 If you want to quickly test the device in creative mod, you can comment out the progression block and the Hydroponics book item, before deploying the mod.  
