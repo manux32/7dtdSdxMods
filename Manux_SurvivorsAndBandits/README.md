@@ -4,7 +4,7 @@ Bandits are your enemies and Survivors are your allies. As it is set right now, 
 </br>
 Theres is 4 Bandit clans, and 4 Survivors clans. All Bandit clans are allies and all Survivor clans are allies.  
 Each clan has regular soldiers (male/female), a leader, and a Brute.  
-I made warm weather and cold weather versions of each entity ([see images below](#pwet)). The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
+I made warm weather and cold weather versions of each entity ([see images below](#survivor-adventurers)). The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
 </br>
 Regular soldiers can spawn with all types of guns (including rocket launcher), or with any melee weapon(including a chainsaw). Leaders usually spawn with an AK-47, but some of them have other weapons.  
 Brutes only use melee weapons. I made bigger versions of melee weapons with custom meshes, so they don't look like toothpicks in their giants hands.  
@@ -33,7 +33,6 @@ You can kill survivors for quick and dirty loot, but it's better to keep them al
 - **Survivors** = 120
 
 
-<h4 id="pwet"></h4>
 ## Survivor Adventurers:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerBrutewarm.jpg) |
