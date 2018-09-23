@@ -13,10 +13,13 @@ I tried to make all mods as modular as possible so that you can deploy only the 
 # Highlights
 
 ## [Bandits and Survivors](Manux_SurvivorsAndBandits)  
+4 Bandits and 4 Survivors Factions, including Male/Female Fighters, Leaders, and Brutes.  
+
 | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleWarm.jpg) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 
-## [Bad Company Zombies](Manux_BadCompanyZombies)  [<img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%">](Manux_BadCompanyZombies)  
+## [Bad Company Zombies](Manux_BadCompanyZombies)  [<img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%">](Manux_BadCompanyZombies)
+More than 100 new zombies and their variations. There's so many that you'll rarely see the same zombie twice!
 
 ## [High-Powered MiniBike](Manux_HPMiniBike)  
 | ![img](Manux_HPMiniBike/Icons/robustMinibikeChassis.png) | ![img](Manux_HPMiniBike/Icons/professionalMinibikeHandlebars.png) | ![img](Manux_HPMiniBike/Icons/HPminibikeWheels.png) | ![img](Manux_HPMiniBike/Icons/deluxeMinibikeSeat.png) |
