@@ -11,9 +11,9 @@ The device does not actually move arround to mine real blocks. It will just spaw
 - **Miner Robot (Rare Ores)**: Harvests rare Ores (ironFragment, coal, oilShale, scrapLead, potassiumNitratePowder), and more rarely, very rare ores (silverNugget, goldNugget, rawDiamond)
 
 ### Progression
-- You need craftSkillTools 6 and craftSkillScience 6 to craft the Generic Miner Robot.
-- CraftSkillTools 4 and craftSkillScience 3 to convert a generic device to the Regular Ores version.
-- CraftSkillTools 7 and craftSkillScience 7 to convert a generic device to the Rare Ores version.
+- You need **craftSkillTools 6** and **craftSkillScience 6** to craft the Generic Miner Robot.
+- **CraftSkillTools 4** and **craftSkillScience 3** to convert a generic device to the Regular Ores version.
+- **CraftSkillTools 7** and **craftSkillScience 7** to convert a generic device to the Rare Ores version.
 
 ### Usage:
 - Buy, craft or find the generic device.
