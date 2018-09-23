@@ -1,5 +1,5 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods-->
-# My [7dtd](https://manux32.github.io/7dtd_miscImages/7dtd_logo_compact.png) SDX Mods
+# My ![7dtd](https://manux32.github.io/7dtd_miscImages/7dtd_logo_compact.png) SDX Mods
 
 Each mod has a readme file to give a quick overview of its features. It's formatted for github markdown, so it's better to read them directly in github, by clicking on each mod above. This way you get the hyperlinks and the images.  
 
