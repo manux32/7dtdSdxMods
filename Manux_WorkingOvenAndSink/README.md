@@ -17,3 +17,15 @@ Requirements to be able to craft the items/blocks:
 - **Plumbing Kit**: craftSkillTools **3** / The Fixer **3**
 - **Working Ovens**: craftSkillTools **5** / The Fixer **3**
 - **Working Sinks**: craftSkillTools **6** / The Fixer **4**
+
+### Potential conflicts
+If you have other mods that modify the **Allowed_upgrade_items** value for the **wrench** item, there could be a small conflict.  
+This mod sets that value to this: *```"wood,clayLump,dirtFragment,snowBall,scrapIron,forgedIron,forgedSteel,steelPolish,concreteMix,cobblestones,yuccaFibers,gasCan,plumbingKit,ovenKit"```*.  
+It includes the items present in vanilla version, with the addition of *```gasCan,plumbingKit,ovenKit```*.  
+
+You may need to modify that line in **WorkingOvenAndSink.xml** so that it also includes the items from your other mods.  
+Or, depending of the order in which SDX deploys the mods, you may need to modify that line in the other mods to include: *```gasCan,plumbingKit,ovenKit```*. Or put everything in both to be safe. :smiley:  
+
+The reason ```gascan``` is there is because my [Miner Robot](Manux_MinerRobot) mod needs it, and it gets deployed before this one. I included it here, so that it is still there when you deploy both mods.  
+Mods deploy in alphabetical order of their root folder from what I understand.  
+Sadly, SDX is not yet capable of inserting additional items in a multi-item string, it can only set the whole value to a new value.
