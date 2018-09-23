@@ -3,7 +3,8 @@
 
 This mod adds High-Powered versions of the minibike parts, in order to build a High-Powered Minibike.  
 I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
-I haven't made new meshes for the new parts yet, so it looks the same as usual, it's just more powerful.
+I haven't made new meshes for the new parts yet, so it looks the same as usual, it's just more powerful.  
+I did not yet add any progression gates for being able to craft these items.
 
 ## New High-Powered Parts:
 ### ![bigEngine](Icons/bigEngine.png) Big Engine
