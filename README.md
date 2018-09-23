@@ -13,7 +13,7 @@ I tried to make all mods as modular as possible so that you can deploy only the 
 # Highlights
 
 ## [Bandits and Survivors](Manux_SurvivorsAndBandits)  
-4 Bandits and 4 Survivors Factions, including Male/Female Fighters, Leaders, and Brutes.  
+4 Bandits and 4 Survivors Factions, each of them including Male/Female Fighters, Leaders, and Brutes.  
 
 | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleWarm.jpg) | ![img](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleWarm.jpg) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
