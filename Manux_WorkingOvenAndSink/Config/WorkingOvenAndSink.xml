@@ -184,10 +184,18 @@
 		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
 			<!-- MANUX Working Oven And Sink -->
 			<recipe name="ovenKit" unlock_level="2"/>
-			<recipe name="plumbingKit" unlock_level="2"/>
-			<recipe name="workstationOven" unlock_level="6"/>
+			<recipe name="plumbingKit" unlock_level="3"/>
+			<recipe name="workstationOven" unlock_level="5"/>
 			<recipe name="workingCabinetSink" unlock_level="6"/>
 			<recipe name="workingGranitSink" unlock_level="6"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='The Fixer']">
+			<!-- MANUX Working Oven And Sink -->
+			<recipe name="ovenKit" unlock_level="2"/>
+			<recipe name="workstationOven" unlock_level="3"/>
+			<recipe name="plumbingKit" unlock_level="3"/>
+			<recipe name="workingCabinetSink" unlock_level="4"/>
+			<recipe name="workingGranitSink" unlock_level="4"/>
 		</append>
 	</config>
 	<config name="loot">
