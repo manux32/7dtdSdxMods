@@ -59,7 +59,7 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 |:---:|:---:|:---:|
 | Weed Cleaver | Quick Axe | Diamond Axe |  
 
-## And a lot of other cool stuff:
+## And a lot of other cool stuff
 - [Merchant Workstations](Manux_MerchantWorkstations): Like having a Trader at home!
 - [Working Oven and Sink](Manux_WorkingOvenAndSink)
 - [Steel Armors](Manux_ArmorsAndClothing)
