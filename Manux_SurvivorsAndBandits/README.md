@@ -1,7 +1,7 @@
 # Bandits and Survivors
 
 Bandits are your enemies and Survivors are your allies. As it is set right now, they will all spawn equally in each biome. There is more Survivor spawns than Bandits spawns. But you can change all of that by editing the *entitygroups.xml* and *spawning.xml* files of the mod.  
-</br></br>
+</br>
 Theres is 4 Bandit clans, and 4 Survivors clans. All Bandit clans are allies and all Survivor clans are allies.  
 Each clan has regular soldiers (male/female), a leader, and a Brute.  
 I made warm weather and cold weather versions of each entity (see images below). The Brutes are actually much taller in-game than what they look like in the images. They are like giants.  
