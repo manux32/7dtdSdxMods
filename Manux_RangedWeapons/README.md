@@ -5,43 +5,35 @@ And additions of new variations including scoped crossbows and slingshots.
 I initially added slingshots to have an early game ranged weapon that uses very cheap ammo, but I fell in love with the weapon, and added a bunch of ammo types for it. It can still be a cool weapon to use later in the game.
 
 ## Parts
-#### Weapon Silencer ![img](Icons/gunSilencer.png)
-#### Shotgun Choke ![img](Icons/gunChoke.png)
-#### High-Powered Scope ![img](Icons/gunScope.png)  
+| ![img](Icons/gunSilencer.png) | ![img](Icons/gunChoke.png) | ![img](Icons/gunScope.png)
+|:---:|:---:|:---:|
+| Weapon Silencer | Shotgun Choke | High-Powered Scope |
 
 ## Slingshots
-#### Slingshot ![img](Icons/slingshot.png)
-#### Iron Slingshot ![img](Icons/ironSlingshot.png)
-#### Repeater Slingshot ![img](Icons/slingshotRepeater.png)
-#### Repeater Slingshot (High-Powered Scope) ![img](Icons/slingshotRepeaterHPScope.png)
+| ![img](Icons/slingshot.png) | ![img](Icons/ironSlingshot.png) | ![img](Icons/slingshotRepeater.png) | ![img](Icons/slingshotRepeaterHPScope.png) |
+|:---:|:---:|:---:|:---:|
+| Slingshot | Iron Slingshot | Repeater Slingshot | Repeater Slingshot (High-Powered Scope) |
 
 ## Bows/Crossbows
-#### Iron Bow ![img](Icons/ironBow.png)
-#### Iron Crossbow ![img](Icons/ironCrossbow.png)
-#### Crossbow (High-Powered Scope) ![img](Icons/crossbowHPScope.png)
-#### Iron Crossbow (High-Powered Scope) ![img](Icons/ironCrossbowHPScope.png)
-#### Repeater Crossbow ![img](Icons/crossbowRepeater.png)
-#### Repeater Crossbow (High-Powered Scope) ![img](Icons/crossbowRepeaterHPScope.png)
+| ![img](Icons/ironBow.png) | ![img](Icons/ironCrossbow.png) | ![img](Icons/crossbowHPScope.png) | ![img](Icons/ironCrossbowHPScope.png) | ![img](Icons/crossbowRepeater.png) | ![img](Icons/crossbowRepeaterHPScope.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Iron Bow | Iron Crossbow | Crossbow (High-Powered Scope) | Iron Crossbow (High-Powered Scope) | Repeater Crossbow | Repeater Crossbow (High-Powered Scope) |
 
 ## Guns
-#### Pistol (Silenced) ![img](Icons/gunPistolSilenced.png)
-#### .44 Magnum (Silenced) ![img](Icons/gun44MagnumSilenced.png)
-#### SMG (Silenced) ![img](Icons/gunMP5Silenced.png)
-#### AK-47 (Silenced)
-#### Pump Shotgun (Choked) ![img](Icons/gunPumpShotgunChoked.png)
-#### Sniper Rifle (Silenced) ![img](Icons/SilencedSniper.png)
-#### Sniper Rifle (High-Powered Scope)
-#### Sniper Rifle (High-Powered Scope/Silenced) ![img](Icons/SilencedSniper.png)
+| ![img](Icons/gunPistolSilenced.png) | ![img](Icons/gun44MagnumSilenced.png) | ![img](Icons/gunMP5Silenced.png) | ![img](https://manux32.github.io/7dtd_miscImages/Ak47.png) | ![img](Icons/gunPumpShotgunChoked.png) | ![img](Icons/SilencedSniper.png) | ![img](https://manux32.github.io/7dtd_miscImages/sniperRifle.png) | ![img](Icons/SilencedSniper.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Pistol (Silenced) | .44 Magnum (Silenced) | SMG (Silenced) | AK-47 (Silenced) | Pump Shotgun (Choked)| Sniper Rifle (Silenced) | Sniper Rifle (High-Powered Scope) | Sniper Rifle (High-Powered Scope/Silenced) |
+
 
 ## Ammo
-#### Flaming Crossbow Bolt ![img](Icons/flamingCrossbowBolt.png)
-#### Slingshot Rock Ammo ![img](Icons/slingshotRockAmmo.png)
-#### Slingshot Steel Ammo ![img](Icons/slingshotSteelAmmo.png)
-#### Flaming Slingshot Ammo ![img](Icons/flamingSlingshotAmmo.png)
-#### Shocking Slingshot Ammo ![img](Icons/shockingSlingshotAmmo.png)
-#### Exploding Slingshot Ammo ![img](Icons/explodingSlingshotAmmo.png)  
+| ![img](Icons/flamingCrossbowBolt.png) | ![img](Icons/slingshotRockAmmo.png) | ![img](Icons/slingshotSteelAmmo.png) | ![img](Icons/flamingSlingshotAmmo.png) | ![img](Icons/shockingSlingshotAmmo.png) | ![img](Icons/explodingSlingshotAmmo.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Flaming Crossbow Bolt | Slingshot Rock Ammo | Slingshot Steel Ammo | Flaming Slingshot Ammo | Shocking Slingshot Ammo | Exploding Slingshot Ammo |
 
-#### Mini High-Powered Batteries ![img](Icons/miniHPBattery.png)
+| ![img](Icons/miniHPBattery.png) |
+|:---:|
+| Mini High-Powered Batteries |  
+
 To craft the Shocking Slingshot Ammo. You can make 50 of those from a car battery.
 
 
