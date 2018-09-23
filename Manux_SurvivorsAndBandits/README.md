@@ -38,81 +38,81 @@ You can kill survivors for quick and dirty loot, but it's better to keep them al
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerBrutewarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (Spiked Club) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/AdventurerBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (Spiked Club) |
 
 ## Bandit Punks:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkBruteWarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (Chainsaw) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/PunkBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (Chainsaw) |
 
 ## Survivor Hillbillies:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyBruteWarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader (Rocket Launcher) | Brute (Axe) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/HillbillyBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader (Rocket Launcher) | Brute (Axe) |
 
 ## Bandit Nazis:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziBruteWarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader (Rocket Launcher) | Brute (Spiked Club) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/NaziBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader (Rocket Launcher) | Brute (Spiked Club) |
 
 ## Survivor Rastas:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaBruteWarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (SledgeHammer) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RastaBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (SledgeHammer) |
 
 ## Bandit Barbarians:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleWarm.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianFemaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianBruteWarm.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (SledgeHammer) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianMaleCold.jpg) | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianFemaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/BarbarianBruteCold.jpg) |
 |:---:|:---:|:---:|:---:|
-| Male | Female | Leader | Brute |
+| Male | Female | Leader | Brute (SledgeHammer) |
 
 ## Survivor Rebel Teen Girls:
 ### warm weather
 | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeensLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeensBruteWarm.jpg) |
 |:---:|:---:|:---:|
-| Female only | Female Leader | Female Brute |
+| Female only | Female Leader | Female Brute (Axe) |
 ### cold weather
 | ![female](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeenGirlCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeensLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/RebelTeensBruteCold.jpg) |
 |:---:|:---:|:---:|
-| Female only | Female Leader | Female Brute |
+| Female only | Female Leader | Female Brute (Axe) |
 
 ## Bandit Clowns:
 ### warm weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleWarm.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownLeaderWarm.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownBruteWarm.jpg) |
 |:---:|:---:|:---:|
-| Male only | Leader | Brute |
+| Male only | Leader | Brute (Chainsaw) |
 ### cold weather
 | ![male](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownMaleCold.jpg) | ![leader](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownLeaderCold.jpg) | ![brute](https://manux32.github.io/7dtd_SurvivorsAndBanditsModImages/ClownBruteCold.jpg) |
 |:---:|:---:|:---:|
-| Male only | Leader | Brute |
+| Male only | Leader | Brute (Chainsaw) |
 
 
 
