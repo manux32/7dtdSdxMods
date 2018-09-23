@@ -2,12 +2,12 @@
 # <a href="#"><img src="https://manux32.github.io/7dtd_miscImages/moreSlots_icon.png" width="10%" height="10%" align="left"></a>More slots in BackPack, MiniBike, Containers / More Crafting Slots  
 
 ### This mod adds more slots for the following: 
-- Backpack: 120 slots 
-- Minibike storage: 180 slots
-- Player crafted containers: 140 slots
-- Crafting input/output slots: 5 crafting, 9 outputs
+- Backpack: **120** slots 
+- Minibike storage: **180** slots
+- Player crafted containers: **140** slots
+- Crafting input/output slots: **5 crafting, 9 outputs**
 - A spawn entity window that can fit 792 entities. But the 2 bottom rows could get occluded by the toolbelt, so it's a bit less than that.
-  - **Warning**: To achieve this I had to deactivate the outline effect on the text of all buttons, otherwise it can't fit so many without console errors. Text might be a little bit harder to read on buttons, but I didn't notice much of a difference.
+  - **Warning**: To achieve this I had to deactivate the _**outline**_ effect on the text of all buttons, otherwise it can't fit so many without console errors. Text might be a little bit harder to read on buttons, but I didn't notice much of a difference.
 
 
 The mod is in majority **stedman420**'s [Simple UI Plus](https://7daystodie.com/forums/showthread.php?67506-Simple-UI-Plus) 120 mod packaged as an SDX mod, for easy merging with other SDX mods.  
