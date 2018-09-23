@@ -11,7 +11,7 @@ This baby can power a large base on its own, but it's hard to find in the world 
 
 ### Perpetual Motion Generator Magnet ![pmgm](Icons/perpetualMotionGeneratorMagnet.png)
 - Place Perpetual Motion Generator Magnets into a Perpetual Motion Generator to generate free power
-- Magnets are a bit like batteries, but they will degrade **very very very** slowly. The generator is like a battery bank so you connect a power source to it to re-magnetize (recharge) the magnets. You don't need a lot of power for that, and they re-magnetize very quickly.
+- Magnets are a bit like batteries, but they will degrade **very very VERY** slowly. The generator is like a battery bank so you connect a power source to it to re-magnetize (recharge) the magnets. You don't need a lot of power for that, and they re-magnetize very quickly.
 - DegradationMax = 1000000
 - BatteryDischargeTimeInMinutes = 1000000
 - EconomicValue = 6000
