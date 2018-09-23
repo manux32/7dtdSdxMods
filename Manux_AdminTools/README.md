@@ -1,5 +1,5 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_AdminTools-->
-# Manux: Admin Tools
+# Manux: Admin/Creative Tools
 A couple of simple useful admin Tools.  
 Some of them are pieces I took from the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) mod and adapted.  
 
