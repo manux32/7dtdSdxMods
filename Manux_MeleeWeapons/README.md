@@ -2,7 +2,9 @@
 # Melee Weapons  
 This adds new melee weapons.  
 It currently only adds 4 new weapons that are power magical weapons, and maybe a bit over-powered. :stuck_out_tongue_winking_eye:  
-Each weapon uses a new version of the original weapons mesh and textures, with added particles and a light.  
+Each weapon uses a new version of the original weapons mesh and textures, with added particles and a light.    
+
+We don't know what kind of magic powers these weapons, all we know is they cannot be crafted, only purchased or found in the world. They are hard to find, and expensive to buy.  
 
 ||||```Economic Value```|
 |:---:|:---:|:---:|:---:|  
