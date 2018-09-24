@@ -67,8 +67,14 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 
 Like having a Trader at home!
 
+## [Working Ovens and Sinks](Manux_WorkingOvenAndSink)  
+| ![img](https://manux32.github.io/7dtd_miscImages/oven.png) | ![img](https://manux32.github.io/7dtd_miscImages/sink.png) | 
+|:---:|:---:|
+| Working Ovens | Working Sinks |  
+
+Get free clean water from Working Sinks and craft food without fuel in Working Ovens.
+
 ## And a lot of other cool stuff
-- [Working Oven and Sink](Manux_WorkingOvenAndSink)
 - [Steel Armors](Manux_ArmorsAndClothing)
 - [Bigger Backpack / MiniBike storage, etc...](Manux_BiggerBackPackMiniBikeContainersCraftingSlots)
 - [Craft Non-Craftable Items](Manux_CraftNonCraftableItems)
