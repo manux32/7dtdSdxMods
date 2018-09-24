@@ -478,6 +478,9 @@
 			<recipe name="ironCrossbowHPScope" unlock_level="4"/>
 			<recipe name="crossbowRepeater" unlock_level="6"/>
 			<recipe name="crossbowRepeaterHPScope" unlock_level="6"/>
+			<recipe name="gunSilencer" unlock_level="7"/>
+			<recipe name="gunChoke" unlock_level="7"/>
+			<recipe name="gunScope" unlock_level="7"/>
 		</append>
 		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
 			<!-- MANUX Ranged Weapons -->
@@ -490,6 +493,9 @@
 			<recipe name="ironCrossbowHPScope" unlock_level="2"/>
 			<recipe name="crossbowRepeater" unlock_level="4"/>
 			<recipe name="crossbowRepeaterHPScope" unlock_level="4"/>
+			<recipe name="gunSilencer" unlock_level="7"/>
+			<recipe name="gunChoke" unlock_level="7"/>
+			<recipe name="gunScope" unlock_level="7"/>
 		</append>
 	</config>
 	<config name="recipes">	
@@ -509,8 +515,22 @@
 				<wildcard_forge_category />
 			</recipe>
 			<!-- GUNS -->
-			<recipe name="gunSilencer" count="1" craft_area="workbench">
+			<recipe name="gunSilencer" count="1" craft_area="workbench"  craft_time="600">
 				<ingredient name="partsSniperRifle_barrel" count="1"/>
+				<ingredient name="forgedSteel" count="25"/>	
+				<ingredient name="potassiumNitratePowder" count="100"/>
+				<ingredient name="mechanicalParts" count="10"/>
+				<ingredient name="repairKit" count="2"/>
+			</recipe>
+			<recipe name="gunChoke" count="1" craft_area="workbench" craft_time="600">
+				<ingredient name="partsPumpShotgun_barrel" count="1"/>
+				<ingredient name="forgedSteel" count="25"/>	
+				<ingredient name="potassiumNitratePowder" count="100"/>
+				<ingredient name="mechanicalParts" count="10"/>
+				<ingredient name="repairKit" count="2"/>
+			</recipe>
+			<recipe name="gunScope" count="1" craft_area="workbench" craft_time="600">
+				<ingredient name="partsSniperRifle_receiver" count="1"/>
 				<ingredient name="forgedSteel" count="25"/>	
 				<ingredient name="potassiumNitratePowder" count="100"/>
 				<ingredient name="mechanicalParts" count="10"/>
