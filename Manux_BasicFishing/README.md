@@ -25,8 +25,8 @@ I did not yet add any progression gates for being able to craft these items.
 - Fishing Pliers
 #### Steps
 - Put the Fish Bait Basket on the ground close to where you want to fish.
-- Using the Fishing Pliers, upgrade(right-click) the Fish Bait Basket to add Fish Bait in it. Fish Bait(gore block) will spawn on top of the basket.
-- Using the Fishing Rod, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait on the Fishing Rod. You will see the Fishing Rod icon change to indicate it is baited. Be fast, otherwise the bait will escape.
+- Using the Fishing Pliers, upgrade(right-click) the Fish Bait Basket to add Fish Bait in it. Fish Bait will appear on top of the basket.
+- Using the Fishing Rod, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait on the Fishing Rod. You will see the Fishing Rod icon change to indicate it is baited. Be fast, otherwise the bait will escape from the basket.
 - Using the Fishing Rod, right-click a body of water to start fishing.
 - When you have caught something, the fishing Rod icon will change to indicate it, and its mesh will become a bag.
 - Right-click on the ground with your Fishing Rod to put a Livewell there. Than loot it!
@@ -39,11 +39,11 @@ I did not yet add any progression gates for being able to craft these items.
 - Fishing Pliers
 #### Steps
 - Put the Fishing Trap Bait Basket on the ground close to where you want to fish.
-- Using the Fishing Pliers, upgrade(right-click) the Basket to add Fish Bait in it. Fish Bait(gore block) will spawn on top of the basket.
-- Using the Fishing Trap, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait in the Trap. You will see the Fishing Trap icon change to indicate it is baited. Be fast, otherwise the bait will escape.
+- Using the Fishing Pliers, upgrade(right-click) the Basket to add Fish Bait in it. Fish Bait will appear on top of the basket.
+- Using the Fishing Trap, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait in the Trap. You will see the Fishing Trap icon change to indicate it is baited. Be fast, otherwise the bait will escape from the basket.
 - Using the Fishing Trap, right-click a body of water to start fishing.
 - When you have caught something, the fishing Trap icon will change to indicate it, and its mesh will become a bag.
-- Right-click on the ground with your Fishing Trap to put a Livewell there. Than loot it!
+- Right-click on the ground with your Fishing Trap to put a Fishing Trap Livewell there. Than loot it!
 
 ## Potential conflicts:
 This mod adds 2 new lootcontainers in **loot.xml**, IDs **145-146**.  
