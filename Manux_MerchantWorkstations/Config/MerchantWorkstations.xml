@@ -95,7 +95,7 @@
 		</append>
 		<append xpath="/traders">
 			<!-- MANUX Merchant Workstations -->
-			<!-- Merchant Delivery Box (currently not used, it now uses the regular trader id) -->
+			<!-- Virtual Trader (trader_info 20 currently not used, it now uses the regular trader id 1) -->
 			<trader_info id="20" reset_interval="2" override_buy_markup="1.0" allow_sell="true" min_inventory="6" max_inventory="13" min_items_swapped="6" max_items_swapped="13">
 				<trader_items count="10">
 					<item name="bottledWater" count="1,2"/>
