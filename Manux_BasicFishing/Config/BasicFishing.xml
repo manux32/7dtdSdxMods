@@ -190,9 +190,12 @@
 			</item>
 			<item id="" name="fishingRod">
 				<property name="DescriptionKey" value="fishingRodDesc"/>
-				<property name="Meshfile" value="Items/Weapons/Ranged/Bows/WoodenBow/WoodenBowPrefab"/>
+				<!--<property name="Meshfile" value="Items/Weapons/Ranged/Bows/WoodenBow/WoodenBowPrefab"/>-->
+				<property name="Meshfile" value="#Fishing?FishingRodPrefab" />
 				<property name="Material" value="Mplastics"/>
-				<property name="HoldType" value="18"/>
+				<!--<property name="HoldType" value="18"/>-->
+				<!--<property name="HoldType" value="52"/>-->
+				<property name="HoldType" value="29"/>
 				<property name="Stacknumber" value="1"/>
 				<property name="EconomicValue" value="500"/>
 				<property name="EconomicBundleSize" value="1"/>
@@ -213,6 +216,7 @@
 			<item id="" name="fishingRodBaited">
 				<property name="Extends" value="fishingRod"/>
 				<property name="CreativeMode" value="Dev"/>
+				<property name="Meshfile" value="#Fishing?FishingRodBaitedPrefab" />
 				<property class="Action1">
 					<property name="Class" value="ExchangeItem"/>
 					<property name="Delay" value="5"/>
@@ -230,8 +234,9 @@
 			<item id="" name="fishingRodFull">
 				<property name="Extends" value="fishingRod"/>
 				<property name="CreativeMode" value="Dev"/>
-				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
-				<property name="HoldType" value="45"/>
+				<!--<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="HoldType" value="45"/>-->
+				<property name="Meshfile" value="#Fishing?FishingRodFullPrefab" />
 				<property class="Action1">
 					<property name="Class" value="PlaceAsBlock"/>
 					<property name="Delay" value="0.5"/>
@@ -269,6 +274,7 @@
 			<item id="" name="fishingTrapBaited">
 				<property name="Extends" value="fishingTrap"/>
 				<property name="CreativeMode" value="Dev"/>
+				<property name="Meshfile" value="#Fishing?FishingTrapHandsBaitedPrefab" />
 				<property class="Action1">
 					<property name="Class" value="ExchangeItem"/>
 					<property name="Delay" value="5"/>
@@ -286,8 +292,9 @@
 			<item id="" name="fishingTrapFull">
 				<property name="Extends" value="fishingTrap"/>
 				<property name="CreativeMode" value="Dev"/>
-				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
-				<property name="HoldType" value="45"/>
+				<!--<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="HoldType" value="45"/>-->
+				<property name="Meshfile" value="#Fishing?FishingTrapHandsFullPrefab" />
 				<property class="Action1">
 					<property name="Class" value="PlaceAsBlock"/>
 					<property name="Delay" value="0.5"/>
@@ -386,7 +393,7 @@
 				<property name="Mesh" value="cutout" />
 				<property name="Texture" value="289" />-->
 				<property name="Shape" value="ModelEntity" />
-				<property name="Model" value="#Fishing?FishingTrapGroundPrefab" />
+				<property name="Model" value="#Fishing?FishingTrapGroundFullPrefab" />
 				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Class" value="PlantGrowing" />
 				<property class="PlantGrowing">
@@ -405,7 +412,7 @@
 				<property name="Mesh" value="cutout" />
 				<property name="Texture" value="289" />-->
 				<property name="Shape" value="ModelEntity" />
-				<property name="Model" value="#Fishing?FishingTrapGroundPrefab" />
+				<property name="Model" value="#Fishing?FishingTrapGroundFullPrefab" />
 				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Collide" value="movement,rocket,melee" />
 				<property name="LootList" value="146" />
