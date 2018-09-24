@@ -39,7 +39,7 @@ Drive faster, jump higher, have more control, and get less damage from jumping t
 More variety of meals, and more meals that can fill you up.
 
 ## [Hydroponic Farming Device](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicFarmPower.png" width="15%" height="15%">](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicsBook.png" width="10%" height="10%">](Manux_HydroponicFarm)  
-A less annoying and repetitive way of growing plants.
+A less annoying and less repetitive way of growing plants.
 
 ## [Healing Pod](Manux_HealingPod)  [<img src="Manux_HealingPod/Icons/healingPod.png" width="15%" height="15%">](Manux_HealingPod)  
 When powered, heals everything and retores health quickly.
