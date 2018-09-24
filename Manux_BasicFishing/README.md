@@ -6,9 +6,9 @@ The mods were adapted to what I wanted, especially making it easier to bait the 
 I did not yet add any progression gates for being able to craft these items.
 
 ## Items
-| ![Fishing Rod](Icons/fishingRod.png) | ![Fishing Trap](Icons/fishingTrap.png) | ![Fish Bait](Icons/fishBait.png) | ![Fish bait baskets](Icons/fishBaitBasket.png) ![Fishing Trap Bait Basket](Icons/fishingTrapBaitBasket.png) | ![Fishing Pliers](Icons/fishingPliers.png) | ![Raw Fish](Icons/rawFish.png) |
-|:---:|:---:|:---:|:---:|:---:|:---:| 
-| Fishing Rod | Fishing Trap | Fish Bait | Fish bait baskets <br/> (different one for Fishing Rod and Fishing Trap) | Fishing Pliers | Raw Fish |
+| ![Fishing Rod](Icons/fishingRod.png) | ![Fishing Trap](Icons/fishingTrap.png) | ![Fish Bait](Icons/fishBait.png) | ![Fish bait baskets](Icons/fishBaitBasket.png) | ![Fishing Trap Bait Basket](Icons/fishingTrapBaitBasket.png) | ![Fishing Pliers](Icons/fishingPliers.png) | ![Raw Fish](Icons/rawFish.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:| 
+| Fishing Rod | Fishing Trap | Fish Bait | Fish Bait Basket | Fishing Trap Bait Basket | Fishing Pliers | Raw Fish |
 
 
 ## Fish recipes
