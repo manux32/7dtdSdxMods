@@ -24,7 +24,9 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 
 ## [High-Powered MiniBike](Manux_HPMiniBike)  
 | ![img](Manux_HPMiniBike/Icons/robustMinibikeChassis.png) | ![img](Manux_HPMiniBike/Icons/professionalMinibikeHandlebars.png) | ![img](Manux_HPMiniBike/Icons/HPminibikeWheels.png) | ![img](Manux_HPMiniBike/Icons/deluxeMinibikeSeat.png) |
-|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|  
+
+Drive faster, jump higher, have more control, and get less damage from jumping too high.
 
 ## [Basic Fishing](Manux_BasicFishing)  
 | ![Fishing Rod](Manux_BasicFishing/Icons/fishingRod.png) | ![Fish Bait](Manux_BasicFishing/Icons/fishBait.png) | ![Raw Fish](Manux_BasicFishing/Icons/rawFish.png) | ![Fishing Trap](Manux_BasicFishing/Icons/fishingTrap.png) | ![Grilled Fish](Manux_BasicFishing/Icons/grilledFish.png) | ![Boiled Fish](Manux_BasicFishing/Icons/boiledFish.png) | ![Charred Fish](Manux_BasicFishing/Icons/charredFish.png) | ![Fish Stew](Manux_BasicFishing/Icons/fishStew.png) | ![Fish And Chips](Manux_BasicFishing/Icons/fishAndChips.png) |
@@ -32,15 +34,21 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 
 ## [New Food Recipes](Manux_FoodRecipes)  
 | ![img](Manux_FoodRecipes/Icons/assortedVegetables.png) | ![img](Manux_FoodRecipes/Icons/rawPasta.png) | ![img](Manux_FoodRecipes/Icons/baconEggSandwich.png) | ![img](Manux_FoodRecipes/Icons/scrambledEggs.png) | ![img](Manux_FoodRecipes/Icons/Omelet.png) | ![img](Manux_FoodRecipes/Icons/steakSandwich.png) | ![img](Manux_FoodRecipes/Icons/burgerAndFries.png) | ![img](Manux_FoodRecipes/Icons/sheperdsPie.png) | ![img](Manux_FoodRecipes/Icons/padThai.png) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
+
+More variety of meals, and more meals that can fill you up.
 
 ## [Hydroponic Farming Device](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicFarmPower.png" width="15%" height="15%">](Manux_HydroponicFarm)  [<img src="Manux_HydroponicFarm/Icons/hydroponicsBook.png" width="10%" height="10%">](Manux_HydroponicFarm)  
+A less annoying and repetitive way of growing plants.
 
-## [Healing Pod](Manux_HealingPod)  [<img src="Manux_HealingPod/Icons/healingPod.png" width="15%" height="15%">](Manux_HealingPod) 
+## [Healing Pod](Manux_HealingPod)  [<img src="Manux_HealingPod/Icons/healingPod.png" width="15%" height="15%">](Manux_HealingPod)  
+When powered, heals everything and retores health quickly.
 
-## [Miner Robot](Manux_MinerRobot)  [<img src="Manux_MinerRobot/Icons/minerGeneric.png" width="15%" height="15%">](Manux_MinerRobot) 
+## [Miner Robot](Manux_MinerRobot)  [<img src="Manux_MinerRobot/Icons/minerGeneric.png" width="15%" height="15%">](Manux_MinerRobot)  
+Have Miner Robots mine ressources for you while you spend time on other things.
 
 ## [Perpetual Motion Generator](Manux_PerpetualMotionGenerator)  [<img src="Manux_PerpetualMotionGenerator/Icons/perpetualMotionGenerator.png" width="15%" height="15%">](Manux_PerpetualMotionGenerator)  [<img src="Manux_PerpetualMotionGenerator/Icons/perpetualMotionGeneratorMagnet.png" width="10%" height="10%">](Manux_PerpetualMotionGenerator)  
+Rare and expensive, but extremely powerful generator.
 
 ## [Magical Power Melee Weapons](Manux_MeleeWeapons)  
 | ![img](Manux_MeleeWeapons/Icons/flamingClubSpiked.png) | ![img](Manux_MeleeWeapons/Icons/flamingMachete.png) | ![img](Manux_MeleeWeapons/Icons/lightningClubSpiked.png) | ![img](Manux_MeleeWeapons/Icons/lightningMachete.png) |
@@ -49,11 +57,15 @@ More than 100 new zombies and their variations. There's so many that you'll rare
 ## [New Ranged Weapons](Manux_RangedWeapons)  
 | ![img](Manux_RangedWeapons/Icons/slingshot.png) | ![img](Manux_RangedWeapons/Icons/slingshotRepeaterHPScope.png) | ![img](Manux_RangedWeapons/Icons/crossbowHPScope.png) | ![img](Manux_RangedWeapons/Icons/crossbowRepeaterHPScope.png) | ![img](Manux_RangedWeapons/Icons/gunPistolSilenced.png) | ![img](Manux_RangedWeapons/Icons/SilencedSniper.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| ![img](Manux_RangedWeapons/Icons/flamingCrossbowBolt.png) | ![img](Manux_RangedWeapons/Icons/slingshotRockAmmo.png) | ![img](Manux_RangedWeapons/Icons/slingshotSteelAmmo.png) | ![img](Manux_RangedWeapons/Icons/flamingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/shockingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/explodingSlingshotAmmo.png) |
+| ![img](Manux_RangedWeapons/Icons/flamingCrossbowBolt.png) | ![img](Manux_RangedWeapons/Icons/slingshotRockAmmo.png) | ![img](Manux_RangedWeapons/Icons/slingshotSteelAmmo.png) | ![img](Manux_RangedWeapons/Icons/flamingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/shockingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/explodingSlingshotAmmo.png) |  
+
+Silenced guns, iron bows and crossbows, scoped crossbows, crossbow repeaters, and slingshots that provide an early game ranged weapon where the ammo is very cheap (repeater slingshot and scoped versions also availlable). 
 
 ## [New Traps](Manux_Traps)  
 | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelFireSpike.png) | ![img](Manux_Traps/Icons/trapDartAutoTurret.png) | ![img](Manux_Traps/Icons/trapFlamingDartAutoTurret.png) |
-|:---:|:---:|:---:|:---:| 
+|:---:|:---:|:---:|:---:|  
+
+New upgrades for the Steel Log Spikes, and Dart Auto-Turret and Flaming Dart Auto-Turret.
 
 ## [Versatile Mining Tools](Manux_MiningTools)  
 | ![img](Manux_MiningTools/Icons/weedCleaver.png) | ![img](Manux_MiningTools/Icons/quickaxe.png) | ![img](Manux_MiningTools/Icons/diamondaxe.png) |
