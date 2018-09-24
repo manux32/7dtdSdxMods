@@ -87,7 +87,7 @@ Like having a Trader at home!
 Get free clean water from Working Sinks and craft food without fuel in Working Ovens.
 
 ## And a lot of other cool stuff
-- [Steel Armors](Manux_ArmorsAndClothing)
+- [Steel Armors and Helmets with a light](Manux_ArmorsAndClothing)
 - [Bigger Backpack / MiniBike storage, etc...](Manux_BiggerBackPackMiniBikeContainersCraftingSlots)
 - [Craft Non-Craftable Items](Manux_CraftNonCraftableItems)
 - [Give Back Empty Jars](Manux_GiveBackEmptyJars)
