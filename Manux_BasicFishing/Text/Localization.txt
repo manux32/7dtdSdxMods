@@ -25,3 +25,5 @@ fishAndChips,items,Item Food,EnChanged,Fish And Chips
 caughtFish,buffs,Buff,EnChanged,Fished Something!
 caughtFishDesc,buffs,Buff,EnChanged,"Finaly caught something! Place your Fishing Rod on the ground to be able to harvest from a Livewell."
 caughtFishTooltip,buffs,Buff,EnChanged,"Finaly caught something! Place your Fishing Rod on the ground to be able to harvest from a Livewell."
+livewell,items,Tool,EnChanged,Livewell
+fishingTrapLivewell,items,Tool,EnChanged,Fishing Trap Livewell

@@ -162,7 +162,8 @@
 			</item>
 			<item id="" name="fishingPliers">
 				<property name="DescriptionKey" value="fishingPliersDesc"/>
-				<property name="Meshfile" value="Items/Tools/wire_strippersPrefab"/>
+				<!--<property name="Meshfile" value="Items/Tools/wire_strippersPrefab"/>-->
+				<property name="Meshfile" value="#Fishing?FishingPliersPrefab" />
 				<property name="Material" value="metal"/>
 				<property name="RepairTools" value="forgedSteel"/>
 				<property name="HoldType" value="52"/>
@@ -242,9 +243,11 @@
 			<item id="" name="fishingTrap">
 				<property name="DescriptionKey" value="fishingTrapDesc"/>
 				<!--<property name="Meshfile" value="Items/Crafting/radiator" />-->
-				<property name="Meshfile" value="Items/Misc/car_battery"/>
+				<!--<property name="Meshfile" value="Items/Misc/car_battery"/>-->
+				<property name="Meshfile" value="#Fishing?FishingTrapHandsPrefab" />	
 				<property name="Material" value="Mmetal_weak" />
-				<property name="HoldType" value="21" />
+				<!--<property name="HoldType" value="21" />-->
+				<property name="HoldType" value="47" />
 				<!--<property name="HoldType" value="17" />-->
 				<property name="Stacknumber" value="1" />
 				<property name="EconomicValue" value="1000"/>
@@ -336,9 +339,11 @@
 				<property name="Stacknumber" value="1"/>
 				<property name="Material" value="Mplastics"/>
 				<property name="StabilitySupport" value="false"/>
-				<property name="Shape" value="Ext3dModel"/>	<property name="Texture" value="293"/>
+				<!--<property name="Shape" value="Ext3dModel"/>	<property name="Texture" value="293"/>
 				<property name="Mesh" value="models"/>
-				<property name="Model" value="LootContainers/shopping_basket_empty" param1="main_mesh"/>
+				<property name="Model" value="LootContainers/shopping_basket_empty" param1="main_mesh"/>-->
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#Fishing?FishBaitBasketPrefab" />
 				<property name="Place" value="TowardsPlacerInverted"/>
 				<property name="ModelOffset" value="0,0,0"/>
 				<property name="CanPickup" value="true"/>
@@ -357,7 +362,9 @@
 				<property name="CustomIcon" value="fishBait"/>
 				<property name="Material" value="organic"/>
 				<property name="Shape" value="ModelEntity"/>
-				<property name="Model" value="Entities/Gore/animal_remainsPrefab"/>
+				<!--<property name="Model" value="Entities/Gore/animal_remainsPrefab"/>-->
+				<property name="Model" value="#Fishing?FishBaitInBasketPrefab" />
+				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Class" value="PlantGrowing" />
 				<property class="PlantGrowing">
 					<property name="FertileLevel" value="0" />
@@ -373,11 +380,14 @@
 			<block id="" name="dummyFishingTrapLivewell">
 				<property name="Extends" value="dummyLivewell"/>
 				<property name="CreativeMode" value="Dev"/>
-				<property name="CustomIcon" value="fishingTrapLivewell"/>
+				<property name="CustomIcon" value="fishingTrapFull"/>
 				<property name="Material" value="Mmetal_weak"/>
-				<property name="Shape" value="CubeCutoutBackFaces" />
+				<!--<property name="Shape" value="CubeCutoutBackFaces" />
 				<property name="Mesh" value="cutout" />
-				<property name="Texture" value="289" />
+				<property name="Texture" value="289" />-->
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#Fishing?FishingTrapGroundPrefab" />
+				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Class" value="PlantGrowing" />
 				<property class="PlantGrowing">
 					<property name="Next" value="fishingTrapLivewell" />
@@ -386,13 +396,17 @@
 			</block>
 			<block id="" name="fishingTrapLivewell">
 				<property name="CreativeMode" value="Dev"/>
+				<property name="CustomIcon" value="fishingTrapFull"/>
 				<property name="Class" value="Loot" />
 				<property name="Material" value="Mmetal_weak"/>
 				<property name="MaxDamage" value="300"/>
 				<property name="StabilitySupport" value="false"/>
-				<property name="Shape" value="CubeCutoutBackFaces" />
+				<!--<property name="Shape" value="CubeCutoutBackFaces" />
 				<property name="Mesh" value="cutout" />
-				<property name="Texture" value="289" />
+				<property name="Texture" value="289" />-->
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#Fishing?FishingTrapGroundPrefab" />
+				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Collide" value="movement,rocket,melee" />
 				<property name="LootList" value="146" />
 				<drop event="Destroy" count="0"/>
@@ -402,6 +416,8 @@
 			</block>
 			<block id="" name="fishingTrapBaitBasket">
 				<property name="Extends" value="fishBaitBasket"/>
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#Fishing?FishingTrapBaitBasketPrefab" />
 				<property name="DescriptionKey" value="fishingTrapBaitBasketDesc"/>
 				<property class="UpgradeBlock">
 					<property name="ToBlock" value="fishBaitInFishingTrapBasket"/>
@@ -412,6 +428,8 @@
 			<block id="" name="fishBaitInFishingTrapBasket">
 				<property name="Extends" value="fishBaitInBasket"/>
 				<property name="CreativeMode" value="Dev"/>
+				<property name="Shape" value="ModelEntity"/>
+				<property name="Model" value="#Fishing?FishBaitInFishingTrapBasketPrefab" />
 				<property name="Class" value="PlantGrowing" />
 				<property class="PlantGrowing">
 					<property name="Next" value="fishingTrapBaitBasket" />
