@@ -62,8 +62,8 @@ Rare and expensive, but extremely powerful generator.
 Silenced guns, iron bows and crossbows, scoped crossbows, crossbow repeaters, and slingshots that provide an early game ranged weapon where the ammo is very cheap (repeater slingshot and scoped versions also availlable). 
 
 ## [New Traps](Manux_Traps)  
-| ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelFireSpike.png) | ![img](Manux_Traps/Icons/trapDartAutoTurret.png) | ![img](Manux_Traps/Icons/trapFlamingDartAutoTurret.png) |
-|:---:|:---:|:---:|:---:|  
+| ![img](Manux_Traps/Icons/trapAdhesiveSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelFireSpike.png) | ![img](Manux_Traps/Icons/trapDartAutoTurret.png) | ![img](Manux_Traps/Icons/trapFlamingDartAutoTurret.png) |
+|:---:|:---:|:---:|:---:|:---:|  
 
 New upgrades for the Steel Log Spikes, and Dart Auto-Turret and Flaming Dart Auto-Turret.
 
