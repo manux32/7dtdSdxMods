@@ -65,7 +65,8 @@ Silenced guns, iron bows and crossbows, scoped crossbows, crossbow repeaters, an
 | ![img](Manux_Traps/Icons/trapAdhesiveSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelSpike.png) | ![img](Manux_Traps/Icons/trapAdhesiveElectricSteelFireSpike.png) | ![img](Manux_Traps/Icons/trapDartAutoTurret.png) | ![img](Manux_Traps/Icons/trapFlamingDartAutoTurret.png) |
 |:---:|:---:|:---:|:---:|:---:|  
 
-New upgrades for the Steel Log Spikes, and Dart Auto-Turret and Flaming Dart Auto-Turret.
+New upgrades for the Steel Log Spikes.  
+New Turrets: Dart Auto-Turret and Flaming Dart Auto-Turret.
 
 ## [Versatile Mining Tools](Manux_MiningTools)  
 | ![img](Manux_MiningTools/Icons/weedCleaver.png) | ![img](Manux_MiningTools/Icons/quickaxe.png) | ![img](Manux_MiningTools/Icons/diamondaxe.png) |
