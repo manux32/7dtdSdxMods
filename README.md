@@ -54,7 +54,7 @@ Rare and expensive, but extremely powerful generator.
 | ![img](Manux_MeleeWeapons/Icons/flamingClubSpiked.png) | ![img](Manux_MeleeWeapons/Icons/flamingMachete.png) | ![img](Manux_MeleeWeapons/Icons/lightningClubSpiked.png) | ![img](Manux_MeleeWeapons/Icons/lightningMachete.png) |
 |:---:|:---:|:---:|:---:| 
 
-## [New Ranged Weapons](Manux_RangedWeapons)  
+## [New Ranged Weapons and Ammo](Manux_RangedWeapons)  
 | ![img](Manux_RangedWeapons/Icons/slingshot.png) | ![img](Manux_RangedWeapons/Icons/slingshotRepeaterHPScope.png) | ![img](Manux_RangedWeapons/Icons/crossbowHPScope.png) | ![img](Manux_RangedWeapons/Icons/crossbowRepeaterHPScope.png) | ![img](Manux_RangedWeapons/Icons/gunPistolSilenced.png) | ![img](Manux_RangedWeapons/Icons/SilencedSniper.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | ![img](Manux_RangedWeapons/Icons/flamingCrossbowBolt.png) | ![img](Manux_RangedWeapons/Icons/slingshotRockAmmo.png) | ![img](Manux_RangedWeapons/Icons/slingshotSteelAmmo.png) | ![img](Manux_RangedWeapons/Icons/flamingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/shockingSlingshotAmmo.png) | ![img](Manux_RangedWeapons/Icons/explodingSlingshotAmmo.png) |  
