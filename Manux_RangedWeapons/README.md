@@ -3,7 +3,7 @@
 Adaptation of [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s ranged weapons as an SDX mod.  
 And additions of new variations including scoped crossbows and slingshots.  
 I initially added slingshots to have an early game ranged weapon that uses very cheap ammo, but I fell in love with the weapon, and added a bunch of ammo types for it. It can still be a cool weapon to use later in the game.  
-Guns and Ammo don't yet have any progression gates.
+Schematics have been added for the new ammo.
 
 ## Parts
 | ![img](Icons/gunSilencer.png) | ![img](Icons/gunChoke.png) | ![img](Icons/gunScope.png)
@@ -46,6 +46,7 @@ Guns and Ammo don't yet have any progression gates.
 | ![img](Icons/miniHPBattery.png) |
 |:---:|
 | Mini High-Powered Batteries |  
+| craftSkillTools **3** <br/> craftSkillScience **3** |
 
 To craft the Shocking Slingshot Ammo. You can make 50 of those from a car battery.
 
