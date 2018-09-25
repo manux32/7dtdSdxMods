@@ -2,16 +2,16 @@
 # Armors And Clothing <img src="https://manux32.github.io/7dtd_miscImages/armors_icon.png" width="15%" height="15%"> <img src="https://manux32.github.io/7dtd_miscImages/clothing_icon.png" width="15%" height="15%">  
 This is a couple of the Armor elements that can be found in the [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection) mods.  
 I also added recipes for crafting hot weather black clothing.  
-I did not yet add any schematics or progression gates for being able to craft these items.
+New schematics have been added for the steel armors.
 
-### Valmar Armors:
+### Armors:
 - Steel Boots
 - Steel Legs
 - Steel Chestplate
 - Steel Helmet
 - Steel Gloves
 
-### Valmar helmets and goggles that have a light:
+### Helmets and goggles that have a light:
 - Iron Helmet (Light)
 - Military Helmet (Light)
 - Swat Helmet (Light)

@@ -3,7 +3,6 @@
 A simple Fishing mod, inspired by [**Clockwork Orange**](https://7daystodie.com/forums/showthread.php?68123-ACP-Fishing) and [**Carzilla**](https://7daystodie.com/forums/showthread.php?37132-Carlzilla-s-Fishing-Mod&highlight=fish+recipes)'s Fishing mods.  
 I'm also using many icons from their mods.  
 The mods were adapted to what I wanted, especially making it easier to bait the Fishing Rod, without using a recipe each time.  
-I did not yet add any progression gates for being able to craft these items.
 
 ## Items
 | ![Fishing Rod](Icons/fishingRod.png) | ![Fishing Trap](Icons/fishingTrap.png) | ![Fish Bait](Icons/fishBait.png) | ![Fish bait baskets](Icons/fishBaitBasket.png) | ![Fishing Trap Bait Basket](Icons/fishingTrapBaitBasket.png) | ![Fishing Pliers](Icons/fishingPliers.png) | ![Raw Fish](Icons/rawFish.png) |
@@ -17,6 +16,16 @@ I did not yet add any progression gates for being able to craft these items.
 
 ## Demo
 [![Fishing Mod demo](http://img.youtube.com/vi/pNBpo3o7DJY/0.jpg)](https://www.youtube.com/watch?v=pNBpo3o7DJY "Fishing Mod demo")
+
+## Progression  
+
+| ```Item``` | ```craftSkillTools``` | ```craftSkillScience``` |
+|:---:|:---:|:---:|
+| Fishing Rod | 4 | 3 |
+| Fishing Pliers | 4 | 3 |
+| Fish Bait Basket | 4 | 3 |
+| Fishing Trap | 7 | 7 |
+| Fishing Trap Bait Basket | 7 | 7 |  
 
 ## How to fish
 ### Fishing Rod
