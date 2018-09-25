@@ -17,10 +17,13 @@ A steel log spike that slows down enemies like a barb fence and that also puts t
 - RequiredPower = 5 (for additional shocks)
 
 ## Darts Auto-Turret: ![dat](Icons/trapDartAutoTurret.png)
-A motion sensing Darts hose. Cheaper on ammnunition than the other turrets.
+A motion sensing Darts hose. Cheaper on ammnunition than the other turrets.  
+electricTrapsRangedPerk **2**
 
 ## Flaming Darts Auto-Turret: ![fdat](Icons/trapFlamingDartAutoTurret.png)
-A motion sensing Flaming Darts hose.
+A motion sensing Flaming Darts hose.  
+electricTrapsRangedPerk **3**
 
 ### Flaming Darts ![fd](Icons/flamingDart.png)
-Steel Dart that burns.
+Steel Dart that burns.  
+Requires a schematic to craft.
