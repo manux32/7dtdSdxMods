@@ -515,6 +515,24 @@
 			</recipe>
 		</append>
 	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
+			<!-- MANUX Basic Fishing -->
+			<recipe name="fishingRod" unlock_level="4"/>
+			<recipe name="fishingPliers" unlock_level="4"/>
+			<recipe name="fishBaitBasket" unlock_level="4"/>
+			<recipe name="fishingTrap" unlock_level="7"/>
+			<recipe name="fishingTrapBaitBasket" unlock_level="7"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
+			<!-- MANUX Basic Fishing -->
+			<recipe name="fishingRod" unlock_level="3"/>
+			<recipe name="fishingPliers" unlock_level="3"/>
+			<recipe name="fishBaitBasket" unlock_level="3"/>
+			<recipe name="fishingTrap" unlock_level="7"/>
+			<recipe name="fishingTrapBaitBasket" unlock_level="7"/>
+		</append>
+	</config>
 	<config name="buffs">	
 		<append xpath="/buffs">
 			<!-- MANUX Basic Fishing -->
