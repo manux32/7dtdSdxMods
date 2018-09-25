@@ -2,8 +2,8 @@
 # Mining Tools
 Small adaptation of **Buggi**'s [Lightweight Builders Mod](https://7daystodie.com/forums/showthread.php?84086-Lightweight-Builders-Mod) mining tools, packaged as an SDX mod for easy merging with other SDX mods.  
 I think some of those originally came from **Valmar**'s mod.  
-I did not yet add any progression gates for being able to craft these items.
 
+## Items
 ### Weed Cleaver ![wc](Icons/weedCleaver.png)
 To get rid of those pesky weeds quicly.
 
@@ -12,3 +12,10 @@ A versatile and powerful mining tool. Like having a FireAxe, a PickAxe, and a Sh
 
 ### Diamond Axe ![da](Icons/diamondaxe.png)
 A super Quick Axe. The most versatile and powerful mining tool.
+
+## Progression
+| ```Item``` | ```craftSkillTools``` | ```craftSkillScience``` |
+|:---:|:---:|:---:|
+| Weed Cleaver | 3 | 3 |
+| Quick Axe | 5 | 5 |
+| Diamond Axe | 8 | 8 | 
