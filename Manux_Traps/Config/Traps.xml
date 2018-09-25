@@ -44,7 +44,7 @@
 		<append xpath="/blocks/block[@name='steelLogSpike6']">
 				<!-- MANUX Traps -->
 				<property class="UpgradeBlock">
-					<property name="ToBlock" value="trapAdhesiveElectricSteelSpike"/>
+					<property name="ToBlock" value="trapAdhesiveSteelSpike"/>
 					<property name="Item" value="forgedSteel"/>
 					<property name="ItemCount" value="5"/>
 					<property name="UpgradeHitCount" value="1"/>
@@ -52,6 +52,40 @@
 		</append>		
 		<append xpath="/blocks">
 			<!-- MANUX Traps -->
+			<block id="" name="trapAdhesiveSteelSpike"> <!-- log spike 6 Steel -->
+				<property name="Class" value="TrunkTip"/>
+				<property name="Damage" value="8"/>
+				<property name="Damage_received" value="50"/>
+				<property name="Material" value="MadhesiveSteel"/>
+				<property name="MaxDamage" value="5000"/>
+				<property name="Shape" value="New"/>
+				<property name="LightOpacity" value="6"/>
+				<property name="Model" value="cone1m"/>
+				<!--<property name="Texture" value="356,355,356,356,356,356"/>-->
+				<property name="Texture" value="307"/>
+				<property name="ImposterExchange" value="imposterPyramid" param1="112"/>
+				<property name="ImposterDontBlock" value="true"/>
+				<property name="UseGlobalUV" value="Local"/>
+				<!--property name="DontDamageOnTouch" value="true" /-->
+				<property name="BuffsWhenWalkedOn" value="trapDamage1Trigger"/>	
+				<property class="RepairItems">
+					<property name="forgedSteel" value="5"/>
+				</property>
+				<property name="CustomUpgradeSound" value="place_block_metal"/>
+				<property name="DowngradeBlock" value="steelLogSpike6"/>
+				<!--<drop event="Destroy" name="scrapIron" count="10,20" prob="1"/>-->
+				<drop event="Destroy" name="scrapIron" count="20,40" prob="1"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="EconomicValue" value="200"/>
+				<property name="Group" value="Tools/Traps,Science"/>
+				<property name="DescriptionKey" value="trapAdhesiveSteelSpikeDesc"/>
+				<property class="UpgradeBlock">
+					<property name="ToBlock" value="trapAdhesiveElectricSteelSpike"/>
+					<property name="Item" value="electricParts"/>
+					<property name="ItemCount" value="5"/>
+					<property name="UpgradeHitCount" value="1"/>
+				</property>
+			</block>
 			<block id="" name="trapAdhesiveElectricSteelSpike">
 				<!--<property name="Class" value="TrunkTip"/>-->
 				<property name="Class" value="AdhesiveElectricSteelSpike, Mods"/>

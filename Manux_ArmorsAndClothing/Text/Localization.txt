@@ -13,3 +13,8 @@ steelHelmetLight,items,Item Clothes,EnChanged,Steel Helmet (Light)
 ledAviatorGoggles,items,Item Clothes,EnChanged,Mole Goggles
 ledGoggles,items,Item Clothes,EnChanged,LED Goggles
 LEDHelmetDesc,items,Item Clothes,EnChanged,Wear this to be able to toggle on the LED light.
+steelHelmetSchematic,items,Book,EnChanged,Steel Helmet Schematic
+steelChestArmorSchematic,items,Book,EnChanged,Steel Chest Armor Schematic
+steelLegArmorSchematic,items,Book,EnChanged,Steel Leg Armor Schematic
+steelBootsSchematic,items,Book,EnChanged,Steel Boots Schematic
+steelGlovesSchematic,items,Book,EnChanged,Steel Gloves Schematic

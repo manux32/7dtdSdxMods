@@ -1,4 +1,6 @@
 Key,Source,Context,Changes,English
+trapAdhesiveSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Spike
+trapAdhesiveSteelSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence."
 trapAdhesiveElectricSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Spike
 trapAdhesiveElectricSteelSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence. Power it to also give electric shocks."
 trapAdhesiveElectricSteelFireSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Fire Spike
@@ -12,3 +14,4 @@ flamingDartDesc,items,Item Gun,EnChanged,Steel Dart that burns.
 burnAndShock,buffs,Buff,EnChanged,Burned and Shocked
 burnAndShockDesc,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"
 burnAndShockTooltip,buffs,Buff,EnChanged,"You are being burned and shocked, ouch!"
+flamingDartSchematic,items,Book,EnChanged,Flaming Dart Schematic

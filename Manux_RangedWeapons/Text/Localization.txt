@@ -55,3 +55,8 @@ shockingSlingshotAmmo,items,Item Gun,EnChanged,Shocking Slingshot Ammo
 shockingSlingshotAmmoDesc,items,Item Gun,EnChanged,A mini tazer packed in each ammo.
 miniHPBattery,items,Item Gun,EnChanged,Mini High-Powered Batteries
 miniHPBatteryDesc,items,Item Gun,EnChanged,You can make 50 of those from a car battery.
+flamingCrossbowBoltSchematic,items,Book,EnChanged,Flaming Crossbow Bolt Schematic
+flamingSlingshotAmmoSchematic,items,Book,EnChanged,Flaming Slingshot Ammo Schematic
+shockingSlingshotAmmoSchematic,items,Book,EnChanged,Shocking Slingshot Ammo Schematic
+explodingSlingshotAmmoSchematic,items,Book,EnChanged,Exploding Slingshot Ammo Schematic
+
