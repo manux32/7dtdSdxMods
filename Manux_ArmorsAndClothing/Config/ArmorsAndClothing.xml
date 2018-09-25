@@ -1,7 +1,49 @@
 <configs>
-	<config name="items">	
+	<config name="items">
 		<append xpath="/items">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
+			<item id="" name="steelHelmetSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="1000"/>
+				<property name="CustomIcon" value="scrapHelmetSchematic"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="steelHelmet"/>
+				</property>
+			</item>
+			<item id="" name="steelChestArmorSchematic">
+				<property name="Extends" value="steelHelmetSchematic"/>
+				<property name="CustomIcon" value="scrapChestArmorSchematic"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="steelChestplate"/>
+				</property>
+			</item>
+			<item id="" name="steelLegArmorSchematic">
+				<property name="Extends" value="steelHelmetSchematic"/>
+				<property name="CustomIcon" value="scrapLegArmorSchematic"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="steelLegs"/>
+				</property>
+			</item>
+			<item id="" name="steelBootsSchematic">
+				<property name="Extends" value="steelHelmetSchematic"/>
+				<property name="CustomIcon" value="scrapBootsSchematic"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="steelBoots"/>
+				</property>
+			</item>
+			<item id="" name="steelGlovesSchematic">
+				<property name="Extends" value="steelHelmetSchematic"/>
+				<property name="CustomIcon" value="scrapGlovesSchematic"/>
+				<property name="CustomIconTint" value="696B67"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="steelGloves"/>
+				</property>
+			</item>
+			
 			<item id="" name="steelBoots">
 				<property name="Extends" value="ironBoots"/>
 				<property name="EconomicValue" value="2000"/>
@@ -181,7 +223,7 @@
 	</config>
 	<config name="recipes">	
 		<append xpath="/recipes">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<!-- Armors -->
 			<recipe name="steelBoots" count="1" craft_area="workbench" craft_exp_gain="15">
 				<ingredient name="forgedSteel" count="20" />
@@ -272,17 +314,25 @@
 		</append>
 	</config>
 	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='rareBooks']">
+			<!-- MANUX Armors and clothing -->
+			<item name="steelHelmetSchematic" />
+			<item name="steelChestArmorSchematic" />
+			<item name="steelLegArmorSchematic" />
+			<item name="steelBootsSchematic" />
+			<item name="steelGlovesSchematic" />
+		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='clothes']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="ledGoggles" prob="0.2"/>
 			<item name="ledAviatorGoggles" prob="0.1"/>
 		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='sportingGoods']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="ledGoggles"/>
 		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='heavyArmor']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="steelBoots"/>
 			<item name="steelLegs"/>
 			<item name="steelChestplate"/>
@@ -290,25 +340,33 @@
 			<item name="steelHelmet"/>
 		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='militaryArmor']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="militaryHelmetLight"/>
 			<item name="swatHelmetLight"/>
 		</append>
 		<!-- zombie cop-->
 		<append xpath="/lootcontainers/lootcontainer[@id='17']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="swatHelmet" prob="0.1"/>
 			<item name="swatHelmetLight" prob="0.05"/>
 		</append>
 	</config>
 	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareBooks']">
+			<!-- MANUX Armors and clothing -->
+			<item name="steelHelmetSchematic" />
+			<item name="steelChestArmorSchematic" />
+			<item name="steelLegArmorSchematic" />
+			<item name="steelBootsSchematic" />
+			<item name="steelGlovesSchematic" />
+		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='clothes']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="ledGoggles" prob="0.2"/>
 			<item name="ledAviatorGoggles" prob="0.1"/>
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='heavyArmor']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="steelBoots" prob="0.2"/>
 			<item name="steelLegs" prob="0.2"/>
 			<item name="steelChestplate" prob="0.2"/>
@@ -316,17 +374,17 @@
 			<item name="steelHelmet" prob="0.2"/>
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='militaryArmor']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="militaryHelmetLight" prob="0.5"/>
 			<item name="swatHelmetLight" prob="0.5"/>
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsLow']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="ledGoggles" prob="0.6"/>
 			<item name="ledAviatorGoggles" prob="0.3"/>
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
-			<!-- MANUX (Valmar) Armors and clothing -->
+			<!-- MANUX Armors and clothing -->
 			<item name="steelBoots"/>
 			<item name="steelLegs"/>
 			<item name="steelChestplate"/>
@@ -335,6 +393,11 @@
 			<item name="militaryHelmetLight"/>
 			<item name="swatHelmetLight"/>
 			<item name="steelHelmetLight"/>
+			<item name="steelHelmetSchematic" />
+			<item name="steelChestArmorSchematic" />
+			<item name="steelLegArmorSchematic" />
+			<item name="steelBootsSchematic" />
+			<item name="steelGlovesSchematic" />
 		</append>
 	</config>
 </configs>
