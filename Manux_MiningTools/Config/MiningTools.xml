@@ -145,6 +145,20 @@
 			</recipe>
 		</append>
 	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
+			<!-- MANUX Mining Tools -->
+			<recipe name="weedCleaver" unlock_level="3"/>
+			<recipe name="quickaxe" unlock_level="5"/>
+			<recipe name="diamondaxe" unlock_level="8"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillScience']">
+			<!-- MANUX Mining Tools -->
+			<recipe name="weedCleaver" unlock_level="3"/>
+			<recipe name="quickaxe" unlock_level="5"/>
+			<recipe name="diamondaxe" unlock_level="8"/>
+		</append>
+	</config>
 	<config name="loot">
 		<append xpath="/lootcontainers/lootgroup[@name='tools']">
 			<!-- MANUX Mining Tools -->
