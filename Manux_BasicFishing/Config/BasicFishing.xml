@@ -459,15 +459,15 @@
 				<ingredient name="rawFish" count="1"/>
 			</recipe>
 			<recipe name="fishStew" count="1" craft_area="campfire" craft_tool="cookingPot">
-				<ingredient name="rawFish" count="1"/>
-				<ingredient name="potato" count="1"/>
-				<ingredient name="corn" count="1"/>
+				<ingredient name="rawFish" count="4"/>
+				<ingredient name="potato" count="4"/>
+				<ingredient name="corn" count="4"/>
 				<ingredient name="bottledWater" count="1"/>
 			</recipe>
 			<recipe name="fishAndChips" count="1" craft_area="campfire" craft_tool="cookingGrill">
-				<ingredient name="rawFish" count="1"/>
+				<ingredient name="rawFish" count="3"/>
 				<ingredient name="cornMeal" count="1"/>
-				<ingredient name="potato" count="1"/>
+				<ingredient name="potato" count="2"/>
 				<ingredient name="animalFat" count="1"/>
 			</recipe>
 			<!-- Fishing Gear -->

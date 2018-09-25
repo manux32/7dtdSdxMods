@@ -239,7 +239,7 @@
 				<ingredient name="assortedVegetables" count="2"/>
 			</recipe>
 			<recipe name="burgerAndFries" count="1" craft_area="campfire" craft_tool="cookingGrill">
-				<ingredient name="rawMeat" count="2"/>
+				<ingredient name="rawMeat" count="3"/>
 				<ingredient name="cornBread" count="1"/>
 				<ingredient name="assortedVegetables" count="1"/>
 				<ingredient name="potato" count="2"/>
