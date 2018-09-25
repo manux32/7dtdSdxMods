@@ -4,9 +4,14 @@
 The Steel Log Spikes upgrades were inspired by [**Valmar**](https://7daystodie.com/forums/showthread.php?32219-Valmar-s-Mod-Collection)'s traps, but adapted to what I wanted, including being able to power them for an additonal shocking buff.  
 The hard-core players might find my traps a bit over-powered. :stuck_out_tongue_winking_eye:
 
+## Adhesive Steel Log Spike: ![taess](Icons/trapAdhesiveSteelSpike.png)
+A steel log spike that slows down enemies like a barb fence.
+- Upgrade regular Steel Log Spikes to this version with 5 forged steel.
+- MaxDamage = 5000
+
 ## Adhesive Steel Electric Log Spike: ![taess](Icons/trapAdhesiveElectricSteelSpike.png)
 A steel log spike that slows down enemies like a barb fence. Power it to also give electric shocks.
-- Upgrade regular Steel Log Spikes to this version with 5 forged steel.
+- Upgrade Adhesive Steel Log Spikes to this version with 5 electric parts.
 - MaxDamage = 5000
 - RequiredPower = 5 (for additional shocks)
 
