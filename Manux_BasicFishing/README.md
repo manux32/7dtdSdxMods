@@ -8,13 +8,15 @@ I did not yet add any progression gates for being able to craft these items.
 ## Items
 | ![Fishing Rod](Icons/fishingRod.png) | ![Fishing Trap](Icons/fishingTrap.png) | ![Fish Bait](Icons/fishBait.png) | ![Fish bait baskets](Icons/fishBaitBasket.png) | ![Fishing Trap Bait Basket](Icons/fishingTrapBaitBasket.png) | ![Fishing Pliers](Icons/fishingPliers.png) | ![Raw Fish](Icons/rawFish.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:| 
-| Fishing Rod | Fishing Trap | Fish Bait | Fish Bait Basket | Fishing Trap <br/> Bait Basket | Fishing Pliers | Raw Fish |
-
+| Fishing Rod | Fishing Trap | Fish Bait | Fish Bait Basket | Fishing Trap <br/> Bait Basket | Fishing Pliers | Raw Fish |  
 
 ## Fish recipes
 | ![Grilled Fish](Icons/grilledFish.png) | ![Boiled Fish](Icons/boiledFish.png) | ![Charred Fish](Icons/charredFish.png) | ![Fish Stew](Icons/fishStew.png) | ![Fish And Chips](Icons/fishAndChips.png) |
 |:---:|:---:|:---:|:---:|:---:| 
-| Grilled Fish | Boiled Fish | Charred Fish | Fish Stew | Fish And Chips |
+| Grilled Fish | Boiled Fish | Charred Fish | Fish Stew | Fish And Chips |  
+
+## Demo
+[![Fishing Mod demo](http://img.youtube.com/vi/pNBpo3o7DJY/0.jpg)](https://www.youtube.com/watch?v=pNBpo3o7DJY "Fishing Mod demo")
 
 ## How to fish
 ### Fishing Rod
@@ -26,9 +28,9 @@ I did not yet add any progression gates for being able to craft these items.
 #### Steps
 - Put the Fish Bait Basket on the ground close to where you want to fish.
 - Using the Fishing Pliers, upgrade(right-click) the Fish Bait Basket to add Fish Bait in it. Fish Bait will appear on top of the basket.
-- Using the Fishing Rod, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait on the Fishing Rod. You will see the Fishing Rod icon change to indicate it is baited. Be fast, otherwise the bait will escape from the basket.
+- Using the Fishing Rod, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait on the Fishing Rod. Be fast, otherwise the bait will escape from the basket. You will see a worm appear on the Fishing Rod, and its icon change to indicate it is baited.
 - Using the Fishing Rod, right-click a body of water to start fishing.
-- When you have caught something, the fishing Rod icon will change to indicate it, and its mesh will become a bag.
+- When you have caught something, a fish will appear on the hook and the fishing Rod icon will change to indicate it.
 - Right-click on the ground with your Fishing Rod to put a Livewell there. Than loot it!
 
 ### Fishing Trap
@@ -40,9 +42,9 @@ I did not yet add any progression gates for being able to craft these items.
 #### Steps
 - Put the Fishing Trap Bait Basket on the ground close to where you want to fish.
 - Using the Fishing Pliers, upgrade(right-click) the Basket to add Fish Bait in it. Fish Bait will appear on top of the basket.
-- Using the Fishing Trap, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait in the Trap. You will see the Fishing Trap icon change to indicate it is baited. Be fast, otherwise the bait will escape from the basket.
+- Using the Fishing Trap, aim at the Fish Bait that's on top of the basket, and right-click to put Fish Bait in the Trap. Be fast, otherwise the bait will escape from the basket. You will see bait appear in the Fishing Trap, and its icon change to indicate it is baited. 
 - Using the Fishing Trap, right-click a body of water to start fishing.
-- When you have caught something, the fishing Trap icon will change to indicate it, and its mesh will become a bag.
+- When you have caught something, fishes will appear in the fishing Trap and its icon will change to indicate it.
 - Right-click on the ground with your Fishing Trap to put a Fishing Trap Livewell there. Than loot it!
 
 ## Potential conflicts:
