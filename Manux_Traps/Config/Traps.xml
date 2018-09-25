@@ -2,6 +2,13 @@
 	<config name="items">	
 		<append xpath="/items">
 			<!-- MANUX Traps -->
+			<item id="" name="flamingDartSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="flamingDart"/>
+				</property>
+			</item>
 			<item id="" name="flamingDart">
 				<property name="Extends" value="steelDart"/>
 				<property name="DescriptionKey" value="flamingDartDesc"/>
@@ -182,6 +189,13 @@
 			</recipe>
 		</append>
 	</config>
+	<config name="progression">	
+		<append xpath="/progression/skills/perk[@name='electricTrapsRangedPerk']">
+			<!-- MANUX Traps -->
+			<recipe name="trapDartAutoTurret" unlock_level="2"/>
+			<recipe name="trapFlamingDartAutoTurret" unlock_level="3"/>
+		</append>
+	</config>
 	<config name="buffs">	
 		<append xpath="/buffs">
 			<!-- MANUX Traps -->
@@ -202,7 +216,17 @@
 			</buff>
 		</append>
 	</config>
+		<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='rareBooks']">
+			<!-- MANUX Traps -->
+			<item name="flamingDartSchematic" />
+		</append>
+	</config>
 	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareBooks']">
+			<!-- MANUX Traps -->
+			<item name="flamingDartSchematic" />
+		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='traderElectrical']">
 			<!-- MANUX Traps -->
 			<item name="flamingDart" count="15,70" prob="0.2"/>
@@ -218,6 +242,7 @@
 			<item name="flamingDart" count="15,70" prob="1"/>
 			<item name="trapDartAutoTurret" count="1,3" prob="0.6"/>
 			<item name="trapFlamingDartAutoTurret" count="1,2" prob="0.5"/>
+			<item name="flamingDartSchematic" />
 		</append>
 	</config>
 </configs>
