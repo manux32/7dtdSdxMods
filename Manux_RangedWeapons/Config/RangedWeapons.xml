@@ -3,6 +3,35 @@
 		<set xpath="/items/item[@name='crossbow']/property[@class='Action0']/property[@name='Magazine_items']/@value">ironCrossbowBolt,steelCrossbowBolt,explodingCrossbowBolt,flamingCrossbowBolt</set>
 		<append xpath="/items">
 			<!-- MANUX Ranged Weapons -->
+			<!-- SCHEMATICS -->
+			<item id="" name="flamingCrossbowBoltSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="flamingCrossbowBolt"/>
+				</property>
+			</item>
+			<item id="" name="flamingSlingshotAmmoSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="flamingSlingshotAmmo"/>
+				</property>
+			</item>
+			<item id="" name="shockingSlingshotAmmoSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="shockingSlingshotAmmo"/>
+				</property>
+			</item>
+			<item id="" name="explodingSlingshotAmmoSchematic">
+				<property name="Extends" value="schematicMaster"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Action1">
+					<property name="Recipes_to_learn" value="explodingSlingshotAmmo"/>
+				</property>
+			</item>
 			<!-- GUNS PARTS -->
 			<item id="" name="gunSilencer">
 				<property name="Extends" value="partsMaster"/>
@@ -496,6 +525,11 @@
 			<recipe name="gunSilencer" unlock_level="7"/>
 			<recipe name="gunChoke" unlock_level="7"/>
 			<recipe name="gunScope" unlock_level="7"/>
+			<recipe name="miniHPBattery" unlock_level="3"/>
+		</append>
+		<append xpath="/progression/skills/perk[@name='craftSkillTools']">
+			<!-- MANUX Ranged Weapons -->
+			<recipe name="miniHPBattery" unlock_level="3"/>
 		</append>
 	</config>
 	<config name="recipes">	
@@ -686,6 +720,16 @@
 		</append>
 	</config>
 	<config name="loot">
+		<append xpath="/lootcontainers/lootgroup[@name='commonBooks']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingSlingshotAmmoSchematic" />
+			<item name="shockingSlingshotAmmoSchematic" />
+		</append>
+		<append xpath="/lootcontainers/lootgroup[@name='rareBooks']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingCrossbowBoltSchematic" />
+			<item name="explodingSlingshotAmmoSchematic" />
+		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='ammo']">
 			<!-- MANUX Ranged Weapons -->
 			<item name="flamingCrossbowBolt" count="1,8" prob="0.1"/>
@@ -824,6 +868,16 @@
 		</append>
 	</config>
 	<config name="traders">
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='commonBooks']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingSlingshotAmmoSchematic" />
+			<item name="shockingSlingshotAmmoSchematic" />
+		</append>
+		<append xpath="/traders/trader_item_groups/trader_item_group[@name='rareBooks']">
+			<!-- MANUX Ranged Weapons -->
+			<item name="flamingCrossbowBoltSchematic" />
+			<item name="explodingSlingshotAmmoSchematic" />
+		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='weaponsCrossbow+ammo']">
 			<!-- MANUX Ranged Weapons -->
 			<item name="ironBow" count="1" prob="0.7"/>
@@ -892,6 +946,8 @@
 			<item name="flamingSlingshotAmmo" count="25,50"/>
 			<item name="shockingSlingshotAmmo" count="25,50"/>
 			<item name="explodingSlingshotAmmo" count="25,50"/>
+			<item name="flamingCrossbowBoltSchematic" />
+			<item name="explodingSlingshotAmmoSchematic" />
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='weaponsMilitaryParts']">
 			<!-- MANUX Ranged Weapons -->
