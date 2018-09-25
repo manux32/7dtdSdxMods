@@ -1,5 +1,5 @@
 Key,Source,Context,Changes,English
-trapAdhesiveSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Spike
+trapAdhesiveSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Log Spike
 trapAdhesiveSteelSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence."
 trapAdhesiveElectricSteelSpike,blocks,Traps,EnChanged,Adhesive Steel Electric Log Spike
 trapAdhesiveElectricSteelSpikeDesc,blocks,Traps,EnChanged,"A steel log spike that slows down enemies like a barb fence. Power it to also give electric shocks."

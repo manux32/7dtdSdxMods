@@ -59,4 +59,3 @@ flamingCrossbowBoltSchematic,items,Book,EnChanged,Flaming Crossbow Bolt Schemati
 flamingSlingshotAmmoSchematic,items,Book,EnChanged,Flaming Slingshot Ammo Schematic
 shockingSlingshotAmmoSchematic,items,Book,EnChanged,Shocking Slingshot Ammo Schematic
 explodingSlingshotAmmoSchematic,items,Book,EnChanged,Exploding Slingshot Ammo Schematic
-

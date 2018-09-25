@@ -4,11 +4,11 @@
 			<!-- MANUX Mining Tools -->
 			<item id="" name="weedCleaver">
 				<property name="DescriptionKey" value="weedCleaverDesc"/>
-				<property name="Meshfile" value="Items/Weapons/Melee/Knives/machetePrefab" />
+				<!--<property name="Meshfile" value="Items/Weapons/Melee/Knives/machetePrefab" />-->
+				<property name="Meshfile" value="#MiningTools?WeedCleaverPrefab" />
 				<property name="Material" value="metal" />
 				<property name="EconomicValue" value="150" />
 				<property name="Degradation" value="500" param1="false" />
-				<property name="Description" value="Have grass? We can help. Patent Pending."/>
 				<property name="HoldType" value="47" />
 				<property name="Stacknumber" value="1" />
 				<property name="RepairTools" value="forgedIron" />
@@ -44,11 +44,11 @@
 				<property name="PickupJournalEntry" value="miningTip" />
 			</item>
 			<item id="" name="quickaxe">
-				<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />
+				<!--<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />-->
+				<property name="Meshfile" value="#MiningTools?QuickAxePrefab" />
 				<property name="Material" value="metal" />
 				<property name="RepairTools" value="forgedIron" />
 				<property name="HoldType" value="32" />
-				<property name="Description" value="It chops, it breaks, it digs, it's fast, and it's yours!"/>
 				<property name="DegradationBreaksAfter" value="false" />
 				<property name="SoundJammed" value="ItemNeedsRepair" />
 				<property name="SoundDestroy" value="metaldestroy1" />
@@ -85,10 +85,10 @@
 				<property name="RepairExpMultiplier" value="5.5"/>
 			</item>
 			<item id="" name="diamondaxe">
-				<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />
+				<!--<property name="Meshfile" value="Items/Tools/pickaxe_ironPrefab" />-->
+				<property name="Meshfile" value="#MiningTools?DiamondAxePrefab" />
 				<property name="Material" value="metal" />
 				<property name="RepairTools" value="forgedSteel" />
-				<property name="Description" value="Like the Quickaxe, only better!"/>
 				<property name="HoldType" value="32" />
 				<property name="DegradationBreaksAfter" value="false" />
 				<property name="SoundJammed" value="ItemNeedsRepair" />
