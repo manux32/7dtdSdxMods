@@ -24,7 +24,7 @@ class ConsoleCmdListSpawnableEntities : ConsoleCmdAbstract
             {
                 if (_params.Count == 1)
                 {
-                    if(global::EntityClass.list[v].entityClassName.Contains(_params[0]))
+                    if (global::EntityClass.list[v].entityClassName.ToLower().Contains(_params[0].ToLower()))
                     {
                         output += num + " - " + global::EntityClass.list[v].entityClassName + " | ";
                     }
