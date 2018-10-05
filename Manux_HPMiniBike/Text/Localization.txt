@@ -1,11 +1,17 @@
 Key,Source,Context,Changes,English
 bigEngine,items,Part,EnChanged,High-Powered Engine
-bigEngineDesc,items,Part,EnChanged,"A bigger, more robust, and more powerful engine for your minibike. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!"
-robustMinibikeChassis,items,Part,EnChanged,Robust Minibike Chassis (Power suspension)
-robustMinibikeChassisDesc,items,Part,EnChanged,"A more robust minibike chassis equipped with power suspension. You almost don't get hurt anymore when jumping too high."
-professionalMinibikeHandlebars,items,Part,EnChanged,Professional Minibike Handlebars
-professionalMinibikeHandlebarsDesc,items,Part,EnChanged,"Have better control of your driving with these professional handlebars. They will also degrade slower than regular ones."
-HPminibikeWheels,items,Part,EnChanged,High Performance Minibike Wheels
-HPminibikeWheelsDesc,items,Part,EnChanged,"Have better traction and reduced drag with these beautiful minibike High Performance tires. They will also degrade slower than regular ones."
-deluxeMinibikeSeat,items,Part,EnChanged,Deluxe Minibike Seat
-deluxeMinibikeSeatDesc,items,Part,EnChanged,"A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower."
+bigEngineDesc,items,Part,EnChanged,"A big, robust, and powerful engine for your bigger vehicles. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!"
+robustBikeChassis,items,Part,EnChanged,Robust Bike Chassis (Power suspension)
+robustBikeChassisDesc,items,Part,EnChanged,"A robust bike chassis equipped with power suspension. You almost don't get hurt when jumping too high."
+proBikeHandlebars,items,Part,EnChanged,Professional Bike Handlebars
+proBikeHandlebarsDesc,items,Part,EnChanged,"Have better control of your driving with these professional bike handlebars. They will also degrade slower than regular ones."
+proBikeWheels,items,Part,EnChanged,High Performance Bike Wheels
+proBikeWheelsDesc,items,Part,EnChanged,"Have better traction and reduced drag with these beautiful High Performance tires. They will also degrade slower than regular ones."
+proBikeSeat,items,Part,EnChanged,Professional Bike Seat
+proBikeSeatDesc,items,Part,EnChanged,"A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower."
+hellGoatBike,items,Part,EnChanged,HellGoat Bike
+hellGoatBikeChassis,items,Part,EnChanged,HellGoat Bike Chassis
+roadhog,items,Part,EnChanged,Dust2Death's RoadHog
+roadHogChassis,items,Part,EnChanged,Dust2Death's RoadHog Chassis
+cicadaCar,items,Part,EnChanged,Cicada Car
+cicadaCarChassis,items,Part,EnChanged,Cicada Car Chassis
