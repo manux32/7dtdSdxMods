@@ -480,3 +480,5 @@ ZombieTransmogrifier/Scripts/EntityZombieCrawlSDX.cs
 ZombieTransmogrifier/Scripts/EntityZombieFlockSDX.cs
 ZombieTransmogrifier/Scripts/EntityZombieHordeSDX.cs
 ZombieTransmogrifier/Scripts/EntityZombieSDX.cs
+MinibikeImpact/mod.xml
+MinibikeImpact/PatchScripts/MinibikeImpact.cs
