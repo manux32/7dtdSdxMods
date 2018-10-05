@@ -1,4 +1,6 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HPMiniBike-->
+# ---------- OUT OF DATE DOCS, will update soon.... ----------
+
 # High-Powered MiniBike
 
 This mod adds High-Powered versions of the minibike parts, in order to build a High-Powered Minibike.  
