@@ -15,3 +15,5 @@ roadhog,items,Part,EnChanged,Dust2Death's RoadHog
 roadHogChassis,items,Part,EnChanged,Dust2Death's RoadHog Chassis
 cicadaCar,items,Part,EnChanged,Cicada Car
 cicadaCarChassis,items,Part,EnChanged,Cicada Car Chassis
+quad,items,Part,EnChanged,Quad
+quadChassis,items,Part,EnChanged,Quad Chassis
