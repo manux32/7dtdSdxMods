@@ -20,7 +20,13 @@ class EntityCustomCar : EntityMinibike
     bool allBonesSet2Found;
 
     Vector3 cameraOffset = new Vector3(0.5f, 0.1f, 0.75f);
+    bool hasCamOffset;
     bool thirdPersonModelVisible = true;
+    Vector3 playerOffsetPos;
+    Vector3 playerOffsetRot;
+    bool hasPlayerOffsetPos;
+    bool hasPlayerOffsetRot;
+
 
     public override void Init(int _entityClass)
     {
@@ -32,6 +38,7 @@ class EntityCustomCar : EntityMinibike
             if (StringVectorToVector3(entityClass.Properties.Values["CameraOffset"], out newVector3))
             {
                 cameraOffset = newVector3;
+                hasCamOffset = true;
             }
         }
         if (entityClass.Properties.Values.ContainsKey("3rdPersonModelVisible"))
@@ -41,6 +48,24 @@ class EntityCustomCar : EntityMinibike
             {
                 Debug.Log("3rdPersonModelVisible = " + playerVisible.ToString());
                 thirdPersonModelVisible = playerVisible;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("PlayerPositionOffset"))
+        {
+            Vector3 newVector3;
+            if (StringVectorToVector3(entityClass.Properties.Values["PlayerPositionOffset"], out newVector3))
+            {
+                playerOffsetPos = newVector3;
+                hasPlayerOffsetPos = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("PlayerRotationOffset"))
+        {
+            Vector3 newVector3;
+            if (StringVectorToVector3(entityClass.Properties.Values["PlayerRotationOffset"], out newVector3))
+            {
+                playerOffsetRot = newVector3;
+                hasPlayerOffsetRot = true;
             }
         }
     }
@@ -138,8 +163,21 @@ class EntityCustomCar : EntityMinibike
         EntityPlayerLocal entityPlayerLocal = this.AttachedEntities as EntityPlayerLocal;
         if (entityPlayerLocal != null)
         {
-            entityPlayerLocal.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
+            if (hasCamOffset)
+            {
+                entityPlayerLocal.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
+            }
+
             entityPlayerLocal.emodel.SetVisible(thirdPersonModelVisible);
+
+            if (hasPlayerOffsetPos)
+            {
+                entityPlayerLocal.ModelTransform.localPosition = playerOffsetPos;
+            }
+            if (hasPlayerOffsetRot)
+            {
+                entityPlayerLocal.ModelTransform.localEulerAngles = playerOffsetRot;
+            }
         }
     }
 
