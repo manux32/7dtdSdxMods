@@ -20,6 +20,7 @@ class EntityCustomCar : EntityMinibike
     bool allBonesSet2Found;
 
     Vector3 cameraOffset = new Vector3(0.5f, 0.1f, 0.75f);
+    bool thirdPersonModelVisible = true;
 
     public override void Init(int _entityClass)
     {
@@ -33,8 +34,16 @@ class EntityCustomCar : EntityMinibike
                 cameraOffset = newVector3;
             }
         }
+        if (entityClass.Properties.Values.ContainsKey("3rdPersonModelVisible"))
+        {
+            bool playerVisible;
+            if (bool.TryParse(entityClass.Properties.Values["3rdPersonModelVisible"], out playerVisible))
+            {
+                Debug.Log("3rdPersonModelVisible = " + playerVisible.ToString());
+                thirdPersonModelVisible = playerVisible;
+            }
+        }
     }
-
 
     protected override void Start()
     {
@@ -130,6 +139,7 @@ class EntityCustomCar : EntityMinibike
         if (entityPlayerLocal != null)
         {
             entityPlayerLocal.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
+            entityPlayerLocal.emodel.SetVisible(thirdPersonModelVisible);
         }
     }
 
