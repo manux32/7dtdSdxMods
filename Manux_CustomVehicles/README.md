@@ -31,10 +31,11 @@ I made the following changes to the Asset in order to be able to integrate it in
 - combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
 - skinning of the meshes on a simple bone structure to be able to animate it in the game.
 - Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!
-
+### JaxTeller718: 
+For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike.
 ### [Retro Valorem](https://assetstore.unity.com/publishers/22495)
 For his great, cute, and free Unity Asset Store [**Cicada** cartoon car](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158).  
-This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like a lot, it's like the minibike of cars. And the player looks so funny when driving it.
+This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like it a lot, it's like the minibike of cars. And the player looks so funny when driving it.
 
 ### [Mark Bai](https://sketchfab.com/bcfbox)
 For his very nice and cheap Sketchfab [**ATV model practice**](https://skfb.ly/6x9oT) asset, that I use for the Quad vehicle.
