@@ -1,8 +1,6 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HPMiniBike-->
 
-# Custom Vehicles
-
-## [Custom Vehicles](Manux_CustomVehicles)  
+# Custom Vehicles 
 | ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) |
 |:---:|:---:|:---:|:---:|  
 | Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car |
@@ -15,6 +13,10 @@ I will eventually try to make tutorials or youtube vids to help you build your o
 
 The mod can be SDX compiled for dedicated servers, the code is functionnal for multiplayer.
 Some of the vehicles may still be a bit heavy performance wise, depending on your machine's performance. I reduced the polycount and texture size of all assets, but it may still require more reduction, if this becomes a thing, and people want tons of vehicles in multiplayer games. We will then potentially need to start optimizing vehicles a lot more...  
+
+## Dependencies
+This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
+Make sure you also deploy that mod for this one to work. It shouldn't let you build if you don't have it or don't have it enabled.
 
 ## Vids
 [![Fishing Mod demo](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Car")  
