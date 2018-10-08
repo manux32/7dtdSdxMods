@@ -11,6 +11,10 @@ The Custom Vehicles mod is there to help you build your own custom vehicles, fro
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 It contains multiple different examples of already functionnal bikes and cars.  
 
+## Vids
+[![Fishing Mod demo](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Car")  
+[![Fishing Mod demo](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "Custom All Terrain Vehicles")  
+
 ## Professional High-Powered Parts:
 This mod also adds Professional High-Powered versions of the minibike parts, in order to build High-Powered Vehicles.  
 I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
