@@ -21,6 +21,8 @@ Some of the mods are portions taken from other peoples mods, or contain adapted 
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can change make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 It contains multiple different examples of already functionnal bikes and cars.
+### Dependencies
+This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.
 
 ## [Bandits and Survivors](Manux_SurvivorsAndBandits)  
 4 Bandits and 4 Survivors Factions, each of them including Male/Female Fighters, Leaders, and Brutes.  
