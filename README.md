@@ -13,6 +13,15 @@ Some of the mods are portions taken from other peoples mods, or contain adapted 
 
 # Highlights
 
+## [Custom Vehicles](Manux_CustomVehicles)  
+| ![img](Manux_CustomVehicles/Icons/roadHogChassis.png) | ![img](Manux_CustomVehicles/Icons/hellGoatBikeChassis.png) | ![img](Manux_CustomVehicles/Icons/quadChassis.png) | ![img](Manux_CustomVehicles/Icons/cicadaCarChassis.png) |
+|:---:|:---:|:---:|:---:|  
+| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car |
+
+The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
+You can change make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
+It contains multiple different examples of already functionnal bikes and cars.
+
 ## [Bandits and Survivors](Manux_SurvivorsAndBandits)  
 4 Bandits and 4 Survivors Factions, each of them including Male/Female Fighters, Leaders, and Brutes.  
 
@@ -21,12 +30,6 @@ Some of the mods are portions taken from other peoples mods, or contain adapted 
 
 ## [Bad Company Zombies](Manux_BadCompanyZombies) <img src="https://manux32.github.io/7dtd_miscImages/BadCompanyZombies_logo.jpg" width="10%" height="10%">  
 More than 100 new zombies and their variations. There's so many that you'll rarely see the same zombie twice!
-
-## [High-Powered MiniBike](Manux_HPMiniBike)  
-| ![img](Manux_HPMiniBike/Icons/robustMinibikeChassis.png) | ![img](Manux_HPMiniBike/Icons/professionalMinibikeHandlebars.png) | ![img](Manux_HPMiniBike/Icons/HPminibikeWheels.png) | ![img](Manux_HPMiniBike/Icons/deluxeMinibikeSeat.png) |
-|:---:|:---:|:---:|:---:|  
-
-Drive faster, jump higher, have more control, and get less damage from jumping too high.
 
 ## [Basic Fishing](Manux_BasicFishing)  
 | ![Fishing Rod](Manux_BasicFishing/Icons/fishingRod.png) | ![Fish Bait](Manux_BasicFishing/Icons/fishBait.png) | ![Raw Fish](Manux_BasicFishing/Icons/rawFish.png) | ![Fishing Trap](Manux_BasicFishing/Icons/fishingTrap.png) | ![Grilled Fish](Manux_BasicFishing/Icons/grilledFish.png) | ![Boiled Fish](Manux_BasicFishing/Icons/boiledFish.png) | ![Charred Fish](Manux_BasicFishing/Icons/charredFish.png) | ![Fish Stew](Manux_BasicFishing/Icons/fishStew.png) | ![Fish And Chips](Manux_BasicFishing/Icons/fishAndChips.png) |
