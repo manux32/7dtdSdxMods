@@ -1,5 +1,5 @@
 Key,Source,Context,Changes,English
-blackPill,items,Medical,EnChanged,Blue Pill
+blackPill,items,Medical,EnChanged,Admin: Black Pill
 blackPillDesc,items,Medical,EnChanged,"Admin Tool: Gain Health, Stamina, Wellness, Food and Water."
 superDigger,items,Tool,EnChanged,Admin: Super Digger
 superDiggerDesc,items,Tool,EnChanged,"Admin Tool: A gun that destroys any block with 1 hit."
