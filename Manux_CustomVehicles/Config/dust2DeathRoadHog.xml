@@ -4,7 +4,6 @@
 			<!-- Dust2Death's RoadHog --> 
 			<item id="" name="roadHogChassis">
 				<property name="Extends" value="minibikeChassis"/>
-				<property name="CustomIcon" value="robustMinibikeChassis"/>
 				<property name="Meshfile" value="#RoadHog?RoadHogChassisPrefab" />
 				<property class="Action1">
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
