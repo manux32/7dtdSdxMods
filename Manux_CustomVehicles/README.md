@@ -15,6 +15,30 @@ It contains multiple different examples of already functionnal bikes and cars.
 [![Fishing Mod demo](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Car")  
 [![Fishing Mod demo](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "Custom All Terrain Vehicles")  
 
+## Special Thanks
+### Dust2Death: 
+For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
+See his Road Hog forum thread here: [**Road Hog**](https://7daystodie.com/forums/showthread.php?87828-Road-Hog-SDX)  
+### TormentedEmu:
+For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.
+And thanks also for her great [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I am using in the first video below to run over zombies with the Cicada car.
+### [chervinin](https://sketchfab.com/chervinin)
+A great artist who did the amazing [Sketchfab **Hell Motogoat** asset](https://skfb.ly/TCEV) that I am using for the Hell Goat Bike vehicle.  
+His **Hell Motogoat asset** is under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) licensing terms.  
+I made the following changes to the Asset in order to be able to integrate it in the 7 days to die game:
+- polygon reduction on all meshes.
+- textures reduction from 2048x2048 to 512x512
+- combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
+- skinning of the meshes on a simple bone structure to be able to animate it in the game.
+- Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!
+
+### [Retro Valorem](https://assetstore.unity.com/publishers/22495)
+For his great, cute, and free Unity Asset Store [**Cicada** cartoon car](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158).  
+This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like a lot, it's like the minibike of cars. And the player looks so funny when driving it.
+
+### [Mark Bai](https://sketchfab.com/bcfbox)
+For his very nice and cheap Sketchfab [**ATV model practice**](https://skfb.ly/6x9oT) asset, that I use for the Quad vehicle.
+
 ## Professional High-Powered Parts:
 This mod also adds Professional High-Powered versions of the minibike parts, in order to build High-Powered Vehicles.  
 I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
