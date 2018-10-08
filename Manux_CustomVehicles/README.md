@@ -10,6 +10,7 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 It contains multiple different examples of already functionnal bikes and cars.  
+I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.
 
 ## Vids
 [![Fishing Mod demo](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Car")  
