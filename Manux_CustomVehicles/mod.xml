@@ -3,8 +3,8 @@
 		<!-- Information about the Mod, the author and version information -->
 		<!-- These are displayed in the SDX Launcher -->
 		<author>manux</author>
-		<name>Manux - HP MiniBike</name>
-		<description>Manux - HP MiniBike SDX Mod</description>
+		<name>Manux - Custom Vehicles</name>
+		<description>Manux - Custom Vehicles SDX Mod</description>
 		<mod_version>1.0</mod_version>
 		<game_version>16.4</game_version>
 		<launcher_version>0.7.2</launcher_version>

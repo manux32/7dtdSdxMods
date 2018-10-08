@@ -79,22 +79,22 @@ class EntityCustomCar : EntityCustomBike
 
         if (handlebar_joint == null || frontWheel_joint_yaw == null || frontWheel_joint == null || right_frontWheel_joint_yaw == null || right_frontWheel_joint == null)
         {
-            Debug.LogError(this.ToString() + " : Some bones could not be found for set 1.");
+            Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Car will not be fully functionnal.");
         }
         else
         {
             allBonesSet1Found = true;
-            Debug.Log(this.ToString() + " : All bones set 1 found.");
+            DebugMsg(this.ToString() + " : All bones set 1 found.");
         }
 
         if (handlebar_joint2 == null || frontWheel_joint_yaw2 == null || frontWheel_joint2 == null || right_frontWheel_joint_yaw2 == null || right_frontWheel_joint2 == null)
         {
-            Debug.Log(this.ToString() + " : Some bones could not be found for set 2.");
+            DebugMsg(this.ToString() + " : Some bones could not be found for set 2. (this is harmless)");
         }
         else
         {
             allBonesSet2Found = true;
-            Debug.Log(this.ToString() + " : All bones set 2 found.");
+            DebugMsg(this.ToString() + " : All bones set 2 found.");
         }
     }
 
