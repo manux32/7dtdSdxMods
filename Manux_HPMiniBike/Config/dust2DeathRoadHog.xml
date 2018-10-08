@@ -17,7 +17,7 @@
 		<append xpath="/entity_classes">	
 			<!-- Dust2Death's RoadHog --> 
 			<entity_class name="roadhog">
-				<property name="Class" value="EntityMinibike" />
+				<property name="Class" value="EntityCustomBike, Mods" />
 				<property name="Parent" value="Cars" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />

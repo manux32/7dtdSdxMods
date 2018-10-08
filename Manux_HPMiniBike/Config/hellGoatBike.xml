@@ -28,8 +28,17 @@
 		<append xpath="/entity_classes">
 			<!-- MANUX's HellGoat Bike -->  
 			<entity_class name="hellGoatBike">
-				<property name="Class" value="EntityMinibike" />
+				<property name="Class" value="EntityCustomBike, Mods" />
 				<property name="Parent" value="Cars" />
+				<!--<property name="CameraOffset" value="0.5, 0.1, -5" />-->
+				<property name="3rdPersonModelVisible" value="true" />
+				<!--<property name="PlayerPositionOffset" value="0, 0.1, -0.2" />-->
+				<!--<property name="PlayerRotationOffset" value="0, 0, 0" />-->
+				<property name="ColliderCenter" value="0, 0.61, -0.05" />
+				<property name="ColliderRadius" value="0.6" />
+				<property name="ColliderHeight" value="1.1" />
+				<property name="ControllerSlopeLimit" value="90" />
+				<property name="ControllerStepOffset" value="1" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />

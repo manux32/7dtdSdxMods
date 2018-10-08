@@ -22,6 +22,11 @@
 				<property name="3rdPersonModelVisible" value="true" />
 				<property name="PlayerPositionOffset" value="0, 0.1, -0.2" />
 				<!--<property name="PlayerRotationOffset" value="0, 0, 0" />-->
+				<property name="ColliderCenter" value="0, 0.705, -0.08" />
+				<property name="ColliderRadius" value="0.7" />
+				<property name="ColliderHeight" value="1.1" />
+				<property name="ControllerSlopeLimit" value="90" />
+				<property name="ControllerStepOffset" value="1" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />

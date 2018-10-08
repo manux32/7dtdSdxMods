@@ -20,6 +20,12 @@
 				<property name="Parent" value="Cars" />
 				<property name="CameraOffset" value="0.5, 0.1, -5" />
 				<property name="3rdPersonModelVisible" value="true" />
+				<!--<property name="PlayerPositionOffset" value="0, 0.1, -0.2" />-->
+				<!--<property name="PlayerRotationOffset" value="0, 0, 0" />-->
+				<property name="ColliderCenter" value="0.4, 1.01, -0.4" />
+				<property name="ColliderRadius" value="1" />
+				<property name="ColliderHeight" value="2" />
+				<!--<property name="ControllerSlopeLimit" value="45" />-->
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />

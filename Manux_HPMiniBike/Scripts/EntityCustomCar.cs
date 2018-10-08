@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 
-class EntityCustomCar : EntityMinibike
+class EntityCustomCar : EntityCustomBike
 {
     Transform handlebar_joint = null;
     Transform frontWheel_joint_yaw = null;
@@ -19,54 +20,13 @@ class EntityCustomCar : EntityMinibike
     bool allBonesSet1Found;
     bool allBonesSet2Found;
 
-    Vector3 cameraOffset = new Vector3(0.5f, 0.1f, 0.75f);
-    bool hasCamOffset;
-    bool thirdPersonModelVisible = true;
-    Vector3 playerOffsetPos;
-    Vector3 playerOffsetRot;
-    bool hasPlayerOffsetPos;
-    bool hasPlayerOffsetRot;
+    static bool showDebugLog = false;
 
-
-    public override void Init(int _entityClass)
+    public static new void DebugMsg(string msg)
     {
-        base.Init(_entityClass);
-        EntityClass entityClass = EntityClass.list[_entityClass];
-        if (entityClass.Properties.Values.ContainsKey("CameraOffset"))
+        if (showDebugLog)
         {
-            Vector3 newVector3;
-            if (StringVectorToVector3(entityClass.Properties.Values["CameraOffset"], out newVector3))
-            {
-                cameraOffset = newVector3;
-                hasCamOffset = true;
-            }
-        }
-        if (entityClass.Properties.Values.ContainsKey("3rdPersonModelVisible"))
-        {
-            bool playerVisible;
-            if (bool.TryParse(entityClass.Properties.Values["3rdPersonModelVisible"], out playerVisible))
-            {
-                Debug.Log("3rdPersonModelVisible = " + playerVisible.ToString());
-                thirdPersonModelVisible = playerVisible;
-            }
-        }
-        if (entityClass.Properties.Values.ContainsKey("PlayerPositionOffset"))
-        {
-            Vector3 newVector3;
-            if (StringVectorToVector3(entityClass.Properties.Values["PlayerPositionOffset"], out newVector3))
-            {
-                playerOffsetPos = newVector3;
-                hasPlayerOffsetPos = true;
-            }
-        }
-        if (entityClass.Properties.Values.ContainsKey("PlayerRotationOffset"))
-        {
-            Vector3 newVector3;
-            if (StringVectorToVector3(entityClass.Properties.Values["PlayerRotationOffset"], out newVector3))
-            {
-                playerOffsetRot = newVector3;
-                hasPlayerOffsetRot = true;
-            }
+            Debug.Log(msg);
         }
     }
 
@@ -78,14 +38,14 @@ class EntityCustomCar : EntityMinibike
         List<int> childrenInstanceIds = new List<int>();
         childrenList.Add(this.transform);
         childrenInstanceIds.Add(this.transform.GetInstanceID());
-        GetAllChildTransforms(this.transform, ref childrenList, ref childrenInstanceIds);
+        CustomVehiclesUtils.GetAllChildTransforms(this.transform, ref childrenList, ref childrenInstanceIds);
 
         foreach (Transform child in childrenList)
         {
             switch (child.name)
             {
                 case "handlebar_joint":
-                    if(handlebar_joint == null)
+                    if (handlebar_joint == null)
                         handlebar_joint = child;
                     else
                         handlebar_joint2 = child;
@@ -119,22 +79,22 @@ class EntityCustomCar : EntityMinibike
 
         if (handlebar_joint == null || frontWheel_joint_yaw == null || frontWheel_joint == null || right_frontWheel_joint_yaw == null || right_frontWheel_joint == null)
         {
-            Debug.LogError("EntityCustomCar.Start: Some bones could not be found for set 1.");
+            Debug.LogError(this.ToString() + " : Some bones could not be found for set 1.");
         }
         else
         {
             allBonesSet1Found = true;
-            Debug.Log("EntityCustomCar.Start: All bones set 1 found.");
+            Debug.Log(this.ToString() + " : All bones set 1 found.");
         }
 
         if (handlebar_joint2 == null || frontWheel_joint_yaw2 == null || frontWheel_joint2 == null || right_frontWheel_joint_yaw2 == null || right_frontWheel_joint2 == null)
         {
-            Debug.Log("EntityCustomCar.Start: Some bones could not be found for set 2.");
+            Debug.Log(this.ToString() + " : Some bones could not be found for set 2.");
         }
         else
         {
             allBonesSet2Found = true;
-            Debug.Log("EntityCustomCar.Start: All bones set 2 found.");
+            Debug.Log(this.ToString() + " : All bones set 2 found.");
         }
     }
 
@@ -159,64 +119,6 @@ class EntityCustomCar : EntityMinibike
             right_frontWheel_joint_yaw.localRotation = handlebar_joint.localRotation;
             right_frontWheel_joint.localRotation = frontWheel_joint.localRotation;
         }
-
-        EntityPlayerLocal entityPlayerLocal = this.AttachedEntities as EntityPlayerLocal;
-        if (entityPlayerLocal != null)
-        {
-            if (hasCamOffset)
-            {
-                entityPlayerLocal.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
-            }
-
-            entityPlayerLocal.emodel.SetVisible(thirdPersonModelVisible);
-
-            if (hasPlayerOffsetPos)
-            {
-                entityPlayerLocal.ModelTransform.localPosition = playerOffsetPos;
-            }
-            if (hasPlayerOffsetRot)
-            {
-                entityPlayerLocal.ModelTransform.localEulerAngles = playerOffsetRot;
-            }
-        }
-    }
-
-
-    public void GetAllChildTransforms(Transform root, ref List<Transform> childrenList, ref List<int> childrenInstanceIds)
-    {
-        for (int i = 0; i < root.childCount; i++)
-        {
-            Transform child = root.GetChild(i);
-            if (!childrenInstanceIds.Contains(child.GetInstanceID()))
-            {
-                childrenList.Add(child);
-                childrenInstanceIds.Add(child.GetInstanceID());
-            }
-            GetAllChildTransforms(child, ref childrenList, ref childrenInstanceIds);
-        }
-    }
-
-    public static bool StringVectorToVector3(string stringVec, out Vector3 newVector3)
-    {
-        string[] stringVector;
-        stringVector = stringVec.Split(',');
-        if (stringVector.Length == 3)
-        {
-            float x;
-            float.TryParse(stringVector[0], out x);
-            float y;
-            float.TryParse(stringVector[1], out y);
-            float z;
-            float.TryParse(stringVector[2], out z);
-            newVector3 = new Vector3(x, y, z);
-            return true;
-        }
-        else
-        {
-            Debug.Log("Xml Vector is invalid");
-        }
-        newVector3 = new Vector3();
-        return false;
     }
 }
 
