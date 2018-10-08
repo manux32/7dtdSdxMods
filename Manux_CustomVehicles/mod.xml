@@ -17,6 +17,7 @@
 		<import file="Config\dust2DeathRoadHog.xml" />
 		<import file="Config\cicadaCar.xml" />
 		<import file="Config\quad.xml" />
+		<import file="Config\roadHogSounds.xml" />
     </config_mods>
 	
 </mod>

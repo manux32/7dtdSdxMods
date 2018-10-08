@@ -5,7 +5,7 @@
 			<item id="" name="roadHogChassis">
 				<property name="Extends" value="minibikeChassis"/>
 				<property name="CustomIcon" value="robustMinibikeChassis"/>
-				<property name="Meshfile" value="#RoadHogChassis?RoadHogChassisPrefab" />
+				<property name="Meshfile" value="#RoadHog?RoadHogChassisPrefab" />
 				<property class="Action1">
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
 					<property name="VehicleToSpawn" value="roadhog"/>
@@ -19,6 +19,15 @@
 			<entity_class name="roadhog">
 				<property name="Class" value="EntityCustomBike, Mods" />
 				<property name="Parent" value="Cars" />
+				<property name="CameraOffset" value="0.5, 0.1, -3" />
+				<property name="3rdPersonModelVisible" value="true" />
+				<!--<property name="PlayerPositionOffset" value="0, 0, 0.15" />
+				<property name="PlayerRotationOffset" value="15, 0, 0" />-->
+				<property name="ColliderCenter" value="0, 0.61, -0.02" />
+				<property name="ColliderRadius" value="0.6" />
+				<property name="ColliderHeight" value="1.1" />
+				<property name="ControllerSlopeLimit" value="90" />
+				<property name="ControllerStepOffset" value="1" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />
@@ -39,7 +48,7 @@
 		<append xpath="/vehicles">
 			<!-- Dust2Death's RoadHog --> 
 			<vehicle name="roadhog">
-				<property name="prefab" value="#RoadHog?roadhog_Prefab" />
+				<property name="prefab" value="#RoadHog?RoadHogPrefab" />
 				<property name="gravity_multiplier" value="1" />
 				<property class="chassis">
 					<property name="required" value="true" />
@@ -58,13 +67,13 @@
 					<property name="display_name" value="steering" />
 					<property name="slot_type" value="handlebars" />
 					<property name="mesh" value="handlebar" />
-					<property name="transform" value="Origin/handlebar_joint" />
-					<property name="steer_rotate_min" value="Origin/handlebar_joint/rotateMin" />
-					<property name="steer_rotate_max" value="Origin/handlebar_joint/rotateMax" />
-					<property name="left_hand_ik_position" value="-0.009, 0.0115, 0" />
-					<property name="right_hand_ik_position" value="0.009, 0.0115, 0" />
-					<property name="left_hand_ik_rotation" value="-45, 0, 0" />
-					<property name="right_hand_ik_rotation" value="-45, 0, 0" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint" />
+					<property name="steer_rotate_min" value="Origin/handlebar_root/rotateMin" />
+					<property name="steer_rotate_max" value="Origin/handlebar_root/rotateMax" />
+					<property name="left_hand_ik_position" value="-0.32, 0.28, -0.121" />
+					<property name="right_hand_ik_position" value="0.32, 0.28, -0.121" />
+					<property name="left_hand_ik_rotation" value="46.2127, -39.9195, -8.9094" />
+					<property name="right_hand_ik_rotation" value="46.2127, 39.9195, 8.9094" />
 					<property name="part_damage_reduction" value="0.25" />
 					<property name="parent_part" value="chassis" />
 				</property>
@@ -73,7 +82,7 @@
 					<property name="display_name" value="wheel" />
 					<property name="parent_part" value="wheel1" />
 					<property name="mesh" value="front_wheel" />
-					<property name="transform" value="Origin/handlebar_joint/frontWheel_joint" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/frontWheel_joint" />
 					<property name="shocks_offset_min" value="body/chassis/wheel/minPos" />
 					<property name="shocks_offset_max" value="body/chassis/wheel/maxPos" />
 				</property>
@@ -119,13 +128,13 @@
 					<property name="mesh" value="engine_small" />
 					<property name="transform" value="engine_small" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />
-					<property name="sound_start" value="Vehicles/Minibike/minibike_start_" />
-					<property name="sound_shut_off" value="Vehicles/Minibike/minibike_shutoff_" />
-					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/minibike_empty_" />
-					<property name="sound_idle_loop" value="Vehicles/Minibike/minibike_idle_lp_" />
-					<property name="sound_accelerate" value="Vehicles/Minibike/minibike_accel_" />
-					<property name="sound_decelerate" value="Vehicles/Minibike/minibike_decel_" />
-					<property name="sound_running_loop" value="Vehicles/Minibike/minibike_run_lp_" />
+					<property name="sound_start" value="Vehicles/Minibike/roadHog_start_" />
+					<property name="sound_shut_off" value="Vehicles/Minibike/roadHog_shutoff_" />
+					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/roadHog_empty_" />
+					<property name="sound_idle_loop" value="Vehicles/Minibike/roadHog_idle_lp_" />
+					<property name="sound_accelerate" value="Vehicles/Minibike/roadHog_accel_" />
+					<property name="sound_decelerate" value="Vehicles/Minibike/roadHog_decel_" />
+					<property name="sound_running_loop" value="Vehicles/Minibike/roadHog_run_lp_" />
 					<property name="part_damage_reduction" value="0.5" />
 					<property name="parent_part" value="chassis" />
 				</property>
@@ -144,7 +153,7 @@
 					<property name="parent_part" value="handlebars" />
 					<property name="mesh" value="horn" />
 					<property name="transform" value="horn" />
-					<property name="sound_honk" value="vehicle/minibike/minibike_horn" />
+					<property name="sound_honk" value="vehicle/minibike/roadHog_horn" />
 				</property>
 				<property class="storage">
 					<property name="class" value="Storage" />
@@ -158,7 +167,7 @@
 				<property class="headlight">
 					<property name="class" value="Headlight" />
 					<property name="parent_part" value="handlebars" />
-					<property name="transform" value="Origin/handlebar_joint/headlight" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/headlight" />
 				</property>
 				<property class="fuelTank">
 					<property name="class" value="FuelTank" />

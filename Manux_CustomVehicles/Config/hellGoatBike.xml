@@ -172,13 +172,13 @@
 					<property name="mesh" value="engine_small" />
 					<property name="transform" value="engine_small" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />
-					<property name="sound_start" value="Vehicles/Minibike/minibike_start_" />
-					<property name="sound_shut_off" value="Vehicles/Minibike/minibike_shutoff_" />
-					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/minibike_empty_" />
-					<property name="sound_idle_loop" value="Vehicles/Minibike/minibike_idle_lp_" />
-					<property name="sound_accelerate" value="Vehicles/Minibike/minibike_accel_" />
-					<property name="sound_decelerate" value="Vehicles/Minibike/minibike_decel_" />
-					<property name="sound_running_loop" value="Vehicles/Minibike/minibike_run_lp_" />
+					<property name="sound_start" value="Vehicles/Minibike/roadHog_start_" />
+					<property name="sound_shut_off" value="Vehicles/Minibike/roadHog_shutoff_" />
+					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/roadHog_empty_" />
+					<property name="sound_idle_loop" value="Vehicles/Minibike/roadHog_idle_lp_" />
+					<property name="sound_accelerate" value="Vehicles/Minibike/roadHog_accel_" />
+					<property name="sound_decelerate" value="Vehicles/Minibike/roadHog_decel_" />
+					<property name="sound_running_loop" value="Vehicles/Minibike/roadHog_run_lp_" />
 					<property name="part_damage_reduction" value="0.75" />
 					<property name="parent_part" value="proBikeChassis" />
 				</property>
@@ -197,7 +197,7 @@
 					<property name="parent_part" value="handlebars" />
 					<property name="mesh" value="horn" />
 					<property name="transform" value="horn" />
-					<property name="sound_honk" value="vehicle/minibike/minibike_horn" />
+					<property name="sound_honk" value="vehicle/minibike/roadHog_horn" />
 				</property>
 				<property class="storage">
 					<property name="class" value="Storage" />

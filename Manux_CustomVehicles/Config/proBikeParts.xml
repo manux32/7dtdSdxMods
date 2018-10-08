@@ -1,7 +1,7 @@
 <configs>
 	<config name="items">	
 		<append xpath="/items">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item id="" name="bigEngine">
 				<property name="Extends" value="smallEngine"/>
 				<property name="DescriptionKey" value="bigEngineDesc"/>
@@ -105,7 +105,7 @@
 	</config>
 	<config name="recipes">	
 		<append xpath="/recipes">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<recipe name="bigEngine" count="1" craft_area="workbench" craft_time="1200">
 				<ingredient name="forgedSteel" count="40"/>
 				<ingredient name="mechanicalParts" count="30"/>
@@ -138,7 +138,7 @@
 	</config>
 	<config name="loot">
 		<append xpath="/lootcontainers/lootgroup[@name='rareAutomotive']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>
 			<item name="robustBikeChassis" prob="0.05"/>
 			<item name="proBikeSeat" prob="0.075"/>
@@ -146,7 +146,7 @@
 			<item name="bigEngine" prob="0.05"/>
 		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='ZombieUtilityWorker']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>
 			<item name="robustBikeChassis" prob="0.05"/>
 			<item name="proBikeSeat" prob="0.075"/>
@@ -154,7 +154,7 @@
 			<item name="bigEngine" prob="0.05"/>
 		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='minibikeParts']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>
 			<item name="robustBikeChassis" prob="0.05"/>
 			<item name="proBikeSeat" prob="0.075"/>
@@ -163,7 +163,7 @@
 		</append>
 		<!-- Treasure chest -->
 		<append xpath="/lootcontainers/lootcontainer[@id='70']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.1"/>
 			<item name="robustBikeChassis" prob="0.1"/>
 			<item name="proBikeSeat" prob="0.15"/>
@@ -172,7 +172,7 @@
 		</append>
 		<!-- ZombieBiker -->
 		<append xpath="/lootcontainers/lootcontainer[@id='83']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>
 			<item name="robustBikeChassis" prob="0.05"/>
 			<item name="proBikeSeat" prob="0.075"/>
@@ -182,7 +182,7 @@
 	</config>
 	<config name="traders">
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='minibikeParts']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.2"/>
 			<item name="robustBikeChassis" prob="0.05"/>
 			<item name="proBikeSeat" prob="0.2"/>
@@ -190,7 +190,7 @@
 			<item name="bigEngine" prob="0.05"/>
 		</append>
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='stashOnlyItemsHigh']">
-			<!-- MANUX HP MiniBike -->
+			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="1"/>
 			<item name="robustBikeChassis" prob="0.5"/>
 			<item name="proBikeSeat" prob="1"/>
