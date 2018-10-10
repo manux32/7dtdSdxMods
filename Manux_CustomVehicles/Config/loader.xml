@@ -80,6 +80,7 @@
 				<property name="ControllerStepOffset" value="1" />
 				<property name="ActivationDistance" value="14"/>
 				<property name="DestructionRadius" value="3" />
+				<property name="DestructionHarvestBonus" value="5" />
 				<!--<property name="Sound_loader_moving_loop" value="Vehicles/Minibike/loader_moving_lp_" />-->
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />

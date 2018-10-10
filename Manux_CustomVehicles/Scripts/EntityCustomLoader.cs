@@ -32,6 +32,7 @@ class EntityCustomLoader : EntityCustomBike
 
     int destructionRadius;
     bool hasDestructionRadius;
+    float destructionHarvestBonus = 1.0f;
 
     //CustomLoaderControl clc = null;
 
@@ -60,6 +61,15 @@ class EntityCustomLoader : EntityCustomBike
                 DebugMsg("\tdestructionRadius = " + destRadius.ToString("0.000"));
                 destructionRadius = destRadius;
                 hasDestructionRadius = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("DestructionHarvestBonus"))
+        {
+            float destBonus;
+            if (float.TryParse(entityClass.Properties.Values["DestructionHarvestBonus"], out destBonus))
+            {
+                DebugMsg("\tdestructionHarvestBonus = " + destBonus.ToString("0.000"));
+                destructionHarvestBonus = destBonus;
             }
         }
 
@@ -361,6 +371,7 @@ class EntityCustomLoader : EntityCustomBike
                 }*/
                 if (block.GetType().IsSubclassOf(typeof(BlockPlant)) || block.GetType() == typeof(BlockCactus) || blockName.Contains("rock") || blockName.Contains("tree"))
                 {
+                    HarvestOnDestroy(block, blockValue, destructionHarvestBonus);
                     block.DamageBlock(_world, _clrIdx, blockPos, blockValue, 10000, this.AttachedEntities.entityId, true);
                 }
             }
@@ -385,6 +396,79 @@ class EntityCustomLoader : EntityCustomBike
                     entityAlive.DamageEntity(new global::DamageSource(global::EnumDamageSourceType.Bullet), 99999, false, 1f);
                 }
             }
+        }
+    }
+
+    private static void GameUtils_WZ(global::ItemValue itemValue, int num, float num2, string text)
+    {
+        if (UnityEngine.Random.value <= num2 && num > 0)
+        {
+            global::ItemStack itemStack = new global::ItemStack(itemValue, num);
+            global::LocalPlayerUI uiforPlayer = global::LocalPlayerUI.GetUIForPlayer(global::GameManager.Instance.World.GetLocalPlayer() as global::EntityPlayerLocal);
+            global::XUiM_PlayerInventory playerInventory = uiforPlayer.xui.PlayerInventory;
+            if (!playerInventory.AddItem(itemStack, true))
+            {
+                global::GameManager.Instance.ItemDropServer(new global::ItemStack(itemValue, num), global::GameManager.Instance.World.GetLocalPlayer().GetPosition(), Vector3.zero, global::GameManager.Instance.World.GetLocalPlayerId(), 60f, false);
+            }
+            uiforPlayer.entityPlayer.AddExp((int)(itemStack.itemValue.ItemClass.MadeOfMaterial.Experience * (float)num));
+        }
+    }
+
+    public static void HarvestOnDestroy(Block _block, BlockValue _blockValue, float destructionHarvestBonus)
+    {
+        if (_block.itemsToDrop != null)
+        {
+            {
+                if (!_block.itemsToDrop.ContainsKey(global::EnumDropEvent.Destroy))
+                {
+                    if (_blockValue.type != 0)
+                    {
+                        global::ItemValue itemValue = _blockValue.ToItemValue();
+                        string itemName = global::ItemClass.list[itemValue.type].GetItemName();
+                        GameUtils_WZ(itemValue, 1, 1f, itemName);
+                    }
+                }
+                else
+                {
+                    List<global::Block.SItemDropProb> list = _block.itemsToDrop[global::EnumDropEvent.Destroy];
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        {
+                            global::ItemValue itemValue2 = (!list[i].name.Equals("*")) ? new global::ItemValue(global::ItemClass.GetItem(list[i].name, false).type, false) : _blockValue.ToItemValue();
+                            if (itemValue2.type != 0 && global::ItemClass.list[itemValue2.type] != null && (list[i].prob > 0.999f || UnityEngine.Random.value <= list[i].prob))
+                            {
+                                int num2 = (int)((float)UnityEngine.Random.Range(list[i].minCount, list[i].maxCount + 1) * destructionHarvestBonus);
+                                if (num2 > 0)
+                                {
+                                    GameUtils_WZ(itemValue2, num2, 1f, global::ItemClass.list[itemValue2.type].GetItemName());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (_block.itemsToDrop.ContainsKey(global::EnumDropEvent.Harvest))
+            {
+                List<global::Block.SItemDropProb> list2 = _block.itemsToDrop[global::EnumDropEvent.Harvest];
+                for (int k = 0; k < list2.Count; k++)
+                {
+                    global::ItemValue itemValue3 = (!list2[k].name.Equals("*")) ? new global::ItemValue(global::ItemClass.GetItem(list2[k].name, false).type, false) : _blockValue.ToItemValue();
+                    if (itemValue3.type != 0 && global::ItemClass.list[itemValue3.type] != null)
+                    {
+                        /*if (_actionData.invData.holdingEntity is global::EntityPlayer)
+                        {
+                            global::EntityPlayer entityPlayer = global::GameManager.Instance.World.GetLocalPlayer() as global::EntityPlayer;
+                            entityPlayer.Skills.ModifyValue(global::Skill.Effects.HarvestCount, ref num3, _actionData.invData.itemValue.type, false);
+                        }*/
+                        int num4 = (int)((float)UnityEngine.Random.Range(list2[k].minCount, list2[k].maxCount + 1) * destructionHarvestBonus);
+                        if (num4 > 0)
+                        {
+                            GameUtils_WZ(itemValue3, num4, list2[k].prob, global::ItemClass.list[itemValue3.type].GetItemName());
+                        }
+                    }
+                }
+            }
+            return;
         }
     }
 }
