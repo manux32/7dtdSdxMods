@@ -15,9 +15,9 @@ If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showt
 # Highlights
 
 ## [Custom Vehicles](Manux_CustomVehicles)  
-| ![img](Manux_CustomVehicles/Icons/roadHogChassis.png) | ![img](Manux_CustomVehicles/Icons/hellGoatBikeChassis.png) | ![img](Manux_CustomVehicles/Icons/quadChassis.png) | ![img](Manux_CustomVehicles/Icons/cicadaCarChassis.png) |
-|:---:|:---:|:---:|:---:|  
-| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car |
+| ![img](Manux_CustomVehicles/Icons/roadHogChassis.png) | ![img](Manux_CustomVehicles/Icons/hellGoatBikeChassis.png) | ![img](Manux_CustomVehicles/Icons/quadChassis.png) | ![img](Manux_CustomVehicles/Icons/cicadaCarChassis.png) | ![img](Manux_CustomVehicles/Icons/loaderChassis.png) |
+|:---:|:---:|:---:|:---:|:---:|  
+| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) |
 
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can change make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
