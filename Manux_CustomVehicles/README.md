@@ -158,7 +158,7 @@ I initially wanted a faster bike especially for Random Gen maps where cities are
 
 Only the Hell Goat bike currently uses the HP Bike parts. The new Loader also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.  
 Based on those examples, you can use them for other vehicles or make new versions of some of the parts for different types of vehicles.
-I did not yet add any progression gates for being able to craft these items.   
+I did not yet add any XML progression gates for being able to craft these items.   
 
 #### ![bigEngine](Icons/bigEngine.png) Big Engine
 A big, robust, and powerful engine for your bigger vehicles. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!
@@ -172,6 +172,8 @@ Have better traction and reduced drag with these beautiful High Performance tire
 A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower.
 
 ### Loader Parts
+I did not yet add any recipes to craft these items, grab them from the creative menu.  
+
 #### ![loaderHandlebars](Icons/loaderHandlebars.png) Loader Handlebars
 I did this one to be able to have the Loader steering wheel turn much slower than Bikes.  
 #### ![loaderEngine](Icons/loaderEngine.png) Loader engine
