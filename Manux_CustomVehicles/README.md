@@ -106,8 +106,9 @@ But putting the minimum value of **0.0001** can help it climb better.
 ### Only on Loader for now
 ```XML
 <property name="DestructionRadius" value="3" />
+<property name="DestructionHarvestBonus" value="5" />
 ```  
-The Loader currently supports an additionnal XML property to control the ***DestructionRadius*** of the vehicle.  
+The Loader currently supports additionnal XML properties to control the ***DestructionRadius*** of the vehicle, and the  ***DestructionHarvestBonus*** (Yes, it now harvests what it destroys!).  
 But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
