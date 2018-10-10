@@ -4,12 +4,13 @@
 
 Each mod has a ReadMe file to give a quick overview of its features. It's formatted for github markdown, so it's better to read them directly in github, by clicking on each mod above, or in the Highlights section below. This way you get the hyperlinks and the images.  
 
-
-All mods are built for being deployed with [SDX Launcher version 0.72c](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
-If you don't know what SDX is, go [here](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit).  
-
 I tried to make all mods as modular as possible so that you can deploy only the features that you want.  
 Some of the mods are portions taken from other peoples mods, or contain adapted versions of elements from other peoples mods that I liked and wanted as individual sdx mods. I've added refs to the authors names and mods in each mod's ReadMe.
+
+# Installation
+All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
+If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
+
 
 # Highlights
 
