@@ -19,7 +19,9 @@ Some of the vehicles may still be a bit heavy performance wise, depending on you
 
 ## Dependencies
 This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
-Make sure you also deploy that mod for this one to work. It shouldn't let you build if you don't have it or don't have it enabled.
+Make sure you also deploy that mod for this one to work.  
+It shouldn't let you build if you don't have it or don't have it enabled.  
+
 
 ## Vids
 | [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") | [![LoaderA](http://img.youtube.com/vi/MXkOzT_1-nM/0.jpg)](https://youtu.be/MXkOzT_1-nM "Custom Loader that destroys everything on its path") | [![LoaderB](http://img.youtube.com/vi/OehnLqXRZIU/0.jpg)](https://youtu.be/OehnLqXRZIU "Custom Loader vehicle: a horde killer") |
@@ -51,19 +53,36 @@ This asset has been used to make my fist custom car vehicle. A bit too cartoony 
 ### [Mark Bai](https://sketchfab.com/bcfbox)
 For his very nice and cheap Sketchfab [**ATV model practice**](https://skfb.ly/6x9oT) asset, that I use for the Quad vehicle.
 
-## Professional High-Powered Parts:
-This mod also adds Professional High-Powered versions of the minibike parts, in order to build High-Powered Vehicles.  
-I wanted a faster bike especially for Random Gen maps where cities are pretty far from each other.  
-Only the Hell Goat bike currently uses them, but based on that example, you can use them for other vehicles and make new versions of some of the parts for different types of vehicles.
+## Custom Vehicle Parts
+You don't need this mod to make your own custom parts for vehicles, it can all be done through xml.  
+But I have examples in here of custom parts for all the slot types of a vehicle.  
+Each vehicle always has a custom chassis item for items.xml, to be able to spawn that specific type of vehicle.  
+I made the icons show the whole vehicle so you know what you are spawning:  
+
+| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) |
+|:---:|:---:|:---:|:---:|:---:|  
+
+### Professional High-Powered Bike Parts
+Professional High-Powered versions of the minibike parts, in order to build High-Powered Bikes or other Vehicles.  
+I intitially wanted a faster bike especially for Random Gen maps where cities are pretty far from each other., so I did these before knowing how to make fully custom vehicles. I was just using them to have a HP minibike.  
+
+Only the Hell Goat bike currently uses them. The new Loader also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.
+And based on that example, you can use them for other vehicles and make new versions of some of the parts for different types of vehicles.
 I did not yet add any progression gates for being able to craft these items.  
 
-### ![bigEngine](Icons/bigEngine.png) Big Engine
+#### ![bigEngine](Icons/bigEngine.png) Big Engine
 A big, robust, and powerful engine for your bigger vehicles. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!
-### ![robustBikeChassis](Icons/robustBikeChassis.png) Robust Bike Chassis (Power suspension)
+#### ![robustBikeChassis](Icons/robustBikeChassis.png) Robust Bike Chassis (Power suspension)
 A robust bike chassis equipped with power suspension. You almost don't get hurt when jumping too high. 
-### ![proBikeHandlebars](Icons/proBikeHandlebars.png) Professional Bike Handlebars
+#### ![proBikeHandlebars](Icons/proBikeHandlebars.png) Professional Bike Handlebars
 Have better control of your driving with these professional bike handlebars. They will also degrade slower than regular ones.  
-### ![proBikeWheels](Icons/proBikeWheels.png) High-Performance Bike Wheels
+#### ![proBikeWheels](Icons/proBikeWheels.png) High-Performance Bike Wheels
 Have better traction and reduced drag with these beautiful High Performance tires. They will also degrade slower than regular ones.  
-### ![proBikeSeat](Icons/proBikeSeat.png) Professional Bike Seat
+#### ![proBikeSeat](Icons/proBikeSeat.png) Professional Bike Seat
 A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower.
+
+### Loader Parts
+#### ![loaderHandlebars](Icons/loaderHandlebars.png) Loader Handlebars
+I did this one to be able to have the Loader steering wheel turn much slower than Bikes.  
+#### ![loaderEngine](Icons/loaderEngine.png) Loader engine
+I did this one mainly to control the speed at which the loader moves, the gas consumption, the size of the gas tank, but also for things like the DegradationMax and VehicleNoise.
