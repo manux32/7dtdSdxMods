@@ -1,0 +1,10 @@
+<configs>
+	<config name="sounds">	
+		<append xpath="/Sounds">
+			<!--MANUX's Loader Sounds --> 
+			<SoundDataNode name="loader_moving_lp_"> <AudioSource name="Sounds/AudioSource_Vehicle"/>
+				<AudioClip ClipName="#LoaderSounds?loader_loop" Loop="true"/>
+				<LocalCrouchVolumeScale name="1.0"/> <CrouchNoiseScale name="0.5"/> <NoiseScale name="1"/> <MaxVoices name="10"/> <MaxRepeatRate name="0.01"/> </SoundDataNode>
+		</append>
+	</config>
+</configs>

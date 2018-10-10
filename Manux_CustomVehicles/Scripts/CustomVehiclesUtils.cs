@@ -7,6 +7,24 @@ using UnityEngine;
 
 class CustomVehiclesUtils
 {
+    public static Transform GetRootTransform(Transform fromTransform)
+    {
+        if (fromTransform.parent != null)
+        {
+            return GetRootTransform(fromTransform.parent);
+        }
+        return fromTransform;
+    }
+
+    public static GameObject FindChildGameObject(GameObject fromGameObject, string name)
+    {
+        Transform[] ts = fromGameObject.transform.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in ts)
+            if (t.gameObject.name == name)
+                return t.gameObject;
+        return null;
+    }
+
     public static void GetAllChildTransforms(Transform root, ref List<Transform> childrenList, ref List<int> childrenInstanceIds)
     {
         for (int i = 0; i < root.childCount; i++)

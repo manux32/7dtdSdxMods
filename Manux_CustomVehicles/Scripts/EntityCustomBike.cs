@@ -16,6 +16,7 @@ class EntityCustomBike : EntityMinibike
     Vector3 colliderCenter;
     float colliderRadius;
     float colliderHeight;
+    float colliderSkinWidth;
     float controllerSlopeLimit;
     float controllerStepOffset;
     bool hasColliderCenter;
@@ -23,6 +24,7 @@ class EntityCustomBike : EntityMinibike
     bool hasColliderHeight;
     bool hasControllerSlopeLimit;
     bool hasControllerStepOffset;
+    bool hasColliderSkinWidth;
 
     bool camAndPlayerOffsetsDone;
 
@@ -112,6 +114,16 @@ class EntityCustomBike : EntityMinibike
                 hasColliderHeight = true;
             }
         }
+        if (entityClass.Properties.Values.ContainsKey("ColliderSkinWidth"))
+        {
+            float skinWidth;
+            if (float.TryParse(entityClass.Properties.Values["ColliderSkinWidth"], out skinWidth))
+            {
+                dbgMsg += ("\tcolliderSkinWidth = " + skinWidth.ToString("0.0000") + "\n");
+                colliderSkinWidth = skinWidth;
+                hasColliderSkinWidth = true;
+            }
+        }
         if (entityClass.Properties.Values.ContainsKey("ControllerSlopeLimit"))
         {
             float slopeLimit;
@@ -164,6 +176,11 @@ class EntityCustomBike : EntityMinibike
                 {
                     cc.height = colliderHeight;
                     dbgMsg += ("\tnew height = " + cc.height.ToString("0.000") + "\n");
+                }
+                if (hasColliderSkinWidth)
+                {
+                    cc.skinWidth = colliderSkinWidth;
+                    dbgMsg += ("\tnew skinWidth = " + cc.skinWidth.ToString("0.0000") + "\n");
                 }
                 if (hasControllerSlopeLimit)
                 {

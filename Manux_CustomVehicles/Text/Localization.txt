@@ -17,3 +17,7 @@ cicadaCar,items,Part,EnChanged,Cicada Car
 cicadaCarChassis,items,Part,EnChanged,Cicada Car Chassis
 quad,items,Part,EnChanged,Quad
 quadChassis,items,Part,EnChanged,Quad Chassis
+loader,items,Part,EnChanged,Loader
+loaderChassis,items,Part,EnChanged,Loader Chassis
+loaderHandlebars,items,Part,EnChanged,Loader Handlebars
+loaderEngine,items,Part,EnChanged,Loader Engine

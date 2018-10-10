@@ -18,6 +18,8 @@
 		<import file="Config\cicadaCar.xml" />
 		<import file="Config\quad.xml" />
 		<import file="Config\roadHogSounds.xml" />
+		<import file="Config\loader.xml" />
+		<import file="Config\loaderSounds.xml" />
     </config_mods>
 	
 	<dependencies>
