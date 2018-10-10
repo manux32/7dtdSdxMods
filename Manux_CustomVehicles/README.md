@@ -24,7 +24,7 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 ## Dependencies
 This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
 Make sure you also deploy that mod for this one to work.  
-It shouldn't let you build if you don't have it or don't have it enabled.  
+The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.  
 
 
 ## Vids
@@ -43,11 +43,11 @@ I made the icons show the whole vehicle so you know what you are spawning:
 
 ### Professional High-Powered Bike Parts
 Professional High-Powered versions of the minibike parts, in order to build High-Powered Bikes or other Vehicles.  
-I intitially wanted a faster bike especially for Random Gen maps where cities are pretty far from each other., so I did these before knowing how to make fully custom vehicles. I was just using them to have a HP minibike.  
+I initially wanted a faster bike especially for Random Gen maps where cities are pretty far from each other. I did these parts before making this mod, before knowing how to make fully custom vehicles. I was then just using them to have a HP minibike.  
 
-Only the Hell Goat bike currently uses them. The new Loader also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.
-And based on that example, you can use them for other vehicles and make new versions of some of the parts for different types of vehicles.
-I did not yet add any progression gates for being able to craft these items.  
+Only the Hell Goat bike currently uses the HP Bike parts. The new Loader also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.  
+Based on those examples, you can use them for other vehicles or make new versions of some of the parts for different types of vehicles.
+I did not yet add any progression gates for being able to craft these items.   
 
 #### ![bigEngine](Icons/bigEngine.png) Big Engine
 A big, robust, and powerful engine for your bigger vehicles. It consumes a bit more gas but features a bigger gas tank. You can accellerate faster and reach very high speeds, but be careful, it also jumps way higher!
