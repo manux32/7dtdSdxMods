@@ -45,7 +45,8 @@ Making Custom Cars is more complex than making Custom Bikes, it requires more ri
 ### EntityCustomLoader
 This is the new kid on the block and is still experimental. The code will most likely change a lot in the near future. But the base is there.  
 This one is even more complex than the Custom Cars. It requires more advanced rigging know-how.  
-It currently supports an additionnal XML property to control the **DestructionRadius** of the vehicle. But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.
+It currently supports an additionnal XML property to control the [**DestructionRadius**](#only-on-loader-for-now) of the vehicle.  The Loader currently destroys grass, plants, trees, small rocks and small boulders.  
+It also kills zombies and other creatures when you drive over them.  
 ### ItemActionSpawnCustomVehicle
 This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
 The class is common to all vehicles, the vehicle to spawn is defined through the **VehicleToSpawn** XML property.
@@ -89,6 +90,13 @@ The above are for making all-terrain vehicles that can climb objects.
 ***ControllerStepOffset***: The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height (ColliderHeight XML property) or it will generate an error.  
 ***ColliderSkinWidth*** Can be left to the default value that shows in Unity: **0.08**.  
 But putting the minimum value of **0.0001** can help it climb better.  
+
+### Only on Loader for now
+```XML
+<property name="DestructionRadius" value="3" />
+```  
+The Loader currently supports an additionnal XML property to control the **DestructionRadius** of the vehicle.  
+But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can all be done through xml.  
