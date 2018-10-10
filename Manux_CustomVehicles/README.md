@@ -86,7 +86,7 @@ If you add a CharacterController component to an object in Unity, you will see p
 To know what values to set for the ***ColliderCenter, ColliderRadius, and ColliderHeight***, you can simply add a CharacterController component to your custom vehicle's prefab root in Unity, and modify those values until it best fits the volume of your vehicle.  
 We are sadly stuck with the built-in capsule collider of the CharacterController component at this point, since this is what TFP uses for drivable vehicles. A Capsule collider is limited in how well you can adjust it to the extents of your vehicle, just fit it as best as you can.  
 **Note:** Make sure to remove that CharacterController component from you prefab before exporting, to not cause undesired effects in the game.  
-The best is to add it to another object if you want to keep it in your Unity scene. Just make sure that object in not in you prefab hierarchy and that it has the same transform position and rotation as your prefab root.
+The best is to add it to another object if you want to keep it in your Unity scene. Just make sure that object in not in you prefab hierarchy and that it has the same transform position and rotation as your prefab root when you want to tweak it for changing the XML values.
 
 ```XML
 <property name="ColliderSkinWidth" value="0.0001" />
