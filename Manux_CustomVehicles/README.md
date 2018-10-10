@@ -54,7 +54,18 @@ It currently supports an additionnal XML property to control the [***Destruction
 It also kills zombies and other creatures when you drive over them.  
 ### ItemActionSpawnCustomVehicle
 This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
-The class is common to all vehicles, the vehicle to spawn is defined through the **VehicleToSpawn** XML property.
+The class is common to all vehicles, the vehicle to spawn is defined through the ***VehicleToSpawn*** XML property.  
+For example:  
+```XML
+<item id="" name="hellGoatBikeChassis">
+    <property name="Extends" value="robustBikeChassis"/>
+    <property name="Meshfile" value="#HellGoatBike?HellGoatBikeChassisPrefab" />
+    <property class="Action1">
+        <property name="Class" value="SpawnCustomVehicle, Mods" />
+        <property name="VehicleToSpawn" value="hellGoatBike"/>
+    </property>
+</item>
+```
 
 ## New XML properties
 New XML properties are supported to control different apsects of your custom vehicles.  
