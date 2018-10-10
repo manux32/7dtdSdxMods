@@ -92,7 +92,7 @@
 					<property name="slot_type" value="wheel" />
 					<property name="parent_part" value="chassis" />
 					<property name="mesh" value="back_wheel" />
-					<property name="transform" value="Origin/backWheel_joint" />
+					<property name="transform" value="Origin/backWheelJoint" />
 					<property name="shocks_offset_min" value="body/handlebars/wheel/minPos" />
 					<property name="shocks_offset_max" value="body/handlebars/wheel/maxPos" />
 					<property name="part_damage_reduction" value="0.1" />
