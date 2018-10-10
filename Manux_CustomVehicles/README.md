@@ -89,7 +89,7 @@ This mod is public and free, the derived asset is not used in any commercial way
 - skinning of the meshes on a simple bone structure to be able to animate it in the game.
 - Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!
 
-### JaxTeller718: 
+### JaxTeller718  
 For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike and the Loader.
 
 ### [Renafox](https://sketchfab.com/kryik1023)
