@@ -32,6 +32,61 @@ The SDX Launcher shouldn't let you build if you don't have it or don't have it e
 |:---:|:---:|:---:|:---:|
 |Custom Driveable Cars|All-Terrain Vehicles|Custom Loader that destroys everything on its path|Custom Loader vehicle: a horde killer|  
 
+## Custom Vehicle C# classes  
+### EntityCustomBike
+To make Custom Bikes (2 Wheels).  
+This is the parent class of all other Custom Vehicle classes. It's the main class that enables the abillity to control different aspects of the vehicle through new XML properties.  
+### EntityCustomCar
+To make Custom Cars/Trucks/Quads (4 wheels).  
+Making Custom Cars is more complex than making Custom Bikes, it requires more rigging know-how. Tofunction, it requires additionnal bones and a different hierarchy than the Bikes.
+### EntityCustomLoader
+This is the new kid on the block and is still experimental. The code will most likely change a lot in the near future. But the base is there.  
+This one is even more complex than the Custom Cars. It requires more advanced rigging know-how.  
+It currently supports an additionnal XML property to control the **DestructionRadius** of the vehicle. But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.
+### ItemActionSpawnCustomVehicle
+This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
+The class is common to all vehicles, the vehicle to spawn is defined through the **VehicleToSpawn** XML property.
+
+## New XML properties
+New XML properties are supported to control different apsects of your custom vehicles.  
+You have to add these in your vehicle's entity_class.  
+### Common to all
+Example:
+```XML
+<property name="CameraOffset" value="0, 2, -8" />
+```  
+To control how far the camera is when driving the vehicle
+```XML
+<property name="3rdPersonModelVisible" value="false" />
+```  
+Is the 3rd person player visible on the vehicle.  
+```XML
+<property name="PlayerPositionOffset" value="0, 0, 0.15" />
+<property name="PlayerRotationOffset" value="15, 0, 0" />
+```  
+3rd person player position and rotation offsets on the vehicle. Rotation also moves the player arround, so you need to play with values to achieve what you want.  
+```XML
+<property name="ColliderCenter" value="0, 2.07, -0.01" />
+<property name="ColliderRadius" value="2" />
+<property name="ColliderHeight" value="4.1" />
+```  
+A vehicle in 7d2d moves arround using a Unity [**CharacterController**](file:///C:/Program%20Files/Unity_5.3.8p2/Editor/Data/Documentation/en/Manual/class-CharacterController.html) component. [Unity Scripting documentation](file:///C:/Program%20Files/Unity_5.3.8p2/Editor/Data/Documentation/en/ScriptReference/CharacterController.html).  
+
+The above XML properties let you change the values of the public properties that exist on the CharacterController component of your custom vehicle.  
+If you add a CharacterController component to an object in Unity, you will see properties with similar names in the Inspector.  
+To know what values to set for the ***ColliderCenter, ColliderRadius, and ColliderHeight***, you can simply add a CharacterController component to your custom vehicle's prefab root in Unity, and modify those values until it best fits the volume of your vehicle.  
+We are sadly stuck with the built-in capsule collider of the CharacterController component at this point, since this is what TFP uses for drivable vehicles. A Capsule collider is limited in how well you can adjust it to the extents of your vehicle, just fit it as best as you can.  
+```XML
+<property name="ColliderSkinWidth" value="0.0001" />
+<property name="ControllerSlopeLimit" value="90" />
+<property name="ControllerStepOffset" value="1" />
+```  
+The above are for making all-terrain vehicles that can climb objects.  
+***ControllerSlopeLimit*** is by default at **45** in Unity. Set it to 90 to be able to climb. I tried smaller values, but only 90 or greater seemed to work.  
+***ControllerStepOffset***: The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height (ColliderHeight XML property) or it will generate an error.  
+***ColliderSkinWidth*** Can be left to the default value that shows in Unity: **0.08**.  
+But putting the minimum value of **0.0001** can help it climb better.  
+
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can all be done through xml.  
 But I have examples in here of custom parts for all the slot types of a vehicle.  
