@@ -8,7 +8,8 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
-It contains multiple different examples of already functionnal bikes and cars/trucks. It also contains examples of custom vehicle parts. Check the HellGoat Bike parts towards the bottom of this page.  
+It contains multiple different examples of already functionnal bikes and cars/trucks.  
+It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
 I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.  
 
 I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad and Loader are more complex on the rigging side.  
