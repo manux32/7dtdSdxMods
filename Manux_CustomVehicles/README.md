@@ -70,7 +70,7 @@ Is the 3rd person player visible on the vehicle.
 <property name="ColliderRadius" value="2" />
 <property name="ColliderHeight" value="4.1" />
 ```  
-A vehicle in 7d2d moves arround using a Unity [**CharacterController**](file:///C:/Program%20Files/Unity_5.3.8p2/Editor/Data/Documentation/en/Manual/class-CharacterController.html) component. [Unity Scripting documentation](file:///C:/Program%20Files/Unity_5.3.8p2/Editor/Data/Documentation/en/ScriptReference/CharacterController.html).  
+A vehicle in 7d2d moves arround using a Unity [**CharacterController**](https://docs.unity3d.com/530/Documentation/ScriptReference/CharacterController.html) component. [Unity Scripting documentation](https://docs.unity3d.com/530/Documentation/Manual/class-CharacterController.html).  
 
 The above XML properties let you change the values of the public properties that exist on the CharacterController component of your custom vehicle.  
 If you add a CharacterController component to an object in Unity, you will see properties with similar names in the Inspector.  
