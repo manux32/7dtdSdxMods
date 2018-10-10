@@ -3,7 +3,7 @@
 # Custom Vehicles 
 | ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) |
 |:---:|:---:|:---:|:---:|:---:|  
-| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | Killer Loader |
+| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) |
 
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
