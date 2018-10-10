@@ -44,14 +44,35 @@ The SDX Launcher shouldn't let you build if you don't have it or don't have it e
 ### EntityCustomBike
 To make Custom Bikes (2 Wheels).  
 This is the parent class of all other Custom Vehicle classes. It's the main class that enables the abillity to control different aspects of the vehicle through new XML properties.  
+XML Example:
+```XML
+<entity_class name="hellGoatBike">
+        <property name="Class" value="EntityCustomBike, Mods" />
+        ...
+</entity_class>
+```
 ### EntityCustomCar
 To make Custom Cars/Trucks/Quads (4 wheels).  
 Making Custom Cars is more complex than making Custom Bikes, it requires more rigging know-how. Tofunction, it requires additionnal bones and a different hierarchy than the Bikes.
+XML Example:
+```XML
+<entity_class name="cicadaCar">
+        <property name="Class" value="EntityCustomCar, Mods" />
+        ...
+</entity_class>
+```
 ### EntityCustomLoader
 This is the new kid on the block and is still experimental. The code will most likely change a lot in the near future. But the base is there.  
 This one is even more complex than the Custom Cars. It requires more advanced rigging know-how.  
 It currently supports an additionnal XML property to control the [***DestructionRadius***](#only-on-loader-for-now) of the vehicle.  The Loader currently destroys grass, plants, trees, small rocks and small boulders.  
 It also kills zombies and other creatures when you drive over them.  
+XML Example:
+```XML
+<entity_class name="loader">
+        <property name="Class" value="EntityCustomLoader, Mods" />
+        ...
+</entity_class>
+```
 ### ItemActionSpawnCustomVehicle
 This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
 The class is common to all vehicles, the vehicle to spawn is defined through the ***VehicleToSpawn*** XML property.  
@@ -67,10 +88,10 @@ For example:
 </item>
 ```
 
-## New XML properties
+## Vehicles entity_class new XML properties
 New XML properties are supported to control different apsects of your custom vehicles.  
 You have to add these in your vehicle's entity_class.  
-### Common to all
+### Common to all vehicles
 Example:
 ```XML
 <property name="CameraOffset" value="0, 2, -8" />
