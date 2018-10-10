@@ -86,8 +86,12 @@ We are sadly stuck with the built-in capsule collider of the CharacterController
 <property name="ControllerStepOffset" value="1" />
 ```  
 The above are for making all-terrain vehicles that can climb objects.  
-***ControllerSlopeLimit*** is by default at **45** in Unity. Set it to 90 to be able to climb. I tried smaller values, but only 90 or greater seemed to work.  
-***ControllerStepOffset***: The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height (ColliderHeight XML property) or it will generate an error.  
+
+***ControllerSlopeLimit*** is by default at **45** in Unity. Set it to **90** to be able to climb steep terrain slopes. I tried smaller values, but only 90 or greater seemed to work.  
+
+***ControllerStepOffset***: *from Unity docs: "The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height or it will generate an error.*"  
+From what I understand, a step of **1.0** lets you climb over a single block. If you have a taller vehicle like the Loader, you can set it higher to be able to climb over 2-3-4 blocks. But never set it higher than the Character Controller’s height (***ColliderHeight*** XML property).  
+
 ***ColliderSkinWidth*** Can be left to the default value that shows in Unity: **0.08**.  
 But putting the minimum value of **0.0001** can help it climb better.  
 
