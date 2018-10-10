@@ -21,6 +21,10 @@ Some of the vehicles may still be a bit heavy performance wise, depending on you
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks). 
 
+## Installation  
+All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
+If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
+
 ## Dependencies
 This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
 Make sure you also deploy that mod for this one to work.  
