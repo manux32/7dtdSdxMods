@@ -81,7 +81,8 @@ A great artist who did the amazing [Sketchfab **Hell Motogoat** asset](https://s
 His **Hell Motogoat asset** is free but is under [**Creative Commons Attribution 4.0**](https://creativecommons.org/licenses/by/4.0/) **licensing terms**.  
 ***Make sure to read these terms before using this asset for other purposes...***  
 
-I made the following changes to the Asset in order to be able to integrate it in the 7 days to die game:
+I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
+This mod is public and free, the derived asset is not used in any commercial way.  
 - polygon reduction on all meshes.
 - textures reduction from 2048x2048 to 512x512
 - combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
