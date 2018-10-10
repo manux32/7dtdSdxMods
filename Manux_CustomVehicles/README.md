@@ -67,12 +67,15 @@ I did this one to be able to have the Loader steering wheel turn much slower tha
 I did this one mainly to control the speed at which the loader moves, the gas consumption, the size of the gas tank, but also for things like the DegradationMax and VehicleNoise.  
 
 ## Special Thanks
+
 ### Dust2Death: 
 For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
 See his Road Hog forum thread here: [**Road Hog**](https://7daystodie.com/forums/showthread.php?87828-Road-Hog-SDX)  
+
 ### TormentedEmu:
 For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.
 And thanks also for her great [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I am using in the first video above to run over zombies with the Cicada car.
+
 ### [chervinin](https://sketchfab.com/chervinin)
 A great artist who did the amazing [Sketchfab **Hell Motogoat** asset](https://skfb.ly/TCEV) that I am using for the Hell Goat Bike vehicle.  
 His **Hell Motogoat asset** is under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) licensing terms.  
@@ -82,8 +85,14 @@ I made the following changes to the Asset in order to be able to integrate it in
 - combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
 - skinning of the meshes on a simple bone structure to be able to animate it in the game.
 - Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!
+
 ### JaxTeller718: 
-For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike.
+For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike and the Loader.
+
+### [Renafox](https://sketchfab.com/kryik1023)
+A very talented artist that created the [**Wheel Loader**](https://skfb.ly/6toGS) asset I used for making the Killer Loader.  
+Check-out all the other [great models](https://sketchfab.com/kryik1023) she has for sale.
+
 ### [Retro Valorem](https://assetstore.unity.com/publishers/22495)
 For his great, cute, and free Unity Asset Store [**Cicada** cartoon car](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158).  
 This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like it a lot, it's like the minibike of cars. And the player looks so funny when driving it.
