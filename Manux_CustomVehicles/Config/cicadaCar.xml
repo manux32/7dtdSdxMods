@@ -26,6 +26,8 @@
 				<property name="ColliderRadius" value="1" />
 				<property name="ColliderHeight" value="2" />
 				<!--<property name="ControllerSlopeLimit" value="45" />-->
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="true" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />

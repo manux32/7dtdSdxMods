@@ -6,7 +6,7 @@
 				<property name="Extends" value="smallEngine"/>
 				<property name="DescriptionKey" value="bigEngineDesc"/>
 				<property name="Weight" value="200"/>
-				<property name="VehicleSlotType" value="bigEngine"/>
+				<property name="VehicleSlotType" value="engine"/>
 				<!--<property name="EconomicValue" value="1000"/>-->
 				<property name="EconomicValue" value="5000"/>
 				<property class="Attributes">
@@ -37,7 +37,7 @@
 			<item id="" name="robustBikeChassis">
 				<property name="Extends" value="minibikeChassis"/>
 				<property name="DescriptionKey" value="robustBikeChassisDesc"/>
-				<property name="VehicleSlotType" value="proBikeChassis"/>
+				<property name="VehicleSlotType" value="chassis"/>
 				<!-- spawning HellGoat bike for now -->
 				<property name="Meshfile" value="#HellGoatBike?HellGoatBikeChassisPrefab" />
 				<!--<property name="EconomicValue" value="220"/>-->

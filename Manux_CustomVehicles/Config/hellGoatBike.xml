@@ -39,6 +39,8 @@
 				<property name="ColliderHeight" value="1.1" />
 				<property name="ControllerSlopeLimit" value="90" />
 				<property name="ControllerStepOffset" value="1" />
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="false" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />
@@ -94,11 +96,11 @@
 			<vehicle name="hellGoatBike">
 				<property name="prefab" value="#HellGoatBike?HellGoatBikePrefab" />
 				<property name="gravity_multiplier" value="1" />
-				<property class="proBikeChassis">
+				<property class="chassis">
 					<property name="required" value="true" />
 					<property name="class" value="Chassis" />
 					<property name="display_name" value="chassis" />
-					<property name="slot_type" value="proBikeChassis" />
+					<property name="slot_type" value="chassis" />
 					<property name="mesh" value="chassis" />
 					<property name="transform" value="Origin" />
 					<property name="shocks_offset_min" value="chassis/minPos" />
@@ -119,7 +121,7 @@
 					<property name="left_hand_ik_rotation" value="65.0927, -29.7724, -15.5772" />
 					<property name="right_hand_ik_rotation" value="55.8114, 8.9899, 7.1626" />
 					<property name="part_damage_reduction" value="0.5" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="wheel0">
 					<property name="class" value="Wheel" />
@@ -135,7 +137,7 @@
 					<property name="class" value="Wheel" />
 					<property name="display_name" value="wheel" />
 					<property name="slot_type" value="proBikeWheels" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 					<property name="mesh" value="back_wheel" />
 					<property name="transform" value="Origin/backWheelJoint" />
 					<property name="shocks_offset_min" value="body/handlebars/wheel/minPos" />
@@ -153,7 +155,7 @@
 					<property name="left_foot_ik_target" value="body/chassis/leftFoot" />
 					<property name="right_foot_ik_target" value="body/chassis/rightFoot" />
 					<property name="part_damage_reduction" value="0.75" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="battery">
 					<property name="required" value="true" />
@@ -162,13 +164,13 @@
 					<property name="slot_type" value="battery" />
 					<property name="mesh" value="battery" />
 					<property name="transform" value="battery" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="engine">
 					<property name="required" value="true" />
 					<property name="class" value="Engine" />
 					<property name="display_name" value="engine" />
-					<property name="slot_type" value="bigEngine" />
+					<property name="slot_type" value="engine" />
 					<property name="mesh" value="engine_small" />
 					<property name="transform" value="engine_small" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />
@@ -180,7 +182,7 @@
 					<property name="sound_decelerate" value="Vehicles/Minibike/roadHog_decel_" />
 					<property name="sound_running_loop" value="Vehicles/Minibike/roadHog_run_lp_" />
 					<property name="part_damage_reduction" value="0.75" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="exhaust">
 					<property name="class" value="Exhaust" />
@@ -206,7 +208,7 @@
 					<property name="mesh" value="basket" />
 					<property name="transform" value="basket" />
 					<property name="part_damage_reduction" value="0.75" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="headlight">
 					<property name="class" value="Headlight" />
@@ -221,7 +223,7 @@
 					<property name="class" value="Lock" />
 					<property name="slot_type" value="lock" />
 					<property name="part_damage_reduction" value="0.75" />
-					<property name="parent_part" value="proBikeChassis" />
+					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="ignition">
 					<property name="class" value="Ignition" />

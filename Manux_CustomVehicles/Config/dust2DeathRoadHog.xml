@@ -27,6 +27,8 @@
 				<property name="ColliderHeight" value="1.1" />
 				<property name="ControllerSlopeLimit" value="90" />
 				<property name="ControllerStepOffset" value="1" />
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="false" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />
