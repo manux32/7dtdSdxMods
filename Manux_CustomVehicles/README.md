@@ -205,13 +205,16 @@ I did this one mainly to control the speed at which the loader moves, the gas co
 
 ## Special Thanks
 
-### Dust2Death: 
+### Dust2Death 
 For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
 See his Road Hog forum thread here: [**Road Hog**](https://7daystodie.com/forums/showthread.php?87828-Road-Hog-SDX)  
 
-### TormentedEmu:
+### TormentedEmu
 For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.
 And thanks also for her great [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I am using in the first video above to run over zombies with the Cicada car.
+
+### Three8
+For adding underwater capabillities to all vehicles. He is a top notch modder doing stuff like a fully working Elevator.
 
 ### [chervinin](https://sketchfab.com/chervinin)
 A great artist who did the amazing [Sketchfab **Hell Motogoat** asset](https://skfb.ly/TCEV) that I am using for the Hell Goat Bike vehicle.  
