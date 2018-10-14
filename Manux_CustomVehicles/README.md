@@ -160,7 +160,7 @@ Just like for the CharacterController above, you can make a dummy Box Collider i
 <property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,bench,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
 <property name="HarvestToVehicleInventory" value="true" />
 ```  
-The Loader currently supports additionnal XML properties to control the destruction of, and harvesting. (Yes, it can harvest what it destroys!).  
+The Loader currently supports additionnal XML properties to control the destruction, and harvesting. (Yes, it can harvest what it destroys!).  
 But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
