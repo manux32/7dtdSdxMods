@@ -173,7 +173,7 @@ I made the icons show the whole vehicle so you know what you are spawning:
 |:---:|:---:|:---:|:---:|:---:|  
 
 ### Note
-Sadly, renaming the types of parts in ***VehicleSlotType*** currently has issues. TFP has code that hardcodes the parts slots name, so you change the name of the vehicle slots, it will create issues. I'll check if I can do something about that, but in the meantime just keep the vehicle slots the same name as the default ones on the MiniBike. You can still make custom parts with changes to their properties (faster, more robust, etc...).  
+Sadly, renaming the types of parts in ***VehicleSlotType*** currently has issues. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues. I'll check if I can do something about that, but in the meantime just keep the vehicle slots the same name as the default ones on the MiniBike. You can still make custom parts with changes to their properties (faster, more robust, etc...).  
 **IMPORTANT**: Because of that issue, you should always create vehicles from parts instead of spawning them with the Spawn Entities window, otherwise you can end-up with parts that are not meant for the vehicle, and therefore have problems.  
 
 ### Professional High-Powered Bike Parts
