@@ -8,7 +8,7 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
-**New:**  All vehicles now have the abillity to go underwater (controlled via XML properties).  
+**New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
 The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest to the vehicle storage.
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
@@ -67,7 +67,7 @@ XML Example:
 ### EntityCustomLoader
 This is the new kid on the block and is still experimental. The code will most likely change a lot in the near future. But the base is there.  
 This one is even more complex than the Custom Cars. It requires more advanced rigging know-how.  
-It currently supports an additionnal XML property to control the [***DestructionRadius***](#only-on-loader-for-now) of the vehicle.  The Loader currently destroys grass, plants, trees, small rocks and small boulders.  
+It currently supports additionnal XML properties to control [**destruction/harvesting**](#only-on-loader-for-now) of the vehicle. It can destroy and harvest almost anything, all controllable via XML.  
 It also kills zombies and other creatures when you drive over them.  
 XML Example:
 ```XML
@@ -95,7 +95,7 @@ For example:
 New XML properties are supported to control different apsects of your custom vehicles.  
 You have to add these in your vehicle's entity_class.  
 ### Common to all vehicles
-Example:
+#### Camera and Player controls
 ```XML
 <property name="CameraOffset" value="0, 2, -8" />
 ```  
@@ -109,6 +109,8 @@ Is the 3rd person player visible on the vehicle.
 <property name="PlayerRotationOffset" value="15, 0, 0" />
 ```  
 3rd person player position and rotation offsets on the vehicle. Rotation also moves the player arround, so you need to play with values to achieve what you want.  
+
+#### CharacterController (vehicle movement and collider)
 ```XML
 <property name="ColliderCenter" value="0, 2.07, -0.01" />
 <property name="ColliderRadius" value="2" />
@@ -123,6 +125,7 @@ We are sadly stuck with the built-in capsule collider of the CharacterController
 **Note:** Make sure to remove that CharacterController component from you prefab before exporting, to not cause undesired effects in the game.  
 The best is to add it to another object if you want to keep it in your Unity scene. Just make sure that object in not in you prefab hierarchy and that it has the same transform position and rotation as your prefab root when you want to tweak it for changing the XML values.
 
+#### All-terrain vehicles settings
 ```XML
 <property name="ColliderSkinWidth" value="0.0001" />
 <property name="ControllerSlopeLimit" value="90" />
@@ -138,12 +141,26 @@ From what I understand, a step of **1.0** lets you climb over a single block. If
 ***ColliderSkinWidth*** Can be left to the default value that shows in Unity: **0.08**.  
 But putting the minimum value of **0.0001** can help it climb better.  
 
+#### Vehicles UI activation volume
+```XML
+<property name="VehicleActivationCenter" value="0, 2, -0.05" />
+<property name="VehicleActivationSize" value="3, 4, 6" />
+```  
+There is another collider(Box collider) present on vehicles. It does not colide with the environment, it's only there to define the volume for the activation UI of the vechicles.  
+Just like for the CharacterController above, you can make a dummy Box Collider in your Unity scene to know what values to put in there.  
+
 ### Only on Loader for now
 ```XML
+<property name="EntityDamage" value="1000" />
+<property name="BlockDamage" value="10000" />
 <property name="DestructionRadius" value="3" />
-<property name="DestructionHarvestBonus" value="5" />
+<property name="DestructionHeight" value="3" />
+<property name="DestructionHarvestBonus" value="1.4" />
+<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
+<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,bench,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
+<property name="HarvestToVehicleInventory" value="true" />
 ```  
-The Loader currently supports additionnal XML properties to control the ***DestructionRadius*** of the vehicle, and the  ***DestructionHarvestBonus*** (Yes, it now harvests what it destroys!).  
+The Loader currently supports additionnal XML properties to control the destruction of, and harvesting. (Yes, it can harvest what it destroys!).  
 But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
@@ -154,6 +171,10 @@ I made the icons show the whole vehicle so you know what you are spawning:
 
 | ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) |
 |:---:|:---:|:---:|:---:|:---:|  
+
+### Note
+Sadly, renaming the types of parts in ***VehicleSlotType*** currently has issues. TFP has code that hardcodes the parts slots name, so you change the name of the vehicle slots, it will create issues. I'll check if I can do something about that, but in the meantime just keep the vehicle slots the same name as the default ones on the MiniBike. You can still make custom parts with changes to their properties (faster, more robust, etc...).  
+**IMPORTANT**: Because of that issue, you should always create vehicles from parts instead of spawning them with the Spawn Entities window, otherwise you can end-up with parts that are not meant for the vehicle, and therefore have problems.  
 
 ### Professional High-Powered Bike Parts
 Professional High-Powered versions of the minibike parts, in order to build High-Powered Bikes or other Vehicles.  
