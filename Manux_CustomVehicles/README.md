@@ -8,7 +8,10 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
-It contains multiple different examples of already functionnal bikes and cars/trucks.  
+**New:**  All vehicles now have the abillity to go underwater (controlled via XML properties).  
+The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest to the vehicle storage.
+
+The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
 I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.  
 
@@ -26,9 +29,9 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 |:---:|:---:|
 |Custom Driveable Cars|All-Terrain Vehicles|  
 
-[![LoaderA](http://img.youtube.com/vi/MXkOzT_1-nM/0.jpg)](https://youtu.be/MXkOzT_1-nM "Custom Loader that destroys everything on its path") | [![LoaderB](http://img.youtube.com/vi/OehnLqXRZIU/0.jpg)](https://youtu.be/OehnLqXRZIU "Custom Loader vehicle: a horde killer") | [![LoaderC](http://img.youtube.com/vi/05JCymS6XHI/0.jpg)](https://youtu.be/05JCymS6XHI "The Beast now harvests what it destroys") |  
-|:---:|:---:|:---:|  
-|Custom Loader that destroys everything on its path|Custom Loader vehicle: a horde killer|The Beast now harvests what it destroys|  
+[![LoaderA](http://img.youtube.com/vi/MXkOzT_1-nM/0.jpg)](https://youtu.be/MXkOzT_1-nM "Custom Loader that destroys everything on its path") | [![LoaderB](http://img.youtube.com/vi/OehnLqXRZIU/0.jpg)](https://youtu.be/OehnLqXRZIU "Custom Loader vehicle: a horde killer") | [![LoaderC](http://img.youtube.com/vi/05JCymS6XHI/0.jpg)](https://youtu.be/05JCymS6XHI "The Beast now harvests what it destroys") | [![LoaderD](http://img.youtube.com/vi/tAwpDKaP1w0/0.jpg)](https://youtu.be/tAwpDKaP1w0 "Sneak peek of new destruction and underwater features") |  
+|:---:|:---:|:---:|:---:|  
+|Custom Loader that destroys everything on its path|Custom Loader vehicle: a horde killer|The Beast now harvests what it destroys| Sneak peek of new destruction and underwater features |  
 
 
 ## Installation  
