@@ -1,15 +1,16 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HPMiniBike-->
 
 # Custom Vehicles 
-| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) |
-|:---:|:---:|:---:|:---:|:---:|  
-| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) |
+| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|  
+| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) | Helicopter |
 
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
 **New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
-The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest to the vehicle storage.
+The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest to the vehicle storage.  
+And we now have our first flying vehicle, the Helicopter. This is still very experimental and the model is awfully heavy, but it works, and it's so much fun!
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
@@ -169,8 +170,8 @@ But I have examples in here of custom parts for all the slot types of a vehicle.
 Each vehicle always has a custom chassis item for items.xml, to be able to spawn that specific type of vehicle.  
 I made the icons show the whole vehicle so you know what you are spawning:  
 
-| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) |
-|:---:|:---:|:---:|:---:|:---:|  
+| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
+|:---:|:---:|:---:|:---:|:---:|:---:|  
 
 ### Note
 Sadly, renaming the types of parts in ***VehicleSlotType*** currently has issues. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues. I'll check if I can do something about that, but in the meantime just keep the vehicle slots the same name as the default ones on the MiniBike. You can still make custom parts with changes to their properties (faster, more robust, etc...).  
