@@ -42,11 +42,20 @@ class ConsoleCmdGetEntityPrefabInfos : ConsoleCmdAbstract
             output += (entity.ToString() + "\n");
             output += ("------------------------------------------------------------\n");
             output += ("------------------------------------------------------------\n");
+            Transform root = GetRootTransform(entity.transform, entity.name.ToLower());
             List<Transform> childrenList = new List<Transform>();
             List<int> childrenInstanceIds = new List<int>();
-            childrenList.Add(entity.transform);
-            childrenInstanceIds.Add(entity.transform.GetInstanceID());
-            GetAllChildTransforms(entity.transform, ref childrenList, ref childrenInstanceIds);
+            if (root != null && root.gameObject != null)
+            {
+                output += ("Root = " + root.gameObject.name + " | " + root.gameObject.GetInstanceID().ToString());
+            }
+            else
+            {
+                root = entity.transform;
+            }
+            childrenList.Add(root);
+            childrenInstanceIds.Add(root.GetInstanceID());
+            GetAllChildTransforms(root, ref childrenList, ref childrenInstanceIds);
 
             output += ("CHILDREN:\n");
             output += ("------------------------------------------------------------\n");
@@ -103,6 +112,18 @@ class ConsoleCmdGetEntityPrefabInfos : ConsoleCmdAbstract
             }
             GetAllChildTransforms(child, ref childrenList, ref childrenInstanceIds);
         }
+    }
+
+    public static Transform GetRootTransform(Transform fromTransform, string stopAtString)
+    {
+        if (fromTransform.parent != null)
+        {
+            if (stopAtString != null && fromTransform.gameObject.name.ToLower().Contains(stopAtString))
+                return fromTransform;
+
+            return GetRootTransform(fromTransform.parent, stopAtString);
+        }
+        return fromTransform;
     }
 
     public override string GetDescription()
