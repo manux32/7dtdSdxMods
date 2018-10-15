@@ -21,3 +21,5 @@ loader,items,Part,EnChanged,Loader
 loaderChassis,items,Part,EnChanged,Loader Chassis
 loaderHandlebars,items,Part,EnChanged,Loader Handlebars
 loaderEngine,items,Part,EnChanged,Loader Engine
+helicopter,items,Part,EnChanged,Helicopter
+helicopterChassis,items,Part,EnChanged,Helicopter Chassis

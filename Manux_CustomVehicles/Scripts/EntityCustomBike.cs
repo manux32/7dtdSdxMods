@@ -320,7 +320,12 @@ class EntityCustomBike : EntityMinibike
 				}
 			}
 		}
-		this.vehicle.Update(Time.deltaTime);
+
+        if (!this.vehicle.HasAnyParts())
+        {
+            this.Kill();
+        }
+        this.vehicle.Update(Time.deltaTime);
 	}
 
     public override bool isDriveable()
