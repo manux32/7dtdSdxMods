@@ -482,3 +482,15 @@ ZombieTransmogrifier/Scripts/EntityZombieHordeSDX.cs
 ZombieTransmogrifier/Scripts/EntityZombieSDX.cs
 MinibikeImpact/mod.xml
 MinibikeImpact/PatchScripts/MinibikeImpact.cs
+EmuFlyingBroom/Text/Localization.txt
+EmuFlyingBroom/Scripts/ItemActionSpawnEmuFlyingBroom.cs
+EmuFlyingBroom/Scripts/EntityWitchBroom.cs.bak
+EmuFlyingBroom/Scripts/EntityFlyingBroom - Copy.cs.bak
+EmuFlyingBroom/Scripts/EntityEmuFlyingBroom.cs
+EmuFlyingBroom/Scripts/AvaCtrlPH.cs
+EmuFlyingBroom/Resources/EmuFlyingBroom.unity3d
+EmuFlyingBroom/mod.xml
+EmuFlyingBroom/Icons/EmuFlyingBroom.png
+EmuFlyingBroom/Config/EmuFlyingBroom.xml
+EntityClassMod/mod.xml
+EntityClassMod/PatchScripts/EntityClassMod.cs
