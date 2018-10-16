@@ -250,7 +250,7 @@ This mod is public and free, the derived asset is not used in any commercial way
 For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike and the Loader.
 
 ### [Sun Cube Studio](https://www.facebook.com/suncubestudio/)
-For his/their wonderful and free asset store [Helicopter system](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107).
+For his/their wonderful and free Unity Asset Store [Helicopter System](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107). I used this code base to make the Helicopter.
 
 ### [Renafox](https://sketchfab.com/kryik1023)
 A very talented artist that created the [**Wheel Loader**](https://skfb.ly/6toGS) asset I used for making the Killer Loader.  
