@@ -24,7 +24,7 @@ You can make all-terrain vehicles that can climb small and medium objects, and c
 It contains multiple different examples of already functionnal bikes and cars/trucks.  
 
 ### Dependencies
-This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.
+This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod. You need to download it, add it to your SDX mods folder, and make sure it's active in the SDX Launcher for building the Custom Vehicles mod.
 
 ## [Bandits and Survivors](Manux_SurvivorsAndBandits)  
 4 Bandits and 4 Survivors Factions, each of them including Male/Female Fighters, Leaders, and Brutes.  
