@@ -1,0 +1,264 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX's The Beast (Loader) --> 
+			<item id="" name="loaderChassis">
+				<property name="Extends" value="minibikeChassis"/>
+				<property name="Meshfile" value="#TheBeast?TheBeastChassisPrefab" />
+				<property name="VehicleSlotType" value="chassis"/>
+				<property name="EconomicValue" value="3000"/>
+				<property class="Action1">
+					<property name="Class" value="SpawnCustomVehicle, Mods" />
+					<property name="VehicleToSpawn" value="loader"/>
+				</property>
+				<property class="Attributes">
+					<!--<property name="VehicleDamagePassedToPlayer" value="0.7, 0.1"/>
+					<property name="DegradationRate" value="10,10"/>
+					<property name="DegradationMax" value="1200,6000"/>-->
+					<property name="VehicleDamagePassedToPlayer" value="0.01, 0.001"/>
+					<property name="DegradationRate" value="10,10"/>
+					<property name="DegradationMax" value="2400,12000"/>
+				</property>
+			</item>
+			<item id="" name="loaderHandlebars">
+				<property name="Extends" value="minibikeHandlebars"/>
+				<property name="DescriptionKey" value="loaderHandlebarsDesc"/>
+				<property name="VehicleSlotType" value="loaderHandlebars"/>
+				<property name="EconomicValue" value="2000"/>
+				<property class="Attributes">
+					<!--<property name="VehicleSteering" value="2,2"/>
+					<property name="VehicleMaxSteeringAngle" value="10,10"/>
+					<property name="VehicleBraking" value="25,25"/>
+					<property name="LightIntensity" value="0.75,0.75"/> Don't put a range or it will get scaled by minibike quality
+					<property name="DegradationMax" value="1200,6000"/>-->
+					<property name="VehicleSteering" value="0.5,0.5"/>
+					<property name="VehicleMaxSteeringAngle" value="10,10"/>
+					<property name="VehicleBraking" value="25,25"/>
+					<property name="LightIntensity" value="0.75,0.75"/> <!--Don't put a range or it will get scaled by minibike quality-->
+					<property name="DegradationMax" value="2400,12000"/>
+				</property>
+			</item>
+			<item id="" name="loaderEngine">
+				<property name="Extends" value="smallEngine"/>
+				<property name="DescriptionKey" value="loaderEngineDesc"/>
+				<property name="Weight" value="400"/>
+				<!--<property name="VehicleSlotType" value="loaderEngine"/>-->
+				<!--<property name="EconomicValue" value="1000"/>-->
+				<property name="EconomicValue" value="6000"/>
+				<property class="Attributes">
+				<!--<property name="DegradationMax" value="1000,6000"/>
+					<property name="VehicleNoise" value="1,0.1"/>
+					<property name="VehicleMaxSpeed" value="5,18"/>
+					<property name="VehicleAcceleration" value="7,14"/>
+					<property name="VehicleMetersPerLiter" value="8,12"/>
+					<property name="VehicleIdleSecondsPerLiter" value="6,12"/>
+					<property name="VehicleStartDelayInSeconds" value="1,0.1"/>
+					<property name="VehicleStartChance" value="0.5,0.99"/>
+					<property name="VehicleTankSize" value="1000, 2000"/>-->
+					<property name="DegradationMax" value="2000,12000"/>
+					<property name="VehicleNoise" value="3,0.3"/>
+					<!--<property name="VehicleMaxSpeed" value="15,54"/>-->
+					<property name="VehicleMaxSpeed" value="15,25"/>				
+					<!--<property name="VehicleAcceleration" value="21,42"/>-->
+					<!--<property name="VehicleAcceleration" value="14,28"/>-->
+					<!--<property name="VehicleAcceleration" value="7,14"/>-->
+					<property name="VehicleAcceleration" value="8,16"/>
+					<property name="VehicleMetersPerLiter" value="4,6"/>
+					<property name="VehicleIdleSecondsPerLiter" value="6,12"/>
+					<property name="VehicleStartDelayInSeconds" value="1,0.1"/>
+					<property name="VehicleStartChance" value="0.5,0.99"/>
+					<property name="VehicleTankSize" value="4000, 8000"/>
+				</property>
+			</item>
+		</append>
+	</config>
+	<config name="entityclasses">
+		<append xpath="/entity_classes">	
+			<!-- MANUX's The Beast (Loader) --> 
+			<entity_class name="loader">
+				<property name="Class" value="EntityCustomLoader, Mods" />
+				<property name="Parent" value="Cars" />
+				<property name="CameraOffset" value="0, 2, -8" />
+				<property name="3rdPersonModelVisible" value="false" />
+				<!--<property name="PlayerPositionOffset" value="0, 0, 0.15" />
+				<property name="PlayerRotationOffset" value="15, 0, 0" />-->
+				<property name="ColliderCenter" value="0, 1.98, -0.01" />
+				<property name="ColliderRadius" value="1.95" />
+				<property name="ColliderHeight" value="3.5" />
+				<property name="ColliderSkinWidth" value=" 0.025" />
+				<property name="ControllerSlopeLimit" value="75" />
+				<property name="ControllerStepOffset" value="1" />
+				<property name="VehicleActivationCenter" value="0, 2, -0.05" />
+				<property name="VehicleActivationSize" value="3, 4, 6" />
+				<property name="EntityDamage" value="1000" />
+				<property name="BlockDamage" value="10000" />
+				<property name="DestructionRadius" value="3" />
+				<property name="DestructionHeight" value="3" />
+				<property name="DestructionHarvestBonus" value="1.4" />
+				<!--<property name="DestroySolidsDegradationPerHit" value="1000" />-->
+				<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
+				<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,bench,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
+				<property name="HarvestToVehicleInventory" value="true" />
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="true" />
+				<!--<property name="Sound_loader_moving_loop" value="Vehicles/Minibike/loader_moving_lp_" />-->
+				<property name="Prefab" value="Minibike" />
+				<property name="MaxHealth" value="1000000" />
+				<property name="SurfaceCategory" value="metal" />
+				<property name="IgnoreTrigger" value="true" />
+				<property name="LootListAlive" value="62" />
+				<property name="IsEnemyEntity" value="false" />
+				<property name="Explosion.ParticleIndex" value="6" />
+				<property name="Explosion.RadiusBlocks" value="6" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="RotateToGround" value="true" />
+				<property name="Faction" value="none" />
+				<property name="MapIcon" value="ui_game_symbol_minibike" />
+			</entity_class>
+		</append>
+	</config>
+	
+	<config name="vehicles">
+		<append xpath="/vehicles">
+			<!-- MANUX's The Beast (Loader) --> 
+			<vehicle name="loader">
+				<property name="prefab" value="#TheBeast?TheBeastPrefab" />
+				<property name="gravity_multiplier" value="1" />
+				<property class="chassis">
+					<property name="required" value="true" />
+					<property name="class" value="Chassis" />
+					<property name="display_name" value="chassis" />
+					<property name="slot_type" value="chassis" />
+					<property name="mesh" value="chassis" />
+					<property name="transform" value="Origin" />
+					<property name="shocks_offset_min" value="chassis/minPos" />
+					<property name="shocks_offset_max" value="chassis/maxPos" />
+					<property name="part_damage_reduction" value="0.75" />
+				</property>
+				<property class="handlebars">
+					<property name="required" value="true" />
+					<property name="class" value="Steering" />
+					<property name="display_name" value="steering" />
+					<property name="slot_type" value="loaderHandlebars" />
+					<property name="mesh" value="handlebar" />
+					<property name="transform" value="Origin/chassis_joint/joints_root/handlebar_root/handlebar_joint" />
+					<property name="steer_rotate_min" value="Origin/chassis_joint/joints_root/handlebar_root/rotateMin" />
+					<property name="steer_rotate_max" value="Origin/chassis_joint/joints_root/handlebar_root/rotateMax" />
+					<property name="left_hand_ik_position" value="-0.32, 0.28, -0.121" />
+					<property name="right_hand_ik_position" value="0.32, 0.28, -0.121" />
+					<property name="left_hand_ik_rotation" value="46.2127, -39.9195, -8.9094" />
+					<property name="right_hand_ik_rotation" value="46.2127, 39.9195, 8.9094" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="wheel0">
+					<property name="class" value="Wheel" />
+					<property name="display_name" value="wheel" />
+					<property name="parent_part" value="wheel1" />
+					<property name="mesh" value="front_wheel" />
+					<property name="transform" value="Origin/chassis_joint/joints_root/handlebar_root/handlebar_joint/frontWheel_joint" />
+					<property name="shocks_offset_min" value="body/chassis/wheel/minPos" />
+					<property name="shocks_offset_max" value="body/chassis/wheel/maxPos" />
+				</property>
+				<property class="wheel1">
+					<property name="required" value="true" />
+					<property name="class" value="Wheel" />
+					<property name="display_name" value="wheel" />
+					<property name="slot_type" value="wheel" />
+					<property name="parent_part" value="chassis" />
+					<property name="mesh" value="back_wheel" />
+					<property name="transform" value="Origin/chassis_joint/joints_root/backWheelJoint" />
+					<property name="shocks_offset_min" value="body/handlebars/wheel/minPos" />
+					<property name="shocks_offset_max" value="body/handlebars/wheel/maxPos" />
+					<property name="part_damage_reduction" value="0.75" />
+				</property>
+				<property class="driver">
+					<property name="required" value="true" />
+					<property name="class" value="Seat" />
+					<property name="display_name" value="driverSeat" />
+					<property name="slot_type" value="seat" />
+					<property name="mesh" value="seat" />
+					<property name="transform" value="seat" />
+					<property name="attachment_pose" value="0" />
+					<property name="left_foot_ik_target" value="body/chassis/leftFoot" />
+					<property name="right_foot_ik_target" value="body/chassis/rightFoot" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="battery">
+					<property name="required" value="true" />
+					<property name="class" value="Battery" />
+					<property name="display_name" value="battery" />
+					<property name="slot_type" value="battery" />
+					<property name="mesh" value="battery" />
+					<property name="transform" value="battery" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="engine">
+					<property name="required" value="true" />
+					<property name="class" value="Engine" />
+					<property name="display_name" value="engine" />
+					<!--<property name="slot_type" value="loaderEngine" />-->
+					<property name="slot_type" value="engine" />
+					<property name="mesh" value="engine_small" />
+					<property name="transform" value="engine_small" />
+					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />
+					<property name="sound_start" value="Vehicles/Minibike/roadHog_start_" />
+					<property name="sound_shut_off" value="Vehicles/Minibike/roadHog_shutoff_" />
+					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/roadHog_empty_" />
+					<property name="sound_idle_loop" value="Vehicles/Minibike/roadHog_idle_lp_" />
+					<property name="sound_accelerate" value="Vehicles/Minibike/roadHog_accel_" />
+					<property name="sound_decelerate" value="Vehicles/Minibike/roadHog_decel_" />
+					<property name="sound_running_loop" value="Vehicles/Minibike/roadHog_run_lp_" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="exhaust">
+					<property name="class" value="Exhaust" />
+					<property name="parent_part" value="engine" />
+					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine" />
+				</property>
+				<property class="chain">
+					<property name="mesh" value="chain" />
+					<property name="parent_part" value="engine" />
+					<property name="transform" value="chain" />
+				</property>
+				<property class="horn">
+					<property name="class" value="Horn" />
+					<property name="parent_part" value="handlebars" />
+					<property name="mesh" value="horn" />
+					<property name="transform" value="horn" />
+					<property name="sound_honk" value="vehicle/minibike/roadHog_horn" />
+				</property>
+				<property class="storage">
+					<property name="class" value="Storage" />
+					<property name="display_name" value="basket" />
+					<property name="slot_type" value="basket" />
+					<property name="mesh" value="basket" />
+					<property name="transform" value="basket" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="headlight">
+					<property name="class" value="Headlight" />
+					<property name="parent_part" value="handlebars" />
+					<property name="transform" value="Origin/chassis_joint/joints_root/handlebar_root/handlebar_joint/headlight" />
+				</property>
+				<property class="fuelTank">
+					<property name="class" value="FuelTank" />
+					<property name="parent_part" value="engine" />
+				</property>
+				<property class="lock">
+					<property name="class" value="Lock" />
+					<property name="slot_type" value="lock" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="ignition">
+					<property name="class" value="Ignition" />
+					<property name="parent_part" value="engine" />
+				</property>
+			</vehicle>
+		</append>
+	</config>
+</configs>

@@ -17,9 +17,9 @@ cicadaCar,items,Part,EnChanged,Cicada Car
 cicadaCarChassis,items,Part,EnChanged,Cicada Car Chassis
 quad,items,Part,EnChanged,Quad
 quadChassis,items,Part,EnChanged,Quad Chassis
-loader,items,Part,EnChanged,Loader
-loaderChassis,items,Part,EnChanged,Loader Chassis
-loaderHandlebars,items,Part,EnChanged,Loader Handlebars
-loaderEngine,items,Part,EnChanged,Loader Engine
+loader,items,Part,EnChanged,The Beast
+loaderChassis,items,Part,EnChanged,The Beast Chassis
+loaderHandlebars,items,Part,EnChanged,The Beast Handlebars
+loaderEngine,items,Part,EnChanged,The Beast Engine
 helicopter,items,Part,EnChanged,Helicopter
 helicopterChassis,items,Part,EnChanged,Helicopter Chassis
