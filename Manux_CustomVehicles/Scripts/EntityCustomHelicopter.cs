@@ -90,22 +90,6 @@ class EntityCustomHelicopter : EntityCustomBike
             DebugMsg(this.ToString() + " : All bones set 2 found.");
         }
 
-        heliSimDummy = new GameObject("helicoCtrl");
-        // For debugging with a 3d cube that is visible in the game
-        /*heliSimDummy = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        BoxCollider bcoll = heliSimDummy.GetComponent<BoxCollider>();
-        if(bcoll != null)
-        {
-            DebugMsg("Destroying cube BoxCollider");
-            Destroy(bcoll);
-        }*/
-        DebugMsg("Helico heliSimDummy = " + heliSimDummy.name + " | " + heliSimDummy.GetInstanceID().ToString());
-        Vector3 newPos = this.PhysicsTransform.position;
-        //newPos.x += 10;
-        newPos.y += 1;
-        heliSimDummy.transform.position = newPos;
-        heliSimDummy.transform.rotation = this.PhysicsTransform.rotation;
-
         entityRoot = GetRootTransform(this.m_characterController.gameObject.transform, "helicopter").gameObject;
         Collider[] colls = entityRoot.GetComponentsInChildren<Collider>();
         foreach(Collider coll in colls)
@@ -117,9 +101,9 @@ class EntityCustomHelicopter : EntityCustomBike
         DebugMsg("Helico PhysicsTransform = " + this.PhysicsTransform.gameObject.name + " | " + this.PhysicsTransform.gameObject.GetInstanceID().ToString());
 
         if (allBonesSet2Found)
-            AddAndSetHelicoComponents(rotor_joint2, back_rotor_joint2);
+            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2);
         else if (allBonesSet1Found)
-            AddAndSetHelicoComponents(rotor_joint, back_rotor_joint);
+            CreateHelicoSimSystem(rotor_joint, back_rotor_joint);
         else
             DebugMsg("No Bones sets found, cannot initiate Helicopter.");
 
@@ -130,6 +114,8 @@ class EntityCustomHelicopter : EntityCustomBike
         {
             DebugMsg("\nPlayer coll = " + coll.gameObject.name + " | " + coll.GetType());
         }
+
+        helicoSettingsDone = true;
     }
 
     public static Transform GetRootTransform(Transform fromTransform, string stopAtString)
@@ -145,8 +131,19 @@ class EntityCustomHelicopter : EntityCustomBike
         return fromTransform;
     }
 
-    public void AddAndSetHelicoComponents(Transform rotor_joint, Transform back_rotor_joint)
+    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint)
     {
+        heliSimDummy = new GameObject("helicoCtrl");
+        // For debugging with a 3d cube that is visible in the game
+        /*heliSimDummy = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        BoxCollider bcoll = heliSimDummy.GetComponent<BoxCollider>();
+        if(bcoll != null)
+        {
+            DebugMsg("Destroying cube BoxCollider");
+            Destroy(bcoll);
+        }*/
+        DebugMsg("Helico heliSimDummy = " + heliSimDummy.name + " | " + heliSimDummy.GetInstanceID().ToString());
+
         AudioSource helicoSoundSrc = null;
         AudioSource helicoMusic = null;
         AudioSource[] audioSources = this.GetComponentsInChildren<AudioSource>();
@@ -166,12 +163,12 @@ class EntityCustomHelicopter : EntityCustomBike
         }
 
         rigidBody = heliSimDummy.AddComponent<Rigidbody>();
-        rigidBody.useGravity = true;
+        rigidBody.useGravity = false;
         rigidBody.mass = 100;
         rigidBody.drag = 1;
         rigidBody.angularDrag = 4;
         rigidBody.interpolation = RigidbodyInterpolation.None;
-        rigidBody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         capColl = heliSimDummy.AddComponent<CapsuleCollider>();
         capColl.center = new Vector3(0, 0.125f, 0.3f);
@@ -182,6 +179,13 @@ class EntityCustomHelicopter : EntityCustomBike
         boxcoll = heliSimDummy.AddComponent<BoxCollider>();
         boxcoll.center = new Vector3(0, 0.125f, 0.3f);
         boxcoll.size = new Vector3(2.5f, 0.25f, 7f);
+
+        Vector3 newPos = this.PhysicsTransform.position;
+        newPos.y += 1;
+        heliSimDummy.transform.position = newPos;
+        heliSimDummy.transform.rotation = this.PhysicsTransform.rotation;
+        this.m_characterController.center = new Vector3(colliderCenter.x, 1.5f, colliderCenter.z);
+        rigidBody.useGravity = true;
 
         helicoCtrl = heliSimDummy.AddComponent<HelicopterController>();
         helicoCtrl.HelicopterModel = rigidBody;
@@ -203,8 +207,6 @@ class EntityCustomHelicopter : EntityCustomBike
         rotorCtrl = back_rotor_joint.gameObject.AddComponent<HeliRotorController>();
         rotorCtrl.RotateAxis = HeliRotorController.Axis.Z;
         helicoCtrl.SubRotorController = rotorCtrl;
-
-        helicoSettingsDone = true;
     }
 
     public new void Update()
