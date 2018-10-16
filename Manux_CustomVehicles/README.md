@@ -83,6 +83,16 @@ XML Example:
         ...
 </entity_class>
 ```
+### EntityCustomHelicopter
+Yes, we now have a class for Helicopters. Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...
+XML Example:
+```XML
+<entity_class name="helicopter">
+        <property name="Class" value="EntityCustomHelicopter, Mods" />
+        ...
+</entity_class>
+```
+
 ### ItemActionSpawnCustomVehicle
 This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
 The class is common to all vehicles, the vehicle to spawn is defined through the ***VehicleToSpawn*** XML property.  
