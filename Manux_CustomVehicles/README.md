@@ -84,7 +84,7 @@ XML Example:
 </entity_class>
 ```
 ### EntityCustomHelicopter
-Yes, we now have a class for Helicopters. Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...
+Yes, we now have a class for Helicopters. Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...  
 XML Example:
 ```XML
 <entity_class name="helicopter">
