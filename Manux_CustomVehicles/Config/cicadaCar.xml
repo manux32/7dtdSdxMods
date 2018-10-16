@@ -22,10 +22,14 @@
 				<property name="3rdPersonModelVisible" value="true" />
 				<!--<property name="PlayerPositionOffset" value="0, 0.1, -0.2" />-->
 				<!--<property name="PlayerRotationOffset" value="0, 0, 0" />-->
-				<property name="ColliderCenter" value="0.4, 1.01, -0.4" />
+				<property name="ColliderCenter" value="0.42, 1.01, -0.4" />
 				<property name="ColliderRadius" value="1" />
 				<property name="ColliderHeight" value="2" />
-				<!--<property name="ControllerSlopeLimit" value="45" />-->
+				<property name="ColliderSkinWidth" value=" 0.025" />
+				<!--<property name="ControllerSlopeLimit" value="45" />
+				<property name="ControllerStepOffset" value="1" />-->
+				<property name="VehicleActivationCenter" value="0.42, 1, -0.39" />
+				<property name="VehicleActivationSize" value="2, 2, 3.8" />
 				<property name="WaterCraft" value="true" />
 				<property name="Airtight" value="true" />
 				<property name="Prefab" value="Minibike" />
