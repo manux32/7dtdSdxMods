@@ -84,7 +84,7 @@ XML Example:
 </entity_class>
 ```
 ### EntityCustomHelicopter
-Yes, we now have a class for Helicopters. Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...  
+Yes, we now have a class for Helicopters! Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...  
 XML Example:
 ```XML
 <entity_class name="helicopter">
@@ -248,6 +248,9 @@ This mod is public and free, the derived asset is not used in any commercial way
 
 ### JaxTeller718  
 For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike and the Loader.
+
+### [Sun Cube Studio](https://www.facebook.com/suncubestudio/)
+For his/their wonderful and free asset store [Helicopter system](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107).
 
 ### [Renafox](https://sketchfab.com/kryik1023)
 A very talented artist that created the [**Wheel Loader**](https://skfb.ly/6toGS) asset I used for making the Killer Loader.  
