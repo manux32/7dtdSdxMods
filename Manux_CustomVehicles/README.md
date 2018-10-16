@@ -26,7 +26,7 @@ Special Thanks to **DUST2DEATH** for making the ball roll on this one.
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
 
 ## Vids
-### Bike and Car
+### Bike, Quad, and Car
 | [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") |  
 |:---:|:---:|
 |Custom Driveable Cars|All-Terrain Vehicles|  
