@@ -50,6 +50,28 @@ This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mo
 Make sure you also deploy that mod for this one to work.  
 The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.   
 
+## Vehicle Controls
+All Vehicles use the regular Keyboard Controls of the MiniBike. But some of them have additional Controls:
+### The Beast
+The Beast's bucket's height determines how high/low objects can be destroyed and harvested. The bucket can be moved up/down, and rotated up/down, but the rotation is mainly for aesthetics, only the height really determines what you destroy.
+- **UpArrow**: Move the Bucket Up
+- **DownArrow**: Move the Bucket Down
+- **LeftArrow**: Rotate the Bucket Down (Outward)
+- **RightArrow**: Rotate the Bucket Up (Inward)  
+
+### Helicopter
+- **LeftShift**: Lift/Increase main rotor speed
+- **Space**: Down/Decrease main rotor speed
+- **W**: Move/Tilt Forward
+- **S**: Move/Tilt Back
+- **A**: Turn/Tilt Left
+- **D**: Turn/Tilt Right
+- **LeftArrow**: Rotate Left
+- **LeftArrow**: Rotate Right
+- **M**: Start/Stop Music  (same music as in the Helicopter Vid above)
+
+
+
 ## Custom Vehicle C# classes  
 ### EntityCustomBike
 To make Custom Bikes (2 Wheels).  
