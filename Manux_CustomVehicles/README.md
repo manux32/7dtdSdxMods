@@ -9,8 +9,8 @@ The Custom Vehicles mod is there to help you build your own custom vehicles, fro
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
 **New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
-The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest to the vehicle storage.  
-And we now have our first flying vehicle, the Helicopter. This is still very experimental and the model is awfully heavy, but it works, and it's so much fun!
+The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest directly to the vehicle storage.  
+And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! One day, it will shoot... :stuck_out_tongue_winking_eye:  
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
@@ -49,6 +49,28 @@ If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showt
 This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
 Make sure you also deploy that mod for this one to work.  
 The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.   
+
+## Vehicle Controls
+All Vehicles use the regular Keyboard Controls of the MiniBike. But some of them have additional Controls:
+### The Beast
+The Beast's bucket's height determines how high/low objects can be destroyed and harvested. The bucket can be moved up/down, and rotated up/down, but the rotation is mainly for aesthetics, only the height really determines what you destroy.
+- **UpArrow**: Move the Bucket Up
+- **DownArrow**: Move the Bucket Down
+- **LeftArrow**: Rotate the Bucket Down (Outward)
+- **RightArrow**: Rotate the Bucket Up (Inward)  
+
+### Helicopter
+- **LeftShift**: Lift/Increase main rotor speed
+- **Space**: Down/Decrease main rotor speed
+- **W**: Move/Tilt Forward
+- **S**: Move/Tilt Back
+- **A**: Turn/Tilt Left
+- **D**: Turn/Tilt Right
+- **LeftArrow**: Rotate Left
+- **LeftArrow**: Rotate Right
+- **M**: Start/Stop Music  (same music as in the Helicopter Vid above)
+
+
 
 ## Custom Vehicle C# classes  
 ### EntityCustomBike
@@ -224,11 +246,18 @@ I did this one mainly to control the speed at which the loader moves, the gas co
 
 ### Dust2Death 
 For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
-See his Road Hog forum thread here: [**Road Hog**](https://7daystodie.com/forums/showthread.php?87828-Road-Hog-SDX)  
+He's the one that originally initiated the forum thread we currently use for this mod. When I saw what he did with the RoadHog, it picked my interest. We joined force and the initiative evolved to this Vehicles mod: [**Custom Vehicles by Manux**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX)  
 
 ### TormentedEmu
 For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.
 And thanks also for her great [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I am using in the first video above to run over zombies with the Cicada car.
+
+### Mumpfy
+A very talented visual artist that it also a 7d2d modder. He retextured some of the coolest Vehicles to make them fit better in the mood of the game. They look awesome!
+He retextured the following vehicles so far: 
+- Dust2Death's RoadHog
+- The Beast
+- Helicopter is on its way...
 
 ### Three8
 For adding underwater capabillities to all vehicles. He is a top notch modder doing stuff like a fully working Elevator.
