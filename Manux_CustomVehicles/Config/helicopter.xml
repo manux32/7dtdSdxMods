@@ -10,6 +10,64 @@
 					<property name="VehicleToSpawn" value="helicopter"/>
 				</property>
 			</item>
+			<item id="" name="helicopterBullet">
+				<property name="Meshfile" value="Items/Weapons/Ranged/HuntingRifle/762mm_bulletPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="21" />
+				<property name="Stacknumber" value="1000" />
+				<property class="Attributes">
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="40,80" />
+					<property name="BlockDamage" value="50,100" />
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Explosion.ParticleIndex" value="0" />
+					<property name="Velocity" value="250" />
+					<property name="FlyTime" value="5" />
+					<property name="LifeTime" value="5" />
+					<property name="Particles_muzzle_fire" value="nozzleflash_ak" />
+					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi" />
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+				<property name="EconomicValue" value="30" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+			<item id="" name="helicopterRocket">
+				<property name="Meshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketPrefab" />
+				<property name="HandMeshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketHandPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="3" />
+				<property name="Stacknumber" value="20" />
+				<!-- STK explosives -->
+				<property name="EconomicValue" value="1000" />
+				<property class="Attributes">
+					<property name="FalloffRange" value="250,400" />
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="250,500" />
+					<property name="BlockDamage" value="50,200" />
+					<!-- this is not working yet, it uses damage from Action1 -->
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Explosion.ParticleIndex" value="4" />
+					<!-- which Prefab/particle is used -->
+					<property name="Explosion.RadiusBlocks" value="20" />
+					<!-- damage radius for blocks -->
+					<property name="Explosion.BlockDamage" value="1000" />
+					<!-- damage for blocks in the center of the explosion -->
+					<property name="Explosion.RadiusEntities" value="10" />
+					<!-- damage radius for entities -->
+					<property name="Explosion.EntityDamage" value="1000" />
+					<!-- damage for entities in the center of the explosion. Zombies take 2x this damage. -->
+					<property name="Explosion.BlastPower" value="200" />
+					<property name="Velocity" value="50" />
+					<property name="FlyTime" value="12" />
+					<property name="LifeTime" value="12" />
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
 		</append>
 	</config>
 	<config name="entityclasses">

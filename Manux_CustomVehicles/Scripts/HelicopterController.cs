@@ -27,7 +27,16 @@ public class HelicopterController : MonoBehaviour
     float midScreenY;
     public bool hasDriver = false;
 
-    static bool showDebugLog = false;
+    public global::EntityPlayerLocal player;
+    public Transform missileLauncher = null;
+    public Transform gunLauncher = null;
+    public Vector3 targetPos;
+    public float gunShootDelay = 0.1f;
+    public float lastGunShoot = -1;
+    public float missileShootDelay = 1f;
+    public float lastMissileShoot = -1;
+
+    static bool showDebugLog = true;
 
     public static void DebugMsg(string msg)
     {
@@ -78,7 +87,22 @@ public class HelicopterController : MonoBehaviour
 
 	void Update ()
     {
-	}
+        if (hasDriver)
+        {
+            if (Input.GetMouseButton(0) && Time.time - gunShootDelay > lastGunShoot)
+            {
+                DebugMsg("Left-click");
+                ShootProjectile(gunLauncher, "helicopterBullet", "Weapons/Ranged/AK47/ak47_fire_start", true);
+                lastGunShoot = Time.time;
+            }
+            if (Input.GetMouseButton(1) && Time.time - missileShootDelay > lastMissileShoot)
+            {
+                DebugMsg("Right-click");
+                ShootProjectile(missileLauncher, "helicopterRocket", "Weapons/Ranged/M136/m136_fire", false);
+                lastMissileShoot = Time.time;
+            }
+        }
+    }
   
     void FixedUpdate()
     {
@@ -101,9 +125,10 @@ public class HelicopterController : MonoBehaviour
     {
         // Headlight movement from mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        headlight_rot.LookAt(ray.GetPoint(100) + (Vector3.up * 20), headlight_rot.parent.transform.up);
+        targetPos = ray.GetPoint(100) + (Vector3.up * 20);
+        headlight_rot.LookAt(targetPos, headlight_rot.parent.transform.up);
         dot = Vector3.Dot(headlight_rot.forward, headlight_rot.parent.forward);
-        DebugMsg("dot = " + dot.ToString("0.0000"));
+        //DebugMsg("dot = " + dot.ToString("0.0000"));
         headlight_rot.rotation = Quaternion.Slerp(headlight_rot.rotation, headlight_rot.parent.rotation, (Mathf.Abs(Mathf.Clamp(dot, -0.8f, -0.5f)) * 3.3333f) - 1.6666f);
     }
 
@@ -127,6 +152,62 @@ public class HelicopterController : MonoBehaviour
         hTilt.x = Mathf.Lerp(hTilt.x, hMove.x * TurnTiltForce, Time.deltaTime);
         hTilt.y = Mathf.Lerp(hTilt.y, hMove.y * ForwardTiltForce, Time.deltaTime);
         HelicopterModel.transform.localRotation = Quaternion.Euler(hTilt.y, HelicopterModel.transform.localEulerAngles.y, -hTilt.x);
+    }
+
+    public void ShootProjectile(Transform projectileLauncher, string ammoName, string soundPath, bool isGun)
+    {
+        ItemClass ammoItem = ItemClass.GetItemClass(ammoName, false);
+        ItemValue itemValue = ItemClass.GetItem(ammoItem.GetItemName(), false);
+        Transform projectile = ammoItem.CloneModel(GameManager.Instance.World, itemValue, Vector3.zero, null, false, false);
+
+        if (projectileLauncher != null)
+        {
+            projectile.parent = projectileLauncher;
+            projectile.localPosition = Vector3.zero;
+            projectile.localRotation = Quaternion.identity;
+        }
+        else
+        {
+            projectile.parent = null;
+        }
+        global::Utils.SetLayerRecursively(projectile.gameObject, (!(projectileLauncher != null)) ? 0 : projectileLauncher.gameObject.layer);
+        global::BlockProjectileMoveScript blockProjectileMoveScript = projectile.gameObject.AddComponent<global::BlockProjectileMoveScript>();
+        blockProjectileMoveScript.itemProjectile = ammoItem;
+        blockProjectileMoveScript.itemValueProjectile = itemValue;
+        blockProjectileMoveScript.itemValueLauncher = global::ItemValue.None.Clone();
+        blockProjectileMoveScript.itemActionProjectile = (global::ItemActionProjectile)((!(ammoItem.Actions[0] is global::ItemActionProjectile)) ? ammoItem.Actions[1] : ammoItem.Actions[0]);
+        blockProjectileMoveScript.AttackerEntityId = 0;
+        Vector3 target = targetPos - projectileLauncher.position;
+        blockProjectileMoveScript.Fire(projectileLauncher.position, target, player, 0);
+
+        if (isGun)
+        {
+            global::ParticleEffect pe = new global::ParticleEffect("nozzleflash_ak", projectileLauncher.position, Quaternion.Euler(0f, 180f, 0f), 1f, Color.white, "Pistol_Fire", projectileLauncher);
+            float lightValue = global::GameManager.Instance.World.GetLightBrightness(global::World.worldToBlockPos(projectileLauncher.position)) / 2f;
+            global::ParticleEffect pe2 = new global::ParticleEffect("nozzlesmokeuzi", projectileLauncher.position, lightValue, new Color(1f, 1f, 1f, 0.3f), null, projectileLauncher, false);
+            SpawnParticleEffect(pe, -1);
+            SpawnParticleEffect(pe2, -1);
+            return;
+        }
+
+        if (global::Steam.Network.IsServer)
+        {
+            Audio.Manager.BroadcastPlay(projectileLauncher.position, soundPath);
+        }
+    }
+
+    public void SpawnParticleEffect(global::ParticleEffect _pe, int _entityId)
+    {
+        if (global::Steam.Network.IsServer)
+        {
+            if (!global::GameManager.IsDedicatedServer)
+            {
+                global::GameManager.Instance.SpawnParticleEffectClient(_pe, _entityId);
+            }
+            global::SingletonMonoBehaviour<global::ConnectionManager>.Instance.SendPackage(new global::NetPackageParticleEffect(_pe, _entityId), false, -1, _entityId, -1, -1);
+            return;
+        }
+        global::SingletonMonoBehaviour<global::ConnectionManager>.Instance.SendToServer(new global::NetPackageParticleEffect(_pe, _entityId), false);
     }
 
     private void OnKeyPressed(PressedKeyCode[] obj)

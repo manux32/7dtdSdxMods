@@ -19,10 +19,14 @@ class EntityCustomHelicopter : EntityCustomBike
     Transform rotor_joint = null;
     Transform back_rotor_joint = null;
     Transform headlight_rot = null;
+    Transform missileLauncher = null;
+    Transform gunLauncher = null;
 
     Transform rotor_joint2 = null;
     Transform back_rotor_joint2 = null;
     Transform headlight_rot2 = null;
+    Transform missileLauncher2 = null;
+    Transform gunLauncher2 = null;
 
     bool helicoSettingsDone;
 
@@ -75,10 +79,22 @@ class EntityCustomHelicopter : EntityCustomBike
                     else
                         headlight_rot2 = child;
                     break;
+                case "missileLauncher":
+                    if (missileLauncher == null)
+                        missileLauncher = child;
+                    else
+                        missileLauncher2 = child;
+                    break;
+                case "gunLauncher":
+                    if (gunLauncher == null)
+                        gunLauncher = child;
+                    else
+                        gunLauncher2 = child;
+                    break;
             }
         }
 
-        if (rotor_joint == null || back_rotor_joint == null || headlight_rot == null)
+        if (rotor_joint == null || back_rotor_joint == null || headlight_rot == null || missileLauncher == null || gunLauncher == null)
         {
             Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Car will not be fully functionnal.");
         }
@@ -88,7 +104,7 @@ class EntityCustomHelicopter : EntityCustomBike
             DebugMsg(this.ToString() + " : All bones set 1 found.");
         }
 
-        if (rotor_joint2 == null || back_rotor_joint2 == null || headlight_rot2 == null)
+        if (rotor_joint2 == null || back_rotor_joint2 == null || headlight_rot2 == null || missileLauncher2 == null || gunLauncher2 == null)
         {
             DebugMsg(this.ToString() + " : Some bones could not be found for set 2. (this is harmless)");
         }
@@ -109,9 +125,9 @@ class EntityCustomHelicopter : EntityCustomBike
         DebugMsg("Helico PhysicsTransform = " + this.PhysicsTransform.gameObject.name + " | " + this.PhysicsTransform.gameObject.GetInstanceID().ToString());
 
         if (allBonesSet2Found)
-            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2, headlight_rot2);
+            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2, headlight_rot2, missileLauncher2, gunLauncher2);
         else if (allBonesSet1Found)
-            CreateHelicoSimSystem(rotor_joint, back_rotor_joint, headlight_rot);
+            CreateHelicoSimSystem(rotor_joint, back_rotor_joint, headlight_rot, missileLauncher, gunLauncher);
         else
             DebugMsg("No Bones sets found, cannot initiate Helicopter.");
 
@@ -139,7 +155,7 @@ class EntityCustomHelicopter : EntityCustomBike
         return fromTransform;
     }
 
-    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint, Transform headlight)
+    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint, Transform headlight, Transform missileLauncher, Transform gunLauncher)
     {
         heliSimDummy = new GameObject("helicoCtrl");
         // For debugging with a 3d cube that is visible in the game
@@ -217,6 +233,8 @@ class EntityCustomHelicopter : EntityCustomBike
         helicoCtrl.SubRotorController = rotorCtrl;
 
         helicoCtrl.headlight_rot = headlight;
+        helicoCtrl.missileLauncher = missileLauncher;
+        helicoCtrl.gunLauncher = gunLauncher;
     }
 
     public new void Update()
@@ -248,6 +266,7 @@ class EntityCustomHelicopter : EntityCustomBike
                 if (!helicoCtrl.hasDriver)
                 {
                     player = this.AttachedEntities as global::EntityPlayerLocal;
+                    helicoCtrl.player = player;
 
                     this.AttachedEntities.m_characterController.detectCollisions = false;
                     this.AttachedEntities.m_characterController.enabled = false;
@@ -272,6 +291,9 @@ class EntityCustomHelicopter : EntityCustomBike
                 this.SetPosition(yPos2);
                 this.transform.rotation = heliSimDummy.transform.rotation;
                 this.SetRotation(heliSimDummy.transform.rotation.eulerAngles);
+
+                // Not working yet
+                //DrawCrosshair();
             }
             else
             {
@@ -292,6 +314,35 @@ class EntityCustomHelicopter : EntityCustomBike
         {
             Debug.LogError("An error occurred: " + e);
         }
+    }
+
+
+    public void DrawCrosshair()
+    {
+        Vector2 crosshairPosition2D2 = player.GetCrosshairPosition2D();
+        crosshairPosition2D2.y = (float)Screen.height - crosshairPosition2D2.y;
+
+        int crosshairOpenArea = player.GetCrosshairOpenArea();
+        int num = (int)crosshairPosition2D2.x;
+        int num2 = (int)crosshairPosition2D2.y;
+        Color black = Color.black;
+        Color white = Color.white;
+        black.a = this.WSQ() * player.weaponCrossHairAlpha;
+        white.a = this.WSQ() * player.weaponCrossHairAlpha;
+        global::GUIUtils.DrawLine(new Vector2((float)(num - crosshairOpenArea), (float)(num2 + 1)), new Vector2((float)(num - (crosshairOpenArea + 18)), (float)(num2 + 1)), black);
+        global::GUIUtils.DrawLine(new Vector2((float)(num + crosshairOpenArea), (float)(num2 + 1)), new Vector2((float)(num + crosshairOpenArea + 18), (float)(num2 + 1)), black);
+        global::GUIUtils.DrawLine(new Vector2((float)(num + 1), (float)(num2 - crosshairOpenArea)), new Vector2((float)(num + 1), (float)(num2 - (crosshairOpenArea + 18))), black);
+        global::GUIUtils.DrawLine(new Vector2((float)(num + 1), (float)(num2 + crosshairOpenArea)), new Vector2((float)(num + 1), (float)(num2 + crosshairOpenArea + 18)), black);
+        global::GUIUtils.DrawLine(new Vector2((float)(num + crosshairOpenArea), (float)num2), new Vector2((float)(num + crosshairOpenArea + 18), (float)num2), white);
+        global::GUIUtils.DrawLine(new Vector2((float)num, (float)(num2 - crosshairOpenArea)), new Vector2((float)num, (float)(num2 - (crosshairOpenArea + 18))), white);
+        global::GUIUtils.DrawLine(new Vector2((float)(num - crosshairOpenArea), (float)num2), new Vector2((float)(num - (crosshairOpenArea + 18)), (float)num2), white);
+        global::GUIUtils.DrawLine(new Vector2((float)num, (float)(num2 + crosshairOpenArea)), new Vector2((float)num, (float)(num2 + crosshairOpenArea + 18)), white);
+    }
+
+    private float WSQ()
+    {
+        //return nguiWdwInGameHUD.crosshairAlpha * Mathf.Clamp01((70f - this.HY) / 70f);
+        return 0.5f;
     }
 
     public override void OnEntityUnload()
