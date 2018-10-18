@@ -18,7 +18,7 @@
 			<entity_class name="helicopter">
 				<property name="Class" value="EntityCustomHelicopter, Mods" />
 				<property name="Parent" value="Cars" />
-				<property name="CameraOffset" value="0, 0, -12" />
+				<property name="CameraOffset" value="0, 2, -10" />
 				<property name="3rdPersonModelVisible" value="true" />
 				<property name="PlayerPositionOffset" value="-0.4, 0.4, 1.3" />
 				<!--<property name="PlayerRotationOffset" value="15, 0, 0" />-->
@@ -171,7 +171,7 @@
 				<property class="headlight">
 					<property name="class" value="Headlight" />
 					<property name="parent_part" value="handlebars" />
-					<property name="transform" value="Origin/headlight" />
+					<property name="transform" value="Origin/headlight_root/headlight" />
 				</property>
 				<property class="fuelTank">
 					<property name="class" value="FuelTank" />

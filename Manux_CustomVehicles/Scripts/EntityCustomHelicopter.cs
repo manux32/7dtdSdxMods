@@ -18,9 +18,11 @@ class EntityCustomHelicopter : EntityCustomBike
 
     Transform rotor_joint = null;
     Transform back_rotor_joint = null;
+    Transform headlight_rot = null;
 
     Transform rotor_joint2 = null;
     Transform back_rotor_joint2 = null;
+    Transform headlight_rot2 = null;
 
     bool helicoSettingsDone;
 
@@ -67,10 +69,16 @@ class EntityCustomHelicopter : EntityCustomBike
                     else
                         back_rotor_joint2 = child;
                     break;
+                case "headlight":
+                    if (headlight_rot == null)
+                        headlight_rot = child;
+                    else
+                        headlight_rot2 = child;
+                    break;
             }
         }
 
-        if (rotor_joint == null || back_rotor_joint == null)
+        if (rotor_joint == null || back_rotor_joint == null || headlight_rot == null)
         {
             Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Car will not be fully functionnal.");
         }
@@ -80,7 +88,7 @@ class EntityCustomHelicopter : EntityCustomBike
             DebugMsg(this.ToString() + " : All bones set 1 found.");
         }
 
-        if (rotor_joint2 == null || back_rotor_joint2 == null)
+        if (rotor_joint2 == null || back_rotor_joint2 == null || headlight_rot2 == null)
         {
             DebugMsg(this.ToString() + " : Some bones could not be found for set 2. (this is harmless)");
         }
@@ -101,9 +109,9 @@ class EntityCustomHelicopter : EntityCustomBike
         DebugMsg("Helico PhysicsTransform = " + this.PhysicsTransform.gameObject.name + " | " + this.PhysicsTransform.gameObject.GetInstanceID().ToString());
 
         if (allBonesSet2Found)
-            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2);
+            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2, headlight_rot2);
         else if (allBonesSet1Found)
-            CreateHelicoSimSystem(rotor_joint, back_rotor_joint);
+            CreateHelicoSimSystem(rotor_joint, back_rotor_joint, headlight_rot);
         else
             DebugMsg("No Bones sets found, cannot initiate Helicopter.");
 
@@ -131,7 +139,7 @@ class EntityCustomHelicopter : EntityCustomBike
         return fromTransform;
     }
 
-    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint)
+    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint, Transform headlight)
     {
         heliSimDummy = new GameObject("helicoCtrl");
         // For debugging with a 3d cube that is visible in the game
@@ -201,12 +209,14 @@ class EntityCustomHelicopter : EntityCustomBike
         }
  
         HeliRotorController rotorCtrl = rotor_joint.gameObject.AddComponent<HeliRotorController>();
-        rotorCtrl.RotateAxis = HeliRotorController.Axis.Y;
+        rotorCtrl.RotateAxis = HeliRotorController.Axis.Z;
         helicoCtrl.MainRotorController = rotorCtrl;
 
         rotorCtrl = back_rotor_joint.gameObject.AddComponent<HeliRotorController>();
         rotorCtrl.RotateAxis = HeliRotorController.Axis.Z;
         helicoCtrl.SubRotorController = rotorCtrl;
+
+        helicoCtrl.headlight_rot = headlight;
     }
 
     public new void Update()

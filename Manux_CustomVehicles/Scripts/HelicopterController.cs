@@ -17,11 +17,19 @@ public class HelicopterController : MonoBehaviour
     public float turnTiltForcePercent = 1.5f;
     public float turnForcePercent = 10f;
 
+    public Transform headlight_rot = null;
+    float dot;
+    Vector3 mouseHitPos;
+    Vector3 mousePos = new Vector3();
+    float screenWidth;
+    float screenHeight;
+    float midScreenX;
+    float midScreenY;
     public bool hasDriver = false;
 
     static bool showDebugLog = false;
 
-    public static new void DebugMsg(string msg)
+    public static void DebugMsg(string msg)
     {
         if (showDebugLog)
         {
@@ -55,13 +63,21 @@ public class HelicopterController : MonoBehaviour
     private float hTurn = 0f;
     public bool IsOnGround = true;
 
+
     // Use this for initialization
-	void Start ()
+    void Start ()
 	{
         ControlPanel.KeyPressed += OnKeyPressed;
-	}
 
-	void Update () {
+        screenWidth = UnityEngine.Screen.width;
+        screenHeight = UnityEngine.Screen.height;
+        midScreenX = screenWidth / 2.0f;
+        midScreenY = screenHeight / 2.0f;
+        DebugMsg("Screen resolution = " + screenWidth.ToString() + " (" + midScreenX.ToString() + ") X " + screenHeight.ToString() + " (" + midScreenY.ToString() + ")");
+    }
+
+	void Update ()
+    {
 	}
   
     void FixedUpdate()
@@ -71,11 +87,24 @@ public class HelicopterController : MonoBehaviour
             IsOnGround = true;
             EngineForce -= 1.2f;
             if (EngineForce < 0) EngineForce = 0;
+            headlight_rot.localRotation = Quaternion.identity;
             return;
         }
+
         LiftProcess();
         MoveProcess();
         TiltProcess();
+        HeadlightMovement();
+    }
+
+    private void HeadlightMovement()
+    {
+        // Headlight movement from mouse
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        headlight_rot.LookAt(ray.GetPoint(100) + (Vector3.up * 20), headlight_rot.parent.transform.up);
+        dot = Vector3.Dot(headlight_rot.forward, headlight_rot.parent.forward);
+        DebugMsg("dot = " + dot.ToString("0.0000"));
+        headlight_rot.rotation = Quaternion.Slerp(headlight_rot.rotation, headlight_rot.parent.rotation, (Mathf.Abs(Mathf.Clamp(dot, -0.8f, -0.5f)) * 3.3333f) - 1.6666f);
     }
 
     private void MoveProcess()
