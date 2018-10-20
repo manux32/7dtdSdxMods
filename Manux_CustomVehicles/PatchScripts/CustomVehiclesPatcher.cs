@@ -23,9 +23,9 @@ class CustomVehiclesPatcher : IPatcherMod
         SetMethodToPublic(gameMethod);
         SetMethodToVirtual(gameMethod);
 
-        /*var gm = module.Types.First(d => d.Name == "ItemActionAttack");
-        var field = gm.Fields.First(d => d.Name == "ToolBonuses");
-        SetFieldToPublic(field);*/
+        gameClass = module.Types.First(d => d.Name == "EntityPlayerLocal");
+        gameMethod = gameClass.Methods.First(d => d.Name == "updateCameraPosition");
+        SetMethodToPublic(gameMethod);
 
         return true;
     }

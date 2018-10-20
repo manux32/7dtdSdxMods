@@ -2,7 +2,8 @@
 
 public class HelicopterController : MonoBehaviour
 {
-    public AudioSource HelicopterSound;
+    public Entity entityHelico;
+    public AudioSource HelicopterSound = null;
     public HelicoControlPanel ControlPanel;
     public Rigidbody HelicopterModel;
     public HeliRotorController MainRotorController;
@@ -28,15 +29,25 @@ public class HelicopterController : MonoBehaviour
     public bool hasDriver = false;
 
     public global::EntityPlayerLocal player;
+    public Transform playerSpine1Bone = null;
+    public Transform helicoEntityTransform;
+    public bool is3rdPersonView = true;
+    public Transform ThirdPcameraParent;
+    public Vector3 ThirdPcameraOffset;
+    public Vector3 newThirdPcameraOffset;
+    public Quaternion camTospine1Offset;
+    //public Vector3 FPcameraOffset;
+    public Vector3 ThirdPlayerOffsetPos;
+    public float lastCamToggle = -1;
     public Transform missileLauncher = null;
     public Transform gunLauncher = null;
     public Vector3 targetPos;
-    public float gunShootDelay = 0.1f;
+    public float gunShootDelay = 0.2f;
     public float lastGunShoot = -1;
-    public float missileShootDelay = 1f;
+    public float missileShootDelay = 1.2f;
     public float lastMissileShoot = -1;
 
-    static bool showDebugLog = true;
+    static bool showDebugLog = false;
 
     public static void DebugMsg(string msg)
     {
@@ -54,14 +65,17 @@ public class HelicopterController : MonoBehaviour
         {
             MainRotorController.RotarSpeed = value * 80;
             SubRotorController.RotarSpeed = value * 40;
-            if (value > 0)
+            //if (HelicopterSound != null)
             {
-                HelicopterSound.volume = 1;
-                HelicopterSound.pitch = Mathf.Clamp(value / 40, 0, 1.2f);
-            }
-            else
-            {
-                HelicopterSound.volume = 0;
+                if (!GameManager.Instance.IsPaused() && value > 0)
+                {
+                    HelicopterSound.volume = 1;
+                    HelicopterSound.pitch = Mathf.Clamp(value / 40, 0, 1.2f);
+                }
+                else
+                {
+                    HelicopterSound.volume = 0;
+                }
             }
             _engineForce = value;
         }
@@ -83,6 +97,7 @@ public class HelicopterController : MonoBehaviour
         midScreenX = screenWidth / 2.0f;
         midScreenY = screenHeight / 2.0f;
         DebugMsg("Screen resolution = " + screenWidth.ToString() + " (" + midScreenX.ToString() + ") X " + screenHeight.ToString() + " (" + midScreenY.ToString() + ")");
+        newThirdPcameraOffset = ThirdPcameraOffset;
     }
 
 	void Update ()
@@ -101,8 +116,46 @@ public class HelicopterController : MonoBehaviour
                 ShootProjectile(missileLauncher, "helicopterRocket", "Weapons/Ranged/M136/m136_fire", false);
                 lastMissileShoot = Time.time;
             }
+            // Zoom in-out
+            if (is3rdPersonView)
+            {
+                if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+                {
+                    newThirdPcameraOffset.z += 2.0f;
+                }
+                else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+                {
+                    newThirdPcameraOffset.z -= 2.0f;
+                }
+                if (newThirdPcameraOffset.z > -4f)
+                {
+                    //newThirdPcameraOffset.y = Mathf.Lerp(10f, 0, (Mathf.Abs(Mathf.Clamp(newThirdPcameraOffset.z, 0f, 2f)) * 0.5f));
+                    newThirdPcameraOffset.z = -4f;
+                }
+                else
+                {
+                    newThirdPcameraOffset.y = Mathf.Lerp(ThirdPcameraOffset.y, 4f, 1f - (Mathf.Abs(Mathf.Clamp(newThirdPcameraOffset.z, ThirdPcameraOffset.z, -4f)) * (1f / (ThirdPcameraOffset.z - 4f))));
+                }
+                player.vp_FPCamera.Position3rdPersonOffset = newThirdPcameraOffset;
+            }
         }
     }
+
+
+    public void LateUpdate()
+    {
+        if (hasDriver && !is3rdPersonView)
+        {
+            //Vector3 newPos = helicoEntityTransform.position + ThirdPlayerOffsetPos;
+            Vector3 newPos = playerSpine1Bone.position + ((playerSpine1Bone.forward) * 0.2f) + ((-playerSpine1Bone.right) * 0.6f);
+            //newPos.y += 1;
+            player.cameraTransform.position = newPos;
+            //player.cameraTransform.position = playerHeadBone.position;
+            //player.cameraTransform.rotation = helicoEntityTransform.rotation;
+            //player.cameraTransform.rotation = (player.cameraTransform.rotation * Quaternion.Inverse(playerSpine1Bone.rotation)) * (playerSpine1Bone.rotation * camTospine1Offset);
+        }
+    }
+
   
     void FixedUpdate()
     {
@@ -125,7 +178,8 @@ public class HelicopterController : MonoBehaviour
     {
         // Headlight movement from mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        targetPos = ray.GetPoint(100) + (Vector3.up * 20);
+        //targetPos = ray.GetPoint(100) + (Vector3.up * 20);
+        targetPos = ray.GetPoint(200f);
         headlight_rot.LookAt(targetPos, headlight_rot.parent.transform.up);
         dot = Vector3.Dot(headlight_rot.forward, headlight_rot.parent.forward);
         //DebugMsg("dot = " + dot.ToString("0.0000"));
@@ -154,6 +208,43 @@ public class HelicopterController : MonoBehaviour
         HelicopterModel.transform.localRotation = Quaternion.Euler(hTilt.y, HelicopterModel.transform.localEulerAngles.y, -hTilt.x);
     }
 
+    public void ToggleFirstAnd3rdPersonView(bool switchFirstPerson, bool bLerpPosition)
+    {
+        if (switchFirstPerson)
+        {
+            //player.SwitchModelView(global::EnumEntityModelView.FirstPerson);
+            //player.SetPosition(helicoEntityPos + ThirdPlayerOffsetPos);
+
+            //player.SetCameraAttachedToPlayer(false);
+            //player.vp_FPCamera.Position3rdPersonOffset = Vector3.zero;
+            is3rdPersonView = false;
+
+            ThirdPcameraParent = player.cameraTransform.parent;
+            //player.cameraTransform.parent = helicoEntityTransform;
+            player.cameraTransform.parent = null;
+            //Vector3 newPos = helicoEntityTransform.position + ThirdPlayerOffsetPos;
+            //newPos.y += 1;
+            player.cameraTransform.position = playerSpine1Bone.position;
+            //player.cameraTransform.rotation = helicoEntityTransform.rotation;
+            //camTospine1Offset = player.cameraTransform.rotation * Quaternion.Inverse(playerSpine1Bone.rotation);
+            camTospine1Offset = player.cameraTransform.rotation * Quaternion.Inverse(playerSpine1Bone.rotation);
+        }
+        else
+        {
+            //player.SwitchModelView(global::EnumEntityModelView.ThirdPerson);
+            //player.SetModelLayer(24, false);
+            //newThirdPcameraOffset = ThirdPcameraOffset;
+            //player.SetCameraAttachedToPlayer(true);
+            //player.vp_FPCamera.Position3rdPersonOffset = newThirdPcameraOffset;
+            player.cameraTransform.parent = ThirdPcameraParent;
+            player.cameraTransform.localPosition = Vector3.zero;
+            player.cameraTransform.localEulerAngles = Vector3.zero;
+            is3rdPersonView = true;
+        }
+        lastCamToggle = Time.time;
+        player.updateCameraPosition(bLerpPosition);
+    }
+
     public void ShootProjectile(Transform projectileLauncher, string ammoName, string soundPath, bool isGun)
     {
         ItemClass ammoItem = ItemClass.GetItemClass(ammoName, false);
@@ -177,8 +268,26 @@ public class HelicopterController : MonoBehaviour
         blockProjectileMoveScript.itemValueLauncher = global::ItemValue.None.Clone();
         blockProjectileMoveScript.itemActionProjectile = (global::ItemActionProjectile)((!(ammoItem.Actions[0] is global::ItemActionProjectile)) ? ammoItem.Actions[1] : ammoItem.Actions[0]);
         blockProjectileMoveScript.AttackerEntityId = 0;
-        Vector3 target = targetPos - projectileLauncher.position;
-        blockProjectileMoveScript.Fire(projectileLauncher.position, target, player, 0);
+
+        //Vector3 target = targetPos - projectileLauncher.position;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float rayOffset = Vector3.Distance(player.GetThirdPersonCameraTransform().position, projectileLauncher.position) + 2f;
+        Vector3 rayStart = ray.GetPoint(rayOffset);
+        RaycastHit hit;
+        if (Physics.Raycast(rayStart, ray.direction, out hit))
+        {
+            //Vector3 crossHairPos = ray.GetPoint(1000);// + (Vector3.up * 20);
+            //Vector3 targetScreenPos = player.playerCamera.WorldToScreenPoint(crossHairPos);     //targetPos
+            blockProjectileMoveScript.Fire(projectileLauncher.position, hit.point - projectileLauncher.position, player, 0);
+            //blockProjectileMoveScript.Fire(projectileLauncher.position, ray.direction, player, 0);
+        }
+        else
+        {
+            Vector3 rayEnd = ray.GetPoint(200f);
+            blockProjectileMoveScript.Fire(projectileLauncher.position, rayEnd - projectileLauncher.position, player, 0);
+        }
+        
+
 
         if (isGun)
         {
@@ -281,6 +390,21 @@ public class HelicopterController : MonoBehaviour
                         
                         var force = -(turnForcePercent - Mathf.Abs(hMove.y))*HelicopterModel.mass;
                         HelicopterModel.AddRelativeTorque(0f, force, 0);
+                    }
+                    break;
+                    case PressedKeyCode.ToggleFirstThirdPersonPressed:
+                    {
+                        if (Time.time - 1.0f > lastCamToggle)
+                        {
+                            if (is3rdPersonView)
+                            {
+                                ToggleFirstAnd3rdPersonView(true, true);
+                            }
+                            else
+                            {
+                                ToggleFirstAnd3rdPersonView(false, true);
+                            }
+                        }
                     }
                     break;
 

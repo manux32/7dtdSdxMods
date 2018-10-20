@@ -23,3 +23,6 @@ loaderHandlebars,items,Part,EnChanged,The Beast Handlebars
 loaderEngine,items,Part,EnChanged,The Beast Engine
 helicopter,items,Part,EnChanged,Helicopter
 helicopterChassis,items,Part,EnChanged,Helicopter Chassis
+helicopterBullet,items,Ammo,EnChanged,Helicopter Bullet
+helicopterRocket,items,Ammo,EnChanged,Helicopter Rocket
+helicopterEngine,items,Part,EnChanged,Helicopter Engine

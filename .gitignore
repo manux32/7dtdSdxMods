@@ -494,3 +494,5 @@ EmuFlyingBroom/Icons/EmuFlyingBroom.png
 EmuFlyingBroom/Config/EmuFlyingBroom.xml
 EntityClassMod/mod.xml
 EntityClassMod/PatchScripts/EntityClassMod.cs
+MinibikeOpenUI/mod.xml
+MinibikeOpenUI/PatchScripts/MinibikeOpenUI.cs

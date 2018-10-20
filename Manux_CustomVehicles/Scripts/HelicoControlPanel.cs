@@ -2,10 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum PressedKeyCode
+{
+    SpeedUpPressed,
+    SpeedDownPressed,
+    ForwardPressed,
+    BackPressed,
+    LeftPressed,
+    RightPressed,
+    TurnLeftPressed,
+    TurnRightPressed,
+    ToggleFirstThirdPersonPressed
+}
+
 public class HelicoControlPanel : MonoBehaviour {
     public AudioSource MusicSound;
 
     float lastAudioTrigger = -1;
+    bool isMusicOn;
 
     [SerializeField]
     KeyCode SpeedUp = KeyCode.LeftShift;
@@ -24,8 +39,11 @@ public class HelicoControlPanel : MonoBehaviour {
     [SerializeField]
     KeyCode TurnRight = KeyCode.RightArrow;
     [SerializeField]
-    KeyCode MusicOffOn = KeyCode.M;
+    KeyCode ToggleFirstThirdPerson = KeyCode.F5;
+    [SerializeField]
+    KeyCode MusicOffOn = KeyCode.Backspace;
 
+    public Entity entityHelico;
     public bool hasDriver = false;
 
     private KeyCode[] keyCodes;
@@ -41,7 +59,8 @@ public class HelicoControlPanel : MonoBehaviour {
                             Left,
                             Right,
                             TurnLeft,
-                            TurnRight
+                            TurnRight,
+                            ToggleFirstThirdPerson
                         };
     }
 
@@ -63,18 +82,26 @@ public class HelicoControlPanel : MonoBehaviour {
 	    if (KeyPressed != null)
 	        KeyPressed(pressedKeyCode.ToArray());
 
-        if (Input.GetKey(MusicOffOn) && Time.time - 2.0f > lastAudioTrigger)
+        if (Input.GetKey(MusicOffOn) && Time.time - 1.0f > lastAudioTrigger)
         {
-            if (MusicSound.isPlaying)
+            //if (entityHelico != null)
+            if(MusicSound != null)
             {
-                MusicSound.Stop();
-                lastAudioTrigger = Time.time;
-            }
-            else if (hasDriver)
-            {
-                MusicSound.volume = 1;
-                MusicSound.Play();
-                lastAudioTrigger = Time.time;
+                if (MusicSound.isPlaying)
+                {
+                    MusicSound.Stop();
+                    //Audio.Manager.Stop(entityHelico.entityId, "Ambient_Loops/helicopter_music");
+                    lastAudioTrigger = Time.time;
+                    isMusicOn = false;
+                }
+                else if (hasDriver)
+                {
+                    MusicSound.volume = 1;
+                    MusicSound.Play();
+                    //Audio.Manager.Play(entityHelico, "Ambient_Loops/helicopter_music");
+                    lastAudioTrigger = Time.time;
+                    isMusicOn = true;
+                }
             }
         }
 	}
