@@ -37,9 +37,9 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 |Custom Loader that destroys everything on its path|Custom Loader vehicle: a horde killer|The Beast now harvests what it destroys| Sneak peek of new destruction and underwater features |  
 
 ### Flying
-[![HelicoA](http://img.youtube.com/vi/25foBmCLDSE/0.jpg)](https://youtu.be/25foBmCLDSE "A little surprise to cheer your Monday up!") |
-|:---:|
-|A little surprise to cheer your Monday up!|  
+[![HelicoA](http://img.youtube.com/vi/25foBmCLDSE/0.jpg)](https://youtu.be/25foBmCLDSE "A little surprise to cheer your Monday up!") | [![HelicoB](http://img.youtube.com/vi/JhAJ4osfxDE/0.jpg)](https://youtu.be/JhAJ4osfxDE "Monday's surprise part 2") |
+|:---:|:---:|  
+|A little surprise to cheer your Monday up!|Monday's surprise part 2|  
 
 ## Installation  
 All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
