@@ -10,7 +10,7 @@ You can make all-terrain vehicles that can climb small and medium objects, and c
 
 **New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
 The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest directly to the vehicle storage.  
-And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! One day, it will shoot... :stuck_out_tongue_winking_eye:  
+And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles! :stuck_out_tongue_winking_eye:  
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
@@ -70,9 +70,11 @@ The Beast's bucket's height determines how high/low objects can be destroyed and
 - **D**: Turn/Tilt Right
 - **LeftArrow**: Rotate Left
 - **LeftArrow**: Rotate Right
-- **M**: Start/Stop Music  (same music as in the Helicopter Vid above)
-
-
+- **Backspace**: Start/Stop Music  (same music as in the Helicopter Vid above)
+- **Left Mouse Button**: Shoot bullets from gun
+- **Right Mouse Button**: Shoot missiles
+- **F5**: Toggle between 3rd person and 1st person view
+- **Mouse Scroll-Wheel**: Zoom in-out in 3rd person view
 
 ## Custom Vehicle C# classes  
 ### EntityCustomBike
@@ -259,7 +261,7 @@ A very talented visual artist that it also a 7d2d modder. He retextured some of 
 He retextured the following vehicles so far: 
 - Dust2Death's RoadHog
 - The Beast
-- Helicopter is on its way...
+- Helicopter
 
 ### Three8
 For adding underwater capabillities to all vehicles. He is a top notch modder doing stuff like a fully working Elevator.
