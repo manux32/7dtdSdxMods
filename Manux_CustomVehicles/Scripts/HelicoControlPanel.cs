@@ -43,7 +43,8 @@ public class HelicoControlPanel : MonoBehaviour {
     [SerializeField]
     KeyCode MusicOffOn = KeyCode.Backspace;
 
-    public Entity entityHelico;
+    public Entity entity;
+    EntityCustomHelicopter entityHelico;
     public bool hasDriver = false;
 
     private KeyCode[] keyCodes;
@@ -64,8 +65,9 @@ public class HelicoControlPanel : MonoBehaviour {
                         };
     }
 
-    void Start ()
+    public void Start ()
     {
+        entityHelico = entity as EntityCustomHelicopter;
         lastAudioTrigger = Time.time;
     }
 

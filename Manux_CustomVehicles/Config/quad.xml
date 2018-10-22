@@ -4,6 +4,7 @@
 			<!-- MANUX's Quad --> 
 			<item id="" name="quadChassis">
 				<property name="Extends" value="minibikeChassis"/>
+				<property name="IsVehicleCustomPart" value="true" />
 				<property name="Meshfile" value="#Quad?QuadChassisPrefab" />
 				<property class="Action1">
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
@@ -53,8 +54,9 @@
 				<property class="chassis">
 					<property name="required" value="true" />
 					<property name="class" value="Chassis" />
-					<property name="display_name" value="chassis" />
+					<property name="display_name" value="quadChassis" />
 					<property name="slot_type" value="chassis" />
+					<property name="custom_slot_type" value="quadChassis" />
 					<property name="mesh" value="chassis" />
 					<property name="transform" value="Origin" />
 					<property name="shocks_offset_min" value="chassis/minPos" />

@@ -2,7 +2,8 @@
 
 public class HelicopterController : MonoBehaviour
 {
-    public Entity entityHelico;
+    public Entity entity;
+    EntityCustomHelicopter entityHelico; 
     public AudioSource HelicopterSound = null;
     public HelicoControlPanel ControlPanel;
     public Rigidbody HelicopterModel;
@@ -77,19 +78,23 @@ public class HelicopterController : MonoBehaviour
                     HelicopterSound.volume = 0;
                 }
             }
+
             _engineForce = value;
         }
     }
 
-    private Vector2 hMove = Vector2.zero;
-    private Vector2 hTilt = Vector2.zero;
-    private float hTurn = 0f;
+    public Vector2 hMove = Vector2.zero;
+    public Vector2 hTilt = Vector2.zero;
+    public float hTurn = 0f;
+    public float upForce = 0f;
     public bool IsOnGround = true;
 
 
     // Use this for initialization
-    void Start ()
+    public void Start ()
 	{
+        entityHelico = entity as EntityCustomHelicopter;
+
         ControlPanel.KeyPressed += OnKeyPressed;
 
         screenWidth = UnityEngine.Screen.width;
@@ -113,7 +118,7 @@ public class HelicopterController : MonoBehaviour
             if (Input.GetMouseButton(1) && Time.time - missileShootDelay > lastMissileShoot)
             {
                 DebugMsg("Right-click");
-                ShootProjectile(missileLauncher, "helicopterRocket", "Weapons/Ranged/M136/m136_fire", false);
+                ShootProjectile(missileLauncher, "helicopterMissile", "Weapons/Ranged/M136/m136_fire", false);
                 lastMissileShoot = Time.time;
             }
             // Zoom in-out
@@ -159,7 +164,7 @@ public class HelicopterController : MonoBehaviour
   
     void FixedUpdate()
     {
-        if (!hasDriver)
+        if (!hasDriver || !entityHelico.HasFuel())
         {
             IsOnGround = true;
             EngineForce -= 1.2f;
@@ -196,7 +201,7 @@ public class HelicopterController : MonoBehaviour
 
     private void LiftProcess()
     {
-        var upForce = 1 - Mathf.Clamp(HelicopterModel.transform.position.y / EffectiveHeight, 0, 1);
+        upForce = 1 - Mathf.Clamp(HelicopterModel.transform.position.y / EffectiveHeight, 0, 1);
         upForce = Mathf.Lerp(0f, EngineForce, upForce) * HelicopterModel.mass;
         HelicopterModel.AddRelativeForce(Vector3.up * upForce);
     }
@@ -247,8 +252,14 @@ public class HelicopterController : MonoBehaviour
 
     public void ShootProjectile(Transform projectileLauncher, string ammoName, string soundPath, bool isGun)
     {
+        if (isGun && (!entityHelico.HasGun() || !entityHelico.HasGunAmmo()))
+            return;
+        if (!isGun && (!entityHelico.HasMissileLauncher() || !entityHelico.HasMissileLauncherAmmo()))
+            return;
+
         ItemClass ammoItem = ItemClass.GetItemClass(ammoName, false);
         ItemValue itemValue = ItemClass.GetItem(ammoItem.GetItemName(), false);
+        ItemStack itemStack = new ItemStack(itemValue, 1); ;
         Transform projectile = ammoItem.CloneModel(GameManager.Instance.World, itemValue, Vector3.zero, null, false, false);
 
         if (projectileLauncher != null)
@@ -286,8 +297,6 @@ public class HelicopterController : MonoBehaviour
             Vector3 rayEnd = ray.GetPoint(200f);
             blockProjectileMoveScript.Fire(projectileLauncher.position, rayEnd - projectileLauncher.position, player, 0);
         }
-        
-
 
         if (isGun)
         {
@@ -296,8 +305,11 @@ public class HelicopterController : MonoBehaviour
             global::ParticleEffect pe2 = new global::ParticleEffect("nozzlesmokeuzi", projectileLauncher.position, lightValue, new Color(1f, 1f, 1f, 0.3f), null, projectileLauncher, false);
             SpawnParticleEffect(pe, -1);
             SpawnParticleEffect(pe2, -1);
+            entityHelico.playerInventory.RemoveItem(itemStack);
             return;
         }
+
+        entityHelico.playerInventory.RemoveItem(itemStack);
 
         if (global::Steam.Network.IsServer)
         {
@@ -321,7 +333,7 @@ public class HelicopterController : MonoBehaviour
 
     private void OnKeyPressed(PressedKeyCode[] obj)
     {
-        if (!hasDriver)
+        if (!hasDriver || !entityHelico.HasFuel())
             return;
 
         float tempY = 0;

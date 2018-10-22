@@ -21,6 +21,7 @@
 		<import file="Config\theBeast.xml" />
 		<import file="Config\loaderSounds.xml" />
 		<import file="Config\helicopter.xml" />
+		<import file="Config\helicopterSounds.xml" />
     </config_mods>
 	
 	<dependencies>

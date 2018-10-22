@@ -4,6 +4,7 @@
 			<!-- MANUX's HellGoat Bike --> 
 			<item id="" name="hellGoatBikeChassis">
 				<property name="Extends" value="robustBikeChassis"/>
+				<property name="IsVehicleCustomPart" value="true" />
 				<property name="Meshfile" value="#HellGoatBike?HellGoatBikeChassisPrefab" />
 				<property class="Action1">
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
@@ -99,8 +100,9 @@
 				<property class="chassis">
 					<property name="required" value="true" />
 					<property name="class" value="Chassis" />
-					<property name="display_name" value="chassis" />
+					<property name="display_name" value="hellGoatBikeChassis" />
 					<property name="slot_type" value="chassis" />
+					<property name="custom_slot_type" value="hellGoatBikeChassis" />
 					<property name="mesh" value="chassis" />
 					<property name="transform" value="Origin" />
 					<property name="shocks_offset_min" value="chassis/minPos" />
@@ -110,8 +112,9 @@
 				<property class="handlebars">
 					<property name="required" value="true" />
 					<property name="class" value="Steering" />
-					<property name="display_name" value="steering" />
-					<property name="slot_type" value="proBikehandlebars" />
+					<property name="display_name" value="proBikeHandlebars" />
+					<property name="slot_type" value="handlebars" />
+					<property name="custom_slot_type" value="proBikeHandlebars" />
 					<property name="mesh" value="handlebar" />
 					<property name="transform" value="Origin/handlebar_joint" />
 					<property name="steer_rotate_min" value="Origin/handlebar_joint/rotateMin" />
@@ -135,8 +138,9 @@
 				<property class="wheel1">
 					<property name="required" value="true" />
 					<property name="class" value="Wheel" />
-					<property name="display_name" value="wheel" />
-					<property name="slot_type" value="proBikeWheels" />
+					<property name="display_name" value="proBikeWheels" />
+					<property name="slot_type" value="wheel" />
+					<property name="custom_slot_type" value="proBikeWheels" />
 					<property name="parent_part" value="chassis" />
 					<property name="mesh" value="back_wheel" />
 					<property name="transform" value="Origin/backWheelJoint" />
@@ -147,8 +151,9 @@
 				<property class="driver">
 					<property name="required" value="true" />
 					<property name="class" value="Seat" />
-					<property name="display_name" value="driverSeat" />
-					<property name="slot_type" value="proBikeSeat" />
+					<property name="display_name" value="proBikeSeat" />
+					<property name="slot_type" value="seat" />
+					<property name="custom_slot_type" value="proBikeSeat" />
 					<property name="mesh" value="seat" />
 					<property name="transform" value="seat" />
 					<property name="attachment_pose" value="0" />
@@ -169,8 +174,9 @@
 				<property class="engine">
 					<property name="required" value="true" />
 					<property name="class" value="Engine" />
-					<property name="display_name" value="engine" />
+					<property name="display_name" value="bigEngine" />
 					<property name="slot_type" value="engine" />
+					<property name="custom_slot_type" value="bigEngine" />
 					<property name="mesh" value="engine_small" />
 					<property name="transform" value="engine_small" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />

@@ -4,8 +4,8 @@
 			<!-- MANUX's The Beast (Loader) --> 
 			<item id="" name="loaderChassis">
 				<property name="Extends" value="minibikeChassis"/>
+				<property name="IsVehicleCustomPart" value="true" />
 				<property name="Meshfile" value="#TheBeast?TheBeastChassisPrefab" />
-				<property name="VehicleSlotType" value="chassis"/>
 				<property name="EconomicValue" value="3000"/>
 				<property class="Action1">
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
@@ -22,8 +22,8 @@
 			</item>
 			<item id="" name="loaderHandlebars">
 				<property name="Extends" value="minibikeHandlebars"/>
+				<property name="IsVehicleCustomPart" value="true" />
 				<property name="DescriptionKey" value="loaderHandlebarsDesc"/>
-				<property name="VehicleSlotType" value="loaderHandlebars"/>
 				<property name="EconomicValue" value="2000"/>
 				<property class="Attributes">
 					<!--<property name="VehicleSteering" value="2,2"/>
@@ -40,9 +40,9 @@
 			</item>
 			<item id="" name="loaderEngine">
 				<property name="Extends" value="smallEngine"/>
+				<property name="IsVehicleCustomPart" value="true" />
 				<property name="DescriptionKey" value="loaderEngineDesc"/>
 				<property name="Weight" value="400"/>
-				<!--<property name="VehicleSlotType" value="loaderEngine"/>-->
 				<!--<property name="EconomicValue" value="1000"/>-->
 				<property name="EconomicValue" value="6000"/>
 				<property class="Attributes">
@@ -127,8 +127,9 @@
 				<property class="chassis">
 					<property name="required" value="true" />
 					<property name="class" value="Chassis" />
-					<property name="display_name" value="chassis" />
+					<property name="display_name" value="loaderChassis" />
 					<property name="slot_type" value="chassis" />
+					<property name="custom_slot_type" value="loaderChassis" />
 					<property name="mesh" value="chassis" />
 					<property name="transform" value="Origin" />
 					<property name="shocks_offset_min" value="chassis/minPos" />
@@ -138,8 +139,9 @@
 				<property class="handlebars">
 					<property name="required" value="true" />
 					<property name="class" value="Steering" />
-					<property name="display_name" value="steering" />
-					<property name="slot_type" value="loaderHandlebars" />
+					<property name="display_name" value="loaderHandlebars" />
+					<property name="slot_type" value="handlebars" />
+					<property name="custom_slot_type" value="loaderHandlebars" />
 					<property name="mesh" value="handlebar" />
 					<property name="transform" value="Origin/chassis_joint/joints_root/handlebar_root/handlebar_joint" />
 					<property name="steer_rotate_min" value="Origin/chassis_joint/joints_root/handlebar_root/rotateMin" />
@@ -197,9 +199,9 @@
 				<property class="engine">
 					<property name="required" value="true" />
 					<property name="class" value="Engine" />
-					<property name="display_name" value="engine" />
-					<!--<property name="slot_type" value="loaderEngine" />-->
+					<property name="display_name" value="loaderEngine" />
 					<property name="slot_type" value="engine" />
+					<property name="custom_slot_type" value="loaderEngine" />
 					<property name="mesh" value="engine_small" />
 					<property name="transform" value="engine_small" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />

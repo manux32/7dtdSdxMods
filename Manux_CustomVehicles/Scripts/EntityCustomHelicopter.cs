@@ -6,8 +6,10 @@ using UnityEngine;
 
 class EntityCustomHelicopter : EntityCustomBike
 {
-    global::EntityPlayerLocal player;
-    Animator playerAnimator = null;
+    public global::EntityPlayerLocal player;
+    public global::LocalPlayerUI uiforPlayer;
+    public global::XUiM_PlayerInventory playerInventory;
+    //Animator playerAnimator = null;
     Transform playerSpine1Bone = null;
     GameObject entityRoot = null;
     GameObject heliSimDummy = null;
@@ -29,6 +31,9 @@ class EntityCustomHelicopter : EntityCustomBike
     Transform headlight_rot2 = null;
     Transform missileLauncher2 = null;
     Transform gunLauncher2 = null;
+
+    public ItemValue item_missile = ItemClass.GetItem("helicopterMissile", false);
+    public ItemValue item_gunAmmo = ItemClass.GetItem("helicopterBullet", false);
 
     bool helicoSettingsDone;
 
@@ -260,8 +265,18 @@ class EntityCustomHelicopter : EntityCustomBike
         helicoCtrl.ThirdPcameraOffset = cameraOffset;
         helicoCtrl.ThirdPlayerOffsetPos = playerOffsetPos;
 
-        ctrlPanel.entityHelico = this;
-        helicoCtrl.entityHelico = this;
+        ctrlPanel.entity = this;
+        ctrlPanel.Start();
+        helicoCtrl.entity = this;
+        helicoCtrl.Start();
+    }
+
+    public void InitRefs()
+    {
+        player = this.AttachedEntities as global::EntityPlayerLocal;
+        helicoCtrl.player = player;
+        uiforPlayer = global::LocalPlayerUI.GetUIForPlayer(player);
+        playerInventory = uiforPlayer.xui.PlayerInventory;
     }
 
     public new void FixedUpdate()
@@ -274,14 +289,17 @@ class EntityCustomHelicopter : EntityCustomBike
                 return;
             }
 
+            /*if (helicoCtrl.hasDriver)
+            {
+                this.IncomingRemoteSimulationInput = SimInput;
+            }*/
             base.FixedUpdate();
 
             if ((this.AttachedEntities is global::EntityPlayerLocal))
             {
                 if (!helicoCtrl.hasDriver)
                 {
-                    player = this.AttachedEntities as global::EntityPlayerLocal;
-                    helicoCtrl.player = player;
+                    InitRefs();
 
                     this.AttachedEntities.m_characterController.detectCollisions = false;
                     this.AttachedEntities.m_characterController.enabled = false;
@@ -356,6 +374,8 @@ class EntityCustomHelicopter : EntityCustomBike
                     //Audio.Manager.Stop(this.entityId, "Vehicles/Minibike/helicopter_run_lp_");
                 }
             }
+
+            UpdateSimulation();
         }
         catch (System.Exception e)
         {
@@ -363,6 +383,54 @@ class EntityCustomHelicopter : EntityCustomBike
         }
     }
 
+
+    public global::VehicleSimulationInput SimInput;
+
+
+    public bool IsMoving()
+    {
+        if (rigidBody.velocity.x > 0.2f || rigidBody.velocity.y > 0.2f || rigidBody.velocity.z > 0.2f || rigidBody.angularVelocity.x > 0.2f || rigidBody.angularVelocity.y > 0.2f || rigidBody.angularVelocity.z > 0.2f)
+            return true;
+        return false;
+    }
+
+    public void UpdateSimulation()
+    {
+        //SimInput = new VehicleSimulationInput();
+        SimInput = default(VehicleSimulationInput);
+        SimInput.bHasData = true;
+
+        if (helicoCtrl.hasDriver)
+        {
+            SimInput.bOnGround = helicoCtrl.IsOnGround;
+            DebugMsg("IsOnGround = " + SimInput.bOnGround.ToString());
+            SimInput.velocity = rigidBody.velocity;
+            DebugMsg("RigidBody velocity: pos = " + rigidBody.velocity.ToString("0.0000") + " | rot = " + rigidBody.angularVelocity.ToString("0.0000"));
+            SimInput.bAccelerate = IsMoving();
+            DebugMsg("IsMoving = " + SimInput.bAccelerate.ToString());
+            SimInput.steering = rigidBody.angularVelocity.y;
+            DebugMsg("SimInput.steering = " + SimInput.steering.ToString("0.0000"));
+            //this.vehicle.UpdateSimulation(SimInput);
+        }
+        else
+        {
+            SimInput.bOnGround = true;
+            SimInput.velocity = Vector3.zero;
+            SimInput.bAccelerate = false;
+            this.vehicle.UpdateSimulation(SimInput);
+        }
+    }
+
+    public new void ReadNetData(BinaryReader _br)
+    {
+        base.ReadNetData(_br);
+
+        //this.IncomingRemoteSimulationInput.bHasData = true;
+        this.IncomingRemoteSimulationInput.bAccelerate = SimInput.bAccelerate;
+        this.IncomingRemoteSimulationInput.bOnGround = SimInput.bOnGround;
+        this.IncomingRemoteSimulationInput.steering = SimInput.steering;
+        this.IncomingRemoteSimulationInput.velocity = SimInput.velocity;
+    }
 
     public void OnGUI()
     {
@@ -373,7 +441,7 @@ class EntityCustomHelicopter : EntityCustomBike
     //public void OnGUI()
     public void DrawCrosshair()
     {
-        if (!(this.AttachedEntities is global::EntityPlayerLocal))
+        if (!(this.AttachedEntities is global::EntityPlayerLocal) || !(HasGun() || HasMissileLauncher()))
             return;
         //if (!Event.current.type.Equals(EventType.Repaint) || player.movementInput.bAltCameraMove)
         if (!Event.current.type.Equals(EventType.Repaint))
@@ -418,6 +486,34 @@ class EntityCustomHelicopter : EntityCustomBike
     {
         Destroy(heliSimDummy);
         base.OnEntityUnload();
+    }
+
+    public bool HasGun()
+    {
+        return this.vehicle.GetPartItemValueByTag("battery").type != 0;
+    }
+
+    public bool HasGunAmmo()
+    {
+        ItemStack itemStack = new ItemStack(item_gunAmmo, 1);
+        return playerInventory.HasItem(itemStack);
+    }
+
+    public bool HasMissileLauncher()
+    {
+        return vehicle.GetPartItemValueByTag("storage").type != 0;
+    }
+
+    public bool HasMissileLauncherAmmo()
+    {
+        ItemStack itemStack = new ItemStack(item_missile, 1);
+        return playerInventory.HasItem(itemStack);
+    }
+
+    public bool HasFuel()
+    {
+        DebugMsg("HasFuel = " + this.vehicle.GetFuelNrm().ToString("0.0000"));
+        return this.vehicle.GetFuelNrm() > 0f;
     }
 }
 

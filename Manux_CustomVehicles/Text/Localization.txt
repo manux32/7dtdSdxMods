@@ -23,6 +23,10 @@ loaderHandlebars,items,Part,EnChanged,The Beast Handlebars
 loaderEngine,items,Part,EnChanged,The Beast Engine
 helicopter,items,Part,EnChanged,Helicopter
 helicopterChassis,items,Part,EnChanged,Helicopter Chassis
-helicopterBullet,items,Ammo,EnChanged,Helicopter Bullet
-helicopterRocket,items,Ammo,EnChanged,Helicopter Rocket
+helicopterBullet,items,Ammo,EnChanged,Helicopter Missile
+helicopterMissile,items,Ammo,EnChanged,Helicopter Rocket
 helicopterEngine,items,Part,EnChanged,Helicopter Engine
+helicopterMissileLauncher,items,Part,EnChanged,Helicopter Missile Launcher
+helicopterMissileLauncherDesc,items,Part,EnChanged,Add this Missile Launcher to an Helicopter to be able to fire Missiles while flying.
+helicopterGun,items,Part,EnChanged,Helicopter Gun
+helicopterGunDesc,items,Part,EnChanged,Add this Gun to an Helicopter to be able to fire the gun while flying.

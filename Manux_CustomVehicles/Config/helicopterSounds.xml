@@ -1,0 +1,36 @@
+<configs>
+	<config name="sounds">	
+		<append xpath="/Sounds">
+			<!--MANUX Helicopter Sounds --> 
+			<SoundDataNode name="helicopter_run_lp_">
+				<AudioSource name="Sounds/AudioSource_Vehicle" />
+				<AudioClip ClipName="#HelicopterSounds?HelicopterRotor" Loop="true" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="0.01" />
+			</SoundDataNode>
+			<SoundDataNode name="helicopter_music">
+				<AudioSource name="Sounds/AudioSource_Amb_Med" />
+				<AudioClip ClipName="#HelicopterSounds?RideOffTheValkyries" Loop="true" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="0.01" />
+			</SoundDataNode>
+			
+			<!--<SoundDataNode name="helicopter_run_lp_">
+				<Noise ID="4" range="25" volume="20" time="2" heat_map_strength="0.2" heat_map_time="90"/>
+				<AudioSource name="Sounds/AudioSource_Vehicle"/>
+				<AudioClip ClipName="#HelicopterSounds?HelicopterRotor" Loop="true"/>
+				<LocalCrouchVolumeScale name="1"/>
+				<CrouchNoiseScale name="1"/>
+				<NoiseScale name="1"/>
+				<MaxVoices name="3"/>
+				<MaxRepeatRate name="0.01"/>
+			</SoundDataNode>-->
+		</append>
+	</config>
+</configs>
