@@ -208,17 +208,29 @@ The Loader currently supports additionnal XML properties to control the destruct
 But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
-You don't need this mod to make your own custom parts for vehicles, it can all be done through xml.  
-But I have examples in here of custom parts for all the slot types of a vehicle.  
+You don't need this mod to make your own custom parts for vehicles, it can be done through xml.  
+But if you do that and rename vehicle parts slots, you will end up with many different bugs. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues.  
+
+But in the latest version of this mod I patched TFP's code, and added a new way of defining custom vehicle parts that fully work. This means that you can now make custom parts for all you vehicles, insurring that users can only use the parts meant for each vehicle. The custom parts can also change things like how fast your vehicle goes (engine), how robust it is, etc...
+
+All the vehicle's custom parts in this mod now use this new system. Check the xmls to see examples.  
 Each vehicle always has a custom chassis item for items.xml, to be able to spawn that specific type of vehicle.  
 I made the icons show the whole vehicle so you know what you are spawning:  
 
 | ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|  
 
-### Note
-Sadly, renaming the types of parts in ***VehicleSlotType*** currently has issues. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues. I'll check if I can do something about that, but in the meantime just keep the vehicle slots the same name as the default ones on the MiniBike. You can still make custom parts with changes to their properties (faster, more robust, etc...).  
-**IMPORTANT**: Because of that issue, you should always create vehicles from parts instead of spawning them with the Spawn Entities window, otherwise you can end-up with parts that are not meant for the vehicle, and therefore have problems.  
+### How to define custom parts
+- Always keep the regular vehicle slot names identical to the minibike (***slot_type*** on vehicle parts and ***VehicleSlotType*** on part items).
+- Add a new xml property on a vehicle part to make it a custom part and set it's value to the name of the custom item.
+_Example:_
+```XML
+<property name="custom_slot_type" value="helicopterMissileLauncher" />
+```  
+- Also add this new property to the part item. This will prevent using that part in regular vehicle slots.  
+```XML
+<property name="IsVehicleCustomPart" value="true" />
+```  
 
 ### Professional High-Powered Bike Parts
 Professional High-Powered versions of the minibike parts, in order to build High-Powered Bikes or other Vehicles.  
@@ -246,6 +258,17 @@ I did not yet add any recipes to craft these items, grab them from the creative 
 I did this one to be able to have the Loader steering wheel turn much slower than Bikes.  
 #### ![loaderEngine](Icons/loaderEngine.png) Loader engine
 I did this one mainly to control the speed at which the loader moves, the gas consumption, the size of the gas tank, but also for things like the DegradationMax and VehicleNoise.  
+
+### Helicopter parts
+#### ![heliEngine](Icons/helicopterEngine.png) Helicopter Engine
+I mainly made this to be able to control gas consumption. But it also makes a lot of sense to have a special engine for an helicopter.
+#### ![heliMissileLauncher](Icons/helicopterMissileLauncher.png) Helicopter Missile Launcher
+This part replaces the regular basket. It is needed to be able to fire missiles.  
+The Helicopter has a built-in storage, it is always present, no vehicle part is needed.  
+You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMissile.png) **Helicopter Missiles**  
+#### ![heliGun](Icons/helicopterGun.png) Helicopter Gun
+This part replaces the regular wheels. It is needed to be able to fire gun ammo.  
+You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet** 
 
 ## Special Thanks
 
