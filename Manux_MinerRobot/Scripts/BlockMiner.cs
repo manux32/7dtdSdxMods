@@ -4,7 +4,7 @@ using UnityEngine;
 //public class BlockMiner : BlockPowered
 public class BlockMiner : BlockWorkstation
 {
-	static bool showDebugLog = true;
+	static bool showDebugLog = false;
     private string soundStart;
     private string soundRepeat;
     private string soundEnd;
