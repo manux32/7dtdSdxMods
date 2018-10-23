@@ -18,10 +18,7 @@ I will eventually try to make tutorials or youtube vids to help you build your o
 
 I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad and Loader are more complex on the rigging side.  
 I can provide Unity template scenes for each vehicle, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
-
-The mod can be SDX compiled for dedicated servers, the code is functionnal for multiplayer.
-Some of the vehicles may still be a bit heavy performance wise, depending on your machine's performance. I reduced the polycount and texture size of all assets, but it may still require more reduction, if this becomes a thing, and people want tons of vehicles in multiplayer games. We will then potentially need to start optimizing vehicles a lot more...  
-
+ 
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
 
@@ -51,6 +48,9 @@ Because this mod is currently under construction, you should always delete the o
 This mod has dependencies on [**Hal's DLL Fixes**](https://github.com/7D2DSDX/Mods/tree/master/HalDllUpdates) mod.  
 Make sure you also deploy that mod for this one to work.  
 The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.   
+
+## Multiplayer
+The mod has not been fully tested for multiplayer yet, so I don't know if everything works properly. I hope to be able to test this soon...
 
 ## Vehicle Controls
 All Vehicles use the regular Keyboard Controls of the MiniBike. But some of them have additional Controls:
