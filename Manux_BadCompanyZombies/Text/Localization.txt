@@ -1,1 +1,43 @@
 Key,Source,Context,Changes,English
+banditLeaderCorpse,blocks,Block,EnChanged,Bandit Leader corpse
+banditLeaderRocketLauncherCorpse,blocks,Block,EnChanged,Bandit Leader Rocket Launcher corpse
+banditPistolCorpse,blocks,Block,EnChanged,Bandit Pistol corpse
+bandit44MagnumCorpse,blocks,Block,EnChanged,Bandit 44Magnum corpse
+banditSawedOffPumpShotgunCorpse,blocks,Block,EnChanged,Bandit Sawed Off Shotgun corpse
+banditPumpShotgunCorpse,blocks,Block,EnChanged,Bandit Shotgun corpse
+banditMP5Corpse,blocks,Block,EnChanged,Bandit MP5 corpse
+banditAK47Corpse,blocks,Block,EnChanged,Bandit AK47 corpse
+banditHuntingRifleCorpse,blocks,Block,EnChanged,Bandit Hunting Rifle corpse
+banditSniperRifleCorpse,blocks,Block,EnChanged,Bandit Sniper corpse
+banditRocketLauncherCorpse,blocks,Block,EnChanged,Bandit Rocket Launcher corpse
+banditSledgeCorpse,blocks,Block,EnChanged,Bandit SledgeHammer corpse
+banditMacheteCorpse,blocks,Block,EnChanged,Bandit Machete corpse
+banditFireaxeCorpse,blocks,Block,EnChanged,Bandit Fire Axe corpse
+banditSpikedClubCorpse,blocks,Block,EnChanged,Bandit Spiked Club corpse
+banditHuntingKnifeCorpse,blocks,Block,EnChanged,Bandit Hunting Knife corpse
+banditChainsawCorpse,blocks,Block,EnChanged,Bandit Chainsaw corpse
+survivorLeaderCorpse,blocks,Block,EnChanged,Survivor Leader corpse
+survivorLeaderRocketLauncherCorpse,blocks,Block,EnChanged,Survivor Leader Rocket Launcher corpse
+survivorPistolCorpse,blocks,Block,EnChanged,Survivor Pistol corpse
+survivor44MagnumCorpse,blocks,Block,EnChanged,Survivor 44Magnum corpse
+survivorSawedOffPumpShotgunCorpse,blocks,Block,EnChanged,Survivor Sawed Off Shotgun corpse
+survivorPumpShotgunCorpse,blocks,Block,EnChanged,Survivor Shotgun corpse
+survivorMP5Corpse,blocks,Block,EnChanged,Survivor MP5 corpse
+survivorAK47Corpse,blocks,Block,EnChanged,Survivor AK47 corpse
+survivorHuntingRifleCorpse,blocks,Block,EnChanged,Survivor Hunting Rifle corpse
+survivorSniperRifleCorpse,blocks,Block,EnChanged,Survivor Sniper corpse
+survivorRocketLauncherCorpse,blocks,Block,EnChanged,Survivor Rocket Launcher corpse
+survivorSledgeCorpse,blocks,Block,EnChanged,Survivor SledgeHammer corpse
+survivorMacheteCorpse,blocks,Block,EnChanged,Survivor Machete corpse
+survivorFireaxeCorpse,blocks,Block,EnChanged,Survivor Fire Axe corpse
+survivorSpikedClubCorpse,blocks,Block,EnChanged,Survivor Spiked Club corpse
+survivorHuntingKnifeCorpse,blocks,Block,EnChanged,Survivor Hunting Knife corpse
+survivorChainsawCorpse,blocks,Block,EnChanged,Survivor Chainsaw corpse
+banditBruteSledgeCorpse,blocks,Block,EnChanged,Bandit Brute SledgeHammer corpse
+banditBruteFireaxeCorpse,blocks,Block,EnChanged,Bandit Brute Fire Axe corpse
+banditBruteSpikedClubCorpse,blocks,Block,EnChanged,Bandit Brute Spiked Club corpse
+banditBruteChainsawCorpse,blocks,Block,EnChanged,Bandit Brute Chainsaw corpse
+survivorBruteSledgeCorpse,blocks,Block,EnChanged,Survivor Brute SledgeHammer corpse
+survivorBruteFireaxeCorpse,blocks,Block,EnChanged,Survivor Brute Fire Axe corpse
+survivorBruteSpikedClubCorpse,blocks,Block,EnChanged,Survivor Brute Spiked Club corpse
+survivorBruteChainsawCorpse,blocks,Block,EnChanged,Survivor Brute Chainsaw corpse
