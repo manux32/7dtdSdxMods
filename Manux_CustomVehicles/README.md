@@ -269,14 +269,14 @@ I did this one to be able to have the Loader steering wheel turn much slower tha
 I did this one mainly to control the speed at which the loader moves, the gas consumption, the size of the gas tank, but also for things like the DegradationMax and VehicleNoise.  
 
 ### Helicopter parts
+The Helicopter has a built-in storage, it is always present, no vehicle part is needed. Same goes for the Cicada Car.  
 #### ![heliEngine](Icons/helicopterEngine.png) Helicopter Engine
 I mainly made this to be able to control gas consumption. But it also makes a lot of sense to have a special engine for an helicopter.
 #### ![heliMissileLauncher](Icons/helicopterMissileLauncher.png) Helicopter Missile Launcher
-This part replaces the regular basket. It is needed to be able to fire missiles.  
-The Helicopter has a built-in storage, it is always present, no vehicle part is needed.  
+This part is needed to be able to fire missiles.  
 You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMissile.png) **Helicopter Missiles**  
 #### ![heliGun](Icons/helicopterGun.png) Helicopter Gun
-This part replaces the regular wheels. It is needed to be able to fire gun ammo.  
+This part is needed to be able to fire gun ammo.  
 You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet** 
 
 ## Special Thanks
