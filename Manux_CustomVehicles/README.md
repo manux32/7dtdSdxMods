@@ -220,6 +220,15 @@ I made the icons show the whole vehicle so you know what you are spawning:
 | ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
 |:---:|:---:|:---:|:---:|:---:|:---:|  
 
+### 2 New weapon parts slots
+In the last version I added 2 new parts slots to be able to have 2 weapons per vehicle: a machine gun and an explosive launcher.  
+You can make your own custom vehicle parts to populate those new slots, or you can use the ones I already made. See those 2 new files: **vehicleWeapons.xml** and **vehicleAmmo.xml**.
+
+#### Examples of vehicle UIs with those 2 new slots:
+| ![male](https://manux32.github.io/7dtd_miscImages/RoadHog_partsSlots.jpg) | ![female](https://manux32.github.io/7dtd_miscImages/Helicopter_partsSlots.jpg) |  
+|:---:|:---:|  
+| Dust2Death's RoadHog | Helicopter |  
+
 ### How to define custom parts
 - Always keep the regular vehicle slot names identical to the minibike (***slot_type*** on vehicle parts and ***VehicleSlotType*** on part items).
 - Add a new xml property on a vehicle part to make it a custom part and set it's value to the name of the custom item.
