@@ -23,6 +23,15 @@ class CustomVehiclesPatcher : IPatcherMod
         SetMethodToPublic(gameMethod);
         SetMethodToVirtual(gameMethod);
 
+        /*var field = gameClass.Fields.First(d => d.Name == "vehicle");
+        SetFieldToPublic(field);
+
+        field = gameClass.Fields.First(d => d.FieldType.Name == "CharacterController");
+        SetFieldToPublic(field);*/
+
+        gameMethod = gameClass.Methods.First(d => d.Name == "setupEntitySlotInfo");
+        SetMethodToPublic(gameMethod);
+
         gameClass = module.Types.First(d => d.Name == "EntityPlayerLocal");
         gameMethod = gameClass.Methods.First(d => d.Name == "updateCameraPosition");
         SetMethodToPublic(gameMethod);
@@ -66,10 +75,10 @@ class CustomVehiclesPatcher : IPatcherMod
         SetMethodToPublic(gameMethod);
 
         // Add a new field to XUiC_VehiclePartStack for emptying/not emptying the basket when it is remove
-        FieldDefinition bEmptyBasketOnRemoveField = new FieldDefinition("bEmptyBasketOnRemove", FieldAttributes.Public, module.Import(typeof(bool)));
+        /*FieldDefinition bEmptyBasketOnRemoveField = new FieldDefinition("bEmptyBasketOnRemove", FieldAttributes.Public, module.Import(typeof(bool)));
         SetFieldToPublic(bEmptyBasketOnRemoveField);
         gameClass.Fields.Add(bEmptyBasketOnRemoveField);
-        bEmptyBasketOnRemoveField.Constant = true;
+        bEmptyBasketOnRemoveField.Constant = true;*/
 
         // Add a new field to ItemClass for storing IsVehicleCustomPart
         gameClass = module.Types.First(d => d.Name == "ItemClass");
@@ -77,6 +86,21 @@ class CustomVehiclesPatcher : IPatcherMod
         SetFieldToPublic(isVehicleCustomPartField);
         gameClass.Fields.Add(isVehicleCustomPartField);
         isVehicleCustomPartField.Constant = false;
+
+        gameClass = module.Types.First(d => d.Name == "XUiController");
+        field = gameClass.Fields.First(d => d.Name == "viewComponent");
+        SetFieldToPublic(field);
+
+        gameClass = module.Types.First(d => d.Name == "XUiC_ItemStackGrid");
+        field = gameClass.Fields.First(d => d.Name == "items");
+        SetFieldToPublic(field);
+        field = gameClass.Fields.First(d => d.Name == "itemControllers");
+        SetFieldToPublic(field);
+
+        /*gameClass = module.Types.First(d => d.Name == "XUiC_VehicleWindowGroup");
+        field = gameClass.Fields.First(d => d.Name == "ID");
+        field.IsStatic = false;*/
+
         return true;
     }
 
@@ -177,7 +201,29 @@ class CustomVehiclesPatcher : IPatcherMod
         instructions.Add(Instruction.Create(OpCodes.Call, myMethod));
         instructions.Add(Instruction.Create(OpCodes.Ret));
 
-        // Modify XUiC_VehiclePartStackGrid.HandleSlotChangedEvent()
+        /*// Modify XUiC_VehiclePartStackGrid.RefreshParts()
+        gameMethod = gameClass.Methods.First(d => d.Name == "RefreshParts");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "RefreshParts"));
+
+        instructions = gameMethod.Body.Instructions;
+        instructions.Clear();
+
+        instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        instructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        instructions.Add(Instruction.Create(OpCodes.Ret));
+
+        // Add custom function call at the end of XUiC_VehiclePartStackGrid.OnOpen()
+        gameMethod = gameClass.Methods.First(d => d.Name == "OnOpen");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnOpen_addition"));
+
+        instructions = gameMethod.Body.Instructions;
+        var last = instructions.Last();
+        pro = gameMethod.Body.GetILProcessor();
+
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Ldarg_0));
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Call, myMethod));*/
+
+        /*// Modify XUiC_VehiclePartStackGrid.HandleSlotChangedEvent()
         gameMethod = gameClass.Methods.First(d => d.Name == "HandleSlotChangedEvent");
         myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "HandleSlotChangedEvent"));
 
@@ -188,7 +234,7 @@ class CustomVehiclesPatcher : IPatcherMod
         instructions.Add(Instruction.Create(OpCodes.Ldarg_1));
         instructions.Add(Instruction.Create(OpCodes.Ldarg_2));
         instructions.Add(Instruction.Create(OpCodes.Call, myMethod));
-        instructions.Add(Instruction.Create(OpCodes.Ret));
+        instructions.Add(Instruction.Create(OpCodes.Ret));*/
 
         // Modify XUiC_BasePartStack.GetPartName()
         gameClass = gameModule.Types.First(d => d.Name == "XUiC_BasePartStack");
@@ -216,6 +262,18 @@ class CustomVehiclesPatcher : IPatcherMod
         pro.InsertBefore(last, Instruction.Create(OpCodes.Ldarg_0));
         pro.InsertBefore(last, Instruction.Create(OpCodes.Call, myMethod));
 
+        // Modify EntityVehicle.Init()
+        /*gameMethod = gameClass.Methods.First(d => d.Name == "Init");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "Init"));
+
+        instructions = gameMethod.Body.Instructions;
+        instructions.Clear();
+
+        instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        instructions.Add(Instruction.Create(OpCodes.Ldarg_1));
+        instructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        instructions.Add(Instruction.Create(OpCodes.Ret));*/
+
         // Add custom function call at the end of ItemClass.Init()
         gameClass = gameModule.Types.First(d => d.Name == "ItemClass");
         gameMethod = gameClass.Methods.First(d => d.Name == "Init");
@@ -228,6 +286,20 @@ class CustomVehiclesPatcher : IPatcherMod
 
         pro.InsertBefore(last, Instruction.Create(OpCodes.Ldarg_0));
         pro.InsertBefore(last, Instruction.Create(OpCodes.Call, myMethod));
+
+        // Modify XUiC_VehicleContainer.SetSlots()
+        /*gameClass = gameModule.Types.First(d => d.Name == "XUiC_VehicleContainer");
+        gameMethod = gameClass.Methods.First(d => d.Name == "SetSlots");
+        myClass = modModule.Types.First(d => d.Name == "XUiC_VehicleContainer_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "SetSlots"));
+
+        instructions = gameMethod.Body.Instructions;
+        instructions.Clear();
+
+        instructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        instructions.Add(Instruction.Create(OpCodes.Ldarg_1));
+        instructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        instructions.Add(Instruction.Create(OpCodes.Ret));*/
     }
 
     private void SetAccessLevels(ModuleDefinition module)

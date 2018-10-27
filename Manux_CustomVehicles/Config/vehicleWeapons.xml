@@ -1,0 +1,96 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<item id="" name="vehicle50calGun">
+				<property name="DescriptionKey" value="vehicle50calGunDesc" />
+				<property name="VehicleSlotType" value="vehicleGun" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="AmmoType" value="50calVehicleBullet" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="45" />
+				<property name="EconomicValue" value="4000" />
+				<property class="Attributes">
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property name="Group" value="Resources,Ammo/Weapons" />
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+			</item>
+			<item id="" name="vehicleGrenadeLauncher">
+				<property name="DescriptionKey" value="vehicleGrenadeLauncherDesc" />
+				<property name="VehicleSlotType" value="vehicleExplosiveLauncher" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="AmmoType" value="vehicleGrenade" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="45" />
+				<property name="EconomicValue" value="6000" />
+				<property class="Attributes">
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property name="Group" value="Resources,Ammo/Weapons" />
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+			</item>
+			<item id="" name="helicopterGun">
+				<property name="DescriptionKey" value="helicopterGunDesc" />
+				<property name="VehicleSlotType" value="vehicleGun" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="AmmoType" value="helicopterBullet" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="45" />
+				<property name="Weight" value="100" />
+				<property name="DegradationBreaksAfter" value="false" />
+				<property name="EconomicValue" value="6000" />
+				<property class="Attributes">
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property name="Group" value="Ammo/Weapons" />
+				<property name="ActionSkillGroup" value="Rifles" />
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+			</item>
+			<item id="" name="helicopterMissileLauncher">
+				<property name="DescriptionKey" value="helicopterMissileLauncherDesc" />
+				<property name="VehicleSlotType" value="vehicleExplosiveLauncher" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="AmmoType" value="helicopterMissile" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="45" />
+				<property name="Weight" value="100" />
+				<property name="EconomicValue" value="8000" />
+				<property class="Attributes">
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property name="Group" value="Ammo/Weapons" />
+				<property name="ActionSkillGroup" value="Rifles" />
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+			</item>
+			<item id="" name="tankCannon">
+				<property name="DescriptionKey" value="tankCannonDesc" />
+				<property name="VehicleSlotType" value="vehicleExplosiveLauncher" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="AmmoType" value="tankShell" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="45" />
+				<property name="EconomicValue" value="8000" />
+				<property class="Attributes">
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property name="Group" value="Resources,Ammo/Weapons" />
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+			</item>
+		</append>
+	</config>
+</configs>

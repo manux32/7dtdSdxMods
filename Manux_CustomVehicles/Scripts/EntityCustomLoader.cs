@@ -29,9 +29,6 @@ class EntityCustomLoader : EntityCustomBike
 
     Vector3i lastHitBlockPos;
 
-    bool allBonesSet1Found;
-    bool allBonesSet2Found;
-
     public float vehicleDurabilityMax;
     public float vehicleDurabilityPercent;
 
@@ -59,12 +56,6 @@ class EntityCustomLoader : EntityCustomBike
     float debugBlocksPrintDelay = 10.0f;
     float lastDebugBlocksPrint = -1;
 
-    global::EntityPlayerLocal player;
-    global::LocalPlayerUI uiforPlayer;
-    global::XUiM_PlayerInventory playerInventory;
-    global::XUiC_VehicleContainer xuiC_VehicleContainer;
-    public bool isPlayerOnVehicle;
-
     //CustomLoaderControl clc = null;
 
     static bool showDebugLog = false;
@@ -80,7 +71,19 @@ class EntityCustomLoader : EntityCustomBike
     public override void Init(int _entityClass)
     {
         base.Init(_entityClass);
-        EntityClass entityClass = EntityClass.list[_entityClass];
+
+        AudioSource[] audioSources = this.GetComponentsInChildren<AudioSource>();
+        if (audioSources.Length > 0)
+        {
+            audioSource = audioSources[0];
+        }
+    }
+
+    public override void CopyPropertiesFromEntityClass()
+    {
+        base.CopyPropertiesFromEntityClass();
+
+        EntityClass entityClass = EntityClass.list[this.entityClass];
         /*if (entityClass.Properties.Values.ContainsKey("Sound_loader_moving_loop"))
             this.loaderSound = entityClass.Properties.Values["Sound_loader_moving_loop"];*/
 
@@ -166,22 +169,17 @@ class EntityCustomLoader : EntityCustomBike
                 harvestToVehicleInventory = harvestToVehicleInv;
             }
         }
-
-        AudioSource[] audioSources = this.GetComponentsInChildren<AudioSource>();
-        if (audioSources.Length > 0)
-        {
-            audioSource = audioSources[0];
-        }
     }
 
     protected override void Start()
     {
         base.Start();
+        GetVehicleBones();
+    }
 
-        if (this.AttachedEntities is global::EntityPlayerLocal)
-        {
-            InitRefs();
-        }
+    public override void GetVehicleBones()
+    {
+        base.GetVehicleBones();
 
         List<Transform> childrenList = new List<Transform>();
         List<int> childrenInstanceIds = new List<int>();
@@ -245,12 +243,17 @@ class EntityCustomLoader : EntityCustomBike
 
         if (handlebar_joint == null || chassis_joint == null || loader_joint == null || bucket_joint == null)
         {
+            if (allBonesSet1Found)
+                allBonesSet1Found = false;
             Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Car will not be fully functionnal.");
         }
         else
         {
-            allBonesSet1Found = true;
-            DebugMsg(this.ToString() + " : All bones set 1 found.");
+            if (allBonesSet1Found)
+            {
+                allBonesSet1Found = true;
+                DebugMsg(this.ToString() + " : All bones set 1 found.");
+            }
 
             lastLoaderRot = loader_joint.localRotation.eulerAngles;
             if (lastLoaderRot.x > 180)
@@ -261,12 +264,17 @@ class EntityCustomLoader : EntityCustomBike
 
         if (handlebar_joint2 == null || chassis_joint2 == null || loader_joint2 == null || bucket_joint2 == null)
         {
+            if (allBonesSet2Found)
+                allBonesSet2Found = false;
             DebugMsg(this.ToString() + " : Some bones could not be found for set 2. (this is harmless)");
         }
         else
         {
-            allBonesSet2Found = true;
-            DebugMsg(this.ToString() + " : All bones set 2 found.");
+            if (allBonesSet2Found)
+            {
+                allBonesSet2Found = true;
+                DebugMsg(this.ToString() + " : All bones set 2 found.");
+            }
 
             lastLoaderRot = loader_joint2.localRotation.eulerAngles;
             if (lastLoaderRot.x > 180)
@@ -276,7 +284,7 @@ class EntityCustomLoader : EntityCustomBike
         }
     }
 
-    public void AnimateExtraJoints(Transform Origin, Transform handlebar_joint, Transform loader_joint, Transform bucket_joint)
+    public void AnimateExtraBones(Transform Origin, Transform handlebar_joint, Transform loader_joint, Transform bucket_joint)
     {
         bool isMovingBucket = false;
         string dbgMsg = "";
@@ -420,21 +428,19 @@ class EntityCustomLoader : EntityCustomBike
         //int bucketFloor = (int)Mathf.Floor(bucket_joint.transform.position.y);
         //int currentBucketHeight = originRounded + Mathf.Max(originRounded, bucketFloor - originRounded);
 
-
-
-            // This creates weird binding errors when used
-            //DebugMsg(dbgMsg);
+        // This creates weird binding errors when used
+        //DebugMsg(dbgMsg);
     }
 
-    public void InitRefs()
-    {
-        player = this.AttachedEntities as global::EntityPlayerLocal;
-        uiforPlayer = global::LocalPlayerUI.GetUIForPlayer(global::GameManager.Instance.World.GetLocalPlayer() as global::EntityPlayerLocal);
-        playerInventory = uiforPlayer.xui.PlayerInventory;
-        global::GUIWindowManager windowManager = uiforPlayer.windowManager;
-        ((global::XUiC_VehicleWindowGroup)((global::XUiWindowGroup)windowManager.GetWindow("vehicle")).Controller).CurrentVehicleEntity = this;
-        xuiC_VehicleContainer = (global::XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(global::XUiC_VehicleWindowGroup.ID).GetChildByType<global::XUiC_VehicleContainer>();
 
+    public override void OnDriverOn()
+    {
+        base.OnDriverOn();
+        xuiC_VehicleContainer = GetVehicleContainer();
+    }
+
+    public void UpdateVehicleDestructionQuality()
+    {
         vehicleDurabilityMax = this.vehicle.GetVehicleMaxDurability();
         vehicleDurabilityPercent = this.vehicle.GetVehicleDurabilityPercentage();
 
@@ -445,8 +451,6 @@ class EntityCustomLoader : EntityCustomBike
         item_shovelSteel.Quality = loaderAsMiningToolQuality;
         item_clawHammer.Quality = loaderAsMiningToolQuality;
         item_wrench.Quality = loaderAsMiningToolQuality;
-
-        isPlayerOnVehicle = true;
     }
 
 
@@ -456,27 +460,28 @@ class EntityCustomLoader : EntityCustomBike
         {
             base.FixedUpdate();
 
-            if (!allBonesSet1Found || !(this.AttachedEntities is global::EntityPlayerLocal))
+            if (!allBonesSet1Found || !(this.AttachedEntities is EntityPlayerLocal))
             {
-                isPlayerOnVehicle = false;
+                hasDriver = false;
                 return;
             }
 
-            if (!isPlayerOnVehicle)
+            if (!hasDriver)
             {
-                InitRefs();
+                OnDriverOn();
             }
 
             // There is sometimes 2 versions of the car prefab in the game, we need to use the second one when it exists.
             if (allBonesSet2Found)
             {
-                AnimateExtraJoints(Origin2, handlebar_joint2, loader_joint2, bucket_joint2);
+                AnimateExtraBones(Origin2, handlebar_joint2, loader_joint2, bucket_joint2);
             }
             else
             {
-                AnimateExtraJoints(Origin, handlebar_joint, loader_joint, bucket_joint);
+                AnimateExtraBones(Origin, handlebar_joint, loader_joint, bucket_joint);
             }
 
+            UpdateVehicleDestructionQuality();
             FindAndKillSurroundingEntities();
         }
         catch (System.Exception e)
@@ -484,6 +489,7 @@ class EntityCustomLoader : EntityCustomBike
             Debug.LogError("An error occurred: " + e);
         }
     }
+
 
     public void FindAndKillSurroundingEntities()
     {
@@ -494,10 +500,10 @@ class EntityCustomLoader : EntityCustomBike
         RaycastHit raycastHit;
         if (Physics.CapsuleCast(this.position - b, this.position + b, this.destructionRadius, this.motion.normalized, out raycastHit, this.motion.magnitude, -1) && raycastHit.collider != null)
         {
-            global::RootTransformRefEntity component = raycastHit.collider.gameObject.GetComponent<global::RootTransformRefEntity>();
+            RootTransformRefEntity component = raycastHit.collider.gameObject.GetComponent<RootTransformRefEntity>();
             if (component)
             {
-                global::EntityAlive entityAlive = component.RootTransform.GetComponent<global::Entity>() as global::EntityAlive;
+                EntityAlive entityAlive = component.RootTransform.GetComponent<Entity>() as EntityAlive;
                 if (entityAlive != null && entityAlive != this.AttachedEntities && entityAlive.Spawned && !entityAlive.IsDead())
                 {
                     int damage = entityDamage;
@@ -506,7 +512,7 @@ class EntityCustomLoader : EntityCustomBike
                     {
                         damage = entityAlive.Health;
                     }
-                    entityAlive.DamageEntity(new global::DamageSource(global::EnumDamageSourceType.Bullet), damage, false, 3f);
+                    entityAlive.DamageEntity(new DamageSource(EnumDamageSourceType.Bullet), damage, false, 3f);
                     float vegDmg = ((((float)entityAlive.GetMaxHealth()) / 3000.0f) * 0.5f) * destroySolidsDegradPerHit;
                     //DamageVehicle(destroySolidsDegradPerHit * 0.7f);
                     DamageVehicle(vegDmg);
@@ -516,21 +522,21 @@ class EntityCustomLoader : EntityCustomBike
         }
     }
 
-    public override void OnCollidedWithBlock(global::WorldBase _world, int _clrIdx, global::Vector3i _blockPos, global::BlockValue _blockValue)
+    public override void OnCollidedWithBlock(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)
     {
         base.OnCollidedWithBlock(_world, _clrIdx, _blockPos, _blockValue);
-        if (!(this.AttachedEntities is global::EntityPlayerLocal))
+        if (!(this.AttachedEntities is EntityPlayerLocal))
             return;
 
-        if (!isPlayerOnVehicle)
+        if (!hasDriver)
         {
-            InitRefs();
+            OnDriverOn();
         }
 
         //if (hasDestructionRadius && _blockPos != lastHitBlockPos && blockDamage != 0 && !this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, 1.5f, 0f), Vector3.one)))
         if (!isDestroyingBlocks && hasDestructionRadius && _blockPos != lastHitBlockPos && blockDamage != 0)
         {
-            player = this.AttachedEntities as global::EntityPlayerLocal;
+            player = this.AttachedEntities as EntityPlayerLocal;
             isDestroyingBlocks = true;
             FindAndKillSurroundingBlocks(_world, _clrIdx, _blockPos);
             lastHitBlockPos = _blockPos;
@@ -540,7 +546,7 @@ class EntityCustomLoader : EntityCustomBike
 
     public List<string> terrainBlocks = new List<string> {"grass", "asphalt", "dirt", "gravel", "clay", "sandStone", "clayInSandstone", "sand", "concreteTerrain" };
 
-    public void FindAndKillSurroundingBlocks(global::WorldBase _world, int _clrIdx, global::Vector3i _blockPos)
+    public void FindAndKillSurroundingBlocks(WorldBase _world, int _clrIdx, Vector3i _blockPos)
     {
         Vector3i vehiclePos = _blockPos;
         Vector3i blockPos = vehiclePos;
@@ -556,7 +562,7 @@ class EntityCustomLoader : EntityCustomBike
                 {
                     blockPos.y = vehiclePos.y + k;
                     BlockValue blockValue = GameManager.Instance.World.GetBlock(blockPos);
-                    global::Block block = global::Block.list[blockValue.type];
+                    Block block = Block.list[blockValue.type];
                     string blockName = block.GetBlockName();
 
                     // Will need to look into this later, for some reason we can't destroy blocks when in the water, it generates tons of exceptions.
@@ -718,7 +724,7 @@ class EntityCustomLoader : EntityCustomBike
         isDestroyingBlocks = false;
     }
 
-    public void DamageBlock(global::WorldBase _world, int _clrIdx, global::Vector3i _blockPos, global::Block _block, global::BlockValue _blockValue, ItemValue _miningTool, float _degradPercPerHit)
+    public void DamageBlock(WorldBase _world, int _clrIdx, Vector3i _blockPos, Block _block, BlockValue _blockValue, ItemValue _miningTool, float _degradPercPerHit)
     {
         int blockDmg = blockDamage;
         if(blockDamage > _block.MaxDamage)
@@ -767,7 +773,7 @@ class EntityCustomLoader : EntityCustomBike
 
 
     // Adapted from ItemAction.AddSkillExp()
-    public void AddSkillExp(global::EntityPlayer _player, int _itemType, int _exp)
+    public void AddSkillExp(EntityPlayer _player, int _itemType, int _exp)
     {
         if (_player == null)
         {
@@ -775,18 +781,18 @@ class EntityCustomLoader : EntityCustomBike
         }
         if (player.Skills != null)
         {
-            global::Skill skill = _player.Skills.GetSkill(_itemType, false);
-            global::ItemClass forId = global::ItemClass.GetForId(_itemType);
+            Skill skill = _player.Skills.GetSkill(_itemType, false);
+            ItemClass forId = ItemClass.GetForId(_itemType);
             if (skill != null && forId != null)
             {
-                skill.AddExperience(_exp, _player is global::EntityPlayerLocal, _player.entityId, true);
+                skill.AddExperience(_exp, _player is EntityPlayerLocal, _player.entityId, true);
             }
         }
     }
 
-    // Adaptation of GameUtils.WZ(global::ItemActionAttackData itemActionAttackData, global::ItemValue itemValue, int num, float num2, string text, bool flag = true).  
+    // Adaptation of GameUtils.WZ(ItemActionAttackData itemActionAttackData, ItemValue itemValue, int num, float num2, string text, bool flag = true).  
     // .WZ is obfuscated if will be named different on your machine.
-    public void AddHarvestItemToInventory(global::ItemValue itemValue, int num, float num2, string text)
+    public void AddHarvestItemToInventory(ItemValue itemValue, int num, float num2, string text)
     {
         //string msg = "Harvest: " + itemValue.ItemClass.GetItemName();
         if (itemValue == null || itemValue.ItemClass == null || (itemValue.ItemClass.GetItemName() == "yuccaFibers" && !harvestBlocks.Contains("grass")))
@@ -798,7 +804,7 @@ class EntityCustomLoader : EntityCustomBike
 
         if (UnityEngine.Random.value <= num2 && num > 0)
         {
-            global::ItemStack itemStack = new global::ItemStack(itemValue, num);
+            ItemStack itemStack = new ItemStack(itemValue, num);
             bool addedToVehicleInv = false;
             if (harvestToVehicleInventory && this.hasStorage())
             {
@@ -808,7 +814,7 @@ class EntityCustomLoader : EntityCustomBike
             {
                 if (!playerInventory.AddItem(itemStack, true))
                 {
-                    global::GameManager.Instance.ItemDropServer(new global::ItemStack(itemValue, num), player.GetPosition(), Vector3.zero, player.GetInstanceID(), 60f, false);
+                    GameManager.Instance.ItemDropServer(new ItemStack(itemValue, num), player.GetPosition(), Vector3.zero, player.GetInstanceID(), 60f, false);
                 }
             }
             // The harvesting XP is only added when destroyed blocks are also harvested.
@@ -822,22 +828,22 @@ class EntityCustomLoader : EntityCustomBike
         /*ItemActionMelee iat = new ItemActionMelee();
         iat.item = miningTool.ItemClass;
         iat.ReadFrom(miningTool.ItemClass.Properties);
-        Dictionary<string, global::ItemActionAttack.Bonuses> ToolBonuses = iat.ToolBonuses;*/
+        Dictionary<string, ItemActionAttack.Bonuses> ToolBonuses = iat.ToolBonuses;*/
 
         if (_block != null && _block.itemsToDrop != null)
         {
-            if (!_block.itemsToDrop.ContainsKey(global::EnumDropEvent.Destroy))
+            if (!_block.itemsToDrop.ContainsKey(EnumDropEvent.Destroy))
             {
                 if (_blockValue.type != 0)
                 {
-                    global::ItemValue itemValue = _blockValue.ToItemValue();
-                    string itemName = global::ItemClass.list[itemValue.type].GetItemName();
+                    ItemValue itemValue = _blockValue.ToItemValue();
+                    string itemName = ItemClass.list[itemValue.type].GetItemName();
                     AddHarvestItemToInventory(itemValue, 1, 1f, itemName);
                 }
             }
             else
             {
-                List<global::Block.SItemDropProb> list = _block.itemsToDrop[global::EnumDropEvent.Destroy];
+                List<Block.SItemDropProb> list = _block.itemsToDrop[EnumDropEvent.Destroy];
                 for (int i = 0; i < list.Count; i++)
                 {
                     /*float num = 1f;
@@ -850,23 +856,23 @@ class EntityCustomLoader : EntityCustomBike
                         }
                     }*/
                     
-                    global::ItemValue itemValue2 = (!list[i].name.Equals("*")) ? new global::ItemValue(global::ItemClass.GetItem(list[i].name, false).type, false) : _blockValue.ToItemValue();
-                    if (itemValue2.type != 0 && global::ItemClass.list[itemValue2.type] != null && (list[i].prob > 0.999f || UnityEngine.Random.value <= list[i].prob))
+                    ItemValue itemValue2 = (!list[i].name.Equals("*")) ? new ItemValue(ItemClass.GetItem(list[i].name, false).type, false) : _blockValue.ToItemValue();
+                    if (itemValue2.type != 0 && ItemClass.list[itemValue2.type] != null && (list[i].prob > 0.999f || UnityEngine.Random.value <= list[i].prob))
                     {
-                        //DebugMsg("Mining Tool = " + miningTool.ItemClass.Name + "\n\tDestroy ToolBonuses = " + num.ToString("0.000") + " (" + global::ItemClass.list[itemValue2.type].GetItemName() + ")");
+                        //DebugMsg("Mining Tool = " + miningTool.ItemClass.Name + "\n\tDestroy ToolBonuses = " + num.ToString("0.000") + " (" + ItemClass.list[itemValue2.type].GetItemName() + ")");
 
                         int num2 = (int)((float)UnityEngine.Random.Range(list[i].minCount, list[i].maxCount + 1) * destructionHarvestBonus);
                         //int num2 = (int)((float)UnityEngine.Random.Range(list[i].minCount, list[i].maxCount + 1) * num);
                         if (num2 > 0)
                         {
-                            AddHarvestItemToInventory(itemValue2, num2, 1f, global::ItemClass.list[itemValue2.type].GetItemName());
+                            AddHarvestItemToInventory(itemValue2, num2, 1f, ItemClass.list[itemValue2.type].GetItemName());
                         }
                     }
                 }
             }
-            if (_block.itemsToDrop.ContainsKey(global::EnumDropEvent.Harvest))
+            if (_block.itemsToDrop.ContainsKey(EnumDropEvent.Harvest))
             {
-                List<global::Block.SItemDropProb> list2 = _block.itemsToDrop[global::EnumDropEvent.Harvest];
+                List<Block.SItemDropProb> list2 = _block.itemsToDrop[EnumDropEvent.Harvest];
                 //string msg = "Destroying " + _block.GetBlockName() + ":\n";
                 for (int k = 0; k < list2.Count; k++)
                 {
@@ -890,18 +896,18 @@ class EntityCustomLoader : EntityCustomBike
                         //msg += ("\tBlock Damage = " + blockDamage.ToString() + ":\n");
                         //blockDamage -= miningToolBlockDamage;
 
-                        global::ItemValue itemValue3 = (!list2[k].name.Equals("*")) ? new global::ItemValue(global::ItemClass.GetItem(list2[k].name, false).type, false) : _blockValue.ToItemValue();
-                        if (itemValue3.type != 0 && global::ItemClass.list[itemValue3.type] != null)
+                        ItemValue itemValue3 = (!list2[k].name.Equals("*")) ? new ItemValue(ItemClass.GetItem(list2[k].name, false).type, false) : _blockValue.ToItemValue();
+                        if (itemValue3.type != 0 && ItemClass.list[itemValue3.type] != null)
                         {
-                            //DebugMsg("\tHarvest ToolBonuses = " + num3.ToString("0.000") + " (" + global::ItemClass.list[itemValue3.type].GetItemName() + ")");
+                            //DebugMsg("\tHarvest ToolBonuses = " + num3.ToString("0.000") + " (" + ItemClass.list[itemValue3.type].GetItemName() + ")");
 
                             float num3 = destructionHarvestBonus;
-                            player.Skills.ModifyValue(global::Skill.Effects.HarvestCount, ref num3, miningTool.type, false);
+                            player.Skills.ModifyValue(Skill.Effects.HarvestCount, ref num3, miningTool.type, false);
 
                             int num4 = (int)((float)UnityEngine.Random.Range(list2[k].minCount, list2[k].maxCount + 1) * num3);
                             if (num4 > 0)
                             {
-                                AddHarvestItemToInventory(itemValue3, num4, list2[k].prob, global::ItemClass.list[itemValue3.type].GetItemName());
+                                AddHarvestItemToInventory(itemValue3, num4, list2[k].prob, ItemClass.list[itemValue3.type].GetItemName());
                             }
                         }
                     }
@@ -913,7 +919,7 @@ class EntityCustomLoader : EntityCustomBike
         }
     }
 
-    /*public override bool OnEntityActivated(int _indexInBlockActivationCommands, global::Vector3i _tePos, global::EntityAlive _entityFocusing)
+    /*public override bool OnEntityActivated(int _indexInBlockActivationCommands, Vector3i _tePos, EntityAlive _entityFocusing)
     {
         base.OnEntityActivated(_indexInBlockActivationCommands, _tePos, _entityFocusing);
         return true;

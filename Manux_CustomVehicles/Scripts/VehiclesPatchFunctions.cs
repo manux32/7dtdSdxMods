@@ -18,18 +18,22 @@ class Vehicle_patchFunctions
 
     public static bool HasWheels(Vehicle vehicle)
     {
-        if (vehicle.entity.GetType() == typeof(EntityCustomHelicopter))
-        {
+        if (vehicle.GetPartProperty("wheel1", "slot_type") == string.Empty)
             return true;
-        }
         return vehicle.GetPartItemValueByTag("wheel1").type != 0;
     }
 
     public static bool HasStorage(Vehicle vehicle)
     {
-        if (vehicle.entity.GetType() == typeof(EntityCustomHelicopter))
+        string hasBuiltInStorageString = vehicle.GetPartProperty("storage", "is_built-in_storage");
+        if (hasBuiltInStorageString != string.Empty)
         {
-            return true;
+            bool hasBuiltInStorage;
+            if (bool.TryParse(hasBuiltInStorageString, out hasBuiltInStorage))
+            {
+                if (hasBuiltInStorage)
+                    return true;
+            }
         }
         return vehicle.GetPartItemValueByTag("storage").type != 0;
     }
@@ -121,6 +125,38 @@ class EntityVehicle_patchFunctions
         }
     }
 
+    // Game doesn't like this, crash on load game - was for Testing different size storage
+    /*public static void Init(EntityVehicle entityVehicle, int _entityClass)
+    {
+        entityVehicle.Init(_entityClass);
+        EntityClass entityClass = EntityClass.list[entityVehicle.entityClass];
+        entityVehicle.vehicle = new Vehicle(entityClass.entityClassName, entityVehicle);
+        (entityVehicle.inventory as EntityVehicle.MyDummyInventory).SetupSlots();
+        entityVehicle.setupEntitySlotInfo();
+        //Vector2i size = LootContainer.lootList[entityVehicle.GetLootList()].size;
+        Vector2i size = new Vector2i(6, 7);
+        entityVehicle.bag.SetupSlots(ItemStack.CreateArray(size.x * size.y));
+
+        CharacterController MI;
+        //var listOfFieldNames = typeof(Vehicle).GetFields();
+        var listOfFieldNames = typeof(CharacterController).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            FieldInfo field = null;
+            if (fieldInfo.FieldType == typeof(CharacterController))
+            {
+                field = fieldInfo;
+                if (field != null)
+                {
+                    MI = (CharacterController)field.GetValue(entityVehicle);
+                    DebugMsg("Found CharacterController MI");
+                }
+            }
+        }
+
+        MI = entityVehicle.PhysicsTransform.GetComponent<CharacterController>();
+    }*/
+
     public static void AddOrFixPartsInSlots(Vehicle vehicle, string partTag, string defaultPartName)
     {
         string partName = vehicle.GetPartProperty(partTag, "custom_slot_type");
@@ -147,6 +183,8 @@ class EntityVehicle_patchFunctions
         AddOrFixPartsInSlots(vehicle, "battery", "carBattery");
         AddOrFixPartsInSlots(vehicle, "storage", "shoppingBasketItem");
         AddOrFixPartsInSlots(vehicle, "lock", "padlock");
+        AddOrFixPartsInSlots(vehicle, "vehicleGun", "vehicle50calGun");
+        AddOrFixPartsInSlots(vehicle, "vehicleExplosiveLauncher", "vehicleGrenadeLauncher");
     }
 }
 
@@ -241,9 +279,23 @@ class XUiM_Vehicle_patchFunctions
 
 class XUiC_BasePartStack_patchFunctions
 {
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            Debug.Log(msg);
+        }
+    }
+
     public static string GetPartName(XUiC_BasePartStack xuic_basePartStack)
     {
-        if(xuic_basePartStack.itemClass == null && xuic_basePartStack.customSlotType != string.Empty)
+        DebugMsg("xuic_basePartStack.slotType = " + xuic_basePartStack.slotType);
+        if (xuic_basePartStack.slotType == "empty")
+            return string.Empty;
+
+        if (xuic_basePartStack.itemClass == null && xuic_basePartStack.customSlotType != string.Empty)
         {
             string localizedName = Localization.Get(xuic_basePartStack.customSlotType, string.Empty);
             if (localizedName != string.Empty)
@@ -255,6 +307,8 @@ class XUiC_BasePartStack_patchFunctions
                 return string.Format("[MISSING {0}]", xuic_basePartStack.customSlotType).ToUpper();
             }
         }
+
+        //return (xuic_basePartStack.itemClass == null) ? string.Format("[MISSING {0}]", xuic_basePartStack.SlotType).ToUpper() : xuic_basePartStack.itemClass.localizedName.ToUpper();
         return (xuic_basePartStack.itemClass == null) ? string.Format("[MISSING {0}]", xuic_basePartStack.SlotType).ToUpper() : xuic_basePartStack.itemClass.localizedName.ToUpper();
     }
 }
@@ -296,12 +350,12 @@ class XUiC_VehiclePartStack_patchFunctions
         return (forId.VehicleSlotType == xuic_vehPartStack.slotType && !forId.bIsVehicleCustomPart);
     }
 
-        public static void SetEmptySpriteName(XUiC_VehiclePartStack xuic_vehPartStack)
+    public static void SetEmptySpriteName(XUiC_VehiclePartStack xuic_vehPartStack)
     {
         string slotType = xuic_vehPartStack.slotType;
         if (xuic_vehPartStack.customSlotType != string.Empty)
         {
-            DebugMsg("XUiC_VehiclePartStack.SetEmptySpriteName() setting slotType from customSlotType");
+            //DebugMsg("XUiC_VehiclePartStack.SetEmptySpriteName() setting slotType from customSlotType");
             slotType = xuic_vehPartStack.customSlotType;
         }
         DebugMsg("XUiC_VehiclePartStack.SetEmptySpriteName() slotType = " + slotType);
@@ -334,6 +388,15 @@ class XUiC_VehiclePartStack_patchFunctions
             case "wheel":
                 xuic_vehPartStack.emptySpriteName = "minibikeWheels";
                 break;
+            /*case "vehicleGun":
+                xuic_vehPartStack.emptySpriteName = "gunAK47";
+                break;
+            case "vehicleExplosiveLauncher":
+                xuic_vehPartStack.emptySpriteName = "gunRocketLauncher";
+                break;*/
+            case "empty":
+                xuic_vehPartStack.emptySpriteName = string.Empty;
+                break;
             default:
                 {
                     xuic_vehPartStack.emptySpriteName = slotType;
@@ -356,9 +419,9 @@ class XUiC_VehiclePartStackGrid_patchFunctions
         }
     }
 
-    public static void HandleSlotChangedEvent(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid, int slotNumber, global::ItemStack stack)
+    /*public static void HandleSlotChangedEvent(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid, int slotNumber, ItemStack stack)
     {
-        global::XUiC_VehiclePartStack xuiC_VehiclePartStack = (global::XUiC_VehiclePartStack)xuic_vehPartStackGrid.itemControllers[slotNumber];
+        XUiC_VehiclePartStack xuiC_VehiclePartStack = (XUiC_VehiclePartStack)xuic_vehPartStackGrid.itemControllers[slotNumber];
 
         bool emptyBasket = true;
         // redundant crap because the same thing in XUiC_VehiclePartStackGrid.SetParts() doesn't work.  But here neither.
@@ -447,23 +510,36 @@ class XUiC_VehiclePartStackGrid_patchFunctions
         {
             xuic_vehPartStackGrid.previewWindow.IsPreviewDirty = true;
         }
+    }*/
+
+    /*public static void OnOpen_addition(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid)
+    {
+        xuic_vehPartStackGrid.RefreshParts();
     }
 
+    public static void RefreshParts(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid)
+    {
+        //for (int i = 0; i < xuic_vehPartStackGrid.itemControllers.Length; i++)
+        for (int i = 0; i < 10; i++)
+        {
+            ((XUiC_VehiclePartStack)xuic_vehPartStackGrid.itemControllers[i]).RefreshBindings(true);
+        }
+    }*/
 
-    public static void SetParts(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid, global::VehiclePart[] stackList)
+    public static void SetParts(XUiC_VehiclePartStackGrid xuic_vehPartStackGrid, VehiclePart[] stackList)
     {
         if (stackList == null)
         {
             return;
         }
         int num = 0;
-        global::XUiC_ItemInfoWindow infoWindow = (global::XUiC_ItemInfoWindow)xuic_vehPartStackGrid.xui.GetChildByType<global::XUiC_ItemInfoWindow>();
+        XUiC_ItemInfoWindow infoWindow = (XUiC_ItemInfoWindow)xuic_vehPartStackGrid.xui.GetChildByType<XUiC_ItemInfoWindow>();
         int num2 = 0;
         while (num2 < stackList.Length && xuic_vehPartStackGrid.itemControllers.Length > num && stackList.Length > num2)
         {
             if (!(stackList[num2].GetSlotType() == string.Empty))
             {
-                global::XUiC_VehiclePartStack xuiC_VehiclePartStack = (global::XUiC_VehiclePartStack)xuic_vehPartStackGrid.itemControllers[num];
+                XUiC_VehiclePartStack xuiC_VehiclePartStack = (XUiC_VehiclePartStack)xuic_vehPartStackGrid.itemControllers[num];
 
                 if (stackList[num2].GetProperties().Values.ContainsKey("custom_slot_type"))
                 {
@@ -476,7 +552,7 @@ class XUiC_VehiclePartStackGrid_patchFunctions
                     DebugMsg("XUiC_VehiclePartStackGrid.SetParts(): NO custom_slot_type found");
                 }
 
-                if(stackList[num2].GetProperties().Values.ContainsKey("empty_basket_on_remove"))
+                /*if(stackList[num2].GetProperties().Values.ContainsKey("empty_basket_on_remove"))
                 {
                     DebugMsg("XUiC_VehiclePartStackGrid.SetParts(): empty_basket_on_remove prop exists.");
                     bool emptyBasket = true;
@@ -495,7 +571,7 @@ class XUiC_VehiclePartStackGrid_patchFunctions
                 else
                 {
                     DebugMsg("XUiC_VehiclePartStackGrid.SetParts(): empty_basket_on_remove does NOT exist.");
-                }
+                }*/
 
                 xuiC_VehiclePartStack.SlotType = stackList[num2].GetSlotType();
                 xuiC_VehiclePartStack.SlotChangedEvent -= xuic_vehPartStackGrid.HandleSlotChangedEvent;
@@ -517,6 +593,16 @@ class XUiC_VehiclePartStackGrid_patchFunctions
 
 class ItemClass_patchFunctions
 {
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            Debug.Log(msg);
+        }
+    }
+
     public static void Init_addition(ItemClass itemClass)
     {
         itemClass.bIsVehicleCustomPart = false;
@@ -526,3 +612,67 @@ class ItemClass_patchFunctions
         }
     }
 }
+
+
+class XUiC_VehicleContainer_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            Debug.Log(msg);
+        }
+    }
+
+
+    /*public static void SetSlots_addition(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
+    {
+        xuiV_Grid.Columns = 6;
+        xuiV_Grid.Rows = 7;
+    }*/
+
+    public static void SetSlots(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
+    {
+        if (stackList == null)
+        {
+            return;
+        }
+        if (xuic_vehicleContainer.xui.vehicle.GetVehicle() == null)
+        {
+            return;
+        }
+        xuic_vehicleContainer.xui.vehicle.bag.OnBackpackItemsChangedInternal += xuic_vehicleContainer.OnBagItemChangedInternal;
+        xuic_vehicleContainer.items = stackList;
+        XUiC_ItemInfoWindow infoWindow = (XUiC_ItemInfoWindow)xuic_vehicleContainer.xui.GetChildByType<XUiC_ItemInfoWindow>();
+        XUiV_Grid xuiV_Grid = (XUiV_Grid)xuic_vehicleContainer.viewComponent;
+        xuiV_Grid.Columns = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().x;
+        xuiV_Grid.Rows = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().y;
+        //xuiV_Grid.Columns = 6;
+        //xuiV_Grid.Rows = 7;
+        int num = stackList.Length;
+        for (int i = 0; i < xuic_vehicleContainer.itemControllers.Length; i++)
+        //for (int i = 0; i < 42; i++)
+        {
+            XUiC_ItemStack xuiC_ItemStack = (XUiC_ItemStack)xuic_vehicleContainer.itemControllers[i];
+            xuiC_ItemStack.InfoWindow = infoWindow;
+            xuiC_ItemStack.SlotNumber = i;
+            xuiC_ItemStack.SlotChangedEvent -= xuic_vehicleContainer.HandleLootSlotChangedEvent;
+            xuiC_ItemStack.InfoWindow = infoWindow;
+            xuiC_ItemStack.StackLocation = XUiC_ItemStack.StackLocationTypes.LootContainer;
+            xuiC_ItemStack.UnlockStack();
+            if (i < num)
+            {
+                xuiC_ItemStack.ForceSetItemStack(xuic_vehicleContainer.items[i]);
+                xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = true;
+                xuiC_ItemStack.SlotChangedEvent += xuic_vehicleContainer.HandleLootSlotChangedEvent;
+            }
+            else
+            {
+                xuiC_ItemStack.ItemStack = ItemStack.Empty.Clone();
+                xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = false;
+            }
+        }
+    }
+ }

@@ -12,15 +12,26 @@ public enum PressedKeyCode
     LeftPressed,
     RightPressed,
     TurnLeftPressed,
-    TurnRightPressed,
-    ToggleFirstThirdPersonPressed
+    TurnRightPressed
 }
 
-public class HelicoControlPanel : MonoBehaviour {
-    public AudioSource MusicSound;
+public class HelicoControlPanel : MonoBehaviour
+{
+    public Entity entity;
+    EntityCustomHelicopter entityHelico;
 
     float lastAudioTrigger = -1;
-    bool isMusicOn;
+    bool isMusicOn = false;
+
+    static bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            Debug.Log(msg);
+        }
+    }
 
     [SerializeField]
     KeyCode SpeedUp = KeyCode.LeftShift;
@@ -39,13 +50,7 @@ public class HelicoControlPanel : MonoBehaviour {
     [SerializeField]
     KeyCode TurnRight = KeyCode.RightArrow;
     [SerializeField]
-    KeyCode ToggleFirstThirdPerson = KeyCode.F5;
-    [SerializeField]
     KeyCode MusicOffOn = KeyCode.Backspace;
-
-    public Entity entity;
-    EntityCustomHelicopter entityHelico;
-    public bool hasDriver = false;
 
     private KeyCode[] keyCodes;
 
@@ -60,8 +65,7 @@ public class HelicoControlPanel : MonoBehaviour {
                             Left,
                             Right,
                             TurnLeft,
-                            TurnRight,
-                            ToggleFirstThirdPerson
+                            TurnRight
                         };
     }
 
@@ -71,8 +75,8 @@ public class HelicoControlPanel : MonoBehaviour {
         lastAudioTrigger = Time.time;
     }
 
-	void FixedUpdate ()
-	{
+    void FixedUpdate ()
+    {
 	    var pressedKeyCode = new List<PressedKeyCode>();
 	    for (int index = 0; index < keyCodes.Length; index++)
 	    {
@@ -84,26 +88,35 @@ public class HelicoControlPanel : MonoBehaviour {
 	    if (KeyPressed != null)
 	        KeyPressed(pressedKeyCode.ToArray());
 
+        if (entityHelico == null)
+        {
+            //DebugMsg("entityHelico == null!");
+            entityHelico = entity as EntityCustomHelicopter;
+            return;
+        }
+
+        if (!entityHelico.hasDriver)
+            return;
+
         if (Input.GetKey(MusicOffOn) && Time.time - 1.0f > lastAudioTrigger)
         {
-            //if (entityHelico != null)
-            if(MusicSound != null)
+            DebugMsg(entityHelico.entityId.ToString() + " Music Toggle pressed: " + Time.time.ToCultureInvariantString() + " | lastAudioTrigger = " + lastAudioTrigger.ToCultureInvariantString());
+            if (isMusicOn)
             {
-                if (MusicSound.isPlaying)
-                {
-                    MusicSound.Stop();
-                    //Audio.Manager.Stop(entityHelico.entityId, "Ambient_Loops/helicopter_music");
-                    lastAudioTrigger = Time.time;
-                    isMusicOn = false;
-                }
-                else if (hasDriver)
-                {
-                    MusicSound.volume = 1;
-                    MusicSound.Play();
-                    //Audio.Manager.Play(entityHelico, "Ambient_Loops/helicopter_music");
-                    lastAudioTrigger = Time.time;
-                    isMusicOn = true;
-                }
+                DebugMsg(entityHelico.entityId.ToString() + " Stopping Music: " + Time.time.ToCultureInvariantString());
+                entityHelico.helicoMusic.Stop();
+                //Audio.Manager.Stop(entityHelico.entityId, "Ambient_Loops/helicopter_music");
+                lastAudioTrigger = Time.time;
+                isMusicOn = false;
+            }
+            else 
+            {
+                DebugMsg(entityHelico.entityId.ToString() + " Starting Music: " + Time.time.ToCultureInvariantString());
+                entityHelico.helicoMusic.volume = 0.6f;
+                entityHelico.helicoMusic.Play();
+                //Audio.Manager.Play(entityHelico, "Ambient_Loops/helicopter_music");
+                lastAudioTrigger = Time.time;
+                isMusicOn = true;
             }
         }
 	}

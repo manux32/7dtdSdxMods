@@ -6,39 +6,31 @@ using UnityEngine;
 
 class EntityCustomHelicopter : EntityCustomBike
 {
-    public global::EntityPlayerLocal player;
-    public global::LocalPlayerUI uiforPlayer;
-    public global::XUiM_PlayerInventory playerInventory;
-    //Animator playerAnimator = null;
-    Transform playerSpine1Bone = null;
-    GameObject entityRoot = null;
-    GameObject heliSimDummy = null;
-    GameObject prefabRoot = null;
-    HelicopterController helicoCtrl = null;
-    Rigidbody rigidBody = null;
-    BoxCollider boxcoll = null;
-    CapsuleCollider capColl = null;
-    HelicoControlPanel ctrlPanel = null;
+    public GameObject entityRoot = null;
+    public GameObject heliSimDummy = null;
+    public GameObject prefabRoot = null;
+    public HelicopterController helicoCtrl = null;
+    public Rigidbody rigidBody = null;
+    public BoxCollider boxcoll = null;
+    public CapsuleCollider capColl = null;
+    public HelicoControlPanel ctrlPanel = null;
 
-    Transform rotor_joint = null;
-    Transform back_rotor_joint = null;
-    Transform headlight_rot = null;
-    Transform missileLauncher = null;
-    Transform gunLauncher = null;
+    public Transform rotor_joint = null;
+    public Transform back_rotor_joint = null;
+    public Transform headlight_rot = null;
 
-    Transform rotor_joint2 = null;
-    Transform back_rotor_joint2 = null;
-    Transform headlight_rot2 = null;
-    Transform missileLauncher2 = null;
-    Transform gunLauncher2 = null;
+    public Transform rotor_joint1 = null;
+    public Transform back_rotor_joint1 = null;
+    public Transform headlight_rot1 = null;
 
-    public ItemValue item_missile = ItemClass.GetItem("helicopterMissile", false);
-    public ItemValue item_gunAmmo = ItemClass.GetItem("helicopterBullet", false);
+    public Transform rotor_joint2 = null;
+    public Transform back_rotor_joint2 = null;
+    public Transform headlight_rot2 = null;
 
-    bool helicoSettingsDone;
+    public AudioSource helicoRotorSound = null;
+    public AudioSource helicoMusic = null;
 
-    bool allBonesSet1Found;
-    bool allBonesSet2Found;
+    public bool helicoSettingsDone;
 
     static bool showDebugLog = false;
 
@@ -50,14 +42,44 @@ class EntityCustomHelicopter : EntityCustomBike
         }
     }
 
+    public override void Init(int _entityClass)
+    {
+        base.Init(_entityClass);
+    }
+
     protected override void Start()
     {
         base.Start();
-        Init();
+        InitVehicle();
     }
 
-    public void Init()
+    public override void InitVehicle()
     {
+        base.InitVehicle();
+        player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+
+        GetVehicleBones();
+
+        // For printing all components in the Entity hierarchy
+        /*entityRoot = GetRootTransform(this.m_characterController.gameObject.transform, "helicopter").gameObject;
+        Component[] comps = entityRoot.GetComponentsInChildren<Component>();
+        foreach(Component comp in comps)
+        {
+            DebugMsg("\tHelico coll = " + comp.gameObject.name + " | " + comp.GetType() + " | " + comp.gameObject.GetInstanceID().ToString());
+        }
+        DebugMsg("Helico nativeCollider = " + this.nativeCollider.gameObject.name + " | " + this.nativeCollider.gameObject.GetInstanceID().ToString() + " | isTrigger = " + this.nativeCollider.isTrigger.ToString());
+        DebugMsg("Helico PhysicsTransform = " + this.PhysicsTransform.gameObject.name + " | " + this.PhysicsTransform.gameObject.GetInstanceID().ToString());*/
+
+        if (allBonesSet1Found)
+            CreateHelicoSimSystem();
+
+        helicoSettingsDone = true;
+    }
+
+    public override void GetVehicleBones()
+    {
+        base.GetVehicleBones();
+
         List<Transform> childrenList = new List<Transform>();
         List<int> childrenInstanceIds = new List<int>();
         childrenList.Add(this.transform);
@@ -69,118 +91,75 @@ class EntityCustomHelicopter : EntityCustomBike
             switch (child.name)
             {
                 case "rotor_joint":
-                    if (rotor_joint == null)
-                        rotor_joint = child;
+                    if (rotor_joint1 == null)
+                        rotor_joint1 = child;
                     else
                         rotor_joint2 = child;
                     break;
                 case "back_rotor_joint":
-                    if (back_rotor_joint == null)
-                        back_rotor_joint = child;
+                    if (back_rotor_joint1 == null)
+                        back_rotor_joint1 = child;
                     else
                         back_rotor_joint2 = child;
                     break;
                 case "headlight":
-                    if (headlight_rot == null)
-                        headlight_rot = child;
+                    if (headlight_rot1 == null)
+                        headlight_rot1 = child;
                     else
                         headlight_rot2 = child;
-                    break;
-                case "missileLauncher":
-                    if (missileLauncher == null)
-                        missileLauncher = child;
-                    else
-                        missileLauncher2 = child;
-                    break;
-                case "gunLauncher":
-                    if (gunLauncher == null)
-                        gunLauncher = child;
-                    else
-                        gunLauncher2 = child;
                     break;
             }
         }
 
-        if (rotor_joint == null || back_rotor_joint == null || headlight_rot == null || missileLauncher == null || gunLauncher == null)
+        if (rotor_joint1 == null || back_rotor_joint1 == null || headlight_rot1 == null)
         {
-            Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Car will not be fully functionnal.");
+            if (allBonesSet1Found)
+                allBonesSet1Found = false;
+            Debug.LogError(this.ToString() + " : Some bones could not be found for set 1. Custom Helicopter will not be fully functionnal.");
         }
         else
         {
-            allBonesSet1Found = true;
-            DebugMsg(this.ToString() + " : All bones set 1 found.");
+            if (allBonesSet1Found)
+            {
+                allBonesSet1Found = true;
+                DebugMsg(this.ToString() + " : All bones set 1 found.");
+            }
         }
 
-        if (rotor_joint2 == null || back_rotor_joint2 == null || headlight_rot2 == null || missileLauncher2 == null || gunLauncher2 == null)
+        if (rotor_joint2 == null || back_rotor_joint2 == null || headlight_rot2 == null)
         {
+            if (allBonesSet2Found)
+                allBonesSet2Found = false;
             DebugMsg(this.ToString() + " : Some bones could not be found for set 2. (this is harmless)");
         }
         else
         {
-            allBonesSet2Found = true;
-            DebugMsg(this.ToString() + " : All bones set 2 found.");
-        }
-
-        entityRoot = GetRootTransform(this.m_characterController.gameObject.transform, "helicopter").gameObject;
-        Component[] comps = entityRoot.GetComponentsInChildren<Component>();
-        foreach(Component comp in comps)
-        {
-            DebugMsg("\tHelico coll = " + comp.gameObject.name + " | " + comp.GetType() + " | " + comp.gameObject.GetInstanceID().ToString());
-        }
-
-        DebugMsg("Helico nativeCollider = " + this.nativeCollider.gameObject.name + " | " + this.nativeCollider.gameObject.GetInstanceID().ToString() + " | isTrigger = " + this.nativeCollider.isTrigger.ToString());
-        DebugMsg("Helico PhysicsTransform = " + this.PhysicsTransform.gameObject.name + " | " + this.PhysicsTransform.gameObject.GetInstanceID().ToString());
-
-        if (allBonesSet2Found)
-            CreateHelicoSimSystem(rotor_joint2, back_rotor_joint2, headlight_rot2, missileLauncher2, gunLauncher2);
-        else if (allBonesSet1Found)
-            CreateHelicoSimSystem(rotor_joint, back_rotor_joint, headlight_rot, missileLauncher, gunLauncher);
-        else
-            DebugMsg("No Bones sets found, cannot initiate Helicopter.");
-
-        player = GameManager.Instance.World.GetLocalPlayer() as global::EntityPlayerLocal;
-        PrintPlayerComps();
-
-        helicoSettingsDone = true;
-    }
-
-    public void PrintPlayerComps()
-    {
-        GameObject playerRoot = GetRootTransform(player.transform, "player").gameObject;
-        Component[] comps = playerRoot.GetComponentsInChildren<Component>();
-        foreach (Component comp in comps)
-        {
-            //DebugMsg("\nPlayer comp = " + comp.gameObject.name + " | " + comp.GetType());
-            /*if (comp.GetType() == typeof(Animator))
+            if (allBonesSet2Found)
             {
-                playerAnimator = comp as Animator;
-                playerHeadBone = playerAnimator.GetBoneTransform(HumanBodyBones.Head);
-            }*/
-            if(comp.transform.name == "Spine1")
-            {
-                playerSpine1Bone = comp.transform;
-                if(helicoCtrl != null)
-                {
-                    helicoCtrl.playerSpine1Bone = playerSpine1Bone;
-                }
+                allBonesSet2Found = true;
+                DebugMsg(this.ToString() + " : All bones set 2 found.");
             }
         }
-    }
 
-    public static Transform GetRootTransform(Transform fromTransform, string stopAtString)
-    {
-        if (fromTransform.parent != null)
+        if (allBonesSet2Found)
         {
-            DebugMsg("GetRootTransform parent = " + fromTransform.gameObject.name + " | " + fromTransform.gameObject.GetInstanceID().ToString());
-            if (stopAtString != null && fromTransform.gameObject.name.ToLower().Contains(stopAtString))
-                return fromTransform;
-
-            return GetRootTransform(fromTransform.parent, stopAtString);
+            rotor_joint = rotor_joint2;
+            back_rotor_joint = back_rotor_joint2;
+            headlight_rot = headlight_rot2;
         }
-        return fromTransform;
+        else if (allBonesSet1Found)
+        {
+            rotor_joint = rotor_joint1;
+            back_rotor_joint = back_rotor_joint1;
+            headlight_rot = headlight_rot1;
+        }
+        else
+        {
+            DebugMsg("No Bones sets found, cannot initiate Helicopter.");
+        }
     }
 
-    public void CreateHelicoSimSystem(Transform rotor_joint, Transform back_rotor_joint, Transform headlight, Transform missileLauncher, Transform gunLauncher)
+    public void CreateHelicoSimSystem()
     {
         heliSimDummy = new GameObject("helicoCtrl");
         // For debugging with a 3d cube that is visible in the game
@@ -192,9 +171,6 @@ class EntityCustomHelicopter : EntityCustomBike
             Destroy(bcoll);
         }*/
         DebugMsg("Helico heliSimDummy = " + heliSimDummy.name + " | " + heliSimDummy.GetInstanceID().ToString());
-
-        AudioSource helicoSoundSrc = null;
-        AudioSource helicoMusic = null;
         AudioSource[] audioSources = this.GetComponentsInChildren<AudioSource>();
         foreach (AudioSource audioSrc in audioSources)
         {
@@ -206,7 +182,7 @@ class EntityCustomHelicopter : EntityCustomBike
             }
             if (audioSrc.clip.name.Contains("HelicopterRotor"))
             {
-                helicoSoundSrc = audioSrc;
+                helicoRotorSound = audioSrc;
                 DebugMsg("Found helico rotor Audio Source");
             }
         }
@@ -229,26 +205,23 @@ class EntityCustomHelicopter : EntityCustomBike
         boxcoll.center = new Vector3(0, 0.125f, 0.3f);
         boxcoll.size = new Vector3(2.5f, 0.25f, 7f);
 
-        Vector3 newPos = this.PhysicsTransform.position;
+        Vector3 newPos = this.transform.position;
         newPos.y += 1;
         heliSimDummy.transform.position = newPos;
-        heliSimDummy.transform.rotation = this.PhysicsTransform.rotation;
-        this.m_characterController.center = new Vector3(colliderCenter.x, 1.5f, colliderCenter.z);
+        heliSimDummy.transform.rotation = this.transform.rotation;
         rigidBody.useGravity = true;
 
         helicoCtrl = heliSimDummy.AddComponent<HelicopterController>();
         helicoCtrl.HelicopterModel = rigidBody;
-        if (helicoSoundSrc != null)
+        if (helicoRotorSound != null)
         {
-            Audio.Manager.AddPlayingAudioSource(helicoSoundSrc);
-            helicoCtrl.HelicopterSound = helicoSoundSrc;
+            Audio.Manager.AddPlayingAudioSource(helicoRotorSound);
         }
         ctrlPanel = heliSimDummy.AddComponent<HelicoControlPanel>();
         helicoCtrl.ControlPanel = ctrlPanel;
         if (helicoMusic != null)
         {
             Audio.Manager.AddPlayingAudioSource(helicoMusic);
-            ctrlPanel.MusicSound = helicoMusic;
         }
  
         HeliRotorController rotorCtrl = rotor_joint.gameObject.AddComponent<HeliRotorController>();
@@ -259,121 +232,104 @@ class EntityCustomHelicopter : EntityCustomBike
         rotorCtrl.RotateAxis = HeliRotorController.Axis.Z;
         helicoCtrl.SubRotorController = rotorCtrl;
 
-        helicoCtrl.headlight_rot = headlight;
-        helicoCtrl.missileLauncher = missileLauncher;
-        helicoCtrl.gunLauncher = gunLauncher;
-        helicoCtrl.ThirdPcameraOffset = cameraOffset;
-        helicoCtrl.ThirdPlayerOffsetPos = playerOffsetPos;
-
         ctrlPanel.entity = this;
         ctrlPanel.Start();
         helicoCtrl.entity = this;
         helicoCtrl.Start();
     }
 
-    public void InitRefs()
+    public override void OnDriverOn()
     {
-        player = this.AttachedEntities as global::EntityPlayerLocal;
-        helicoCtrl.player = player;
-        uiforPlayer = global::LocalPlayerUI.GetUIForPlayer(player);
-        playerInventory = uiforPlayer.xui.PlayerInventory;
+        base.OnDriverOn();
+
+        this.AttachedEntities.m_characterController.detectCollisions = false;
+        this.AttachedEntities.m_characterController.enabled = false;
+
+        this.m_characterController.center = new Vector3(colliderCenter.x, 10f, colliderCenter.z);
+        this.m_characterController.radius = 0;
+        this.m_characterController.height = 0;
+        this.m_characterController.detectCollisions = false;
+        this.m_characterController.enabled = false;
+        this.nativeBoxCollider.center = new Vector3(vehicleActivationCenter.x, 10f, vehicleActivationCenter.z);
+        this.nativeBoxCollider.size = Vector3.zero;
+        this.nativeCollider.enabled = false;
+
+        Vector3 yPos = this.transform.position;
+        yPos.y += 1;
+        heliSimDummy.transform.position = yPos;
+        heliSimDummy.transform.rotation = this.transform.rotation;
+
+        hasDriver = true;
+        //helicoCtrl.HelicopterSound.volume = 0;
+        //helicoCtrl.HelicopterSound.Play();
+        helicoRotorSound.volume = 0;
+        helicoRotorSound.Play();
+        //Audio.Manager.Play(this, "Vehicles/Minibike/helicopter_run_lp_");
+        //Audio.Manager.AudioSourceData heliRotorAudioSourceData;
+        //Audio.Manager.audioSourceDatas.TryGetValue("AudioSource_Vehicle", out heliRotorAudioSourceData);
+        /*if (Audio.Manager.playingAudioSources != null)
+        {
+            for (int i = 0; i < Audio.Manager.playingAudioSources.Count; i++)
+            {
+                if(Audio.Manager.playingAudioSources[i].clip != null)
+                    DebugMsg("AudioSource clip = " + Audio.Manager.playingAudioSources[i].clip.name);
+                if (Audio.Manager.playingAudioSources[i].clip.name == "HelicopterRotor")
+                {
+                    Audio.Manager.playingAudioSources[i].volume = 0;
+                    helicoCtrl.HelicopterSound = Audio.Manager.playingAudioSources[i];
+                }
+            }
+        }*/
     }
+
+    public override void OnDriverOff()
+    {
+        base.OnDriverOff();
+
+        this.m_characterController.enabled = true;
+        this.m_characterController.detectCollisions = true;
+        this.m_characterController.center = colliderCenter;
+        this.m_characterController.radius = colliderRadius;
+        this.m_characterController.height = colliderHeight;
+        this.nativeCollider.enabled = true;
+        this.nativeBoxCollider.center = vehicleActivationCenter;
+        this.nativeBoxCollider.size = vehicleActivationSize;
+        hasDriver = false;
+        player.m_characterController.enabled = true;
+        player.m_characterController.detectCollisions = true;
+
+        //helicoCtrl.HelicopterSound.Stop();
+        helicoRotorSound.Stop();
+        //Audio.Manager.Stop(this.entityId, "Vehicles/Minibike/helicopter_run_lp_");
+    }
+
 
     public new void FixedUpdate()
     {
         try
         {
-            if (!helicoSettingsDone)
+            if (!helicoSettingsDone || !allBonesSet1Found)
             {
-                Init();
+                InitVehicle();
                 return;
             }
 
-            /*if (helicoCtrl.hasDriver)
+            /*if (hasDriver)
             {
                 this.IncomingRemoteSimulationInput = SimInput;
             }*/
             base.FixedUpdate();
 
-            if ((this.AttachedEntities is global::EntityPlayerLocal))
+            if (!(this.AttachedEntities is EntityPlayerLocal) && helicoCtrl.IsOnGround)
             {
-                if (!helicoCtrl.hasDriver)
-                {
-                    InitRefs();
-
-                    this.AttachedEntities.m_characterController.detectCollisions = false;
-                    this.AttachedEntities.m_characterController.enabled = false;
-
-                    this.m_characterController.center = new Vector3(colliderCenter.x, 2f, colliderCenter.z);
-                    this.m_characterController.detectCollisions = false;
-                    this.m_characterController.enabled = false;
-                    this.nativeCollider.enabled = false;
- 
-                    Vector3 yPos = this.PhysicsTransform.position;
-                    yPos.y += 1;
-                    heliSimDummy.transform.position = yPos;
-                    heliSimDummy.transform.rotation = this.PhysicsTransform.rotation;
-
-                    helicoCtrl.hasDriver = true;
-                    ctrlPanel.hasDriver = true;
-                    helicoCtrl.newThirdPcameraOffset = cameraOffset;
-
-                    PrintPlayerComps();
-
-                    if (!helicoCtrl.is3rdPersonView)
-                    {
-                        helicoCtrl.ToggleFirstAnd3rdPersonView(false, true);
-                    }
-
-
-                    helicoCtrl.HelicopterSound.volume = 0;
-                    helicoCtrl.HelicopterSound.Play();
-                    //Audio.Manager.Play(this, "Vehicles/Minibike/helicopter_run_lp_");
-                    //Audio.Manager.AudioSourceData heliRotorAudioSourceData;
-                    //Audio.Manager.audioSourceDatas.TryGetValue("AudioSource_Vehicle", out heliRotorAudioSourceData);
-                    /*if (Audio.Manager.playingAudioSources != null)
-                    {
-                        for (int i = 0; i < Audio.Manager.playingAudioSources.Count; i++)
-                        {
-                            if(Audio.Manager.playingAudioSources[i].clip != null)
-                                DebugMsg("AudioSource clip = " + Audio.Manager.playingAudioSources[i].clip.name);
-                            if (Audio.Manager.playingAudioSources[i].clip.name == "HelicopterRotor")
-                            {
-                                Audio.Manager.playingAudioSources[i].volume = 0;
-                                helicoCtrl.HelicopterSound = Audio.Manager.playingAudioSources[i];
-                            }
-                        }
-                    }*/
-
-                    DebugMsg("Game Cam parent = " + player.vp_FPCamera.transform.parent.name + " (pos = " + player.vp_FPCamera.transform.position + " | vehicle pos = " + this.position + ")");
-                }
-
-                Vector3 yPos2 = heliSimDummy.transform.position;
-                yPos2.y += 0.25f;
-                this.transform.position = yPos2;
-                this.SetPosition(yPos2);
-                this.transform.rotation = heliSimDummy.transform.rotation;
-                this.SetRotation(heliSimDummy.transform.rotation.eulerAngles);
-
-                helicoCtrl.helicoEntityTransform = this.transform;
+                return;
             }
-            else
-            {
-                if (helicoCtrl.hasDriver)
-                {   
-                    this.m_characterController.enabled = true;
-                    this.m_characterController.detectCollisions = true;
-                    this.m_characterController.center = new Vector3(colliderCenter.x, 1.5f, colliderCenter.z);
-                    this.nativeCollider.enabled = true;
-                    helicoCtrl.hasDriver = false;
-                    ctrlPanel.hasDriver = false;
-                    player.m_characterController.enabled = true;
-                    player.m_characterController.detectCollisions = true;
 
-                    helicoCtrl.HelicopterSound.Stop();
-                    //Audio.Manager.Stop(this.entityId, "Vehicles/Minibike/helicopter_run_lp_");
-                }
-            }
+            Vector3 newPos = heliSimDummy.transform.position;
+            this.transform.position = newPos;
+            this.SetPosition(newPos);
+            this.transform.rotation = heliSimDummy.transform.rotation;
+            this.SetRotation(heliSimDummy.transform.rotation.eulerAngles);
 
             UpdateSimulation();
         }
@@ -384,7 +340,7 @@ class EntityCustomHelicopter : EntityCustomBike
     }
 
 
-    public global::VehicleSimulationInput SimInput;
+    public VehicleSimulationInput SimInput;
 
 
     public bool IsMoving()
@@ -400,7 +356,7 @@ class EntityCustomHelicopter : EntityCustomBike
         SimInput = default(VehicleSimulationInput);
         SimInput.bHasData = true;
 
-        if (helicoCtrl.hasDriver)
+        if (hasDriver)
         {
             SimInput.bOnGround = helicoCtrl.IsOnGround;
             DebugMsg("IsOnGround = " + SimInput.bOnGround.ToString());
@@ -432,88 +388,10 @@ class EntityCustomHelicopter : EntityCustomBike
         this.IncomingRemoteSimulationInput.velocity = SimInput.velocity;
     }
 
-    public void OnGUI()
-    {
-        DrawCrosshair();
-    }
-
-    // from EntityPlayerLocal.guiDrawCrosshair()
-    //public void OnGUI()
-    public void DrawCrosshair()
-    {
-        if (!(this.AttachedEntities is global::EntityPlayerLocal) || !(HasGun() || HasMissileLauncher()))
-            return;
-        //if (!Event.current.type.Equals(EventType.Repaint) || player.movementInput.bAltCameraMove)
-        if (!Event.current.type.Equals(EventType.Repaint))
-        {
-            return;
-        }
-        if (player.IsDead())
-        {
-            return;
-        }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 crossHairPos = ray.GetPoint(1000);// + (Vector3.up * 20);
-
-        Vector3 targetScreenPos = player.playerCamera.WorldToScreenPoint(crossHairPos);  //helicoCtrl.targetPos
-        //Vector2 crosshairPosition2D2 = player.GetCrosshairPosition2D();
-        Vector2 crosshairPosition2D2 = new Vector2(targetScreenPos.x, targetScreenPos.y);
-        crosshairPosition2D2.y = (float)Screen.height - crosshairPosition2D2.y;
-
-        int crosshairOpenArea = player.GetCrosshairOpenArea();
-        int num = (int)crosshairPosition2D2.x;
-        int num2 = (int)crosshairPosition2D2.y;
-        Color black = Color.yellow;
-        Color white = Color.yellow;
-        //black.a = this.WSQ() * player.weaponCrossHairAlpha; // WSQ() = 0.5f
-        //white.a = this.WSQ() * player.weaponCrossHairAlpha;
-        black.a = 1.0f;
-        white.a = 1.0f;
-        // black
-        global::GUIUtils.DrawLine(new Vector2((float)(num - crosshairOpenArea), (float)(num2 + 1)), new Vector2((float)(num - (crosshairOpenArea + 18)), (float)(num2 + 1)), black);
-        global::GUIUtils.DrawLine(new Vector2((float)(num + crosshairOpenArea), (float)(num2 + 1)), new Vector2((float)(num + crosshairOpenArea + 18), (float)(num2 + 1)), black);
-        global::GUIUtils.DrawLine(new Vector2((float)(num + 1), (float)(num2 - crosshairOpenArea)), new Vector2((float)(num + 1), (float)(num2 - (crosshairOpenArea + 18))), black);
-        global::GUIUtils.DrawLine(new Vector2((float)(num + 1), (float)(num2 + crosshairOpenArea)), new Vector2((float)(num + 1), (float)(num2 + crosshairOpenArea + 18)), black);
-        // white
-        global::GUIUtils.DrawLine(new Vector2((float)(num + crosshairOpenArea), (float)num2), new Vector2((float)(num + crosshairOpenArea + 18), (float)num2), white);
-        global::GUIUtils.DrawLine(new Vector2((float)num, (float)(num2 - crosshairOpenArea)), new Vector2((float)num, (float)(num2 - (crosshairOpenArea + 18))), white);
-        global::GUIUtils.DrawLine(new Vector2((float)(num - crosshairOpenArea), (float)num2), new Vector2((float)(num - (crosshairOpenArea + 18)), (float)num2), white);
-        global::GUIUtils.DrawLine(new Vector2((float)num, (float)(num2 + crosshairOpenArea)), new Vector2((float)num, (float)(num2 + crosshairOpenArea + 18)), white);
-    }
-
     public override void OnEntityUnload()
     {
         Destroy(heliSimDummy);
         base.OnEntityUnload();
-    }
-
-    public bool HasGun()
-    {
-        return this.vehicle.GetPartItemValueByTag("battery").type != 0;
-    }
-
-    public bool HasGunAmmo()
-    {
-        ItemStack itemStack = new ItemStack(item_gunAmmo, 1);
-        return playerInventory.HasItem(itemStack);
-    }
-
-    public bool HasMissileLauncher()
-    {
-        return vehicle.GetPartItemValueByTag("storage").type != 0;
-    }
-
-    public bool HasMissileLauncherAmmo()
-    {
-        ItemStack itemStack = new ItemStack(item_missile, 1);
-        return playerInventory.HasItem(itemStack);
-    }
-
-    public bool HasFuel()
-    {
-        DebugMsg("HasFuel = " + this.vehicle.GetFuelNrm().ToString("0.0000"));
-        return this.vehicle.GetFuelNrm() > 0f;
     }
 }
 

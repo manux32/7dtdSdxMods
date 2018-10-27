@@ -12,16 +12,18 @@
 	
 	<!-- This references any config files that SDX needs to merge into your files -->
 	<config_mods>
+		<import file="Config\ui_edits.xml" />
+		<import file="Config\minibikePlus.xml" />
 		<import file="Config\proBikeParts.xml" />
+		<import file="Config\vehicleWeapons.xml" />
+		<import file="Config\vehicleAmmo.xml" />
 		<import file="Config\hellGoatBike.xml" />
 		<import file="Config\dust2DeathRoadHog.xml" />
+		<import file="Config\roadHogSounds.xml" />
 		<import file="Config\cicadaCar.xml" />
 		<import file="Config\quad.xml" />
-		<import file="Config\roadHogSounds.xml" />
 		<import file="Config\theBeast.xml" />
-		<import file="Config\loaderSounds.xml" />
 		<import file="Config\helicopter.xml" />
-		<import file="Config\helicopterSounds.xml" />
     </config_mods>
 	
 	<dependencies>

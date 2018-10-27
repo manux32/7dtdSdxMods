@@ -19,7 +19,7 @@
 			<entity_class name="cicadaCar">
 				<property name="Class" value="EntityCustomCar, Mods" />
 				<property name="Parent" value="Cars" />
-				<property name="CameraOffset" value="0.5, 0.1, -5" />
+				<property name="CameraOffset" value="0.5, 0.5, -5" />
 				<property name="3rdPersonModelVisible" value="true" />
 				<!--<property name="PlayerPositionOffset" value="0, 0.1, -0.2" />-->
 				<!--<property name="PlayerRotationOffset" value="0, 0, 0" />-->
@@ -163,11 +163,7 @@
 				</property>
 				<property class="storage">
 					<property name="class" value="Storage" />
-					<property name="display_name" value="basket" />
-					<property name="slot_type" value="basket" />
-					<property name="mesh" value="basket" />
-					<property name="transform" value="basket" />
-					<property name="part_damage_reduction" value="0.5" />
+					<property name="is_built-in_storage" value="true" />
 					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="headlight">
@@ -188,6 +184,28 @@
 				<property class="ignition">
 					<property name="class" value="Ignition" />
 					<property name="parent_part" value="engine" />
+				</property>
+				<property class="vehicleGun">
+					<property name="class" value="Gun, Mods" />
+					<property name="display_name" value="vehicle50calGun" />
+					<property name="slot_type" value="vehicleGun" />
+					<property name="custom_slot_type" value="vehicle50calGun" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="vehicleExplosiveLauncher">
+					<property name="class" value="ExplosiveLauncher, Mods" />
+					<property name="display_name" value="vehicleGrenadeLauncher" />
+					<property name="slot_type" value="vehicleExplosiveLauncher" />
+					<property name="custom_slot_type" value="vehicleGrenadeLauncher" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<!-- Empty slots are there to show nothing in extra slots for vehicles that have less than 10 slots -->
+				<property class="empty1">
+					<property name="class" value="Empty, Mods" />
+					<property name="slot_type" value="empty" />
+					<property name="parent_part" value="chassis" />
 				</property>
 			</vehicle>
 		</append>

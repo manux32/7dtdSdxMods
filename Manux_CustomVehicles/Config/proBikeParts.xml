@@ -43,8 +43,8 @@
 				<!--<property name="EconomicValue" value="220"/>-->
 				<property name="EconomicValue" value="2000"/>
 				<property class="Action1">
+					<!-- This does not work anymore because of the new custom parts system. The robustBikeChassis is currently just there for you to extend from for new vehicles chassis -->
 					<property name="Class" value="SpawnCustomVehicle, Mods" />
-					<!-- spawning HellGoat bike for now -->
 					<property name="VehicleToSpawn" value="hellGoatBike"/>
 				</property>
 				<property class="Attributes">
@@ -137,6 +137,10 @@
 		</append>
 	</config>
 	<config name="loot">
+		<append xpath="/lootcontainers">
+			<!-- MANUX Custom Vehicles: smaller vehicle storage testing -->
+			<!--<lootcontainer id="147" count="0" size="2,2" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="baseTemplate"></lootcontainer>-->
+		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='rareAutomotive']">
 			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>

@@ -23,10 +23,21 @@ loaderHandlebars,items,Part,EnChanged,The Beast Handlebars
 loaderEngine,items,Part,EnChanged,The Beast Engine
 helicopter,items,Part,EnChanged,Helicopter
 helicopterChassis,items,Part,EnChanged,Helicopter Chassis
-helicopterBullet,items,Ammo,EnChanged,Helicopter Missile
-helicopterMissile,items,Ammo,EnChanged,Helicopter Rocket
+helicopterBullet,items,Ammo,EnChanged,Helicopter Bullet
+helicopterMissile,items,Ammo,EnChanged,Helicopter Missile
 helicopterEngine,items,Part,EnChanged,Helicopter Engine
 helicopterMissileLauncher,items,Part,EnChanged,Helicopter Missile Launcher
 helicopterMissileLauncherDesc,items,Part,EnChanged,Add this Missile Launcher to an Helicopter to be able to fire Missiles while flying.
 helicopterGun,items,Part,EnChanged,Helicopter Gun
 helicopterGunDesc,items,Part,EnChanged,Add this Gun to an Helicopter to be able to fire the gun while flying.
+vehicle50calGun,items,Part,EnChanged,50 cal Vehicle Gun
+vehicle50calGunDesc,items,Part,EnChanged,Add this Gun to a Vehicle to be able to fire the gun while driving.
+vehicleGrenadeLauncher,items,Part,EnChanged,Vehicle Grenade Launcher
+vehicleGrenadeLauncherDesc,items,Part,EnChanged,Add this Grenade Launcher to a Vehicle to be able to fire Grenades while driving.
+tankCannon,items,Part,EnChanged,Tank Cannon
+tankCannonDesc,items,Part,EnChanged,Add this Tank Cannon to a Tank to be able to fire Tank Shells while driving.
+50calVehicleBullet,items,Ammo,EnChanged,50 cal Vehicle Bullet
+vehicleGrenade,items,Ammo,EnChanged,Vehicle Grenade
+tankShell,items,Ammo,EnChanged,Tank Shell
+minibikePlus,items,Part,EnChanged,MiniBike-Plus
+minibikePlusChassis,items,Part,EnChanged,MiniBike-Plus Chassis

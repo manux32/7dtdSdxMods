@@ -1,0 +1,78 @@
+<configs>
+	<config name="vehicles">
+		<append xpath="/vehicles/vehicle[@name='minibike']">
+			<!-- Empty slots are there to show nothing in extra slots for vehicles that have less than 10 slots, or for the default minibike which does not support weapon parts -->
+			<property class="empty1">
+				<property name="class" value="Empty, Mods" />
+				<property name="slot_type" value="empty" />
+				<property name="parent_part" value="chassis" />
+			</property>
+			<property class="empty2">
+				<property name="class" value="Empty, Mods" />
+				<property name="slot_type" value="empty" />
+				<property name="parent_part" value="chassis" />
+			</property>
+		</append>
+	</config>
+	<config name="XUi/windows">		
+		<remove xpath="/windows/window[@name='windowVehicle']"/>
+		<insertBefore xpath="/windows/window[@name='windowVehicleStats']">
+			<!-- MANUX Custom Vehicles: adding 2 new parts slots -->
+			<window name="windowVehicle" width="380" height="733" panel="Left" controller="VehicleFrameWindow" cursor_area="true">
+			<!--#$-IGS END.-$#-->
+				<panel name="header" pos="3,0" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="ui_game_symbol_minibike" />
+					<label style="header.name" text="{vehiclenamequality}" />
+					<sprite depth="2" width="112" pos="264, -31" height="10" type="sliced" color="[black]" />
+					<sprite depth="2" width="110" pos="265, -32" height="8" type="sliced" color="[mediumGrey]" />
+					<sprite depth="2" name="sprVehicleQuality" width="110" pos="265, -32" height="8" type="filled" color="{vehiclequalitycolor}" />
+				</panel>
+				<panel name="content" depth="0" pos="0,-43" disableautobackground="true">
+					<sprite color="[darkGrey]" pos="3,-3" height="613" />
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="3,-3" width="380" height="733" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+					<rect depth="1" pos="3,-3" width="380" height="739">
+						<rect pos="3,-3" width="374" height="218">
+							<sprite color="[mediumGrey]" type="sliced" />
+							<texture depth="2" name="vehiclePreview" material="Materials/Transparent Colored" size="374,218" />
+							<label depth="3" pos="14,-20" font_size="26" text="{vehiclequalitytitle}: [DECEA3]{vehiclequality}[-]" width="200" height="30" />
+							<label depth="3" pos="14,-50" font_size="26" text="{vehicledurabilitytitle}: [DECEA3]{vehicledurability}[-]" width="200" height="30" />
+						</rect>
+						<grid name="parts" rows="10" cols="1" pos="3,-223" cell_width="374" cell_height="48" repeat_content="true" controller="VehiclePartStackGrid">
+							<vehicle_part_slot />
+						</grid>
+						<rect name="btnRepair" depth="3" pos="0, -698" height="36">
+							<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+							<!-- <sprite depth="2" name="background" pos="1,-3" sprite="menu_empty" width="379" height="32" color="[darkGrey]" type="sliced"/> -->
+							<rect depth="3" name="background" pos="3,-5" width="375" height="28">
+								<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="126,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="124,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="124,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="126,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="125,-1" sprite="ui_game_symbol_wrench" />
+								<label depth="2" name="windowName" pos="0,-1" justify="center" text="REPAIR" text_key="xuiRepair" font_size="28" />
+							</rect>
+						</rect>
+					</rect>
+				</panel>
+			</window>
+		</insertBefore>
+	</config>
+	<config name="XUi/controls">
+		<remove xpath="/controls/vehicle_part_slot"/>
+		<insertBefore xpath="/controls/item_part_slot">
+			<vehicle_part_slot>
+				<rect controller="VehiclePartStack" style="vehicleStack, hover">
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="380" height="51" color="[black]" type="sliced" fillcenter="false" />
+					<sprite name="background" color="[darkGrey]" height="47" pos="0,1" type="sliced" />
+					<label depth="4" pos="16,-10" width="250" height="28" text="{partname}" font_size="26" justify="left" />
+					<label depth="4" pos="230,-10" width="50" height="28" text="{partquality}" font_size="26" justify="right" />
+					<sprite depth="2" width="265" pos="15, -34" height="10" type="sliced" color="[black]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" width="263" pos="16, -35" height="8" type="sliced" color="[mediumGrey]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" name="sprFill" width="263" pos="16, -35" height="8" type="filled" color="{partcolor}" fill="{partfill}" visible="{partvisible}" foregroundlayer="true" />
+					<sprite name="itemIcon" depth="4" width="70" height="50" atlas="{partatlas}" sprite="{particon}" pos="330,-24" pivot="center" color="{particoncolor}" foregroundlayer="true" />
+				</rect>
+			</vehicle_part_slot>
+		</insertBefore>
+	</config>
+</configs>

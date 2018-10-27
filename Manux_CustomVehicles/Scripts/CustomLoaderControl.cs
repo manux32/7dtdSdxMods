@@ -33,7 +33,7 @@ public class CustomLoaderControl : MonoBehaviour
 
         /*Vector3i blockPos = Vector3i.FromVector3Rounded(other.gameObject.transform.position);
         BlockValue blockValue = GameManager.Instance.World.GetBlock(blockPos);
-        global::Block block = global::Block.list[blockValue.type];
+        Block block = Block.list[blockValue.type];
         string blockName = block.GetBlockName();
         //if (blockName != "air" && blockName != lastHitBlock)
         if (blockName != "" && blockName != "air")
@@ -57,7 +57,7 @@ public class CustomLoaderControl : MonoBehaviour
             {
                 blockPos.z = vehiclePos.z + j;
                 BlockValue blockValue = GameManager.Instance.World.GetBlock(currentClrIdx, blockPos);
-                global::Block block = global::Block.list[blockValue.type];
+                Block block = Block.list[blockValue.type];
                 string blockName = block.GetBlockName();
                 //if (blockName != "air" && blockName != lastHitBlock)
                 if (blockName != "" && blockName != "air")

@@ -80,8 +80,8 @@
 				<property name="Parent" value="Cars" />
 				<property name="CameraOffset" value="0, 2, -8" />
 				<property name="3rdPersonModelVisible" value="false" />
-				<!--<property name="PlayerPositionOffset" value="0, 0, 0.15" />
-				<property name="PlayerRotationOffset" value="15, 0, 0" />-->
+				<property name="PlayerPositionOffset" value="0, 2, -0.3" />
+				<!--<property name="PlayerRotationOffset" value="15, 0, 0" />-->
 				<property name="ColliderCenter" value="0, 1.98, -0.01" />
 				<property name="ColliderRadius" value="1.95" />
 				<property name="ColliderHeight" value="3.5" />
@@ -259,6 +259,22 @@
 				<property class="ignition">
 					<property name="class" value="Ignition" />
 					<property name="parent_part" value="engine" />
+				</property>
+				<property class="vehicleGun">
+					<property name="class" value="Gun, Mods" />
+					<property name="display_name" value="vehicle50calGun" />
+					<property name="slot_type" value="vehicleGun" />
+					<property name="custom_slot_type" value="vehicle50calGun" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="vehicleExplosiveLauncher">
+					<property name="class" value="ExplosiveLauncher, Mods" />
+					<property name="display_name" value="vehicleGrenadeLauncher" />
+					<property name="slot_type" value="vehicleExplosiveLauncher" />
+					<property name="custom_slot_type" value="vehicleGrenadeLauncher" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
 				</property>
 			</vehicle>
 		</append>

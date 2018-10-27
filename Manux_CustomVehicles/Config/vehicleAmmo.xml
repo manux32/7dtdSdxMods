@@ -1,0 +1,244 @@
+<configs>
+	<config name="items">	
+		<append xpath="/items">
+			<item id="" name="50calVehicleBullet">
+				<property name="Meshfile" value="Items/Weapons/Ranged/HuntingRifle/762mm_bulletPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="21" />
+				<property name="Stacknumber" value="500" />
+				<property class="Attributes">
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="150,250" />
+					<property name="BlockDamage" value="200,350" />
+					<property name="ApplyBuff" value="0.7,0.9" param1="arrowCriticalBleedout" />
+					<property name="FalloffRange" value="350,500" />
+					<property name="DismembermentBaseChance" value="3,5" />
+					<property name="DismembermentBonus" value="3,5" />
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Velocity" value="100" />
+					<property name="FlyTime" value="3" />
+					<property name="LifeTime" value="12" />
+					<property name="Particles_muzzle_fire" value="nozzleflash_ak" />
+					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi" />
+					<!--<property name="DamageBonus.head" value="10" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.wood" value="10" />
+					<property name="DamageBonus.earth" value="0.5" />
+					<property name="DamageBonus.stone" value="2.5" />
+					<property name="DamageBonus.metal" value="2.5" />-->
+					<property name="Gravity" value="-1" />
+					
+					<property name="Explosion.ParticleIndex" value="1" />
+					<property name="Explosion.RadiusBlocks" value="2" />
+					<!--<property name="Explosion.BlockDamage" value="200,350" />-->
+					<property name="Explosion.BlockDamage" value="30" />
+					<property name="Explosion.RadiusEntities" value="1" />
+					<!--<property name="Explosion.EntityDamage" value="150,250" />-->
+					<property name="Explosion.EntityDamage" value="30" />
+					<property name="Explosion.BlastPower" value="1" />
+					<property name="DamageBonus.head" value="5" />
+					<property name="Explosion.DamageBonus.stone" value="2.5" />
+					<property name="Explosion.DamageBonus.metal" value="1" />
+					<property name="Explosion.DamageBonus.earth" value="1.5" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="4" />
+					<property name="Explosion.DamageBonus.glass" value="4" />
+					<!--<property name="Explosion.DamageBonus.stone" value="10" />
+					<property name="Explosion.DamageBonus.metal" value="10" />
+					<property name="Explosion.DamageBonus.earth" value="20" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="20" />
+					<property name="Explosion.DamageBonus.glass" value="20" />-->
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+				<property name="EconomicValue" value="30" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+			<item id="" name="vehicleGrenade">
+				<property name="Meshfile" value="Items/Weapons/Ranged/PipeBomb/PipeBombPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="3" />
+				<property name="Stacknumber" value="100" />
+				<!-- STK explosives -->
+				<property name="EconomicValue" value="1000" />
+				<property class="Attributes">
+					<property name="FalloffRange" value="50,100" />
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="150,300" />
+					<property name="BlockDamage" value="50,100" />
+					<!-- this is not working yet, it uses damage from Action1 -->
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Explosion.ParticleIndex" value="4" />
+					<!-- which Prefab/particle is used -->
+					<!--<property name="Explosion.RadiusBlocks" value="15" />-->
+					<property name="Explosion.RadiusBlocks" value="3" />
+					<!-- damage radius for blocks -->
+					<property name="Explosion.BlockDamage" value="500" />
+					<!-- damage for blocks in the center of the explosion -->
+					<property name="Explosion.RadiusEntities" value="5" />
+					<!-- damage radius for entities -->
+					<property name="Explosion.EntityDamage" value="100" />
+					<!-- damage for entities in the center of the explosion. Zombies take 2x this damage. -->
+					<property name="Velocity" value="50" />
+					<property name="FlyTime" value="0" />
+					<property name="LifeTime" value="12" />
+					<property name="Gravity" value="-4" />
+					<property name="Explosion.RadiusBuffs" value="5" />
+					<property name="Explosion.BlastPower" value="150" />
+					<property name="Explosion.DamageBonus.stone" value="5" />
+					<property name="Explosion.DamageBonus.metal" value="5" />
+					<property name="Explosion.DamageBonus.earth" value="5" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="5" />
+					<property name="Explosion.DamageBonus.glass" value="5" />
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+			<item id="" name="helicopterBullet">
+				<property name="Meshfile" value="Items/Weapons/Ranged/HuntingRifle/762mm_bulletPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="21" />
+				<property name="Stacknumber" value="500" />
+				<property class="Attributes">
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="150,250" />
+					<property name="BlockDamage" value="200,350" />
+					<property name="ApplyBuff" value="0.7,0.9" param1="arrowCriticalBleedout" />
+					<property name="FalloffRange" value="350,500" />
+					<property name="DismembermentBaseChance" value="3,5" />
+					<property name="DismembermentBonus" value="3,5" />
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Velocity" value="100" />
+					<property name="FlyTime" value="3" />
+					<property name="LifeTime" value="12" />
+					<property name="Particles_muzzle_fire" value="nozzleflash_ak" />
+					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi" />
+					<!--<property name="DamageBonus.head" value="10" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.wood" value="10" />
+					<property name="DamageBonus.earth" value="0.5" />
+					<property name="DamageBonus.stone" value="2.5" />
+					<property name="DamageBonus.metal" value="2.5" />-->
+					<property name="Gravity" value="-1" />
+					
+					<property name="Explosion.ParticleIndex" value="1" />
+					<property name="Explosion.RadiusBlocks" value="3" />
+					<!--<property name="Explosion.BlockDamage" value="200,350" />-->
+					<property name="Explosion.BlockDamage" value="100" />
+					<property name="Explosion.RadiusEntities" value="2" />
+					<!--<property name="Explosion.EntityDamage" value="150,250" />-->
+					<property name="Explosion.EntityDamage" value="100" />
+					<property name="Explosion.BlastPower" value="10" />
+					<property name="Explosion.DamageBonus.stone" value="6" />
+					<property name="Explosion.DamageBonus.metal" value="4" />
+					<property name="Explosion.DamageBonus.earth" value="2" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="10" />
+					<property name="Explosion.DamageBonus.glass" value="10" />
+					<!--<property name="Explosion.DamageBonus.stone" value="10" />
+					<property name="Explosion.DamageBonus.metal" value="10" />
+					<property name="Explosion.DamageBonus.earth" value="20" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="20" />
+					<property name="Explosion.DamageBonus.glass" value="20" />-->
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillGuns" />
+				<property name="EconomicValue" value="30" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+			<item id="" name="helicopterMissile">
+				<property name="Meshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketPrefab" />
+				<property name="HandMeshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketHandPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="3" />
+				<property name="Stacknumber" value="100" />
+				<!-- STK explosives -->
+				<property name="EconomicValue" value="1000" />
+				<property class="Attributes">
+					<property name="FalloffRange" value="250,400" />
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="250,500" />
+					<property name="BlockDamage" value="100,200" />
+					<!-- this is not working yet, it uses damage from Action1 -->
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Explosion.ParticleIndex" value="6" />
+					<!-- which Prefab/particle is used -->
+					<!--<property name="Explosion.RadiusBlocks" value="15" />-->
+					<property name="Explosion.RadiusBlocks" value="10" />
+					<!-- damage radius for blocks -->
+					<property name="Explosion.BlockDamage" value="1000" />
+					<!-- damage for blocks in the center of the explosion -->
+					<property name="Explosion.RadiusEntities" value="10" />
+					<!-- damage radius for entities -->
+					<property name="Explosion.EntityDamage" value="1000" />
+					<!-- damage for entities in the center of the explosion. Zombies take 2x this damage. -->
+					<property name="Velocity" value="50" />
+					<property name="FlyTime" value="5" />
+					<property name="LifeTime" value="12" />
+					<property name="Explosion.RadiusBuffs" value="5" />
+					<property name="Explosion.BlastPower" value="200" />
+					<property name="Explosion.DamageBonus.stone" value="10" />
+					<property name="Explosion.DamageBonus.metal" value="10" />
+					<property name="Explosion.DamageBonus.earth" value="10" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="10" />
+					<property name="Explosion.DamageBonus.glass" value="10" />
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+			<item id="" name="tankShell">
+				<property name="Meshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketPrefab" />
+				<property name="HandMeshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketHandPrefab" />
+				<property name="Material" value="metal" />
+				<property name="HoldType" value="3" />
+				<property name="Stacknumber" value="100" />
+				<!-- STK explosives -->
+				<property name="EconomicValue" value="1000" />
+				<property class="Attributes">
+					<property name="FalloffRange" value="250,400" />
+					<property name="GetQualityFromWeapon" value="true" />
+					<property name="EntityDamage" value="250,500" />
+					<property name="BlockDamage" value="100,200" />
+					<!-- this is not working yet, it uses damage from Action1 -->
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Projectile" />
+					<property name="Explosion.ParticleIndex" value="6" />
+					<!-- which Prefab/particle is used -->
+					<!--<property name="Explosion.RadiusBlocks" value="15" />-->
+					<property name="Explosion.RadiusBlocks" value="10" />
+					<!-- damage radius for blocks -->
+					<property name="Explosion.BlockDamage" value="1000" />
+					<!-- damage for blocks in the center of the explosion -->
+					<property name="Explosion.RadiusEntities" value="10" />
+					<!-- damage radius for entities -->
+					<property name="Explosion.EntityDamage" value="1000" />
+					<!-- damage for entities in the center of the explosion. Zombies take 2x this damage. -->
+					<property name="Velocity" value="75" />
+					<property name="FlyTime" value="3" />
+					<property name="LifeTime" value="12" />
+					<property name="Explosion.RadiusBuffs" value="5" />
+					<property name="Explosion.BlastPower" value="200" />
+					<property name="Explosion.DamageBonus.stone" value="10" />
+					<property name="Explosion.DamageBonus.metal" value="10" />
+					<property name="Explosion.DamageBonus.earth" value="10" />
+					<property name="Explosion.DamageBonus.water" value="0" />
+					<property name="Explosion.DamageBonus.wood" value="10" />
+					<property name="Explosion.DamageBonus.glass" value="10" />
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
+				<property name="Group" value="Ammo/Weapons" />
+			</item>
+		</append>
+	</config>
+</configs>

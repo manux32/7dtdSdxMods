@@ -23,93 +23,6 @@
 				<property name="Group" value="Resources" />
 				<property name="CraftingSkillGroup" value="craftSkillScience" />
 			</item>
-					
-			<item id="" name="helicopterBullet">
-				<property name="Meshfile" value="Items/Weapons/Ranged/HuntingRifle/762mm_bulletPrefab" />
-				<property name="Material" value="metal" />
-				<property name="HoldType" value="21" />
-				<property name="Stacknumber" value="500" />
-				<property class="Attributes">
-					<property name="GetQualityFromWeapon" value="true" />
-					<property name="EntityDamage" value="150,250" />
-					<property name="BlockDamage" value="200,350" />
-					<property name="ApplyBuff" value="0.7,0.9" param1="arrowCriticalBleedout" />
-					<property name="FalloffRange" value="350,500" />
-					<property name="DismembermentBaseChance" value="3,5" />
-					<property name="DismembermentBonus" value="3,5" />
-				</property>
-				<property class="Action1">
-					<property name="Class" value="Projectile" />
-					<property name="Velocity" value="100" />
-					<property name="FlyTime" value="12" />
-					<property name="LifeTime" value="12" />
-					<property name="Particles_muzzle_fire" value="nozzleflash_ak" />
-					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi" />
-					<property name="DamageBonus.head" value="10" />
-					<property name="DamageBonus.glass" value="25" />
-					<property name="DamageBonus.wood" value="10" />
-					<property name="DamageBonus.earth" value="0.5" />
-					<property name="DamageBonus.stone" value="2.5" />
-					<property name="DamageBonus.metal" value="2.5" />
-					<property name="Gravity" value="-1" />
-					
-					<property name="Explosion.ParticleIndex" value="1" />
-					<property name="Explosion.RadiusBlocks" value="1" />
-					<property name="Explosion.BlockDamage" value="200,350" />
-					<property name="Explosion.RadiusEntities" value="1" />
-					<property name="Explosion.EntityDamage" value="150,250" />
-					<property name="Explosion.DamageBonus.stone" value="2.5" />
-					<property name="Explosion.DamageBonus.metal" value="2.5" />
-					<property name="Explosion.DamageBonus.earth" value="0.5" />
-					<property name="Explosion.DamageBonus.water" value="0" />
-					<property name="Explosion.DamageBonus.wood" value="10" />
-				</property>
-				<property name="CraftingSkillGroup" value="craftSkillGuns" />
-				<property name="EconomicValue" value="30" />
-				<property name="Group" value="Ammo/Weapons" />
-			</item>
-			
-			<item id="" name="helicopterMissile">
-				<property name="Meshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketPrefab" />
-				<property name="HandMeshfile" value="Items/Weapons/Ranged/RocketLauncher/rocketHandPrefab" />
-				<property name="Material" value="metal" />
-				<property name="HoldType" value="3" />
-				<property name="Stacknumber" value="100" />
-				<!-- STK explosives -->
-				<property name="EconomicValue" value="1000" />
-				<property class="Attributes">
-					<property name="FalloffRange" value="250,400" />
-					<property name="GetQualityFromWeapon" value="true" />
-					<property name="EntityDamage" value="250,500" />
-					<property name="BlockDamage" value="100,200" />
-					<!-- this is not working yet, it uses damage from Action1 -->
-				</property>
-				<property class="Action1">
-					<property name="Class" value="Projectile" />
-					<property name="Explosion.ParticleIndex" value="6" />
-					<!-- which Prefab/particle is used -->
-					<property name="Explosion.RadiusBlocks" value="15" />
-					<!-- damage radius for blocks -->
-					<property name="Explosion.BlockDamage" value="1000" />
-					<!-- damage for blocks in the center of the explosion -->
-					<property name="Explosion.RadiusEntities" value="10" />
-					<!-- damage radius for entities -->
-					<property name="Explosion.EntityDamage" value="1000" />
-					<!-- damage for entities in the center of the explosion. Zombies take 2x this damage. -->
-					<property name="Velocity" value="50" />
-					<property name="FlyTime" value="12" />
-					<property name="LifeTime" value="12" />
-					<property name="Explosion.RadiusBuffs" value="5" />
-					<property name="Explosion.BlastPower" value="200" />
-					<property name="Explosion.DamageBonus.stone" value="10" />
-					<property name="Explosion.DamageBonus.metal" value="10" />
-					<property name="Explosion.DamageBonus.earth" value="20" />
-					<property name="Explosion.DamageBonus.water" value="0" />
-					<property name="Explosion.DamageBonus.wood" value="20" />
-				</property>
-				<property name="CraftingSkillGroup" value="craftSkillScience" />
-				<property name="Group" value="Ammo/Weapons" />
-			</item>
 			<item id="" name="helicopterEngine">
 				<!--<property name="PartType" value="Receiver" />-->
 				<property name="Meshfile" value="Items/Misc/sackPrefab" />
@@ -138,47 +51,6 @@
 				</property>
 				<property name="CraftingSkillGroup" value="craftSkillScience" />
 			</item>
-			<item id="" name="helicopterMissileLauncher">
-				<property name="DescriptionKey" value="helicopterMissileLauncherDesc" />
-				<property name="VehicleSlotType" value="basket" />
-				<property name="IsVehicleCustomPart" value="true" />
-				<property name="Meshfile" value="Items/Misc/sackPrefab" />
-				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
-				<property name="Material" value="metal" />
-				<property name="RepairTools" value="repairKit" />
-				<property name="HoldType" value="45" />
-				<property name="Weight" value="100" />
-				<property name="EconomicValue" value="3000" />
-				<property class="Attributes">
-					<property name="VehicleStorageWidth" value="3,8" />
-					<property name="VehicleStorageHeight" value="3,5" />
-					<property name="DegradationMax" value="1200,6000" />
-				</property>
-				<property name="Group" value="Ammo/Weapons" />
-				<property name="ActionSkillGroup" value="Rifles" />
-				<property name="CraftingSkillGroup" value="craftSkillGuns" />
-			</item>
-			<item id="" name="helicopterGun">
-				<property name="DescriptionKey" value="helicopterGunDesc" />
-				<property name="VehicleSlotType" value="wheel" />
-				<property name="IsVehicleCustomPart" value="true" />
-				<property name="Meshfile" value="Items/Misc/sackPrefab" />
-				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
-				<property name="Material" value="metal" />
-				<property name="RepairTools" value="repairKit" />
-				<property name="HoldType" value="45" />
-				<property name="Weight" value="100" />
-				<property name="EconomicValue" value="2000" />
-				<property name="DegradationBreaksAfter" value="false" />
-				<property class="Attributes">
-					<property name="BatteryMaxLoadInVolts" value="24, 36" />
-					<property name="BatteryDischargeTimeInMinutes" value="30,90" />
-					<property name="DegradationMax" value="1200,6000" />
-				</property>
-				<property name="Group" value="Ammo/Weapons" />
-				<property name="ActionSkillGroup" value="Rifles" />
-				<property name="CraftingSkillGroup" value="craftSkillGuns" />
-			</item>
 		</append>
 	</config>
 	<config name="entityclasses">
@@ -191,13 +63,13 @@
 				<property name="3rdPersonModelVisible" value="true" />
 				<property name="PlayerPositionOffset" value="-0.4, 0.4, 1.3" />
 				<!--<property name="PlayerRotationOffset" value="15, 0, 0" />-->
-				<property name="ColliderCenter" value="0, 2, 0.45" />
+				<property name="ColliderCenter" value="0, 1.5, 0.45" />
 				<property name="ColliderRadius" value="1.5" />
 				<property name="ColliderHeight" value="2" />
 				<property name="ColliderSkinWidth" value=" 0.025" />
 				<property name="ControllerSlopeLimit" value="90" />
 				<property name="ControllerStepOffset" value="1" />
-				<property name="VehicleActivationCenter" value="0, 2, 0.3" />
+				<property name="VehicleActivationCenter" value="0, 1.5, 0.3" />
 				<property name="VehicleActivationSize" value="4, 3, 6" />
 				<property name="WaterCraft" value="false" />
 				<property name="Airtight" value="false" />
@@ -251,28 +123,6 @@
 					<property name="part_damage_reduction" value="0.25" />
 					<property name="parent_part" value="chassis" />
 				</property>
-				<property class="wheel0">
-					<property name="class" value="Wheel" />
-					<property name="display_name" value="wheel" />
-					<property name="parent_part" value="wheel1" />
-					<property name="mesh" value="front_wheel" />
-					<property name="transform" value="Origin/frontWheel_joint" />
-					<property name="shocks_offset_min" value="body/chassis/wheel/minPos" />
-					<property name="shocks_offset_max" value="body/chassis/wheel/maxPos" />
-				</property>
-				<property class="wheel1">
-					<property name="required" value="true" />
-					<property name="class" value="Wheel" />
-					<property name="display_name" value="helicopterGun" />
-					<property name="slot_type" value="wheel" />
-					<property name="custom_slot_type" value="helicopterGun" />
-					<property name="parent_part" value="chassis" />
-					<property name="mesh" value="back_wheel" />
-					<property name="transform" value="Origin/backWheelJoint" />
-					<property name="shocks_offset_min" value="body/handlebars/wheel/minPos" />
-					<property name="shocks_offset_max" value="body/handlebars/wheel/maxPos" />
-					<property name="part_damage_reduction" value="0.1" />
-				</property>
 				<property class="driver">
 					<property name="required" value="true" />
 					<property name="class" value="Seat" />
@@ -306,13 +156,6 @@
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire" />
 					<property name="sound_start" value="Vehicles/Minibike/roadHog_start_" />
 					<property name="sound_shut_off" value="Vehicles/Minibike/roadHog_shutoff_" />
-					<!--<property name="sound_start" value="Vehicles/Minibike/roadHog_start_" />
-					<property name="sound_shut_off" value="Vehicles/Minibike/roadHog_shutoff_" />
-					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/roadHog_empty_" />
-					<property name="sound_idle_loop" value="Vehicles/Minibike/roadHog_idle_lp_" />
-					<property name="sound_accelerate" value="Vehicles/Minibike/roadHog_accel_" />
-					<property name="sound_decelerate" value="Vehicles/Minibike/roadHog_decel_" />
-					<property name="sound_running_loop" value="Vehicles/Minibike/roadHog_run_lp_" />-->
 					<property name="part_damage_reduction" value="0.5" />
 					<property name="parent_part" value="chassis" />
 				</property>
@@ -321,32 +164,20 @@
 					<property name="parent_part" value="engine" />
 					<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine" />
 				</property>
-				<property class="chain">
-					<property name="mesh" value="chain" />
-					<property name="parent_part" value="engine" />
-					<property name="transform" value="chain" />
-				</property>
 				<property class="horn">
 					<property name="class" value="Horn" />
 					<property name="parent_part" value="handlebars" />
-					<property name="mesh" value="horn" />
-					<property name="transform" value="horn" />
 					<property name="sound_honk" value="vehicle/minibike/roadHog_horn" />
 				</property>
 				<property class="storage">
 					<property name="class" value="Storage" />
-					<property name="display_name" value="helicopterMissileLauncher" />
-					<property name="slot_type" value="basket" />
-					<property name="custom_slot_type" value="helicopterMissileLauncher" />
-					<property name="empty_basket_on_remove" value="false" />
-					<property name="mesh" value="basket" />
-					<property name="transform" value="basket" />
-					<property name="part_damage_reduction" value="0.5" />
+					<property name="is_built-in_storage" value="true" />
 					<property name="parent_part" value="chassis" />
 				</property>
 				<property class="headlight">
 					<property name="class" value="Headlight" />
 					<property name="parent_part" value="handlebars" />
+					<property name="mesh" value="trackingHeadlight" />
 					<property name="transform" value="Origin/headlight_root/headlight" />
 				</property>
 				<property class="fuelTank">
@@ -362,6 +193,37 @@
 				<property class="ignition">
 					<property name="class" value="Ignition" />
 					<property name="parent_part" value="engine" />
+				</property>
+				<property class="vehicleGun">
+					<property name="class" value="Gun, Mods" />
+					<property name="display_name" value="helicopterGun" />
+					<property name="slot_type" value="vehicleGun" />
+					<property name="custom_slot_type" value="helicopterGun" />
+					<property name="mesh" value="helicopterGun" />
+					<property name="transform" value="helicopterGun" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="vehicleExplosiveLauncher">
+					<property name="class" value="ExplosiveLauncher, Mods" />
+					<property name="display_name" value="helicopterMissileLauncher" />
+					<property name="slot_type" value="vehicleExplosiveLauncher" />
+					<property name="custom_slot_type" value="helicopterMissileLauncher" />
+					<property name="mesh" value="helicopterMissileLauncher" />
+					<property name="transform" value="helicopterMissileLauncher" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<!-- Empty slots are there to show nothing in extra slots for vehicles that have less than 10 slots -->
+				<property class="empty1">
+					<property name="class" value="Empty, Mods" />
+					<property name="slot_type" value="empty" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="empty2">
+					<property name="class" value="Empty, Mods" />
+					<property name="slot_type" value="empty" />
+					<property name="parent_part" value="chassis" />
 				</property>
 			</vehicle>
 		</append>
