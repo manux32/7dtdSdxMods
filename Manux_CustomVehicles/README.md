@@ -19,7 +19,9 @@ I will eventually try to make tutorials or youtube vids to help you build your o
 I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad, Loader and Helicopter are more complex on the rigging side.  
 You can grab Unity template scenes for a Custom Bike and a Custom Car [**here**](https://drive.google.com/drive/folders/1Ke6T4T10FMly86gZedYfcR0-j0TuCkG7?usp=sharing).  
 I can provide templates for other vehicles if needed, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).  
- 
+
+**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms.
+
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
 
@@ -286,9 +288,69 @@ You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBull
 
 ## Terms of use
 Some of the 3D Assets used to make the vehicles in this mod were purchased or download for free, from various sites. Different licensing terms apply to the different Assets, see the list below.  
-I am not yet fully certain of how these licensing terms apply to what we do, but if your goal is to make a mod that includes my mod and those assets in it, it would be safer if you also purchased those assets.
+I am not yet fully certain of how these licensing terms apply to what we do, but if your goal is to make a mod that includes my mod and those assets in it, it would be safer if you also purchased those assets.  
+I will contact Sketchfab to get clarifications on how this applies to us, modders...  
+
+### The Beast (Loader)
+- **Original 3D Asset:** [**Wheel Loader**](https://skfb.ly/6toGS)
+- **Creator:** [**Renafox**](https://sketchfab.com/kryik1023)  
+A very talented artist that created the original 3D Asset I used for making The Beast.  
+Check-out all the other [great models](https://sketchfab.com/kryik1023) she has for sale.  
+- **Asset acquisition: Sketchfab Purchase (25$)**  
+- **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
+To be safe, you need to also purchase this asset if you want to include my mod and this asset in another mod that you distribute.  
+
+### Quad
+- **Original 3D Asset:** [**ATV model practice**](https://skfb.ly/6x9oT)  
+- **Creator:** [**Mark Bai**](https://sketchfab.com/bcfbox)  
+A talented artist who did the very nice and cheap Sketchfab asset that I used for the Quad vehicle.  
+- **Asset acquisition: Sketchfab Purchase (4$)**  
+- **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
+To be safe, you need to also purchase this asset if you want to include my mod and this asset in another mod that you distribute.  
+ 
+### HellGoat Bike
+- **Original 3D Asset:** [**Hell Motogoat**](https://skfb.ly/TCEV)  
+- **Creator:** [**chervinin**](https://sketchfab.com/chervinin)  
+A great artist who did this amazing asset that I am using for the Hell Goat Bike vehicle. 
+- **Asset acquisition: Free Sketchfab Download**  
+- **Licensing type:** [**Creative Commons Attribution 4.0**](https://creativecommons.org/licenses/by/4.0/)  
+I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
+This mod is public and free, the derived asset is not used in any commercial way.  
+- Polygon reduction on all meshes.
+- Textures reduction from 2048x2048 to 512x512
+- Combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
+- Skinning of the meshes on a simple bone structure to be able to animate it in the game.
+- Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!  
+
+### Helicopter
+#### Original Helicopter 3D Model and Movement Controller code
+- **Original Assets:** [**Base Helicopter Controller**](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107)  
+I used most of the Helicopter 3D Model to make the Helicopter vehicleand also used the Controllers code base to make the Helicopter move.  
+- **Creator:** [**Sun Cube Studio**](https://www.facebook.com/suncubestudio/)  
+A talented person/group who did the wonderful and free Unity Asset Store Base Helicopter Controller system.  
+- **Asset acquisition: Unity3D Asset Store Free Download**  
+- **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
+
+#### Helicopter cockpit interior  
+- **Original 3D Asset:** [**Military Helicopter**](https://assetstore.unity.com/packages/3d/vehicles/air/military-helicopter-3922)  
+I only used the interior cockpit of the 3D Asset to put it in the other Helicopter 3D model above, because that one didn't have any interior cockpit.
+- **Creator:** [**Duane's Mind**](https://assetstore.unity.com/publishers/678)  
+- **Asset acquisition: Unity3D Asset Store Free Download**  
+- **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
+
+### Cicada Car
+- **Original 3D Asset:** [**Retro Cartoon Cars - Cicada**](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158)  
+This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like it a lot, it's like the minibike of cars. And the player looks so funny when driving it.  
+- **Creator:** [**Retro Valorem**](https://assetstore.unity.com/publishers/22495)  
+A great artist who did this cute, and free Unity Asset Store 3D Asset.  
+- **Asset acquisition: Unity3D Asset Store Free Download**  
+- **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
+
 
 ## Special Thanks
+
+### To the 3D Assets creators 
+To all the creators of the 3D Assets I used to make the vehicles. See the list in the **Terms of Use** section above.
 
 ### Dust2Death 
 For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
@@ -308,33 +370,5 @@ He retextured the following vehicles so far:
 ### Three8
 For adding underwater capabillities to all vehicles. He is a top notch modder doing stuff like a fully working Elevator.
 
-### [chervinin](https://sketchfab.com/chervinin)
-A great artist who did the amazing [Sketchfab **Hell Motogoat** asset](https://skfb.ly/TCEV) that I am using for the Hell Goat Bike vehicle.  
-His **Hell Motogoat asset** is free but is under [**Creative Commons Attribution 4.0**](https://creativecommons.org/licenses/by/4.0/) **licensing terms**.  
-***Make sure to read these terms before using this asset for other purposes...***  
-
-I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
-This mod is public and free, the derived asset is not used in any commercial way.  
-- polygon reduction on all meshes.
-- textures reduction from 2048x2048 to 512x512
-- combine the textures maps to be compatible with the Unity Shaders (Glossiness maps as the alpha channel of Specular maps, Opacity maps as the alpha channel of Diffuse maps)
-- skinning of the meshes on a simple bone structure to be able to animate it in the game.
-- Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!
-
 ### JaxTeller718  
 For doing great sounds for Dust2Death's Road Hog. I am also using those sounds on the Hell Goat Bike and the Loader.
-
-### [Sun Cube Studio](https://www.facebook.com/suncubestudio/)
-For his/their wonderful and free Unity Asset Store [Helicopter System](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107). I used this code base to make the Helicopter.
-
-### [Renafox](https://sketchfab.com/kryik1023)
-A very talented artist that created the [**Wheel Loader**](https://skfb.ly/6toGS) asset I used for making the Killer Loader.  
-Check-out all the other [great models](https://sketchfab.com/kryik1023) she has for sale.
-
-### [Retro Valorem](https://assetstore.unity.com/publishers/22495)
-For his great, cute, and free Unity Asset Store [**Cicada** cartoon car](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158).  
-This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like it a lot, it's like the minibike of cars. And the player looks so funny when driving it.
-
-### [Mark Bai](https://sketchfab.com/bcfbox)
-For his very nice and cheap Sketchfab [**ATV model practice**](https://skfb.ly/6x9oT) asset, that I use for the Quad vehicle.
-
