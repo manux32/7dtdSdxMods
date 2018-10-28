@@ -10,14 +10,15 @@ You can make all-terrain vehicles that can climb small and medium objects, and c
 
 **New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
 The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest directly to the vehicle storage.  
-And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles! :stuck_out_tongue_winking_eye:  
+And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles! Actually all vehicles can now shoot bullets and explosives of all sorts. :stuck_out_tongue_winking_eye:  
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
 I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.  
 
-I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad and Loader are more complex on the rigging side.  
-I can provide Unity template scenes for each vehicle, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
+I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad, Loader and Helicopter are more complex on the rigging side.  
+You can grab Unity template scenes for a Custom Bike and a Custom Car [**here**](https://drive.google.com/drive/folders/1Ke6T4T10FMly86gZedYfcR0-j0TuCkG7?usp=sharing).  
+I can provide templates for other vehicles if needed, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).  
  
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
@@ -50,7 +51,8 @@ Make sure you also deploy that mod for this one to work.
 The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.   
 
 ## Multiplayer
-The mod has not been fully tested for multiplayer yet, so I don't know if everything works properly. I hope to be able to test this soon...
+The mod is not really functionnal for multi-player currently. There is lots of animation update issues, and other bugs.  
+I will try to fix those issues in the future, but I'm not sure when and how much work it will require.  
 
 ## Vehicle Controls
 All Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional Controls, see lists below.
