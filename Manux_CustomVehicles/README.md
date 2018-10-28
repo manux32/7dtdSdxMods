@@ -284,6 +284,10 @@ You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMiss
 This part is needed to be able to fire gun ammo.  
 You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet** 
 
+## Terms of use
+Some of the 3D Assets used to make the vehicles in this mod were purchased or download for free, from various sites. Different licensing terms apply to the different Assets, see the list below.  
+I am not yet fully certain of how these licensing terms apply to what we do, but if your goal is to make a mod that includes my mod and those assets in it, it would be safer if you also purchased those assets.
+
 ## Special Thanks
 
 ### Dust2Death 
