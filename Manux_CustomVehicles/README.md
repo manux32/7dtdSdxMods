@@ -53,7 +53,14 @@ The SDX Launcher shouldn't let you build if you don't have it or don't have it e
 The mod has not been fully tested for multiplayer yet, so I don't know if everything works properly. I hope to be able to test this soon...
 
 ## Vehicle Controls
-All Vehicles use the regular Keyboard Controls of the MiniBike. But some of them have additional Controls:
+All Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional Controls, see lists below.
+### All Vehicles
+All vehicles now have additionnal controls for the camera and weapons. Vehicle Weapons and Ammo can be different per vehicle, all definable in xml. Custom parts can be defined for the weapons.
+- **Mouse Scroll-Wheel**: Zoom in-out in 3rd person view
+- **Home**: Toggle between 3rd person and 1st person view
+- **Left Mouse Button**: Shoot bullets from machine gun
+- **Right Mouse Button**: Shoot Explosives (Grenades, Missiles, Tank Shells)
+
 ### The Beast
 The Beast's bucket's height determines how high/low objects can be destroyed and harvested. The bucket can be moved up/down, and rotated up/down, but the rotation is mainly for aesthetics, only the height really determines what you destroy.
 - **UpArrow**: Move the Bucket Up
@@ -71,10 +78,6 @@ The Beast's bucket's height determines how high/low objects can be destroyed and
 - **LeftArrow**: Rotate Left
 - **LeftArrow**: Rotate Right
 - **Backspace**: Start/Stop Music  (same music as in the Helicopter Vid above)
-- **Left Mouse Button**: Shoot bullets from gun
-- **Right Mouse Button**: Shoot missiles
-- **F5**: Toggle between 3rd person and 1st person view
-- **Mouse Scroll-Wheel**: Zoom in-out in 3rd person view
 
 ## Custom Vehicle C# classes  
 ### EntityCustomBike
