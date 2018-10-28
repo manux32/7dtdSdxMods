@@ -325,7 +325,7 @@ This mod is public and free, the derived asset is not used in any commercial way
 ### Helicopter
 #### Original Helicopter 3D Model and Movement Controller code
 - **Original Assets:** [**Base Helicopter Controller**](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107)  
-I used most of the Helicopter 3D Model to make the Helicopter vehicleand also used the Controllers code base to make the Helicopter move.  
+I used most of the Helicopter 3D Model to make the Helicopter vehicle, and also used the Controllers code base to make the Helicopter move.  
 - **Creator:** [**Sun Cube Studio**](https://www.facebook.com/suncubestudio/)  
 A talented person/group who did the wonderful and free Unity Asset Store Base Helicopter Controller system.  
 - **Asset acquisition: Unity3D Asset Store Free Download**  
