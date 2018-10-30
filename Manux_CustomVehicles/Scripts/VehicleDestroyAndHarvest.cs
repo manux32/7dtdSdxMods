@@ -285,7 +285,7 @@ public class VehicleDestroyAndHarvest
             for (int j = -destructionRadius; j <= destructionRadius; j++)
             {
                 blockPos.z = vehiclePos.z + j;
-                for (int k = entityVehicle.currentDestroyHeight; k < entityVehicle.currentDestroyHeight + destructionHeight; k++)
+                for (int k = entityVehicle.destructionStartHeight; k < entityVehicle.destructionStartHeight + destructionHeight; k++)
                 {
                     blockPos.y = vehiclePos.y + k;
                     BlockValue blockValue = GameManager.Instance.World.GetBlock(blockPos);

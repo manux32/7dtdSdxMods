@@ -67,7 +67,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     // Destroy/Harvest
     public VehicleDestroyAndHarvest vehicleDestroyAndHarvest = null;
-    public int currentDestroyHeight = 0;
+    public int destructionStartHeight = 1;
     public Vector3i lastHitBlockPos;
 
     //public string vehicleXuiName = "vehicle";
@@ -203,6 +203,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
             if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["VehicleActivationSize"], out vehicleActivationSize))
             {
                 hasVehicleActivationSize = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("DestructionStartHeight"))
+        {
+            int destStartHeight;
+            if (int.TryParse(entityClass.Properties.Values["DestructionStartHeight"], out destStartHeight))
+            {
+                DebugMsg("\tdestructionStartHeight = " + destStartHeight.ToString());
+                destructionStartHeight = destStartHeight;
             }
         }
 

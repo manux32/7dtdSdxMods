@@ -38,6 +38,7 @@
 				<property name="VehicleDamageFactor_blocks" value="4" />
 				<property name="VehicleDamageFactor_entities" value="4" />
 				<property name="DestructionRadius" value="1" />
+				<property name="DestructionStartHeight" value="1" />
 				<property name="DestructionHeight" value="2" />
 				<property name="DestructionHarvestBonus" value="1.4" />
 				<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tire,fenceOrDoor,softDebris,hardDebris,poleOrPillar" />

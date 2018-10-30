@@ -304,7 +304,7 @@ class EntityCustomLoader : EntityCustomVehicle
         }
 
         int originFloor = (int)Mathf.Round(Origin.transform.position.y);
-        currentDestroyHeight = ((int)Mathf.Floor(bucket_joint.transform.position.y - Origin.transform.position.y)) + 1;
+        destructionStartHeight = ((int)Mathf.Floor(bucket_joint.transform.position.y - Origin.transform.position.y)) + 1;
         //if (currentBucketHeight < originFloor)
             //currentBucketHeight = originFloor;
         //int originFloor = (int)Mathf.Round(Origin.transform.position.y);
