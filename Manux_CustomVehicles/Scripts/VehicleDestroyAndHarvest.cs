@@ -465,12 +465,15 @@ public class VehicleDestroyAndHarvest
         //DebugMsg("Vehicle damage = " + _vehicleDamage);
         DamageVehicle(_vehicleDamage, 0f);
 
-        ItemActionAttack iat = new ItemActionMelee();
-        ItemValue dummy = null;
-        float miningToolBlockDamage = iat.GetDamageBlock(_miningTool, entityVehicle.player, dummy);
-        float blockMaxDamage = _block.MaxDamage;
-        int skillExpMult = Mathf.RoundToInt(blockMaxDamage / miningToolBlockDamage);
-        AddSkillExp(entityVehicle.player, _miningTool.type, (_blockValue.ToItemValue().ItemClass.ActionSkillExp * ((skillExpMult > 0) ? skillExpMult : 1)));
+        if (destroyXPFactor != 0)
+        {
+            ItemActionAttack iat = new ItemActionMelee();
+            ItemValue dummy = null;
+            float miningToolBlockDamage = iat.GetDamageBlock(_miningTool, entityVehicle.player, dummy);
+            float blockMaxDamage = _block.MaxDamage;
+            int skillExpMult = Mathf.RoundToInt(blockMaxDamage / miningToolBlockDamage);
+            AddSkillExp(entityVehicle.player, _miningTool.type, (_blockValue.ToItemValue().ItemClass.ActionSkillExp * ((skillExpMult > 0) ? skillExpMult : 1)));
+        }
     }
 
     public void DamageVehicle(float _damage, float _minDamage)
