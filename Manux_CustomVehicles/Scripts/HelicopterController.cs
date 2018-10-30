@@ -11,9 +11,14 @@ public class HelicopterController : MonoBehaviour
 
     public float TurnForce = 20f;
     public float ForwardForce = 10f;
+    public float EngineForceRatio = 1f;
+    public float AdjEngineForceRatio = 1f;
     public float ForwardTiltForce = 20f;
     public float TurnTiltForce = 30f;
     public float EffectiveHeight = 500f;
+    public float lastHeight;
+
+    public float MaxEngineForce = 60f;
 
     public float turnTiltForcePercent = 1.5f;
     public float turnForcePercent = 10f;
@@ -24,6 +29,9 @@ public class HelicopterController : MonoBehaviour
 
     public EntityPlayerLocal player;
     public Vector3 headlightTargetPos;
+
+    float updatesDebugPrintDelay = 2f;
+    float lastDebugPrintTime = -1f;
 
     static bool showDebugLog = false;
 
@@ -59,7 +67,7 @@ public class HelicopterController : MonoBehaviour
                 }
             }
 
-            _engineForce = Mathf.Clamp(value, 0f, 60f);
+            _engineForce = Mathf.Clamp(value, 0f, MaxEngineForce);
         }
     }
 
@@ -68,12 +76,16 @@ public class HelicopterController : MonoBehaviour
     public float hTurn = 0f;
     public float upForce = 0f;
     public bool IsOnGround = true;
+    public bool IsMovingForward = false;
+    public Vector3 straightForward = Vector3.zero;
 
 
     public void Start ()
 	{
         ControlPanel.KeyPressed += OnKeyPressed;
         InitController();
+        lastHeight = HelicopterModel.position.y;
+        lastDebugPrintTime = Time.time;
     }
 
     public void InitController()
@@ -92,8 +104,6 @@ public class HelicopterController : MonoBehaviour
 
         if (!entityHelico.hasDriver || !entityHelico.HasFuel())
         {
-            IsOnGround = true;
-            //EngineForce -= 1.2f;
             EngineForce -= 0.5f;
             if (EngineForce < 0)
                 EngineForce = 0;
@@ -101,13 +111,23 @@ public class HelicopterController : MonoBehaviour
             return;
         }
 
+        EngineForceRatio = CustomVehiclesUtils.GetRatio(Mathf.Clamp(EngineForce, 10f, MaxEngineForce), 10f, MaxEngineForce);
+        AdjEngineForceRatio = (EngineForceRatio * 4f) + 1f;
+
         LiftProcess();
         MoveProcess();
         TiltProcess();
         HeadlightMovement();
 
-        DebugMsg("Engine force = " + EngineForce.ToString("0.00"));
-        DebugMsg("Height = " + entityHelico.transform.position.y.ToString("0.00"));
+        if(showDebugLog && Time.time - updatesDebugPrintDelay > lastDebugPrintTime)
+        {
+            DebugMsg("Engine force = " + EngineForce.ToString("0.000"));
+            DebugMsg("Adjusted Engine force Ratio = " + AdjEngineForceRatio.ToString("0.000"));
+            DebugMsg("Adjusted ForwardForce = " + (ForwardForce * AdjEngineForceRatio).ToString("0.000"));
+            DebugMsg("IsOnGround = " + IsOnGround.ToString());
+            DebugMsg("velocity = " + HelicopterModel.velocity.magnitude.ToString("0.000"));
+            lastDebugPrintTime = Time.time;
+        }
     }
 
     private void HeadlightMovement()
@@ -127,14 +147,21 @@ public class HelicopterController : MonoBehaviour
         var turn = TurnForce * Mathf.Lerp(hMove.x, hMove.x * (turnTiltForcePercent - Mathf.Abs(hMove.y)), Mathf.Max(0f, hMove.y));
         hTurn = Mathf.Lerp(hTurn, turn, Time.fixedDeltaTime * TurnForce);
         HelicopterModel.AddRelativeTorque(0f, hTurn * HelicopterModel.mass, 0f);
-        HelicopterModel.AddRelativeForce(Vector3.forward * Mathf.Max(0f, hMove.y * ForwardForce * HelicopterModel.mass));
+        //HelicopterModel.AddRelativeForce(Vector3.forward * Mathf.Max(0f, hMove.y * ForwardForce * HelicopterModel.mass));
+        HelicopterModel.AddRelativeForce(Vector3.forward * Mathf.Max(0f, hMove.y * (ForwardForce * AdjEngineForceRatio) * HelicopterModel.mass));
     }
 
     private void LiftProcess()
     {
         upForce = 1 - Mathf.Clamp(HelicopterModel.transform.position.y / EffectiveHeight, 0, 1);
         upForce = Mathf.Lerp(0f, EngineForce, upForce) * HelicopterModel.mass;
-        HelicopterModel.AddRelativeForce(Vector3.up * upForce);
+        //HelicopterModel.AddRelativeForce(Vector3.up * upForce);
+        if (IsMovingForward && EngineForce >= 10f)
+        {
+            HelicopterModel.AddRelativeForce(Vector3.up * upForce * (AdjEngineForceRatio * (EngineForceRatio + 1f)));
+        }
+        else
+            HelicopterModel.AddRelativeForce(Vector3.up * upForce);
     }
 
     private void TiltProcess()
@@ -166,52 +193,56 @@ public class HelicopterController : MonoBehaviour
             if (hMove.x < 0)
                 tempX = Time.fixedDeltaTime;
 
+        IsMovingForward = false;
         foreach (var pressedKeyCode in obj)
         {
             switch (pressedKeyCode)
             {
                 case PressedKeyCode.SpeedUpPressed:
 
-                    //EngineForce += 0.1f;
-                    //EngineForce += 1f;
                     EngineForce += 0.2f;
                     break;
+
                 case PressedKeyCode.SpeedDownPressed:
 
-                    //EngineForce -= 0.12f;
-                    //EngineForce -= 1.2f;
-                    EngineForce -= 0.24f;
+                    EngineForce -= 0.2f;
                     if (EngineForce < 0) EngineForce = 0;
                     break;
 
-                    case PressedKeyCode.ForwardPressed:
+                case PressedKeyCode.ForwardPressed:
 
                     if (IsOnGround) break;
                     tempY = Time.fixedDeltaTime;
+                    IsMovingForward = true;
                     break;
-                    case PressedKeyCode.BackPressed:
+
+                case PressedKeyCode.BackPressed:
 
                     if (IsOnGround) break;
                     tempY = -Time.fixedDeltaTime;
                     break;
-                    case PressedKeyCode.LeftPressed:
+
+                case PressedKeyCode.LeftPressed:
 
                     if (IsOnGround) break;
                     tempX = -Time.fixedDeltaTime;
                     break;
-                    case PressedKeyCode.RightPressed:
+
+                case PressedKeyCode.RightPressed:
 
                     if (IsOnGround) break;
                     tempX = Time.fixedDeltaTime;
                     break;
-                    case PressedKeyCode.TurnRightPressed:
+
+                case PressedKeyCode.TurnRightPressed:
                     {
                         if (IsOnGround) break;
                         var force = (turnForcePercent - Mathf.Abs(hMove.y))*HelicopterModel.mass;
                         HelicopterModel.AddRelativeTorque(0f, force, 0);
                     }
                     break;
-                    case PressedKeyCode.TurnLeftPressed:
+
+                case PressedKeyCode.TurnLeftPressed:
                     {
                         if (IsOnGround) break;
                         
@@ -227,12 +258,12 @@ public class HelicopterController : MonoBehaviour
 
         hMove.y += tempY;
         hMove.y = Mathf.Clamp(hMove.y, -1, 1);
-
     }
 
     private void OnCollisionEnter()
     {
-        IsOnGround = true;
+        if(EngineForce < 5f)
+            IsOnGround = true;
     }
 
     private void OnCollisionExit()

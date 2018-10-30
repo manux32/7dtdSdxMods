@@ -3,7 +3,7 @@ using System.Globalization;
 using UnityEngine;
 
 
-class EntityCustomCar : EntityCustomBike
+class EntityCustomCar : EntityCustomVehicle
 {
     Transform handlebar_joint = null;
     Transform frontWheel_joint_yaw = null;

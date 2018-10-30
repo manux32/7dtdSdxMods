@@ -55,13 +55,13 @@ public class VehicleCamera : MonoBehaviour
 
     void Update()
     {
-        if(entityVehicle == null || entityVehicle.player == null || entityVehicle.cameraOffset == null)
+        if (entityVehicle == null || entityVehicle.player == null || entityVehicle.cameraOffset == null)
         {
             InitController();
             return;
         }
 
-        if (!entityVehicle.hasDriver)
+        if (!entityVehicle.hasDriver || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         // toggle 1st-3rd person view
@@ -101,15 +101,15 @@ public class VehicleCamera : MonoBehaviour
             {
                 newThirdPcameraOffset.z = entityVehicle.cameraOffset.z / 3.0f;
             }
-            
-            if(newThirdPcameraOffset.z >= entityVehicle.cameraOffset.z)
+
+            if (newThirdPcameraOffset.z >= entityVehicle.cameraOffset.z)
             {
-                thirdPcamLerpMult = GetRatio(Mathf.Clamp(newThirdPcameraOffset.z, entityVehicle.cameraOffset.z, entityVehicle.cameraOffset.z / 3.0f), entityVehicle.cameraOffset.z, entityVehicle.cameraOffset.z / 3.0f);
+                thirdPcamLerpMult = CustomVehiclesUtils.GetRatio(Mathf.Clamp(newThirdPcameraOffset.z, entityVehicle.cameraOffset.z, entityVehicle.cameraOffset.z / 3.0f), entityVehicle.cameraOffset.z, entityVehicle.cameraOffset.z / 3.0f);
                 newThirdPcameraOffset.y = Mathf.Lerp(entityVehicle.cameraOffset.y, entityVehicle.cameraOffset.y + Mathf.Clamp(Mathf.Abs(entityVehicle.cameraOffset.y) * 2.0f, 0.5f, 2.0f), thirdPcamLerpMult);
             }
             else
             {
-                thirdPcamLerpMult = 1f - GetRatio(Mathf.Clamp(newThirdPcameraOffset.z, -50.0f, entityVehicle.cameraOffset.z), -50.0f, entityVehicle.cameraOffset.z);
+                thirdPcamLerpMult = 1f - CustomVehiclesUtils.GetRatio(Mathf.Clamp(newThirdPcameraOffset.z, -50.0f, entityVehicle.cameraOffset.z), -50.0f, entityVehicle.cameraOffset.z);
                 newThirdPcameraOffset.y = Mathf.Lerp(entityVehicle.cameraOffset.y, entityVehicle.cameraOffset.y + 15.0f, thirdPcamLerpMult);
             }
 
@@ -118,12 +118,12 @@ public class VehicleCamera : MonoBehaviour
     }
 
 
-    public float GetRatio(float value, float min, float max)
+    /*public float GetRatio(float value, float min, float max)
     {
         float range = max - min;
         float mult = 1.0f / range;
         return Mathf.Abs(Mathf.Abs(value * mult) - Mathf.Abs(min * mult));
-    }
+    }*/
 
     public void LateUpdate()
     {
@@ -200,7 +200,7 @@ public class VehicleCamera : MonoBehaviour
 
     public void OnGUI()
     {
-        if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused())
+        if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         if (entityVehicle == null || entityVehicle.player == null)

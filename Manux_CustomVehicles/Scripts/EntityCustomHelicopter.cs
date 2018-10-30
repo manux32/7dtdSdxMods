@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 
 
-class EntityCustomHelicopter : EntityCustomBike
+class EntityCustomHelicopter : EntityCustomVehicle
 {
     public GameObject entityRoot = null;
     public GameObject heliSimDummy = null;
@@ -246,8 +246,9 @@ class EntityCustomHelicopter : EntityCustomBike
         this.AttachedEntities.m_characterController.enabled = false;
 
         this.m_characterController.center = new Vector3(colliderCenter.x, 10f, colliderCenter.z);
-        this.m_characterController.radius = 0;
-        this.m_characterController.height = 0;
+        this.m_characterController.radius = 0.1f;
+        this.m_characterController.stepOffset = 0.01f;
+        this.m_characterController.height = 0.1f;
         this.m_characterController.detectCollisions = false;
         this.m_characterController.enabled = false;
         this.nativeBoxCollider.center = new Vector3(vehicleActivationCenter.x, 10f, vehicleActivationCenter.z);
@@ -291,6 +292,7 @@ class EntityCustomHelicopter : EntityCustomBike
         this.m_characterController.center = colliderCenter;
         this.m_characterController.radius = colliderRadius;
         this.m_characterController.height = colliderHeight;
+        this.m_characterController.stepOffset = controllerStepOffset;
         this.nativeCollider.enabled = true;
         this.nativeBoxCollider.center = vehicleActivationCenter;
         this.nativeBoxCollider.size = vehicleActivationSize;
@@ -306,7 +308,8 @@ class EntityCustomHelicopter : EntityCustomBike
 
     public new void FixedUpdate()
     {
-        try
+        // Try-catch for now because there is apparently an error in multi
+        //try
         {
             if (!helicoSettingsDone || !allBonesSet1Found)
             {
@@ -333,10 +336,10 @@ class EntityCustomHelicopter : EntityCustomBike
 
             UpdateSimulation();
         }
-        catch (System.Exception e)
+        /*catch (System.Exception e)
         {
             Debug.LogError("An error occurred: " + e);
-        }
+        }*/
     }
 
 
@@ -358,11 +361,13 @@ class EntityCustomHelicopter : EntityCustomBike
 
         if (hasDriver)
         {
-            SimInput.bOnGround = helicoCtrl.IsOnGround;
+            //SimInput.bOnGround = helicoCtrl.IsOnGround;
+            SimInput.bOnGround = true;
             DebugMsg("IsOnGround = " + SimInput.bOnGround.ToString());
             SimInput.velocity = rigidBody.velocity;
             DebugMsg("RigidBody velocity: pos = " + rigidBody.velocity.ToString("0.0000") + " | rot = " + rigidBody.angularVelocity.ToString("0.0000"));
-            SimInput.bAccelerate = IsMoving();
+            //SimInput.bAccelerate = IsMoving();
+            SimInput.bAccelerate = !helicoCtrl.IsOnGround;
             DebugMsg("IsMoving = " + SimInput.bAccelerate.ToString());
             SimInput.steering = rigidBody.angularVelocity.y;
             DebugMsg("SimInput.steering = " + SimInput.steering.ToString("0.0000"));

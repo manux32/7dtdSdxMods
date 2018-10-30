@@ -115,6 +115,12 @@ class CustomVehiclesUtils
         }
     }
 
+    public static float GetRatio(float value, float min, float max)
+    {
+        float range = max - min;
+        float mult = 1.0f / range;
+        return Mathf.Abs(Mathf.Abs(value * mult) - Mathf.Abs(min * mult));
+    }
 
     /*public static T GetCopyOf<T>(this Component comp, T other) where T : Component
     {

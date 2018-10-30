@@ -31,6 +31,20 @@
 				<property name="ControllerStepOffset" value="1" />-->
 				<property name="VehicleActivationCenter" value="0.42, 1, -0.39" />
 				<property name="VehicleActivationSize" value="2, 2, 3.8" />
+				<property name="EntityDamage" value="50" />
+				<property name="EntityHitMinSpeed" value="5" />
+				<property name="EntityCriticalHitMinSpeed" value="15" />
+				<property name="BlockDamage" value="10000" />
+				<property name="VehicleDamageFactor_blocks" value="4" />
+				<property name="VehicleDamageFactor_entities" value="4" />
+				<property name="DestructionRadius" value="1" />
+				<property name="DestructionHeight" value="2" />
+				<property name="DestructionHarvestBonus" value="1.4" />
+				<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,fenceOrDoor,softDebris,poleOrPillar" />
+				<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,fenceOrDoor,softDebris,poleOrPillar" />
+				<property name="HarvestToVehicleInventory" value="true" />
+				<property name="DestroyXPFactor" value="0.5" />
+				<property name="HarvestXPFactor" value="0.5" />
 				<property name="WaterCraft" value="true" />
 				<property name="Airtight" value="true" />
 				<property name="Prefab" value="Minibike" />

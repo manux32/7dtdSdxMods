@@ -22,7 +22,11 @@
 					<property name="DegradationMax" value="2000,12000"/>
 					<property name="VehicleNoise" value="2,0.2"/>
 					<!--<property name="VehicleMaxSpeed" value="15,54"/>-->
-					<property name="VehicleMaxSpeed" value="60,100"/>				
+					<!--<property name="VehicleMaxSpeed" value="60,100"/>-->
+					<!--<property name="VehicleMaxSpeed" value="30,50"/>-->
+					<!--<property name="VehicleMaxSpeed" value="10,36"/>-->
+					<!--<property name="VehicleMaxSpeed" value="7.5,27"/>-->
+					<property name="VehicleMaxSpeed" value="10,25"/>
 					<!--<property name="VehicleAcceleration" value="21,42"/>-->
 					<!--<property name="VehicleAcceleration" value="14,28"/>-->
 					<!--<property name="VehicleAcceleration" value="7,14"/>-->
@@ -35,18 +39,19 @@
 				</property>
 			</item>
 			<item id="" name="robustBikeChassis">
-				<property name="Extends" value="minibikeChassis"/>
-				<property name="IsVehicleCustomPart" value="true" />
 				<property name="DescriptionKey" value="robustBikeChassisDesc"/>
-				<!-- spawning HellGoat bike for now -->
-				<property name="Meshfile" value="#HellGoatBike?HellGoatBikeChassisPrefab" />
+				<property name="VehicleSlotType" value="chassis" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="HoldingItemHidden" value="true" />
+				<!-- Prefab actually not used. Cannot be spawned anymore (no Action1 section) because of the new custom parts system. -->
+				<!-- The robustBikeChassis is currently just there for you to extend from for new vehicles chassis, like the HellGoat Bike does -->
+				<!--<property name="Meshfile" value="#HellGoatBike?HellGoatBikeChassisPrefab" /> -->
+				<property name="Meshfile" value="Items/Misc/chassisPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="7" />
 				<!--<property name="EconomicValue" value="220"/>-->
 				<property name="EconomicValue" value="2000"/>
-				<property class="Action1">
-					<!-- This does not work anymore because of the new custom parts system. The robustBikeChassis is currently just there for you to extend from for new vehicles chassis -->
-					<property name="Class" value="SpawnCustomVehicle, Mods" />
-					<property name="VehicleToSpawn" value="hellGoatBike"/>
-				</property>
 				<property class="Attributes">
 					<!--<property name="VehicleDamagePassedToPlayer" value="0.7, 0.1"/>
 					<property name="DegradationRate" value="10,10"/>
@@ -55,6 +60,8 @@
 					<property name="DegradationRate" value="10,10"/>
 					<property name="DegradationMax" value="2400,12000"/>
 				</property>
+				<property name="Group" value="Resources" />
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
 			</item>
 			<item id="" name="proBikeHandlebars">
 				<property name="Extends" value="minibikeHandlebars"/>
@@ -67,7 +74,7 @@
 					<property name="VehicleBraking" value="25,25"/>
 					<property name="LightIntensity" value="0.75,0.75"/> Don't put a range or it will get scaled by minibike quality
 					<property name="DegradationMax" value="1200,6000"/>-->
-					<property name="VehicleSteering" value="2.5,2.5"/>
+					<property name="VehicleSteering" value="2,2"/>
 					<property name="VehicleMaxSteeringAngle" value="20,20"/>
 					<property name="VehicleBraking" value="100,100"/>
 					<property name="LightIntensity" value="10,10"/> <!--Don't put a range or it will get scaled by minibike quality-->

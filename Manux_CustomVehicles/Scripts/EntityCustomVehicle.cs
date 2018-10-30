@@ -8,6 +8,8 @@ using UnityEngine;
 
 public abstract class EntityCustomVehicle : EntityMinibike
 {
+    #region Fields
+
     public EntityPlayerLocal player;
     public LocalPlayerUI uiforPlayer;
     public XUiM_PlayerInventory playerInventory;
@@ -63,21 +65,16 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public bool hasBuiltInStorage = false;
 
+    // Destroy/Harvest
+    public VehicleDestroyAndHarvest vehicleDestroyAndHarvest = null;
+    public int currentDestroyHeight = 0;
+    public Vector3i lastHitBlockPos;
+
     //public string vehicleXuiName = "vehicle";
 
     // Three8's WaterCraft
     bool isAirtight;
     bool isWaterCraft;
-
-    public bool IsWaterCraft()
-    {
-        return isWaterCraft;
-    }
-
-    public bool IsAirtight()
-    {
-        return isAirtight;
-    }
 
     static bool showDebugLog = false;
 
@@ -89,6 +86,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }
     }
 
+    #endregion
+
+    #region Init functions
 
     public override void Init(int _entityClass)
     {
@@ -96,12 +96,12 @@ public abstract class EntityCustomVehicle : EntityMinibike
         uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
         DebugMsg("initial player.vp_FPCamera.Position3rdPersonOffset = " + player.vp_FPCamera.Position3rdPersonOffset.ToString("0.0000"));
 
+        vehicleDestroyAndHarvest = new VehicleDestroyAndHarvest(this);
+
         base.Init(_entityClass);
 
         nativeBoxCollider = this.nativeCollider as BoxCollider;
     }
-
-    #region Init Settings
 
     public override void CopyPropertiesFromEntityClass()
     {
@@ -230,6 +230,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
             vehicleXuiName = entityClass.Properties.Values["vehicleXuiName"];
         }*/
 
+        vehicleDestroyAndHarvest.CopyPropertiesFromEntityClass(entityClass);
         SetCharCtrlAndBoxCollFromXml();
     }
 
@@ -468,11 +469,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     #endregion
 
+    #region Updates
+
     protected override void Start()
     {
         base.Start();
         player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
         InitVehicle();
+        vehicleDestroyAndHarvest.lastEntityHitTime = Time.time;
+        vehicleDestroyAndHarvest.lastControllerVelocityMagnitude = 0f;
     }
 
     public virtual void InitVehicle()
@@ -504,6 +509,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
             GetPlayerSpine1Bone();
             uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
             playerInventory = uiforPlayer.xui.PlayerInventory;
+            xuiC_VehicleContainer = GetVehicleContainer();
         }
 
         hasDriver = true;
@@ -553,6 +559,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
             return;
         }
 
+        //vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
+        vehicleDestroyAndHarvest.FindAndKillSurroundingEntities();
+        vehicleDestroyAndHarvest.lastControllerVelocityMagnitude = this.m_characterController.velocity.magnitude;
+
         if (camAndPlayerOffsetsDone)
             return;
 
@@ -590,7 +600,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }*/
     }
 
-
     // Three8's WaterCraft: calls only while attached - must do this or it wont work under water.
     // TO-DO: This will need to be reviewed as the current function does not do everything that the original function does...
     public new void Update()
@@ -620,6 +629,50 @@ public abstract class EntityCustomVehicle : EntityMinibike
         this.vehicle.Update(Time.deltaTime);
     }
 
+    #endregion
+
+    #region Destroy/Harvest
+
+    public override void OnCollidedWithBlock(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)
+    {
+        base.OnCollidedWithBlock(_world, _clrIdx, _blockPos, _blockValue);
+        if (!(this.AttachedEntities is EntityPlayerLocal))
+            return;
+
+        if (!hasDriver)
+        {
+            OnDriverOn();
+        }
+
+        //if (hasDestructionRadius && _blockPos != lastHitBlockPos && blockDamage != 0 && !this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, 1.5f, 0f), Vector3.one)))
+        //if (vehicleDestroyAndHarvest.blockDamage != 0 && !vehicleDestroyAndHarvest.isDestroyingBlocks && Time.time - destroyDelay > lastDestroyTime && vehicleDestroyAndHarvest.hasDestructionRadius && _blockPos != lastHitBlockPos)
+        //if (vehicleDestroyAndHarvest.blockDamage != 0 && !vehicleDestroyAndHarvest.isDestroyingBlocks && vehicleDestroyAndHarvest.hasDestructionRadius && _blockPos != lastHitBlockPos)
+        if (vehicleDestroyAndHarvest.blockDamage != 0 && !vehicleDestroyAndHarvest.isDestroyingBlocks && vehicleDestroyAndHarvest.destructionRadius > 0f && _blockPos != lastHitBlockPos)
+        {
+            //DebugMsg("lastHitBlockPos = " + lastHitBlockPos.ToString());
+            player = this.AttachedEntities as EntityPlayerLocal;
+            vehicleDestroyAndHarvest.isDestroyingBlocks = true;
+            vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
+            vehicleDestroyAndHarvest.FindAndKillSurroundingBlocks(_world, _clrIdx, _blockPos);
+            lastHitBlockPos = _blockPos;
+            //lastDestroyTime = Time.time;
+        }
+    }
+
+    #endregion
+
+    #region Is-Has functions
+
+    // Three8's WaterCraft
+    public bool IsWaterCraft()
+    {
+        return isWaterCraft;
+    }
+
+    public bool IsAirtight()
+    {
+        return isAirtight;
+    }
 
     public override bool isDriveable()
     {
@@ -628,7 +681,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
         return this.vehicle.IsDriveable() && !this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, 1.5f, 0f), Vector3.one));
     }
-
 
     public ItemValue GetWeaponAmmoType(string weaponSlotType)
     {
@@ -682,11 +734,16 @@ public abstract class EntityCustomVehicle : EntityMinibike
         return this.vehicle.GetFuelNrm() > 0f;
     }
 
+    public bool HasStorage()
+    {
+        return this.hasStorage();
+    }
+
     public bool HasBuiltInStorage()
     {
         // Doing it here cause it fails in CopyPropertiesFromEntityClass()
         string hasBuiltInStrgString = this.GetVehicle().GetPartProperty("storage", "is_built-in_storage");
-        DebugMsg("Reading storage hasBuiltInStrgString = " + hasBuiltInStrgString);
+        //DebugMsg("Reading storage hasBuiltInStrgString = " + hasBuiltInStrgString);
         if (hasBuiltInStrgString != string.Empty)
         {
             bool hasBuiltInStrg;
@@ -699,15 +756,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
         return hasBuiltInStorage;
     }
 
-    public override void OnEntityUnload()
-    {
-        if (autoGeneratedWeaponLaunchers)
-        {
-            Destroy(gunLauncher.gameObject);
-            Destroy(missileLauncher.gameObject);
-        }
-        base.OnEntityUnload();
-    }
+    #endregion
+
+    #region Other
 
     public override bool OnEntityActivated(int _indexInBlockActivationCommands, Vector3i _tePos, EntityAlive _entityFocusing)
     {
@@ -766,7 +817,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                             if (field != null)
                             {
                                 TS = (Vector3i)field.GetValue(this);
-                                DebugMsg("Found Vector3i TS");
+                                //DebugMsg("Found Vector3i TS");
                             }
                         }
                     }
@@ -829,5 +880,18 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }
         return false;
     }
+
+
+    public override void OnEntityUnload()
+    {
+        if (autoGeneratedWeaponLaunchers)
+        {
+            Destroy(gunLauncher.gameObject);
+            Destroy(missileLauncher.gameObject);
+        }
+        base.OnEntityUnload();
+    }
+
+    #endregion
 }
 

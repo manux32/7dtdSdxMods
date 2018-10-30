@@ -38,7 +38,7 @@ public class VehicleWeapons : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.IsPaused())
+        if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         if (entityVehicle == null || entityVehicle.player == null)

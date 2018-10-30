@@ -41,10 +41,12 @@
 					<property name="DegradationMax" value="2000,12000"/>
 					<property name="VehicleNoise" value="4,0.4"/>
 					<!-- Is VehicleMaxSpeed necessary? -->
-					<property name="VehicleMaxSpeed" value="60,100"/>		
+					<property name="VehicleMaxSpeed" value="150,250"/>		
 					<property name="VehicleAcceleration" value="10.5,21"/>
-					<property name="VehicleMetersPerLiter" value="2,3"/>
-					<property name="VehicleIdleSecondsPerLiter" value="3,4.5"/>
+					<!--<property name="VehicleMetersPerLiter" value="2,3"/>
+					<property name="VehicleIdleSecondsPerLiter" value="3,4.5"/>-->
+					<property name="VehicleMetersPerLiter" value="1,1.5"/>
+					<property name="VehicleIdleSecondsPerLiter" value="1.5,2.25"/>
 					<property name="VehicleStartDelayInSeconds" value="1,0.1"/>
 					<property name="VehicleStartChance" value="0.5,0.99"/>
 					<property name="VehicleTankSize" value="2000, 4000"/>
@@ -71,8 +73,8 @@
 				<property name="ControllerStepOffset" value="1" />
 				<property name="VehicleActivationCenter" value="0, 1.5, 0.3" />
 				<property name="VehicleActivationSize" value="4, 3, 6" />
-				<property name="WaterCraft" value="false" />
-				<property name="Airtight" value="false" />
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="true" />
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />
