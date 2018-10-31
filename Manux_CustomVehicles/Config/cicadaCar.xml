@@ -205,6 +205,8 @@
 					<property name="display_name" value="vehicle50calGun" />
 					<property name="slot_type" value="vehicleGun" />
 					<property name="custom_slot_type" value="vehicle50calGun" />
+					<property name="mesh" value="50calMachineGun" />
+					<property name="transform" value="Origin/vehicleGun_joint" />
 					<property name="part_damage_reduction" value="0.5" />
 					<property name="parent_part" value="chassis" />
 				</property>
@@ -213,6 +215,8 @@
 					<property name="display_name" value="vehicleGrenadeLauncher" />
 					<property name="slot_type" value="vehicleExplosiveLauncher" />
 					<property name="custom_slot_type" value="vehicleGrenadeLauncher" />
+					<property name="mesh" value="GrenadeLauncher" />
+					<property name="transform" value="Origin/vehicleExplosiveLauncher_joint" />
 					<property name="part_damage_reduction" value="0.5" />
 					<property name="parent_part" value="chassis" />
 				</property>
