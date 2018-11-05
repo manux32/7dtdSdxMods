@@ -2,6 +2,9 @@
 using System.Reflection;
 using UnityEngine;
 using System.IO;
+using System.Xml;
+using System.IO;
+using SDX.Core;
 
 class Vehicle_patchFunctions
 {
@@ -956,36 +959,48 @@ class ModManager_patchFunctions
         }
 
         DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibike UiSpriteData found.");
+        //DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibikeUiSpriteData: " + minibikeUiSpriteData.name + "(" + minibikeUiSpriteData.x.ToString() + ", " + minibikeUiSpriteData.y.ToString() + ")" + "[" + minibikeUiSpriteData.width.ToString() + ", " + minibikeUiSpriteData.height.ToString() + "]");
 
-        //UISpriteData newUiSpriteData = new UISpriteData();
-        DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibikeUiSpriteData: " + minibikeUiSpriteData.name + "(" + minibikeUiSpriteData.x.ToString() + ", " + minibikeUiSpriteData.y.ToString() + ")" + "[" + minibikeUiSpriteData.width.ToString() + ", " + minibikeUiSpriteData.height.ToString() + "]");
-
-        /*newUiSpriteData.CopyFrom(minibikeUiSpriteData);
-
-        if(newUiSpriteData == null)
+        try
         {
-            DebugMsg("AddNewGameSymbolsDataToUiAtlas: newUiSpriteData is NULL. Aborting!");
+            DebugMsg("AddNewGameSymbolsDataToUiAtlas: Reading new game symbols definitions from xml file.");
+            string newUiGameSymbolsDefXmlFile = Utils.GetGameDir("Mods/SDX/UI");
+            newUiGameSymbolsDefXmlFile += "/new_ui_game_symbols_definitions.xml";
+            DebugMsg("newUiGameSymbolsDefXmlFile = " + newUiGameSymbolsDefXmlFile);
+
+            XmlDocument document = new XmlDocument();
+            document.Load(newUiGameSymbolsDefXmlFile);
+            XmlElement root = document.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes)
+            {
+                AddNewGameSymbolDefinition(ref ZZ, minibikeUiSpriteData, node);
+            }
+
+            field.SetValue(uiAtlas, ZZ);
+            DebugMsg("AddNewGameSymbolsDataToUiAtlas: Finished adding new game symbols.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("An error occurred: " + e);
+        }
+    }
+
+
+    public static void AddNewGameSymbolDefinition(ref List<UISpriteData> iconsDefData, UISpriteData srcUiSpriteData, XmlNode xmlNode)
+    {
+        if(xmlNode.Attributes == null || xmlNode.Attributes["name"] == null)
+        {
+            Debug.LogWarning("Warning!: AddNewGameSymbolDefinition: Xml Node or 'name' attribute is null, skipping.");
             return;
         }
 
-        DebugMsg("AddNewGameSymbolsDataToUiAtlas: newUiSpriteData after copy from minibike: " + newUiSpriteData.name + "(" + newUiSpriteData.x.ToString() + ", " + newUiSpriteData.y.ToString() + ")" + "[" + newUiSpriteData.width.ToString() + ", " + newUiSpriteData.height.ToString() + "]");
-        */
-        /*ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_vehicle", 1611, 424));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_motorcycle", 1611, 359));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_quad", 1611, 294));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_loader", 1611, 229));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter", 1611, 164));*/
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_cicada", 1611, 424));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_roadhog", 1611, 359));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_hellgoatbike", 1611, 294));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_quad", 1611, 229));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_loader", 1611, 164));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter", 1611, 99));
-        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter_weapons", 1611, 34));
-        field.SetValue(uiAtlas, ZZ);
-        DebugMsg("AddNewGameSymbolsDataToUiAtlas: Finished adding new game symbols.");
+        Vector2i iconPos;
+        if (CustomVehiclesUtils.StringVectorToVector2i(xmlNode.Attributes["atlas_pos"].Value, out iconPos))
+        {
+            DebugMsg("Adding new ui_game_symbol: " + xmlNode.Attributes["name"].Value + " (" + iconPos.x.ToString() + ", " + iconPos.y.ToString() + ")");
+            iconsDefData.Add(SetUISpriteData(srcUiSpriteData, xmlNode.Attributes["name"].Value, iconPos.x, iconPos.y));
+        }
     }
-
 
 
     public static void PrintBlipMapObjects()

@@ -1,0 +1,9 @@
+<ui_game_symbols>	
+	<ui_game_symbol name="manux_ui_game_symbol_helicopter_weapons" 		atlas_pos="1611,34" />
+	<ui_game_symbol name="manux_ui_game_symbol_helicopter" 				atlas_pos="1611,99" />
+	<ui_game_symbol name="manux_ui_game_symbol_loader" 					atlas_pos="1611,164" />
+	<ui_game_symbol name="manux_ui_game_symbol_quad" 					atlas_pos="1611,229" />
+	<ui_game_symbol name="manux_ui_game_symbol_hellgoatbike" 			atlas_pos="1611,294" />
+	<ui_game_symbol name="manux_ui_game_symbol_roadhog" 				atlas_pos="1611,359" />
+	<ui_game_symbol name="manux_ui_game_symbol_cicada" 					atlas_pos="1611,424" />
+</ui_game_symbols>
