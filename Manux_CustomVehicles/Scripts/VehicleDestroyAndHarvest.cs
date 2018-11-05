@@ -550,11 +550,21 @@ public class VehicleDestroyAndHarvest
             bool addedToVehicleInv = false;
             if (harvestToVehicleInventory && entityVehicle.HasStorage())
             {
-                addedToVehicleInv = entityVehicle.xuiC_VehicleContainer.AddItem(itemStack);
+                //addedToVehicleInv = entityVehicle.xuiC_VehicleContainer.AddItem(itemStack);
+                //XUiC_VehicleContainer vehicleContainer = entityVehicle.GetVehicleContainer();
+                XUiC_VehicleContainer vehicleContainer = EntityCustomVehicle.GetVehicleContainer(entityVehicle, entityVehicle.player, entityVehicle.vehicleXuiName);
+                if (vehicleContainer != null)
+                {
+                    //addedToVehicleInv = entityVehicle.inventory.AddItem(itemStack);
+                    addedToVehicleInv = vehicleContainer.AddItem(itemStack);
+                }
             }
             if (!addedToVehicleInv)
             {
-                if (!entityVehicle.playerInventory.AddItem(itemStack, true))
+                LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+                //if (!entityVehicle.playerInventory.AddItem(itemStack, true))
+                //if (!entityVehicle.player.inventory.AddItem(itemStack))
+                if (!uiforPlayer.xui.PlayerInventory.AddItem(itemStack, true))
                 {
                     GameManager.Instance.ItemDropServer(new ItemStack(itemValue, num), entityVehicle.player.GetPosition(), Vector3.zero, entityVehicle.player.GetInstanceID(), 60f, false);
                 }

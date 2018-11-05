@@ -49,7 +49,7 @@
 				<property name="Stacknumber" value="1" />
 				<property name="Material" value="wood_weak" />
 				<property name="Texture" value="346,345,341,345,262,345" />
-				<property name="LootList" value="130" />
+				<!--<property name="LootList" value="130" />-->
 				<drop event="Destroy" name="workstationOven" count="1" />
 				<drop event="Fall" name="woodDebris" count="1" prob="1.0"  stick_chance=".75" />
 				<property name="HeatMapStrength" value="1"/>

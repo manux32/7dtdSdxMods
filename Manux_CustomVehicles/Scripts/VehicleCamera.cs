@@ -61,7 +61,9 @@ public class VehicleCamera : MonoBehaviour
             return;
         }
 
-        if (!entityVehicle.hasDriver || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+        //if (!entityVehicle.hasDriver || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        if (!entityVehicle.hasDriver || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         // toggle 1st-3rd person view
@@ -200,7 +202,9 @@ public class VehicleCamera : MonoBehaviour
 
     public void OnGUI()
     {
-        if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+        //if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         if (entityVehicle == null || entityVehicle.player == null)

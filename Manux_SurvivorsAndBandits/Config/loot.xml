@@ -194,52 +194,52 @@
 				<item group="banditsMachete" count="1"/>
 			  </lootgroup>
 
-			  <lootcontainer id="239" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="199" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+Pistol" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="240" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="200" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+44Magnum" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="241" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="201" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+SawedOffPumpShotgun" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="242" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="202" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+PumpShotgun" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="243" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="203" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+MP5" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="244" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="204" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+AK47" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="245" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="205" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+HuntingRifle" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="246" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="206" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+SniperRifle" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="247" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="207" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+RocketLauncher" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="248" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="208" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+SledgeHammer" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="249" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="209" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+Machete" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="250" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="210" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+Fireaxe" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="251" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="211" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+SpikedClub" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="252" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="212" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+HuntingKnife" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="253" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="213" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsThug+Chainsaw" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="254" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="214" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditsLeader+AK47" prob="1"/>
 			  </lootcontainer>
 
@@ -373,52 +373,52 @@
 			  </lootgroup>
 
 
-			<lootcontainer id="119" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			<lootcontainer id="215" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorPistol" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="120" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="216" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivor44Magnum" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="121" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="217" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorSawedOffPumpShotgun" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="122" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="218" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorPumpShotgun" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="123" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="219" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorMP5" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="124" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="220" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorAK47" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="125" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="221" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorHuntingRifle" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="126" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="222" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorSniperRifle" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="127" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="223" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorRocketLauncher" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="128" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="224" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorSledgeHammer" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="129" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="225" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorMachete" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="130" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="226" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorFireaxe" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="131" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="227" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorSpikedClub" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="132" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="228" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorHuntingKnife" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="133" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="229" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorChainsaw" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="134" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="230" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorLeader" prob="1"/>
 			  </lootcontainer>
 			  
@@ -459,29 +459,29 @@
 				<item name="gasCan" count="50,250"/>
 			  </lootgroup>
 			  
-			  <lootcontainer id="135" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="231" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditBruteSledgeHammer" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="136" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="232" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditBruteFireaxe" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="137" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="233" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditBruteSpikedClub" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="138" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="234" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditBruteChainsaw" prob="1"/>
 			  </lootcontainer>
 			  
-			  <lootcontainer id="139" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="235" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorBruteSledgeHammer" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="140" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="236" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorBruteFireaxe" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="141" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="237" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorBruteSpikedClub" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="142" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="238" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorBruteChainsaw" prob="1"/>
 			  </lootcontainer>
 			  
@@ -495,10 +495,10 @@
 				<item group="weaponsRocketLauncher+ammo"/>
 			  </lootgroup>
 			  
-			  <lootcontainer id="143" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="239" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="banditLeaderRocketLauncher" prob="1"/>
 			  </lootcontainer>
-			  <lootcontainer id="144" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
+			  <lootcontainer id="240" count="1" size="5,5" destroy_on_close="false" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse" loot_quality_template="baseTemplate">
 				<item group="survivorLeaderRocketLauncher" prob="1"/>
 			  </lootcontainer>
 		</append>

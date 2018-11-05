@@ -38,7 +38,9 @@ public class VehicleWeapons : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+        //if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
             return;
 
         if (entityVehicle == null || entityVehicle.player == null)
@@ -114,6 +116,8 @@ public class VehicleWeapons : MonoBehaviour
             blockProjectileMoveScript.Fire(projectileLauncher.position, rayEnd - projectileLauncher.position, entityVehicle.player, 0);
         }
 
+
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
         if (isGun)
         {
             ParticleEffect pe = new ParticleEffect("nozzleflash_ak", projectileLauncher.position, Quaternion.Euler(0f, 180f, 0f), 1f, Color.white, "Pistol_Fire", projectileLauncher);
@@ -121,11 +125,13 @@ public class VehicleWeapons : MonoBehaviour
             ParticleEffect pe2 = new ParticleEffect("nozzlesmokeuzi", projectileLauncher.position, lightValue, new Color(1f, 1f, 1f, 0.3f), null, projectileLauncher, false);
             SpawnParticleEffect(pe, -1);
             SpawnParticleEffect(pe2, -1);
-            entityVehicle.playerInventory.RemoveItem(itemStack);
+            //entityVehicle.playerInventory.RemoveItem(itemStack);
+            uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
             return;
         }
 
-        entityVehicle.playerInventory.RemoveItem(itemStack);
+        //entityVehicle.playerInventory.RemoveItem(itemStack);
+        uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
 
         if (Steam.Network.IsServer)
         {

@@ -144,10 +144,6 @@
 		</append>
 	</config>
 	<config name="loot">
-		<append xpath="/lootcontainers">
-			<!-- MANUX Custom Vehicles: smaller vehicle storage testing -->
-			<!--<lootcontainer id="147" count="0" size="2,2" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="baseTemplate"></lootcontainer>-->
-		</append>
 		<append xpath="/lootcontainers/lootgroup[@name='rareAutomotive']">
 			<!-- MANUX Custom Vehicles -->
 			<item name="proBikeWheels" prob="0.05"/>

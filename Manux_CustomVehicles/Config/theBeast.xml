@@ -109,19 +109,22 @@
 				<property name="HarvestXPFactor" value="0.5" />
 				<property name="WaterCraft" value="true" />
 				<property name="Airtight" value="true" />
+				<!-- different size storage (supposed to work now, but please report any issues with them) -->
+				<property name="VehicleXuiName" value="vehicleLargeStorage" />
+				<property name="LootListAlive" value="191" />
 				<!--<property name="Sound_loader_moving_loop" value="Vehicles/Minibike/loader_moving_lp_" />-->
 				<property name="Prefab" value="Minibike" />
 				<property name="MaxHealth" value="1000000" />
 				<property name="SurfaceCategory" value="metal" />
 				<property name="IgnoreTrigger" value="true" />
-				<property name="LootListAlive" value="62" />
 				<property name="IsEnemyEntity" value="false" />
 				<property name="Explosion.ParticleIndex" value="6" />
 				<property name="Explosion.RadiusBlocks" value="6" />
 				<property name="Explosion.RadiusEntities" value="6" />
 				<property name="RotateToGround" value="true" />
 				<property name="Faction" value="none" />
-				<property name="MapIcon" value="ui_game_symbol_minibike" />
+				<property name="MapIcon" value="manux_ui_game_symbol_loader" />
+				<property name="CompassIcon" value="manux_ui_game_symbol_loader" />
 			</entity_class>
 		</append>
 	</config>

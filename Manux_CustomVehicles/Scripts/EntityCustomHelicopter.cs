@@ -161,6 +161,8 @@ class EntityCustomHelicopter : EntityCustomVehicle
 
     public void CreateHelicoSimSystem()
     {
+        if (heliSimDummy != null)
+            return;
         heliSimDummy = new GameObject("helicoCtrl");
         // For debugging with a 3d cube that is visible in the game
         /*heliSimDummy = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -206,10 +208,10 @@ class EntityCustomHelicopter : EntityCustomVehicle
         boxcoll.size = new Vector3(2.5f, 0.25f, 7f);
 
         Vector3 newPos = this.transform.position;
-        newPos.y += 1;
+        //newPos.y += 1;
         heliSimDummy.transform.position = newPos;
         heliSimDummy.transform.rotation = this.transform.rotation;
-        rigidBody.useGravity = true;
+        //rigidBody.useGravity = true;
 
         helicoCtrl = heliSimDummy.AddComponent<HelicopterController>();
         helicoCtrl.HelicopterModel = rigidBody;
@@ -236,6 +238,8 @@ class EntityCustomHelicopter : EntityCustomVehicle
         ctrlPanel.Start();
         helicoCtrl.entity = this;
         helicoCtrl.Start();
+
+        heliSimDummy.SetActive(false);
     }
 
     public override void OnDriverOn()
@@ -256,9 +260,11 @@ class EntityCustomHelicopter : EntityCustomVehicle
         this.nativeCollider.enabled = false;
 
         Vector3 yPos = this.transform.position;
-        yPos.y += 1;
+        //yPos.y += 1;
         heliSimDummy.transform.position = yPos;
         heliSimDummy.transform.rotation = this.transform.rotation;
+        rigidBody.useGravity = true;
+        heliSimDummy.SetActive(true);
 
         hasDriver = true;
         //helicoCtrl.HelicopterSound.volume = 0;
@@ -299,6 +305,7 @@ class EntityCustomHelicopter : EntityCustomVehicle
         hasDriver = false;
         player.m_characterController.enabled = true;
         player.m_characterController.detectCollisions = true;
+        heliSimDummy.SetActive(false);
 
         //helicoCtrl.HelicopterSound.Stop();
         helicoRotorSound.Stop();

@@ -70,7 +70,29 @@ class CustomVehiclesUtils
         {
             Debug.LogError("Xml Vector is invalid");
         }
-        newVector3 = new Vector3();
+        newVector3 = Vector3.zero;
+        return false;
+    }
+
+    public static bool StringVectorToVector2i(string stringVec, out Vector2i newVector2i)
+    {
+        string[] stringVector;
+        stringVector = stringVec.Split(',');
+        if (stringVector.Length == 2)
+        {
+            int x;
+            int.TryParse(stringVector[0], out x);
+            int y;
+            int.TryParse(stringVector[1], out y);
+            newVector2i = new Vector2i(x, y);
+            return true;
+        }
+        else
+        {
+            Debug.LogError("Xml Vector is invalid");
+        }
+        
+        newVector2i = Vector2i.zero;
         return false;
     }
 

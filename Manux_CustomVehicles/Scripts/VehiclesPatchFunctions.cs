@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-
+using System.IO;
 
 class Vehicle_patchFunctions
 {
@@ -12,7 +11,7 @@ class Vehicle_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -121,7 +120,7 @@ class EntityVehicle_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -197,7 +196,7 @@ class XUiM_Vehicle_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -285,7 +284,7 @@ class XUiC_BasePartStack_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -322,7 +321,7 @@ class XUiC_VehiclePartStack_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -415,7 +414,7 @@ class XUiC_VehiclePartStackGrid_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -599,7 +598,7 @@ class ItemClass_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
@@ -614,7 +613,7 @@ class ItemClass_patchFunctions
 }
 
 
-class XUiC_VehicleContainer_patchFunctions
+/*class XUiC_VehicleContainer_patchFunctions
 {
     static readonly bool showDebugLog = false;
 
@@ -622,57 +621,780 @@ class XUiC_VehicleContainer_patchFunctions
     {
         if (showDebugLog)
         {
-            Debug.Log(msg);
+            UnityEngine.Debug.Log(msg);
         }
     }
 
 
-    /*public static void SetSlots_addition(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
+    public static void SetSlots_addition(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
     {
         xuiV_Grid.Columns = 6;
         xuiV_Grid.Rows = 7;
     }*/
 
-    public static void SetSlots(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
+/*public static void SetSlots(XUiC_VehicleContainer xuic_vehicleContainer, ItemStack[] stackList)
+{
+    if (stackList == null)
     {
-        if (stackList == null)
+        return;
+    }
+    if (xuic_vehicleContainer.xui.vehicle.GetVehicle() == null)
+    {
+        return;
+    }
+    xuic_vehicleContainer.xui.vehicle.bag.OnBackpackItemsChangedInternal += xuic_vehicleContainer.OnBagItemChangedInternal;
+    xuic_vehicleContainer.items = stackList;
+    XUiC_ItemInfoWindow infoWindow = (XUiC_ItemInfoWindow)xuic_vehicleContainer.xui.GetChildByType<XUiC_ItemInfoWindow>();
+    XUiV_Grid xuiV_Grid = (XUiV_Grid)xuic_vehicleContainer.viewComponent;
+    xuiV_Grid.Columns = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().x;
+    xuiV_Grid.Rows = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().y;
+    //xuiV_Grid.Columns = 6;
+    //xuiV_Grid.Rows = 7;
+    int num = stackList.Length;
+    for (int i = 0; i < xuic_vehicleContainer.itemControllers.Length; i++)
+    //for (int i = 0; i < 42; i++)
+    {
+        XUiC_ItemStack xuiC_ItemStack = (XUiC_ItemStack)xuic_vehicleContainer.itemControllers[i];
+        xuiC_ItemStack.InfoWindow = infoWindow;
+        xuiC_ItemStack.SlotNumber = i;
+        xuiC_ItemStack.SlotChangedEvent -= xuic_vehicleContainer.HandleLootSlotChangedEvent;
+        xuiC_ItemStack.InfoWindow = infoWindow;
+        xuiC_ItemStack.StackLocation = XUiC_ItemStack.StackLocationTypes.LootContainer;
+        xuiC_ItemStack.UnlockStack();
+        if (i < num)
         {
-            return;
+            xuiC_ItemStack.ForceSetItemStack(xuic_vehicleContainer.items[i]);
+            xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = true;
+            xuiC_ItemStack.SlotChangedEvent += xuic_vehicleContainer.HandleLootSlotChangedEvent;
         }
-        if (xuic_vehicleContainer.xui.vehicle.GetVehicle() == null)
+        else
         {
-            return;
+            xuiC_ItemStack.ItemStack = ItemStack.Empty.Clone();
+            xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = false;
         }
-        xuic_vehicleContainer.xui.vehicle.bag.OnBackpackItemsChangedInternal += xuic_vehicleContainer.OnBagItemChangedInternal;
-        xuic_vehicleContainer.items = stackList;
-        XUiC_ItemInfoWindow infoWindow = (XUiC_ItemInfoWindow)xuic_vehicleContainer.xui.GetChildByType<XUiC_ItemInfoWindow>();
-        XUiV_Grid xuiV_Grid = (XUiV_Grid)xuic_vehicleContainer.viewComponent;
-        xuiV_Grid.Columns = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().x;
-        xuiV_Grid.Rows = xuic_vehicleContainer.xui.vehicle.lootContainer.GetContainerSize().y;
-        //xuiV_Grid.Columns = 6;
-        //xuiV_Grid.Rows = 7;
-        int num = stackList.Length;
-        for (int i = 0; i < xuic_vehicleContainer.itemControllers.Length; i++)
-        //for (int i = 0; i < 42; i++)
+    }
+}
+}*/
+
+
+class XUiC_VehicleWindowGroup_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
         {
-            XUiC_ItemStack xuiC_ItemStack = (XUiC_ItemStack)xuic_vehicleContainer.itemControllers[i];
-            xuiC_ItemStack.InfoWindow = infoWindow;
-            xuiC_ItemStack.SlotNumber = i;
-            xuiC_ItemStack.SlotChangedEvent -= xuic_vehicleContainer.HandleLootSlotChangedEvent;
-            xuiC_ItemStack.InfoWindow = infoWindow;
-            xuiC_ItemStack.StackLocation = XUiC_ItemStack.StackLocationTypes.LootContainer;
-            xuiC_ItemStack.UnlockStack();
-            if (i < num)
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    // for different size storage to fallback to the default XUiC_VehicleWindowGroup.ID value ("vehicle"), when the window is closed.
+    public static void OnClose_addition()
+    {
+        XUiC_VehicleWindowGroup.ID = "vehicle";
+    }
+}
+
+
+class TileEntityLootContainer_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public static void SetContainerSize(TileEntityLootContainer tileEntityLootContainer, Vector2i _containerSize, bool clearItems)
+    {
+        DebugMsg("TileEntityLootContainer.SetContainerSize:");
+        //Vector2i MKZ;
+        FieldInfo MKZ_field = null;
+        var listOfFieldNames = typeof(TileEntityLootContainer).GetFields();
+        //var listOfFieldNames = typeof(TileEntityLootContainer).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.FieldType == typeof(Vector2i))
             {
-                xuiC_ItemStack.ForceSetItemStack(xuic_vehicleContainer.items[i]);
-                xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = true;
-                xuiC_ItemStack.SlotChangedEvent += xuic_vehicleContainer.HandleLootSlotChangedEvent;
+                MKZ_field = fieldInfo;
+                if (MKZ_field != null)
+                {
+                    //MKZ = (Vector2i)MKZ_field.GetValue(tileEntityLootContainer);
+                    DebugMsg("Found Vector2i MKZ");
+                    break;
+                }
+            }
+        }
+
+        Entity entity = GameManager.Instance.World.GetEntity(tileEntityLootContainer.entityId);
+        if(entity != null && (entity.GetType() == typeof(EntityCustomVehicle) || entity.GetType().IsSubclassOf(typeof(EntityCustomVehicle))))
+        {
+            EntityCustomVehicle vehicle = (EntityCustomVehicle)entity;
+            DebugMsg("TileEntityLootContainer.SetContainerSize: is EntityCustomVehicle");
+            _containerSize = vehicle.storageSize;
+        }
+
+        //MKZ = _containerSize;
+        if (MKZ_field != null)
+        {
+            DebugMsg("Setting Vector2i MKZ_field to: " + _containerSize.ToString());
+            MKZ_field.SetValue(tileEntityLootContainer, _containerSize);
+        }
+        if (clearItems)
+        {
+            tileEntityLootContainer.items = ItemStack.CreateArray(_containerSize.x * _containerSize.y);
+        }
+    }
+}
+
+
+class UISprite_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    //value = UISprite_patchFunctions.GetProperAtlas(this, value);
+
+    public static UIAtlas GetProperAtlas(UISprite sprite, UIAtlas atlas)
+    {
+        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        LocalPlayerUI uiforPlayer = null;
+        if (player != null)
+        {
+            uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        }
+
+        if (uiforPlayer == null)
+        {
+            return atlas;
+        }
+
+        if (sprite.spriteName.ToLower().StartsWith("manux_"))
+        {
+            DebugMsg("GetProperAtlas for icon: " + sprite.spriteName);
+            return uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
+        }
+        return uiforPlayer.xui.GetAtlasByName("UIAtlas");
+    }
+
+    public static void SetProperAtlas(UISprite sprite)
+    {
+        if (GameManager.Instance == null || !GameManager.Instance.gameStateManager.IsGameStarted())
+            return;
+
+        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        LocalPlayerUI uiforPlayer = null;
+        if (player != null)
+        {
+            uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        }
+
+        if (uiforPlayer == null)
+        {
+            return;
+        }
+
+        if (sprite.spriteName.ToLower().StartsWith("manux_"))
+        {
+            DebugMsg("GetProperAtlas for icon: " + sprite.spriteName);
+            UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
+            if (sprite.atlas != itemIconAtlas)
+            {
+                sprite.atlas = itemIconAtlas;
+                //sprite.mChanged = true;
+            }
+        }
+        //sprite.atlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
+    }
+}
+
+
+class XUiC_CompassWindow_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public static void Update_addition(XUiC_CompassWindow xuic_CompassWindow)
+    {
+        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+
+        foreach (UISprite sprite in xuic_CompassWindow.waypointSpriteList)
+        {
+            if(sprite.spriteName.ToLower().StartsWith("manux_"))
+            {
+                //DebugMsg("Setting itemIconAtlas for icon: " + sprite.spriteName);
+                sprite.atlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
             }
             else
             {
-                xuiC_ItemStack.ItemStack = ItemStack.Empty.Clone();
-                xuic_vehicleContainer.itemControllers[i].ViewComponent.IsVisible = false;
+                sprite.atlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
             }
         }
     }
- }
+}
+
+class MapObjectVehicle_patchFunctions : MapObjectVehicle
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public MapObjectVehicle_patchFunctions(Entity _entity) : base(_entity)
+    {
+    }
+
+    public string GetProperCompassIcon()
+    {
+        if (this.type == EnumMapObjectType.Entity && this.entity != null)
+        {
+            //DebugMsg("Map Icon = " + this.entity.GetMapIcon());
+            //DebugMsg("Compass Icon = " + this.entity.GetCompassIcon());
+            return this.entity.GetCompassIcon();
+        }
+        return null;
+    }
+}
+
+
+class ModManager_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+
+    public static void PrintMapObjects(EnumMapObjectType mapObjectType)
+    {
+        DebugMsg("StartGame_additions: Map Objects (" + mapObjectType.ToString() + "):");
+        List<MapObject> mapObjects = GameManager.Instance.World.GetObjectOnMapList(mapObjectType);
+        foreach (MapObject mapObject in mapObjects)
+        {
+            DebugMsg("\t - " + mapObject.GetName() + " | icon = " + mapObject.GetMapIcon() + " | mapObject.key = " + mapObject.key.ToString());
+        }
+    }
+
+
+    public static UISpriteData SetUISpriteData(UISpriteData srcUiSpriteData, string name, int x, int y)
+    {
+        UISpriteData newUiSpriteData = new UISpriteData();
+        newUiSpriteData.CopyFrom(srcUiSpriteData);
+
+        newUiSpriteData.name = name;
+        newUiSpriteData.x = x;
+        newUiSpriteData.y = y;
+        return newUiSpriteData;
+    }
+
+    public static void AddNewGameSymbolsDataToUiAtlas(UIAtlas uiAtlas)
+    {
+        List<UISpriteData> ZZ = null;
+        FieldInfo field = null;
+        var listOfFieldNames = typeof(UIAtlas).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.FieldType == typeof(List<UISpriteData>))
+            {
+                field = fieldInfo;
+            }
+        }
+
+        if(field == null)
+        {
+            DebugMsg("AddNewGameSymbolsDataToUiAtlas: Cannot find ZZ Field. Aborting!");
+            return;
+        }
+
+        DebugMsg("AddNewGameSymbolsDataToUiAtlas: ZZ Field found.");
+
+        ZZ = (List<UISpriteData>)field.GetValue(uiAtlas);
+
+        UISpriteData minibikeUiSpriteData = null;
+        foreach(UISpriteData uiSpriteData in ZZ)
+        {
+            if(uiSpriteData.name == "ui_game_symbol_minibike")
+            {
+                minibikeUiSpriteData = uiSpriteData;
+                break;
+            }
+        }
+
+        if (minibikeUiSpriteData == null)
+        {
+            DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibike UiSpriteData cannot be found. Aborting!");
+            return;
+        }
+
+        DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibike UiSpriteData found.");
+
+        //UISpriteData newUiSpriteData = new UISpriteData();
+        DebugMsg("AddNewGameSymbolsDataToUiAtlas: minibikeUiSpriteData: " + minibikeUiSpriteData.name + "(" + minibikeUiSpriteData.x.ToString() + ", " + minibikeUiSpriteData.y.ToString() + ")" + "[" + minibikeUiSpriteData.width.ToString() + ", " + minibikeUiSpriteData.height.ToString() + "]");
+
+        /*newUiSpriteData.CopyFrom(minibikeUiSpriteData);
+
+        if(newUiSpriteData == null)
+        {
+            DebugMsg("AddNewGameSymbolsDataToUiAtlas: newUiSpriteData is NULL. Aborting!");
+            return;
+        }
+
+        DebugMsg("AddNewGameSymbolsDataToUiAtlas: newUiSpriteData after copy from minibike: " + newUiSpriteData.name + "(" + newUiSpriteData.x.ToString() + ", " + newUiSpriteData.y.ToString() + ")" + "[" + newUiSpriteData.width.ToString() + ", " + newUiSpriteData.height.ToString() + "]");
+        */
+        /*ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_vehicle", 1611, 424));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_motorcycle", 1611, 359));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_quad", 1611, 294));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_loader", 1611, 229));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter", 1611, 164));*/
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_cicada", 1611, 424));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_roadhog", 1611, 359));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_hellgoatbike", 1611, 294));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_quad", 1611, 229));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_loader", 1611, 164));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter", 1611, 99));
+        ZZ.Add(SetUISpriteData(minibikeUiSpriteData, "manux_ui_game_symbol_helicopter_weapons", 1611, 34));
+        field.SetValue(uiAtlas, ZZ);
+        DebugMsg("AddNewGameSymbolsDataToUiAtlas: Finished adding new game symbols.");
+    }
+
+
+
+    public static void PrintBlipMapObjects()
+    {
+        DebugMsg("StartGame_additions: Blip Map Objects: (" + GameManager.Instance.World.Blips.ActiveBlips.Count.ToString() + ")");
+        List<BlipMapObject> blipMapObjects = GameManager.Instance.World.Blips.ActiveBlips;
+        foreach (BlipMapObject blipMapObject in blipMapObjects)
+        {
+            DebugMsg("\t - " + blipMapObject.spriteName);
+            /*if (blipMapObject.spriteName == "manux_ui_game_symbol_vehicle")
+            {
+                UISprite uiSprite = blipMapObject.sprite;
+                uiSprite.atlas = itemIconAtlas;
+            }*/
+
+        }
+    }
+
+    public static void PrintSceneContent()
+    {
+        GameObject nguiRoot2D = GameObject.Find("/NGUI Root (2D)");
+        if (nguiRoot2D == null)
+        {
+            DebugMsg("StartGame_additions: Cannot find 'NGUI Root (2D)'");
+            return;
+        }
+
+        GameObject root = CustomVehiclesUtils.GetRootTransform(nguiRoot2D.transform).gameObject;
+
+        Component[] transforms = root.GetComponentsInChildren<Transform>();
+        DebugMsg("StartGame_additions: Root UIAtlas Children:");
+        foreach (Transform transform in transforms)
+        {
+            DebugMsg("- " + transform.name);
+            Component[] comps = transform.gameObject.GetComponents<Component>();
+            DebugMsg("Components:");
+            foreach (Component comp in comps)
+            {
+                DebugMsg("\t- " + comp.name + " | type = " + comp.GetType().ToString());
+                if (comp.GetType() == typeof(UIAtlas) || comp.GetType().IsSubclassOf(typeof(UIAtlas)))
+                    DebugMsg("\t- UIAtlas: " + transform.name + " | comp = " + comp.name + " | type = " + comp.GetType().ToString());
+            }
+        }
+    }
+
+    public static void PrintMapWaypoints()
+    {
+        // Print Map waypoints
+        PrintMapObjects(EnumMapObjectType.MapMarker);   // Prints vehicles
+        PrintMapObjects(EnumMapObjectType.Entity);
+        PrintMapObjects(EnumMapObjectType.SleepingBag);
+        PrintMapObjects(EnumMapObjectType.StartPoint);
+        PrintMapObjects(EnumMapObjectType.Backpack);
+        PrintMapObjects(EnumMapObjectType.Prefab);
+        PrintMapObjects(EnumMapObjectType.EntitySpawner);
+        PrintMapObjects(EnumMapObjectType.MapMarker);
+        PrintMapObjects(EnumMapObjectType.MapQuickMarker);
+        PrintMapObjects(EnumMapObjectType.TreasureChest);
+        PrintMapObjects(EnumMapObjectType.Quest);
+        PrintMapObjects(EnumMapObjectType.SupplyDrop);
+        PrintMapObjects(EnumMapObjectType.VendingMachine);
+    }
+
+    
+
+    public static void GameStartDone_additions()
+    {
+        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        UIAtlas uiAtlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
+        UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
+
+        // Add new ui_game_symbols icons positions to the UIAtlas
+        AddNewGameSymbolsDataToUiAtlas(uiAtlas);
+
+        //PrintSceneContent();
+        //PrintBlipMapObjects();
+        //PrintMapWaypoints();
+        //ImageManipUtils.PrintProjectTextures();
+        //ImageManipUtils.PrintItemIconAtlasesSprites();
+
+        // Swap the UIAtlas image with our modified version
+        var uiIconsDestPath = Utils.GetGameDir("Mods/SDX/UI");
+        DebugMsg("Mods/SDX/UI path = " + uiIconsDestPath);
+        DirectoryInfo d = new DirectoryInfo(uiIconsDestPath);
+        FileInfo[] Files = d.GetFiles("*.*");
+
+        FieldInfo ZZfield = null;
+        FieldInfo KZfield = null;
+        var listOfFieldNames = typeof(UIAtlas).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.FieldType == typeof(List<UISpriteData>))
+            {
+                ZZfield = fieldInfo;
+            }
+
+            if (fieldInfo.FieldType == typeof(Material))
+            {
+                KZfield = fieldInfo;
+            }
+        }
+
+        /*DebugMsg("UISpriteData BEFORE:");
+        List<UISpriteData> uiSpriteData = (List<UISpriteData>)ZZfield.GetValue(uiAtlas);
+        foreach(UISpriteData sd in uiSpriteData)
+        {
+            //DebugMsg("\t - " + sd.name + " (" + sd.x + ", " + sd.y + ")");
+        }*/
+
+        DebugMsg("Mods UI files:");
+        foreach (FileInfo file in Files)
+        {
+            //DebugMsg("\t- " + file.FullName);
+            //DebugMsg("\t- " + file.Name);
+            if (Path.GetFileNameWithoutExtension(file.Name) == "UIAtlas")
+            {
+                UnityEngine.Debug.LogWarning("Found new UIAtlas in Custom Vehicles mod, switching texture image to new UIAtlas.");
+                byte[] fileData;
+                fileData = File.ReadAllBytes(file.FullName);
+
+                Texture2D text2Dsrc = new Texture2D(2, 2, TextureFormat.ARGB32, false, true);
+                Material mat = (Material)KZfield.GetValue(uiAtlas);
+                DebugMsg("original texture setting (BEFORE): size = " + mat.mainTexture.width.ToString() + " x " + mat.mainTexture.height.ToString() + " | mipMapBias = " + mat.mainTexture.mipMapBias.ToString("0.0000") + " | filterMode = " + mat.mainTexture.filterMode.ToString() + " | anisoLevel = " + mat.mainTexture.anisoLevel.ToString() + " | wrapMode = " + mat.mainTexture.wrapMode.ToString());
+                DebugMsg("new texture settings (BEFORE): size = " + text2Dsrc.width.ToString() + " x " + text2Dsrc.height.ToString() + " | format = " + text2Dsrc.format.ToString() + " | mipMapBias = " + text2Dsrc.mipMapBias.ToString("0.0000") + " | filterMode = " + text2Dsrc.filterMode.ToString() + " | anisoLevel = " + text2Dsrc.anisoLevel.ToString() + " | wrapMode = " + text2Dsrc.wrapMode.ToString());
+                text2Dsrc.mipMapBias = mat.mainTexture.mipMapBias;
+                text2Dsrc.filterMode = mat.mainTexture.filterMode;
+                text2Dsrc.anisoLevel = mat.mainTexture.anisoLevel;
+                text2Dsrc.wrapMode = mat.mainTexture.wrapMode;
+                DebugMsg("original texture setting (AFTER): size = " + mat.mainTexture.width.ToString() + " x " + mat.mainTexture.height.ToString() + " | mipMapBias = " + mat.mainTexture.mipMapBias.ToString("0.0000") + " | filterMode = " + mat.mainTexture.filterMode.ToString() + " | anisoLevel = " + mat.mainTexture.anisoLevel.ToString() + " | wrapMode = " + mat.mainTexture.wrapMode.ToString());
+                DebugMsg("new texture settings (AFTER): size = " + text2Dsrc.width.ToString() + " x " + text2Dsrc.height.ToString() + " | format = " + text2Dsrc.format.ToString() + " | mipMapBias = " + text2Dsrc.mipMapBias.ToString("0.0000") + " | filterMode = " + text2Dsrc.filterMode.ToString() + " | anisoLevel = " + text2Dsrc.anisoLevel.ToString() + " | wrapMode = " + text2Dsrc.wrapMode.ToString());
+
+                text2Dsrc.LoadImage(fileData);
+
+                text2Dsrc.Compress(true);
+                text2Dsrc.Apply(true, true);
+                DebugMsg("new texture settings (AFTER COMPRESS and APPLY): size = " + text2Dsrc.width.ToString() + " x " + text2Dsrc.height.ToString() + " | format = " + text2Dsrc.format.ToString() + " | mipMapBias = " + text2Dsrc.mipMapBias.ToString("0.0000") + " | filterMode = " + text2Dsrc.filterMode.ToString() + " | anisoLevel = " + text2Dsrc.anisoLevel.ToString() + " | wrapMode = " + text2Dsrc.wrapMode.ToString());
+                mat.mainTexture = text2Dsrc;
+            }
+        }
+    }
+}
+
+
+class XUiC_VehicleContainer_patchFunctions : XUiC_VehicleContainer
+{
+    static bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public void SubInit()
+    {
+        //this.takeAllLabel = (XUiV_Label)base.GetChildById("takeAllLabel").ViewComponent;
+        //this.takeAllLabel.TruetypeFont = null;
+        this.btnTakeAll = base.Parent.GetChildById("btnTakeAll");
+        if (this.btnTakeAll != null)
+        {
+            this.btnTakeAll.OnPress += this.OnButtonTakeAll;
+        }
+        this.btnDropAll = base.Parent.GetChildById("btnDropAll");
+        if (this.btnDropAll != null)
+        {
+            this.btnDropAll.OnPress += this.OnButtonDropAll;
+        }
+    }
+
+    public void ButtonTakeAll()
+    {
+        if (base.xui.vehicle.GetVehicle() == null)
+        {
+            return;
+        }
+        bool result = TakeAll();
+        if (result && GameManager.Instance.World != null)
+        {
+            Audio.Manager.BroadcastPlayByLocalPlayer(base.xui.vehicle.transform.position + Vector3.one * 0.5f, "UseActions/takeall1");
+        }
+    }
+
+    public void ButtonDropAll()
+    {
+        if (base.xui.vehicle.GetVehicle() == null)
+        {
+            return;
+        }
+
+        ItemStack[] slots = base.xui.vehicle.bag.GetSlots();
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (!slots[i].IsEmpty())
+            {
+                GameManager.Instance.ItemDropServer(slots[i].Clone(), base.xui.vehicle.transform.position, Vector3.zero, -1, 60f, false);
+                base.xui.vehicle.bag.SetSlot(i, ItemStack.Empty.Clone(), true);
+            }
+        }
+
+        if (GameManager.Instance.World != null)
+        {
+            Audio.Manager.BroadcastPlayByLocalPlayer(base.xui.vehicle.transform.position + Vector3.one * 0.5f, "UseActions/takeall1");
+        }
+    }
+}
+
+
+class XUiC_BackpackWindow_patchFunctions : XUiC_BackpackWindow
+{
+    static bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public void SubInit()
+    {
+        this.btnStashAll = base.Parent.GetChildById("btnStashAll");
+        if (this.btnStashAll != null)
+        {
+            this.btnStashAll.OnPress += this.OnButtonStashAll;
+        }
+        this.btnStashAllButFirst = base.Parent.GetChildById("btnStashAllButFirst");
+        if (this.btnStashAllButFirst != null)
+        {
+            this.btnStashAllButFirst.OnPress += this.OnButtonStashAllButFirst;
+        }
+    }
+
+
+    public void ButtonStashAll()
+    {
+        XUiC_ItemStackGrid xuiC_ItemStackGrid = (XUiC_ItemStackGrid)base.GetChildByType<XUiC_ItemStackGrid>();
+        XUiController[] slots = xuiC_ItemStackGrid.itemControllers;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            {
+                XUiC_ItemStack xuic_ItemStack = (XUiC_ItemStack)slots[i];
+                xuic_ItemStack.HandleMoveToPreferredLocation();
+            }
+        }
+    }
+
+    public void ButtonStashAllButFirst()
+    {
+        XUiC_ItemStackGrid xuiC_ItemStackGrid = (XUiC_ItemStackGrid)base.GetChildByType<XUiC_ItemStackGrid>();
+        XUiController[] slots = xuiC_ItemStackGrid.itemControllers;
+        XUiV_Grid xuiv_Grid = (XUiV_Grid)xuiC_ItemStackGrid.viewComponent;
+
+        for (int i = xuiv_Grid.Columns; i < slots.Length; i++)
+        {
+            {
+                XUiC_ItemStack xuic_ItemStack = (XUiC_ItemStack)slots[i];
+                xuic_ItemStack.HandleMoveToPreferredLocation();
+            }
+        }
+    }
+}
+
+
+/*public static class ModManager_additions
+{
+    private static DictionaryList<string, Mod> ZZ = new DictionaryList<string, Mod>();
+
+    public static IEnumerator LoadUIIcons()
+    {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+        GameObject gameObject = GameObject.Find("/NGUI Root (2D)/ItemIconAtlas");
+        if (gameObject == null)
+        {
+            Log.Warning("[MODS] Could not load custom icons: Atlas object not found");
+            yield break;
+        }
+        DynamicUIAtlas component = gameObject.GetComponent<DynamicUIAtlas>();
+        if (component == null)
+        {
+            Log.Warning("[MODS] Could not load custom icons: Atlas component not found");
+            yield break;
+        }
+        //yield return null;
+        //return 1;
+        component.ResetAtlas();
+        //yield return null;
+        //return 1;
+        Dictionary<string, Texture2D> dictionary = new Dictionary<string, Texture2D>();
+        MicroStopwatch microStopwatch = new MicroStopwatch(true);
+        int num = 0;
+        goto IL_131;
+        microStopwatch.ResetAndRestart();
+    IL_102:
+        int num2;
+        num2++;
+    IL_110:
+        string[] array;
+        if (num2 < array.Length)
+        {
+            goto IL_1CA;
+        }
+    IL_123:
+        num++;
+    IL_131:
+        if (num >= ZZ.Count)
+        {
+            goto IL_2A0;
+        }
+        Mod mod = ZZ.list[num];
+        string path = mod.Path + "/ItemIcons";
+        if (!Directory.Exists(path))
+        {
+            goto IL_123;
+        }
+        array = null;
+        try
+        {
+            array = Directory.GetFiles(path);
+            goto IL_290;
+        }
+        catch (Exception ex)
+        {
+            Exception e = ex;
+            Log.Exception(e);
+            goto IL_290;
+        }
+    IL_1BE:
+        num2 = 0;
+        goto IL_110;
+    IL_1CA:
+        string text = array[num2];
+        try
+        {
+            if (text.ToLower().EndsWith(".png"))
+            {
+                Texture2D texture2D = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+                if (texture2D.LoadImage(File.ReadAllBytes(text)))
+                {
+                    dictionary.Add(Path.GetFileNameWithoutExtension(text), texture2D);
+                }
+                else
+                {
+                    UnityEngine.Object.Destroy(texture2D);
+                }
+            }
+        }
+        catch (Exception ex2)
+        {
+            Exception e2 = ex2;
+            Log.Error("Adding file " + text + " failed:");
+            Log.Exception(e2);
+        }
+        if (microStopwatch.ElapsedMilliseconds <= 90L)
+        {
+            goto IL_102;
+        }
+        yield return null;
+        //return 1;
+    IL_290:
+        if (array == null)
+        {
+            goto IL_123;
+        }
+        goto IL_1BE;
+    IL_2A0:
+        yield return null;
+        //return 1;
+        if (dictionary.Count <= 0)
+        {
+            goto IL_3D1;
+        }
+        try
+        {
+            component.LoadAdditionalSprites(dictionary);
+        }
+        catch (Exception ex3)
+        {
+            Exception e3 = ex3;
+            Log.Exception(e3);
+        }
+        yield return null;
+        //return 1;
+        try
+        {
+            foreach (Texture2D obj in dictionary.Values)
+            {
+                UnityEngine.Object.Destroy(obj);
+            }
+        }
+        catch (Exception ex4)
+        {
+            Exception e4 = ex4;
+            Log.Exception(e4);
+        }
+        stopwatch.Stop();
+        Log.Out("Adding {0} sprites to atlas took {1} ms", new object[]
+        {
+        dictionary.Count,
+        stopwatch.ElapsedMilliseconds
+        });
+        yield return null;
+        //return 1;
+    IL_3D1:
+        component.Compress();
+        yield break;
+    }
+}*/

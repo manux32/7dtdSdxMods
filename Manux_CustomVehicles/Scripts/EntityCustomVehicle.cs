@@ -11,9 +11,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
     #region Fields
 
     public EntityPlayerLocal player;
-    public LocalPlayerUI uiforPlayer;
-    public XUiM_PlayerInventory playerInventory;
-    public XUiC_VehicleContainer xuiC_VehicleContainer;
+    //public LocalPlayerUI uiforPlayer;
+    //public XUiM_PlayerInventory playerInventory;
+    //public XUiC_VehicleContainer xuiC_VehicleContainer;
     public bool hasDriver = false;
     public CharacterController charCtrl = null;
     public Transform playerSpine1Bone = null;
@@ -70,7 +70,8 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public int destructionStartHeight = 1;
     public Vector3i lastHitBlockPos;
 
-    //public string vehicleXuiName = "vehicle";
+    public string vehicleXuiName = "vehicle";
+    public Vector2i storageSize = new Vector2i(3,6);
 
     // Three8's WaterCraft
     bool isAirtight;
@@ -93,7 +94,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public override void Init(int _entityClass)
     {
         player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
-        uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        //uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
         DebugMsg("initial player.vp_FPCamera.Position3rdPersonOffset = " + player.vp_FPCamera.Position3rdPersonOffset.ToString("0.0000"));
 
         vehicleDestroyAndHarvest = new VehicleDestroyAndHarvest(this);
@@ -101,6 +102,63 @@ public abstract class EntityCustomVehicle : EntityMinibike
         base.Init(_entityClass);
 
         nativeBoxCollider = this.nativeCollider as BoxCollider;
+
+        DebugMsg("Init lootList = " + this.GetLootList().ToString());
+        DebugMsg("Init vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+        DebugMsg("init XUiC_VehicleWindowGroup.ID = " + XUiC_VehicleWindowGroup.ID);
+        DebugMsg("init vehicleXuiName = " + vehicleXuiName);
+        DebugMsg("init vehicle storageSize = " + storageSize.ToString());
+
+        /*(this.inventory as EntityVehicle.MyDummyInventory).SetupSlots();
+        this.setupEntitySlotInfo();
+        //Vector2i size = LootContainer.lootList[this.GetLootList()].size;
+        if (this.bag != null)
+        {
+            this.bag.SetupSlots(ItemStack.CreateArray(storageSize.x * storageSize.y));
+        }
+        TileEntityLootContainer lootCtn = (TileEntityLootContainer)GameManager.Instance.World.GetTileEntity(this.entityId);
+        if (this.lootContainer == null)
+        {
+            this.lootContainer = lootCtn; 
+        }
+        this.lootContainer.SetContainerSize(storageSize, false);
+        DebugMsg("Init lootList = " + this.GetLootList().ToString());
+        DebugMsg("Init vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+
+        DebugMsg("Init this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
+        DebugMsg("Init lootListIndex = " + this.lootContainer.lootListIndex.ToString() + " | size = " + this.lootContainer.GetContainerSize().ToString());*/
+
+        
+
+        /*//base.Init(_entityClass);
+        EntityClass entityClass = EntityClass.list[this.entityClass];
+        this.vehicle = new Vehicle(entityClass.entityClassName, this);
+        (this.inventory as EntityVehicle.MyDummyInventory).SetupSlots();
+        this.setupEntitySlotInfo();
+        Vector2i size = LootContainer.lootList[this.GetLootList()].size;
+        DebugMsg("Init lootList = " + this.GetLootList().ToString());
+        //Vector2i size = new Vector2i(6, 7);
+        this.bag.SetupSlots(ItemStack.CreateArray(size.x * size.y));
+        DebugMsg("Init vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+
+        CharacterController MI;
+        var listOfFieldNames = typeof(Vehicle).GetFields();
+        //var listOfFieldNames = typeof(CharacterController).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            FieldInfo field = null;
+            if (fieldInfo.FieldType == typeof(CharacterController))
+            {
+                field = fieldInfo;
+                if (field != null)
+                {
+                    MI = (CharacterController)field.GetValue(this);
+                    DebugMsg("Found CharacterController MI");
+                }
+            }
+        }
+
+        MI = this.PhysicsTransform.GetComponent<CharacterController>();*/
     }
 
     public override void CopyPropertiesFromEntityClass()
@@ -227,8 +285,8 @@ public abstract class EntityCustomVehicle : EntityMinibike
             bool.TryParse(entityClass.Properties.Values["Airtight"], out isAirtight);
         }
 
-        // Test changing Storage size
-        /*if (entityClass.Properties.Values.ContainsKey("vehicleXuiName"))
+        // Experimental different size storage
+        if (entityClass.Properties.Values.ContainsKey("VehicleXuiName"))
         {
             //entityClass.Properties.Values["vehicleXuiName"];
             //GUIWindowManager windowManager = uiforPlayer.windowManager;
@@ -236,8 +294,24 @@ public abstract class EntityCustomVehicle : EntityMinibike
             //XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(entityClass.Properties.Values["vehicleXuiName"])).Controller);
             //xuic_vehicleWindowGroup.CurrentVehicleEntity = this;
             //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(XUiC_VehicleWindowGroup.ID).GetChildByType<XUiC_VehicleContainer>();
-            vehicleXuiName = entityClass.Properties.Values["vehicleXuiName"];
-        }*/
+            vehicleXuiName = entityClass.Properties.Values["VehicleXuiName"];
+        }
+        bool bStrgSizeFound = false;
+        if (entityClass.Properties.Values.ContainsKey("StorageSize"))
+        {
+            Vector2i strgSize;
+            if (CustomVehiclesUtils.StringVectorToVector2i(entityClass.Properties.Values["StorageSize"], out strgSize))
+            {
+                storageSize = strgSize;
+                bStrgSizeFound = true;
+                DebugMsg("\tnew storageSize = " + storageSize.ToString());
+            }
+        }
+        if(!bStrgSizeFound)
+        {
+            storageSize = LootContainer.lootList[this.GetLootList()].size;
+            DebugMsg("\tstorageSize xml property not found, setting default = " + storageSize.ToString());
+        }
 
         vehicleDestroyAndHarvest.CopyPropertiesFromEntityClass(entityClass);
         SetCharCtrlAndBoxCollFromXml();
@@ -469,11 +543,24 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }
     }
 
-    public virtual XUiC_VehicleContainer GetVehicleContainer()
+    public static XUiC_VehicleContainer GetVehicleContainer(EntityVehicle _vehicle, EntityPlayerLocal _player, string _vehicleXuiName)
     {
+        //GUIWindowManager windowManager = uiforPlayer.windowManager;
+        //((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow("vehicle")).Controller).CurrentVehicleEntity = this;
+        //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(XUiC_VehicleWindowGroup.ID).GetChildByType<XUiC_VehicleContainer>();
+
+        /*GUIWindowManager windowManager = uiforPlayer.windowManager;
+        //((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
+        //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
+        XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller);
+        xuic_vehicleWindowGroup.CurrentVehicleEntity = this;
+        return (XUiC_VehicleContainer)xuic_vehicleWindowGroup.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();*/
+
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(_player);
         GUIWindowManager windowManager = uiforPlayer.windowManager;
-        ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow("vehicle")).Controller).CurrentVehicleEntity = this;
-        return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(XUiC_VehicleWindowGroup.ID).GetChildByType<XUiC_VehicleContainer>();
+        ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(_vehicleXuiName)).Controller).CurrentVehicleEntity = _vehicle;
+        //XUiC_VehicleContainer xuiC_VehicleContainer = (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(_vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
+        return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(_vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
     }
 
     #endregion
@@ -491,6 +578,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public virtual void InitVehicle()
     {
+        //uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        //playerInventory = uiforPlayer.xui.PlayerInventory;
+        //xuiC_VehicleContainer = GetVehicleContainer();
+
         GetVehicleBones();
         GetPlayerSpine1Bone();
 
@@ -516,10 +607,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
         {
             player = this.AttachedEntities as EntityPlayerLocal;
             GetPlayerSpine1Bone();
-            uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
-            playerInventory = uiforPlayer.xui.PlayerInventory;
-            xuiC_VehicleContainer = GetVehicleContainer();
+            //uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+            //playerInventory = uiforPlayer.xui.PlayerInventory;
+            //xuiC_VehicleContainer = GetVehicleContainer();
+            XUiC_VehicleWindowGroup.ID = vehicleXuiName;
         }
+
+        ForceIncrediblyStupidStorageSizeFuck();
+        DebugMsg("OnDriverOn lootList = " + this.GetLootList().ToString());
+        DebugMsg("OnDriverOn vehicle bag length = " + this.bag.GetSlots().Length.ToString());
 
         hasDriver = true;
         vehicleCam.newThirdPcameraOffset = cameraOffset;
@@ -534,8 +630,21 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public virtual void OnDriverOff()
     {
+        DebugMsg("OnDriverOff lootList = " + this.GetLootList().ToString());
+        DebugMsg("OnDriverOff vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+
         hasDriver = false;
         camAndPlayerOffsetsDone = false;
+        XUiC_VehicleWindowGroup.ID = "vehicle";
+
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        GUIWindowManager windowManager = uiforPlayer.windowManager;
+        XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = (XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller;
+        if (xuic_vehicleWindowGroup.CurrentVehicleEntity != null)
+        {
+            xuic_vehicleWindowGroup.CurrentVehicleEntity.SetIsInteracting(false, null);
+        }
+        xuic_vehicleWindowGroup.xui.vehicle = null;
     }
 
     public new void FixedUpdate()
@@ -712,9 +821,12 @@ public abstract class EntityCustomVehicle : EntityMinibike
         ItemValue itemValue = GetWeaponAmmoType("vehicleGun");
         if(itemValue != null)
         {
+            LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(this.player);
             ItemStack itemStack = new ItemStack(itemValue, 1);
             //DebugMsg("HasGunAmmo = " + (playerInventory.HasItem(itemStack)).ToString());
-            return playerInventory.HasItem(itemStack);
+            //return playerInventory.HasItem(itemStack);
+            //return player.inventory.GetItemCount(itemValue, false) > 0;
+            return uiforPlayer.xui.PlayerInventory.HasItem(itemStack);
         }
         return false;
     }
@@ -730,9 +842,12 @@ public abstract class EntityCustomVehicle : EntityMinibike
         ItemValue itemValue = GetWeaponAmmoType("vehicleExplosiveLauncher");
         if (itemValue != null)
         {
+            LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(this.player);
             ItemStack itemStack = new ItemStack(itemValue, 1);
             //DebugMsg("HasExplosiveLauncherAmmo = " + (playerInventory.HasItem(itemStack)).ToString());
-            return playerInventory.HasItem(itemStack);
+            //return playerInventory.HasItem(itemStack);
+            //return player.inventory.GetItemCount(itemValue, false) > 0;
+            return uiforPlayer.xui.PlayerInventory.HasItem(itemStack);
         }
         return false;
     }
@@ -769,6 +884,16 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     #region Other
 
+    public void ForceIncrediblyStupidStorageSizeFuck()
+    {
+        ItemStack[] oldStack = (ItemStack[])bag.GetSlots().Clone();
+        //Vector2i size = LootContainer.lootList[this.GetLootList()].size;
+        //bag.SetupSlots(ItemStack.CreateArray(size.x * size.y));
+        bag.SetupSlots(ItemStack.CreateArray(storageSize.x * storageSize.y));
+        bag.SetSlots(oldStack);
+        this.lootContainer.SetContainerSize(storageSize, false);
+    }
+
     public override bool OnEntityActivated(int _indexInBlockActivationCommands, Vector3i _tePos, EntityAlive _entityFocusing)
     {
         EntityPlayerLocal entityPlayerLocal = _entityFocusing as EntityPlayerLocal;
@@ -791,46 +916,44 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 break;
             case 1:
                 {
-                    // Testing different size storage
-                    /*XUiC_VehicleWindowGroup.ID = vehicleXuiName;
-                    DebugMsg("XUiC_VehicleWindowGroup.ID = " + XUiC_VehicleWindowGroup.ID);
-                    DebugMsg("vehicleXuiName = " + vehicleXuiName);
+                    // Experimental different size storage
                     DebugMsg("this.GetLootList() = " + this.GetLootList().ToString());
-                    this.lootContainer.lootListIndex = this.GetLootList();
-                    this.lootContainer.SetContainerSize(global::LootContainer.lootList[this.GetLootList()].size, true);
-                    DebugMsg("this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
-                    ItemStack[] oldStack = (ItemStack[])this.lootContainer.items.Clone();
-                    this.lootContainer.items = new ItemStack[this.lootContainer.GetContainerSize().x * this.lootContainer.GetContainerSize().y];
-                    oldStack.CopyTo(this.lootContainer.items, 0);
                     DebugMsg("this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
                     DebugMsg("lootListIndex = " + this.lootContainer.lootListIndex.ToString() + " | size = " + this.lootContainer.GetContainerSize().ToString());
-                    GUIWindowManager windowManager = uiforPlayer.windowManager;
-                    XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller);
-                    xuic_vehicleWindowGroup.CurrentVehicleEntity = this;
-                    xuic_vehicleWindowGroup.Update(0);
-                    windowManager.Open(vehicleXuiName, true, false, true);*/
 
                     GUIWindowManager windowManager = uiforPlayer.windowManager;
-                    ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow("vehicle")).Controller).CurrentVehicleEntity = this;
-                    windowManager.Open("vehicle", true, false, true);                
+                    ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
+                    XUiC_VehicleWindowGroup.ID = vehicleXuiName;
 
-                    Vector3i TS;
-                    //var listOfFieldNames = typeof(Vehicle).GetFields();
-                    var listOfFieldNames = typeof(CharacterController).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+                    ForceIncrediblyStupidStorageSizeFuck();
+
+                    windowManager.Open(vehicleXuiName, true, false, true);
+
+                    DebugMsg("XUiC_VehicleWindowGroup.ID = " + XUiC_VehicleWindowGroup.ID);
+                    DebugMsg("vehicleXuiName = " + vehicleXuiName);
+                    DebugMsg("vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+                    DebugMsg("vehicle storageSize = " + storageSize.ToString());
+
+                    //Vector3i TS;
+                    FieldInfo TS_field = null;
+                    var listOfFieldNames = typeof(EntityVehicle).GetFields();
+                    //var listOfFieldNames = typeof(EntityVehicle).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
                     foreach (FieldInfo fieldInfo in listOfFieldNames)
                     {
-                        FieldInfo field = null;
-                        if (fieldInfo.FieldType == typeof(CharacterController))
+                        if (fieldInfo.FieldType == typeof(Vector3i))
                         {
-                            field = fieldInfo;
-                            if (field != null)
+                            TS_field = fieldInfo;
+                            if (TS_field != null)
                             {
-                                TS = (Vector3i)field.GetValue(this);
-                                //DebugMsg("Found Vector3i TS");
+                                //TS = (Vector3i)TS_field.GetValue(this);
+                                TS_field.SetValue(this, _tePos);
+                                DebugMsg("Found Vector3i TS");
+                                break;
                             }
                         }
                     }
-                    TS = _tePos;
+                    //TS = _tePos;
+                    
                     //this.TS = _tePos;
                     Audio.Manager.Play(this, "UseActions/open_vehicle");
                     this.isInteractionLocked = true;
@@ -876,7 +999,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
                         if (HasBuiltInStorage())
                         {
                             DebugMsg("Taking storage content");
-                            GetVehicleContainer().TakeAll();
+                            GUIWindowManager windowManager = uiforPlayer.windowManager;
+                            ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
+                            XUiC_VehicleContainer xuiC_VehicleContainer =(XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
+                            xuiC_VehicleContainer.TakeAll();
                         }
                         this.vehicle.SetPartInSlot("chassis", ItemValue.None.Clone());
                         this.syncPartData();

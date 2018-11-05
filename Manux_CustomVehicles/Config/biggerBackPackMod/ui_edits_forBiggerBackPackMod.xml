@@ -1,0 +1,230 @@
+<configs>	
+	
+	<config name="entityclasses">
+		<set xpath="/entity_classes/entity_class[@name='minibikePlus']/property[@name='VehicleXuiName']/@value">vehicleSmallStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='minibikePlus']/property[@name='LootListAlive']/@value">192</set>
+		<set xpath="/entity_classes/entity_class[@name='hellGoatBike']/property[@name='VehicleXuiName']/@value">vehicleMediumStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='hellGoatBike']/property[@name='LootListAlive']/@value">193</set>
+		<set xpath="/entity_classes/entity_class[@name='roadhog']/property[@name='VehicleXuiName']/@value">vehicleMediumStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='roadhog']/property[@name='LootListAlive']/@value">193</set>
+		<set xpath="/entity_classes/entity_class[@name='cicadaCar']/property[@name='VehicleXuiName']/@value">vehicleLargeStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='cicadaCar']/property[@name='LootListAlive']/@value">194</set>
+		<set xpath="/entity_classes/entity_class[@name='quad']/property[@name='VehicleXuiName']/@value">vehicleMediumStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='quad']/property[@name='LootListAlive']/@value">193</set>
+		<set xpath="/entity_classes/entity_class[@name='loader']/property[@name='VehicleXuiName']/@value">vehicleLargeStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='loader']/property[@name='LootListAlive']/@value">194</set>
+		<set xpath="/entity_classes/entity_class[@name='helicopter']/property[@name='VehicleXuiName']/@value">vehicleLargeStorage_BiggerBackPackMod</set>
+		<set xpath="/entity_classes/entity_class[@name='helicopter']/property[@name='LootListAlive']/@value">194</set>
+	</config>
+	
+	<config name="loot">
+		<set xpath="/lootcontainers/lootcontainer[@id='62']/@size">5,8</set>
+		<append xpath="/lootcontainers">
+			<!-- MANUX Custom Vehicles: different size storage for my Bigger BackPack mod -->
+			<lootcontainer id="192" count="0" size="6,9" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="baseTemplate"></lootcontainer>
+			<lootcontainer id="193" count="0" size="10,10" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="baseTemplate"></lootcontainer>
+			<lootcontainer id="194" count="0" size="12,15" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="baseTemplate"></lootcontainer>
+		</append>
+	</config>
+	
+	<config name="xui">
+		<insertAfter xpath="/xui/ruleset/window_group[@name='vehicleLargeStorage']">
+			<window_group name="vehicleSmallStorage_BiggerBackPackMod" controller="XUiC_VehicleWindowGroup">
+				<window name="S420windowVehicle"/>
+				<window name="S420windowNonPagingHeaderLeft" />
+				<window name="S420windowVehicleStats" />
+				<window name="S420windowVehicleStorage_small" />
+			</window_group>
+			<window_group name="vehicleMediumStorage_BiggerBackPackMod" controller="XUiC_VehicleWindowGroup">
+				<window name="S420windowVehicle"/>
+				<window name="S420windowNonPagingHeaderLeft" />
+				<window name="S420windowVehicleStats" />
+				<window name="S420windowVehicleStorage_medium" />
+			</window_group>
+			<window_group name="vehicleLargeStorage_BiggerBackPackMod" controller="XUiC_VehicleWindowGroup">
+				<window name="S420windowVehicle"/>
+				<window name="S420windowNonPagingHeaderLeft" />
+				<window name="S420windowVehicleStats" />
+				<window name="S420windowVehicleStorage_large" />
+			</window_group>
+		</insertAfter>
+	</config>
+	
+	<config name="XUi/windows">		
+
+		<remove xpath="/windows/window[@name='S420windowVehicle']"/>
+		<insertAfter xpath="/windows/window[@name='windowCustomVehicle']">
+			<window name="S420windowVehicle" width="353" height="400" panel="Right" anchor="CenterTop" controller="VehicleFrameWindow" cursor_area="true" >
+				<panel name="header" pos="-520,144" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_vehicle"/>
+					<label style="header.name" text="{vehiclenamequality}" />
+					<sprite depth="2" width="112" pos="239, -34" height="10" type="sliced" color="[black]" />
+					<sprite depth="2" width="110" pos="240, -35" height="8" type="sliced" color="[mediumGrey]" />
+					<sprite depth="2" name="sprVehicleQuality" width="110" pos="240, -35" height="8" type="filled" color="{vehiclequalitycolor}" />
+				</panel>
+				<panel name="content" depth="0" pos="-520,104" disableautobackground="true">
+					<sprite color="[darkGrey]" pos="3,-3" height="234" />
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="3,-3" width="350" height="256" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+					<rect depth="1" pos="3,-3" width="350" height="234">
+						<rect pos="3,-3" width="344" height="218">
+							<sprite color="[mediumGrey]" type="sliced" />
+							<texture depth="2" name="vehiclePreview" material="Materials/Transparent Colored" size="344,218" />
+							<label depth="3" pos="14,-20" font_size="26" text="{vehiclequalitytitle}: [DECEA3]{vehiclequality}[-]" width="200" height="30"/>
+							<label depth="3" pos="14,-50" font_size="26" text="{vehicledurabilitytitle}: [DECEA3]{vehicledurability}[-]" width="200" height="30"/>
+						</rect>
+						<grid name="parts" rows="5" cols="2" pos="2,-254" cell_width="350" cell_height="40" repeat_content="true" controller="VehiclePartStackGrid">
+							<S420_vehicle_part_slot />
+						</grid>
+						<rect name="btnRepair" depth="3" pos="0, -213" height="36">
+							<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+							<rect depth="3" name="background" pos="3,-5" width="345" height="28">
+								<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" />
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,-2" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="104,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="106,0" sprite="ui_game_symbol_wrench" color="[black_half_alpha]"/>
+								<sprite depth="2" name="windowIcon" width="24" height="24" pos="105,-1" sprite="ui_game_symbol_wrench"/>
+								<label depth="2" name="windowName" pos="0,-1" justify="center" text="REPAIR" text_key="xuiRepair" font_size="28" />
+							</rect>
+						</rect>
+					</rect>
+				</panel>
+			</window>
+		</insertAfter>
+		
+		<remove xpath="/windows/window[@name='S420windowVehicleStats']/panel[@name='header']/sprite[@name='windowIcon']"/>
+		<insertBefore xpath="/windows/window[@name='S420windowVehicleStats']/panel[@name='header']/label[@style='header.name']">
+			<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_vehicle"/>
+		</insertBefore>
+		
+		<remove xpath="/windows/window[@name='S420windowVehicleStorage']"/>
+		<insertAfter xpath="/windows/window[@name='windowVehicleLargeStorage']">
+		
+			<window name="S420windowVehicleStorage" width="903" height="262" depth="5" panel="Right" anchor="CenterTop" backgroundcolor="[black]" cursor_area="true" >
+				<panel name="header" pos="220,806" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="1" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_basket" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label style="header.name" text="MINIBIKE STORAGE" />
+					<button depth="4" name="btnTakeAll" style="icon30px, press" pos="833,-21" sprite="ui_game_symbol_hand" pivot="center" tooltip="TAKE ALL" tooltip_key="btnTakeAll" sound="[paging_click]" />
+					<button depth="4" name="btnDropAll" style="icon30px, press" pos="873,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_thrash" pivot="center" tooltip="DROP ALL" sound="[paging_click]" />
+				</panel>
+				<grid depth="2" name="inventory" rows="5" cols="8" pos="226,763" cell_width="75" cell_height="75" repeat_content="true" controller="VehicleContainer">
+					<item_stack name="0"/>
+				</grid>
+				<panel name="emptyPanel" height="1125" depth="" pos="223,763" backgroundcolor="[darkGrey]" bordercolor="[black]" visible="false">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<label pos="0,-180" depth="3" name="descriptionText" width="100%" height="80" text="ADD BASKET TO ACCESS STORAGE." text_key="xuiEmptyVehicleStorage" justify="center" font_size="24"/>
+				</panel>
+			</window>
+
+			<window name="S420windowVehicleStorage_small" width="903" height="262" depth="5" panel="Right" anchor="CenterTop" backgroundcolor="[black]" cursor_area="true" >
+				<panel name="header" pos="220,806" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="1" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_basket" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label style="header.name" text="VEHICLE SMALL STORAGE" />
+					<button depth="4" name="btnTakeAll" style="icon30px, press" pos="833,-21" sprite="ui_game_symbol_hand" pivot="center" tooltip="TAKE ALL" tooltip_key="btnTakeAll" sound="[paging_click]" />
+					<button depth="4" name="btnDropAll" style="icon30px, press" pos="873,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_thrash" pivot="center" tooltip="DROP ALL" sound="[paging_click]" />
+				</panel>
+				<grid depth="2" name="inventory" rows="6" cols="9" pos="226,763" cell_width="75" cell_height="75" repeat_content="true" controller="VehicleContainer">
+					<item_stack name="0"/>
+				</grid>
+				<panel name="emptyPanel" height="1125" depth="" pos="223,763" backgroundcolor="[darkGrey]" bordercolor="[black]" visible="false">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<label pos="0,-180" depth="3" name="descriptionText" width="100%" height="80" text="ADD BASKET TO ACCESS STORAGE." text_key="xuiEmptyVehicleStorage" justify="center" font_size="24"/>
+				</panel>
+			</window>
+			
+			<window name="S420windowVehicleStorage_medium" width="903" height="262" depth="5" panel="Right" anchor="CenterTop" backgroundcolor="[black]" cursor_area="true" >
+				<panel name="header" pos="220,806" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="1" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_basket" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label style="header.name" text="VEHICLE MEDIUM STORAGE" />
+					<button depth="4" name="btnTakeAll" style="icon30px, press" pos="833,-21" sprite="ui_game_symbol_hand" pivot="center" tooltip="TAKE ALL" tooltip_key="btnTakeAll" sound="[paging_click]" />
+					<button depth="4" name="btnDropAll" style="icon30px, press" pos="873,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_thrash" pivot="center" tooltip="DROP ALL" sound="[paging_click]" />
+				</panel>
+				<grid depth="2" name="inventory" rows="10" cols="10" pos="226,763" cell_width="75" cell_height="75" repeat_content="true" controller="VehicleContainer">
+					<item_stack name="0"/>
+				</grid>
+				<panel name="emptyPanel" height="1125" depth="" pos="223,763" backgroundcolor="[darkGrey]" bordercolor="[black]" visible="false">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<label pos="0,-180" depth="3" name="descriptionText" width="100%" height="80" text="ADD BASKET TO ACCESS STORAGE." text_key="xuiEmptyVehicleStorage" justify="center" font_size="24"/>
+				</panel>
+			</window>
+			
+			<window name="S420windowVehicleStorage_large" width="903" height="262" depth="5" panel="Right" anchor="CenterTop" backgroundcolor="[black]" cursor_area="true" >
+				<panel name="header" pos="220,806" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="1" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_basket" tooltip_key="lblSortContainer" sound="[paging_click]" />
+					<label style="header.name" text="VEHICLE LARGE STORAGE" />
+					<button depth="4" name="btnTakeAll" style="icon30px, press" pos="833,-21" sprite="ui_game_symbol_hand" pivot="center" tooltip="TAKE ALL" tooltip_key="btnTakeAll" sound="[paging_click]" />
+					<button depth="4" name="btnDropAll" style="icon30px, press" pos="873,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_thrash" pivot="center" tooltip="DROP ALL" sound="[paging_click]" />
+				</panel>
+				<grid depth="2" name="inventory" rows="15" cols="12" pos="226,763" cell_width="75" cell_height="75" repeat_content="true" controller="VehicleContainer">
+					<item_stack name="0"/>
+				</grid>
+				<panel name="emptyPanel" height="1125" depth="" pos="223,763" backgroundcolor="[darkGrey]" bordercolor="[black]" visible="false">
+					<sprite depth="4" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+					<label pos="0,-180" depth="3" name="descriptionText" width="100%" height="80" text="ADD BASKET TO ACCESS STORAGE." text_key="xuiEmptyVehicleStorage" justify="center" font_size="24"/>
+				</panel>
+			</window>
+			
+		</insertAfter>
+
+		<!--<remove xpath="/windows/window[@name='S420windowBackpack']"/>
+		<insertAfter xpath="/windows/window[@name='windowBackpack']">
+			<window name="S420windowBackpack" width="1128" height="646" panel="Center" controller="BackpackWindow" cursor_area="true" >
+				<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="3" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" sprite="ui_game_symbol_backpack" tooltip_key="lblSortInventory" sound="[paging_click]" />
+					<label depth="3" name="windowName" pos="42,-6" width="250" height="32" text="INVENTORY" text_key="xuiInventory" font_size="32" />
+					<label depth="2" pos="907,-8" width="100" height="28" text="{currencyamount}" color="[mediumGrey]" justify="right" />
+					<sprite depth="4" name="costIcon" sprite="ui_game_symbol_coin" size="24,24" pos="1012,-10" color="[white]" foregroundlayer="true" />
+					<button depth="4" name="btnStashAll" style="icon30px, press" pos="1062,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_stash_all" pivot="center" tooltip="STASH ALL" sound="[paging_click]" />
+					<button depth="4" name="btnStashAllButFirst" style="icon30px, press" pos="1102,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_stash_all_but_first" pivot="center" tooltip="STASH ALL BUT FIRST ROW" sound="[paging_click]" />
+				</panel>
+				<panel name="content" width="100%" height="603" depth="0" pos="0,34" disableautobackground="true">
+					<sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="603" height="303" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+					<grid depth="1" name="inventory" rows="8" cols="15" pos="3,-3" cell_width="75" cell_height="75" controller="Backpack" repeat_content="true" >
+						<item_stack name="0"/>
+					</grid>
+				</panel>
+			</window>
+		</insertAfter>-->
+		<remove xpath="/windows/window[@name='windowBackpack']"/>
+		<insertBefore xpath="/windows/window[@name='windowToolsForge']">
+			<window name="windowBackpack" width="1128" height="646" panel="Center" controller="BackpackWindow" cursor_area="true" >
+				<panel name="header" pos="0,80" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+					<button depth="3" name="btnSort" style="icon32px, press, hover" pivot="center" pos="21,-21" sprite="ui_game_symbol_backpack" tooltip_key="lblSortInventory" sound="[paging_click]" />
+					<label depth="3" name="windowName" pos="42,-6" width="250" height="32" text="INVENTORY" text_key="xuiInventory" font_size="32" />
+					<label depth="2" pos="907,-8" width="100" height="28" text="{currencyamount}" color="[mediumGrey]" justify="right" />
+					<sprite depth="4" name="costIcon" sprite="ui_game_symbol_coin" size="24,24" pos="1012,-10" color="[white]" foregroundlayer="true" />
+					<button depth="4" name="btnStashAll" style="icon30px, press" pos="1062,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_stash_all" pivot="center" tooltip="STASH ALL" sound="[paging_click]" />
+					<button depth="4" name="btnStashAllButFirst" style="icon30px, press" pos="1102,-21" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_stash_all_but_first" pivot="center" tooltip="STASH ALL BUT FIRST ROW" sound="[paging_click]" />
+				</panel>
+				<panel name="content" width="100%" height="603" depth="0" pos="0,34" disableautobackground="true">
+					<sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="603" height="303" color="[black]" type="sliced" fillcenter="false" on_press="true" />
+					<grid depth="1" name="inventory" rows="8" cols="15" pos="3,-3" cell_width="75" cell_height="75" controller="Backpack" repeat_content="true" >
+						<item_stack name="0"/>
+					</grid>
+				</panel>
+			</window>
+		</insertBefore>
+		
+	</config>
+	
+	<config name="XUi/controls">
+	
+		<remove xpath="/controls/S420_vehicle_part_slot"/>
+		<insertAfter xpath="/controls/custom_vehicle_part_slot">
+			<!-- MANUX Custom Vehicles: Making parts slots smaller to fit 2 additionnal ones -->
+			<S420_vehicle_part_slot>
+				<rect controller="VehiclePartStack" style="S420vehicleStack, hover" >
+					<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="350" height="40" color="[black]" type="sliced" fillcenter="false" />	
+					<sprite name="background" color="[darkGrey]" height="36" pos="0,1" type="sliced"/>
+					<label depth="4" pos="14,-8" width="250" height="28" text="{partname}" font_size="26" justify="left" />
+					<label depth="4" pos="228,-8" width="50" height="28" text="{partquality}" font_size="26" justify="right" />
+					<sprite depth="2" width="255" pos="15,-25" height="10" type="sliced" color="[black]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" width="253" pos="16,-26" height="8" type="sliced" color="[mediumGrey]" visible="{partvisible}" foregroundlayer="true" />
+					<sprite depth="2" name="sprFill" width="253" pos="16,-26" height="8" type="filled" color="{partcolor}" fill="{partfill}" visible="{partvisible}" foregroundlayer="true" />
+					<sprite name="itemIcon" depth="4" width="50" height="40" atlas="{partatlas}" sprite="{particon}" pos="311,-18" pivot="center" color="{particoncolor}" foregroundlayer="true" />
+				</rect>
+			</S420_vehicle_part_slot>
+		</insertAfter>
+		
+	</config>
+</configs>

@@ -335,7 +335,7 @@
 				<property name="Shape" value="Ext3dModel"/>
 				<property name="Mesh" value="models"/>
 				<property name="Model" value="LootContainers/cooler" param1="main_mesh"/>
-				<property name="LootList" value="145" />
+				<property name="LootList" value="195" />
 				<drop event="Destroy" count="0"/>
 				<property name="Group" value="Decor/Miscellaneous"/>
 				<property name="DescriptionKey" value="furnitureGroupDesc"/>
@@ -415,7 +415,7 @@
 				<property name="Model" value="#Fishing?FishingTrapGroundFullPrefab" />
 				<property name="ModelOffset" value="0,0,0"/>
 				<property name="Collide" value="movement,rocket,melee" />
-				<property name="LootList" value="146" />
+				<property name="LootList" value="196" />
 				<drop event="Destroy" count="0"/>
 				<property name="Group" value="Decor/Miscellaneous"/>
 				<property name="DescriptionKey" value="furnitureGroupDesc"/>
@@ -652,14 +652,14 @@
 				<item group="fishingJunk" count="1" prob="1"/>
 				<item name="rawFish" count="1" prob="0.3"/>
 			</lootgroup>
-			<lootcontainer id="145" count="1" size="2,2" destroy_on_close="true" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="baseTemplate">
+			<lootcontainer id="195" count="1" size="2,2" destroy_on_close="true" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="baseTemplate">
 				<item group="fishingLivewell" prob="1"/>
 			</lootcontainer>
 			<lootgroup name="fishingTrapFull" count="2,6">
 				<item group="fishingJunk" count="1" prob="1"/>
 				<item name="rawFish" count="1" prob="0.65"/>
 			</lootgroup>
-			<lootcontainer id="146" count="1" size="5,5" destroy_on_close="true" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="baseTemplate">
+			<lootcontainer id="196" count="1" size="5,5" destroy_on_close="true" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="baseTemplate">
 				<item group="fishingTrapFull" prob="1"/>
 			</lootcontainer>
 		</append>	
