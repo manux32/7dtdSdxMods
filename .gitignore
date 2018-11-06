@@ -496,3 +496,10 @@ EntityClassMod/mod.xml
 EntityClassMod/PatchScripts/EntityClassMod.cs
 MinibikeOpenUI/mod.xml
 MinibikeOpenUI/PatchScripts/MinibikeOpenUI.cs
+TakeAndReplace/Text/Localization.txt
+TakeAndReplace/Scripts/PickUpAndReplace.cs
+TakeAndReplace/Resources/CrawBar.unity3d
+TakeAndReplace/README.md
+TakeAndReplace/mod.xml
+TakeAndReplace/Icons/CrowBar.png
+TakeAndReplace/Configs/Blocks.xml
