@@ -1,0 +1,2 @@
+Key,Source,Context,Changes,English
+friendlyDog,entityclasses,Entity,EnChanged,Friendly Dog

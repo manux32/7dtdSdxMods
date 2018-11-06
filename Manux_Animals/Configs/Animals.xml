@@ -1,0 +1,856 @@
+<configs>
+	<config name="items">
+		<append xpath="/items">			
+			<item id="" name="handZombieSnowman">
+				<property name="Extends" value="handZombieCop" />
+				<property name="CreativeMode" value="None" />
+				<property class="Action0">
+					<property name="DamageEntity" value="40" />
+					<property name="DamageBlock" value="400" />
+					<property name="Buff" value="bleeding,stunned" />
+					<property name="Buff_chance" value="0.1,0.1" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.cloth" value="10" />
+					<property name="DamageBonus.earth" value="3" />
+					<property name="DamageBonus.stone" value="10" />
+					<property name="DamageBonus.wood" value="10" />
+					<property name="DamageBonus.metal" value="10" />
+				</property>
+				<property class="Action1">
+					<property name="DamageEntity" value="20" />
+					<property name="DamageBlock" value="200" />
+					<property name="Buff" value="bleeding,stunned" />
+					<property name="Buff_chance" value="0.3,0.3" />
+					<property name="DamageBonus.glass" value="25" />
+					<property name="DamageBonus.cloth" value="10" />
+					<property name="DamageBonus.earth" value="3" />
+					<property name="DamageBonus.stone" value="10" />
+					<property name="DamageBonus.wood" value="10" />
+					<property name="DamageBonus.metal" value="10" />
+				</property>
+			</item>
+			<item id="" name="handHorseHero">
+				<property name="Extends" value="handMaster" />
+				<property name="CreativeMode" value="None" />
+				<property name="HoldType" value="35" />
+				<property class="Action0">
+					<property name="Delay" value="3" />
+					<property name="Range" value="2.5" />
+					<property name="DamageEntity" value="25" />
+					<property name="DamageBlock" value="3" />
+					<property name="Buff" value="bleeding" />
+					<property name="Buff_chance" value="0.3" />
+					<property name="DamageBonus.earth" value="0.1" />
+				</property>
+			</item>
+		</append>
+	</config>
+	<config name="buffs">
+		<append xpath="/buffs">
+			<buff id="spiderPoisoning" duration="1800" actions="increment(@wellness, -.1, 30, 0, 0)" type="sickness" icon="ui_game_symbol_insectbite" name_key="spiderPoisoning" description_key="spiderPoisoningDesc">
+				<modify id="0" stat="stamina" amount="-3" rate="1" />
+			</buff>
+		</append>
+	</config>
+	<config name="sounds">
+		<append xpath="/Sounds">
+			<SoundDataNode name="AbominableAlert">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?roar1" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			<SoundDataNode name="AbominableAttack">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?grrr7" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			<SoundDataNode name="AbominableRandom">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?grrr1" />
+				<AudioClip ClipName="#AbominableSounds?grrr2" />
+				<AudioClip ClipName="#AbominableSounds?grrr3" />
+				<AudioClip ClipName="#AbominableSounds?grrr4" />
+				<AudioClip ClipName="#AbominableSounds?grrr5" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			<SoundDataNode name="AbominableHurt">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?hit1" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			<SoundDataNode name="AbominableSense">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?grrr6" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			<SoundDataNode name="AbominableDie">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AbominableSounds?die" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+			
+			<SoundDataNode name="afroShamanSounds">
+				<AudioSource name="Sounds/AudioSource_VO" />
+				<Noise ID="3" range="100" volume="12" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+				<AudioClip ClipName="#AfroShamanSounds?all_alone" />
+				<AudioClip ClipName="#AfroShamanSounds?all_is_lost2" />
+				<AudioClip ClipName="#AfroShamanSounds?all_is_lost" />
+				<AudioClip ClipName="#AfroShamanSounds?ambling_moaning_shrieking" />
+				<AudioClip ClipName="#AfroShamanSounds?are_you_afraid2" />
+				<AudioClip ClipName="#AfroShamanSounds?are_you_afraid" />
+				<AudioClip ClipName="#AfroShamanSounds?be_careful2" />
+				<AudioClip ClipName="#AfroShamanSounds?be_careful" />
+				<AudioClip ClipName="#AfroShamanSounds?beckoning" />
+				<AudioClip ClipName="#AfroShamanSounds?beware" />
+				<AudioClip ClipName="#AfroShamanSounds?calling" />
+				<AudioClip ClipName="#AfroShamanSounds?cant_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?cant_you_see" />
+				<AudioClip ClipName="#AfroShamanSounds?canvas_of_grotesqueness" />
+				<AudioClip ClipName="#AfroShamanSounds?dark_is_the_hour" />
+				<AudioClip ClipName="#AfroShamanSounds?death_is_your_only_escape" />
+				<AudioClip ClipName="#AfroShamanSounds?die" />
+				<AudioClip ClipName="#AfroShamanSounds?disgusting_little_creatures" />
+				<AudioClip ClipName="#AfroShamanSounds?disgusting" />
+				<AudioClip ClipName="#AfroShamanSounds?dont_go2" />
+				<AudioClip ClipName="#AfroShamanSounds?dont_go" />
+				<AudioClip ClipName="#AfroShamanSounds?dont_touch" />
+				<AudioClip ClipName="#AfroShamanSounds?dont_you_see" />
+				<AudioClip ClipName="#AfroShamanSounds?do_you_feel_it" />
+				<AudioClip ClipName="#AfroShamanSounds?do_you_hear_it" />
+				<AudioClip ClipName="#AfroShamanSounds?do_you_remember" />
+				<AudioClip ClipName="#AfroShamanSounds?do_you_see" />
+				<AudioClip ClipName="#AfroShamanSounds?dreaming" />
+				<AudioClip ClipName="#AfroShamanSounds?everything_gone" />
+				<AudioClip ClipName="#AfroShamanSounds?fear_the_reaper" />
+				<AudioClip ClipName="#AfroShamanSounds?find_it" />
+				<AudioClip ClipName="#AfroShamanSounds?fodder_for_the_hungry_wraiths2" />
+				<AudioClip ClipName="#AfroShamanSounds?fodder_for_the_hungry_wraiths" />
+				<AudioClip ClipName="#AfroShamanSounds?foreeeveeer" />
+				<AudioClip ClipName="#AfroShamanSounds?forever" />
+				<AudioClip ClipName="#AfroShamanSounds?forget" />
+				<AudioClip ClipName="#AfroShamanSounds?get_out2" />
+				<AudioClip ClipName="#AfroShamanSounds?get_out" />
+				<AudioClip ClipName="#AfroShamanSounds?give_back_what_you_stole" />
+				<AudioClip ClipName="#AfroShamanSounds?give_her_what_she_wants" />
+				<AudioClip ClipName="#AfroShamanSounds?give_him_what_he_wants" />
+				<AudioClip ClipName="#AfroShamanSounds?give_it_what_it_wants" />
+				<AudioClip ClipName="#AfroShamanSounds?give_me_what_i_want" />
+				<AudioClip ClipName="#AfroShamanSounds?give_them_what_they_want" />
+				<AudioClip ClipName="#AfroShamanSounds?give_us_what_we_want" />
+				<AudioClip ClipName="#AfroShamanSounds?gnashing_mouths" />
+				<AudioClip ClipName="#AfroShamanSounds?he_hates_you" />
+				<AudioClip ClipName="#AfroShamanSounds?he_is_here" />
+				<AudioClip ClipName="#AfroShamanSounds?he_is_hungry" />
+				<AudioClip ClipName="#AfroShamanSounds?he_is_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?he_knows_youre_here" />
+				<AudioClip ClipName="#AfroShamanSounds?he_knows_youre_there" />
+				<AudioClip ClipName="#AfroShamanSounds?help_me" />
+				<AudioClip ClipName="#AfroShamanSounds?help_us" />
+				<AudioClip ClipName="#AfroShamanSounds?he_lusts_for_flesh" />
+				<AudioClip ClipName="#AfroShamanSounds?he_remembers_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?hes_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?hes_going_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?hes_trying_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?he_wants_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?he_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?he_will_never_forgive_you" />
+				<AudioClip ClipName="#AfroShamanSounds?he_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?he_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?hidden" />
+				<AudioClip ClipName="#AfroShamanSounds?hide" />
+				<AudioClip ClipName="#AfroShamanSounds?horrible_things" />
+				<AudioClip ClipName="#AfroShamanSounds?hurry" />
+				<AudioClip ClipName="#AfroShamanSounds?i_am_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?i_am_here" />
+				<AudioClip ClipName="#AfroShamanSounds?i_am_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?i_cant_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?i_hate_you" />
+				<AudioClip ClipName="#AfroShamanSounds?i_have_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?i_hunger" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_what_you_are2" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_what_you_are" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_what_youve_done2" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_what_youve_done" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_youre_here" />
+				<AudioClip ClipName="#AfroShamanSounds?i_know_youre_there" />
+				<AudioClip ClipName="#AfroShamanSounds?im_sorry" />
+				<AudioClip ClipName="#AfroShamanSounds?infesting" />
+				<AudioClip ClipName="#AfroShamanSounds?i_remember_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?i_see_you2" />
+				<AudioClip ClipName="#AfroShamanSounds?i_see_you" />
+				<AudioClip ClipName="#AfroShamanSounds?it_hates_you" />
+				<AudioClip ClipName="#AfroShamanSounds?it_is_a_secret" />
+				<AudioClip ClipName="#AfroShamanSounds?it_is_here" />
+				<AudioClip ClipName="#AfroShamanSounds?it_is_hungry" />
+				<AudioClip ClipName="#AfroShamanSounds?it_is_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?it_knows_youre_here" />
+				<AudioClip ClipName="#AfroShamanSounds?it_knows_youre_there" />
+				<AudioClip ClipName="#AfroShamanSounds?it_lusts_for_flesh" />
+				<AudioClip ClipName="#AfroShamanSounds?it_remembers_everything2" />
+				<AudioClip ClipName="#AfroShamanSounds?it_remembers_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?its_all_over_now" />
+				<AudioClip ClipName="#AfroShamanSounds?its_all_over" />
+				<AudioClip ClipName="#AfroShamanSounds?its_a_secret" />
+				<AudioClip ClipName="#AfroShamanSounds?its_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?its_going_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?its_no_use" />
+				<AudioClip ClipName="#AfroShamanSounds?its_too_late" />
+				<AudioClip ClipName="#AfroShamanSounds?its_trying_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?it_wants_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?it_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?it_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?it_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?i_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?i_will_never_forgive_you" />
+				<AudioClip ClipName="#AfroShamanSounds?i_will_never_let_you_leave2" />
+				<AudioClip ClipName="#AfroShamanSounds?i_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?i_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?keep_away_from_the_window" />
+				<AudioClip ClipName="#AfroShamanSounds?keep_looking" />
+				<AudioClip ClipName="#AfroShamanSounds?keep_searching" />
+				<AudioClip ClipName="#AfroShamanSounds?keep_to_the_shadows" />
+				<AudioClip ClipName="#AfroShamanSounds?leave_now" />
+				<AudioClip ClipName="#AfroShamanSounds?liar" />
+				<AudioClip ClipName="#AfroShamanSounds?lies" />
+				<AudioClip ClipName="#AfroShamanSounds?look_out" />
+				<AudioClip ClipName="#AfroShamanSounds?maggots_crawling_on_the_planets_face" />
+				<AudioClip ClipName="#AfroShamanSounds?may_the_rats_feast_on_your_eyes" />
+				<AudioClip ClipName="#AfroShamanSounds?may_your_victims_gobble_you_whole" />
+				<AudioClip ClipName="#AfroShamanSounds?mistress" />
+				<AudioClip ClipName="#AfroShamanSounds?neeeveeer2" />
+				<AudioClip ClipName="#AfroShamanSounds?neeeveeer" />
+				<AudioClip ClipName="#AfroShamanSounds?no_more_time" />
+				<AudioClip ClipName="#AfroShamanSounds?nooo" />
+				<AudioClip ClipName="#AfroShamanSounds?no_resistance" />
+				<AudioClip ClipName="#AfroShamanSounds?no" />
+				<AudioClip ClipName="#AfroShamanSounds?now_you_sleep" />
+				<AudioClip ClipName="#AfroShamanSounds?please" />
+				<AudioClip ClipName="#AfroShamanSounds?putrid_corruption" />
+				<AudioClip ClipName="#AfroShamanSounds?putrid_rot" />
+				<AudioClip ClipName="#AfroShamanSounds?rats_feast_upon_your_eyes" />
+				<AudioClip ClipName="#AfroShamanSounds?reaching_out" />
+				<AudioClip ClipName="#AfroShamanSounds?remember" />
+				<AudioClip ClipName="#AfroShamanSounds?rot_their_eyes" />
+				<AudioClip ClipName="#AfroShamanSounds?run2" />
+				<AudioClip ClipName="#AfroShamanSounds?run" />
+				<AudioClip ClipName="#AfroShamanSounds?searing_blistering_anguish" />
+				<AudioClip ClipName="#AfroShamanSounds?seeecreeet2" />
+				<AudioClip ClipName="#AfroShamanSounds?seeecreeet" />
+				<AudioClip ClipName="#AfroShamanSounds?shame" />
+				<AudioClip ClipName="#AfroShamanSounds?she_hates_you" />
+				<AudioClip ClipName="#AfroShamanSounds?she_hungers_for_flesh" />
+				<AudioClip ClipName="#AfroShamanSounds?she_is_here" />
+				<AudioClip ClipName="#AfroShamanSounds?she_is_hungry" />
+				<AudioClip ClipName="#AfroShamanSounds?she_is_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?she_knows_youre_here2" />
+				<AudioClip ClipName="#AfroShamanSounds?she_knows_youre_here" />
+				<AudioClip ClipName="#AfroShamanSounds?she_knows_youre_there" />
+				<AudioClip ClipName="#AfroShamanSounds?she_remembers_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?shes_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?shes_going_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?shes_trying_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?she_wants_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?she_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?she_will_never_forgive_you" />
+				<AudioClip ClipName="#AfroShamanSounds?she_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?she_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?sleep_for_all_eternity2" />
+				<AudioClip ClipName="#AfroShamanSounds?sleep_for_all_eternity" />
+				<AudioClip ClipName="#AfroShamanSounds?so_cold2" />
+				<AudioClip ClipName="#AfroShamanSounds?so_cold" />
+				<AudioClip ClipName="#AfroShamanSounds?spectres_madly_dancing" />
+				<AudioClip ClipName="#AfroShamanSounds?stare_into_the_void" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_away" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_here2" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_here" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_in_the_shadows" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_with_me2" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_with_me" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_with_us2" />
+				<AudioClip ClipName="#AfroShamanSounds?stay_with_us" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_he_has_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_i_have_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_it_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_she_has_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_they_have_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?suffer_as_we_have_suffered" />
+				<AudioClip ClipName="#AfroShamanSounds?there_is_no_going_back" />
+				<AudioClip ClipName="#AfroShamanSounds?there_is_no_time" />
+				<AudioClip ClipName="#AfroShamanSounds?the_void" />
+				<AudioClip ClipName="#AfroShamanSounds?they_are_here2" />
+				<AudioClip ClipName="#AfroShamanSounds?they_are_here" />
+				<AudioClip ClipName="#AfroShamanSounds?they_are_hungry" />
+				<AudioClip ClipName="#AfroShamanSounds?they_are_looking_for_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_are_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?they_came_from_darkness" />
+				<AudioClip ClipName="#AfroShamanSounds?they_hate_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_know_youre_here" />
+				<AudioClip ClipName="#AfroShamanSounds?they_know_youre_there" />
+				<AudioClip ClipName="#AfroShamanSounds?they_lust_for_flesh" />
+				<AudioClip ClipName="#AfroShamanSounds?theyre_all_gone" />
+				<AudioClip ClipName="#AfroShamanSounds?theyre_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?theyre_going_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_remember_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?theyre_trying_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_shall_not_be_pleased" />
+				<AudioClip ClipName="#AfroShamanSounds?they_want_to_kill_you2" />
+				<AudioClip ClipName="#AfroShamanSounds?they_want_to_kill_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_will_never_forgive_you" />
+				<AudioClip ClipName="#AfroShamanSounds?they_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?they_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?vomitous_mass" />
+				<AudioClip ClipName="#AfroShamanSounds?we_are_here" />
+				<AudioClip ClipName="#AfroShamanSounds?we_are_hungry" />
+				<AudioClip ClipName="#AfroShamanSounds?we_are_watching" />
+				<AudioClip ClipName="#AfroShamanSounds?we_hate_you" />
+				<AudioClip ClipName="#AfroShamanSounds?we_hunger_for_flesh" />
+				<AudioClip ClipName="#AfroShamanSounds?were_coming" />
+				<AudioClip ClipName="#AfroShamanSounds?we_remember_everything" />
+				<AudioClip ClipName="#AfroShamanSounds?we_will_find_you" />
+				<AudioClip ClipName="#AfroShamanSounds?we_will_never_forgive_you" />
+				<AudioClip ClipName="#AfroShamanSounds?we_will_never_let_you_leave" />
+				<AudioClip ClipName="#AfroShamanSounds?we_wont_let_you" />
+				<AudioClip ClipName="#AfroShamanSounds?where_are_you2" />
+				<AudioClip ClipName="#AfroShamanSounds?where_are_you" />
+				<AudioClip ClipName="#AfroShamanSounds?whhhyyy" />
+				<AudioClip ClipName="#AfroShamanSounds?who_are_you2" />
+				<AudioClip ClipName="#AfroShamanSounds?who_are_you" />
+				<AudioClip ClipName="#AfroShamanSounds?whyyy" />
+				<AudioClip ClipName="#AfroShamanSounds?writhe_in_your_pestilence" />
+				<AudioClip ClipName="#AfroShamanSounds?yes2" />
+				<AudioClip ClipName="#AfroShamanSounds?yes" />
+				<AudioClip ClipName="#AfroShamanSounds?you_cannot_hide" />
+				<AudioClip ClipName="#AfroShamanSounds?you_cant_hide" />
+				<AudioClip ClipName="#AfroShamanSounds?you_dont_know_pain_but_you_will" />
+				<AudioClip ClipName="#AfroShamanSounds?you_dont_know_pain" />
+				<AudioClip ClipName="#AfroShamanSounds?you_should_be_afraid2" />
+				<AudioClip ClipName="#AfroShamanSounds?you_should_be_afraid" />
+				<AudioClip ClipName="#AfroShamanSounds?you_should_fear_me" />
+				<AudioClip ClipName="#AfroShamanSounds?you_should_never_have_come_here" />
+				<AudioClip ClipName="#AfroShamanSounds?you_should_never_have_come" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_fear_me" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_feel_her_hate" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_feel_his_hate" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_feel_my_hate" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_feel_our_hate" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_feel_their_hate" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_know_fear" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_know_pain2" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_know_pain" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_never_be_forgiven" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_never_see" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_pay_for_what_youve_done" />
+				<AudioClip ClipName="#AfroShamanSounds?you_will_pay" />
+				<LocalCrouchVolumeScale name="1.0" />
+				<CrouchNoiseScale name="0.5" />
+				<NoiseScale name="1" />
+				<MaxVoices name="10" />
+				<MaxRepeatRate name="1.111" />
+			</SoundDataNode>
+		</append>
+	</config>
+	<config name="entityclasses">
+		<!-- Add EntityAnimalStag target to zombieTemplateMale -->
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITask-6']"/>
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITask-7']"/>
+		<insertAfter xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITask-5']">
+			<property name="AITask-8" value="Wander" />
+			<property name="AITask-7" value="ApproachSpot" />
+			<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityAnimalStag" />
+		</insertAfter>
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITarget-3']"/>
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITarget-4']"/>
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITarget-5']"/>
+		<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITarget-6']"/>
+		<insertAfter xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITarget-2']">
+			<property name="AITarget-8" value="SetNearestEntityAsTarget" param1="EntityAnimalStag" />
+			<property name="AITarget-7" value="SetNearestEntityAsTarget" param1="EntityPlayer" />
+			<property name="AITarget-6" value="SetNearestEntityAsTarget" param1="EntityNPC" />
+			<property name="AITarget-5" value="SetNearestCorpseAsTarget" param1="EntityPlayer" />
+			<property name="AITarget-4" value="BlockingTargetTask" />
+			<property name="AITarget-3" value="SetAsTargetIfHurt" param1="EntityAnimalStag" />
+		</insertAfter>
+		
+		<append xpath="/entity_classes">
+			<!-- FRIENDLY DOG -->
+			<entity_class name="friendlyDog" extends="animalWolf">
+				<property name="HandItem" value="handAnimalZombieDogFeral" />
+				<property name="MaxHealth" value="600" />
+				<!--<property name="Class" value="EntityEnemy" />-->
+				<property name="Class" value="EntityPetCompanion, Mods" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshScale" value="0.5, 2" />
+				
+				<property name="Faction" value="survivor"/>
+				<property name="IsEnemyEntity" value="false" />
+				<property name="Parent" value="Players" />
+				<property name="MaxViewAngle" value="360"/>
+				<property name="SightRange" value="120"/>
+				<property name="CanClimbLadders" value="true" />
+				<property name="MaxTurnSpeed" value="360"/>
+				
+				<property name="MapIcon" value="ui_game_symbol_run" />
+				<property name="LootListAlive" value="62" />
+				
+				<property name="WanderSpeed" value="0.5" />
+				<property name="ApproachSpeed" value="1.6" />
+				<property name="NightWanderSpeed" value="0.3" />
+				<property name="NightApproachSpeed" value="1.6" />
+				<property name="PanicSpeed" value="2.0" />
+	
+				<property name="AITask-4" value="Territorial" param1="10"/>
+				
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityBandit"/>
+				<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityZombie"/>
+				<property name="AITask-7" value="ApproachAndAttackTarget" param1="EntityEnemy"/>
+				
+				<property name="AITask-9" value="Wander" param1="0" param2="0"/>
+				
+				<property name="AITarget-3" value="SetNearestEntityAsTarget" param1="EntityBandit"/>
+				<property name="AITarget-4" value="SetNearestEntityAsTarget" param1="EntityZombie"/>
+				<property name="AITarget-5" value="SetNearestEntityAsTarget" param1="EntityEnemy"/>
+				
+				<property name="SmellAlertThreshold" value="5" />
+				<!-- for awake zombies -->
+				<property name="SoundRandom" value="Animals/Wolf/wolfroam" />
+				<property name="SoundAlert" value="Animals/Wolf/wolfalert" />
+				<property name="SoundHurt" value="Animals/Wolf/wolfpain" />
+				<property name="SoundDeath" value="Animals/Wolf/wolfdeath" />
+				<property name="SoundAttack" value="Animals/Wolf/wolfattack" />
+				<property name="SoundSense" value="Animals/Wolf/wolfsense" />
+				<property name="SoundGiveUp" value="Animals/Wolf/wolfgiveup" />
+				<property name="ExperienceGain" value="1407" />
+				<drop event="Harvest" name="rawMeat" tool_category="Butcher" count="5" />
+				<!-- animalWolf -->
+				<drop event="Harvest" name="animalHide" tool_category="Butcher" count="10" />
+				<drop event="Harvest" name="animalFat" tool_category="Butcher" count="5" />
+				<drop event="Harvest" name="femur" tool_category="Butcher" count="2" />
+			</entity_class>
+			
+			<!-- Xyth Winter -->			
+			<entity_class name="Snowman" extends="SDXTemplate">
+				<property name="Class" value="EntityZombieSDXManux, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Snowman?Snowman" />
+				<!--property name="Class" value="EntityZombieCop" /-->
+				<property name="HandItem" value="handZombieSnowman" />
+				<property name="RightHandJointName" value="snowman_RightHand" />
+				<property name="WalkType" value="1" />
+				<property name="ModelType" value="Standard" />
+				<property name="CanClimbLadders" value="false" />
+				<property name="PhysicsBody" value="zombieFat" />
+				<property name="RootMotion" value="false" />
+				<property name="HasDeathAnim" value="true" />
+				<property name="MaxHealth" value="700" />
+				<property name="ExperienceGain" value="2916" />
+				<property name="Weight" value="70" />
+				<property name="PushFactor" value="20" />
+				<property name="LootListOnDeath" value="17" />
+				<property name="Explosion.ParticleIndex" value="8" />
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="Explosion.BlockDamage" value="500" />
+				<property name="Explosion.EntityDamage" value="150" />
+				<property name="Explosion.DamageBonus.earth" value="0" />
+
+				<property name="MaxTurnSpeed" value="180" />
+				<property name="MaxViewAngle" value="270" />
+				
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshScale" value="0.5, 2" />
+				
+				<property name="AnimationIdle" value="Idle" />
+				<property name="AnimationSecondIdle" value="Idle" />
+				<property name="AnimationMainAttack" value="Attack" />
+				<property name="AnimationSecondAttack" value="Attack2" />
+				<property name="AnimationJump" value="Jump" />
+				<property name="AnimationPain" value="Pain" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Run" />
+				<property name="AnimationWalk" value="Walk" />
+				<property name="AnimationSpecialAttack" value="Toss" />
+				
+				<property name="SoundRandom" value="Enemies/Spider_Zombie/spiderroam" />
+				<property name="SoundAlert" value="Enemies/Spider_Zombie/spideralert" />
+				<property name="SoundAttack" value="Enemies/Spider_Zombie/spiderattack" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="Enemies/Spider_Zombie/spidersense" />
+						
+				<property name="AITarget-1" value="SetNearestEntityAsTarget" param1="EntityEnemyAnimal" />
+				<property name="AITask-1" value="BreakDoor" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param2="5" />
+				<property name="AITask-3" value="BlockingTargetTask" />
+				<property name="AITask-4" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityEnemyAnimal" />
+				<property name="AITarget-2" value="SetNearestEntityAsTarget" param1="EntityAnimalStag" />
+				<property name="AITask-6" value="BreakDoor" param2="5" />
+				<property name="AITask-7" value="BreakBlock" param2="5" />
+				<property name="AITask-8" value="BlockingTargetTask" />
+				<property name="AITask-9" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-10" value="ApproachAndAttackTarget" param1="EntityAnimalStag" />
+				<property name="AITarget-3" value="SetNearestEntityAsTarget" param1="EntityNPC" />
+				<property name="AITask-11" value="BreakDoor" param2="5" />
+				<property name="AITask-12" value="BreakBlock" param2="5" />
+				<property name="AITask-13" value="BlockingTargetTask" />
+				<property name="AITask-14" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-15" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITarget-4" value="SetNearestEntityAsTarget" param1="EntityPlayer" />
+				<property name="AITask-16" value="BreakDoor" param2="5" />
+				<property name="AITask-17" value="BreakBlock" param2="5" />
+				<property name="AITask-18" value="BlockingTargetTask" />
+				<!--				<property name="AITask-19" value="RangedAttackTarget" param1="1" param2="5"/> -->
+				<property name="AITask-19" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-20" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-21" value="SetAsTargetIfHurt" param1="EntityEnemyAnimal" />
+				<property name="AITask-22" value="SetAsTargetIfHurt" param1="EntityNPC" />
+				<property name="AITask-23" value="SetAsTargetIfHurt" param1="EntityPlayer" param2="60" />
+				<property name="AITask-24" value="ApproachSpot" />
+				<property name="AITask-25" value="Wander" />
+			</entity_class>
+			
+			<entity_class name="PolarBear" extends="animalTemplateHostile">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="AvatarController" value="AnimationSDX, Mods" />
+				<property name="Mesh" value="#PolarBear?Polarbear" />
+				<!--<property name="Class" value="EntityEnemyAnimal" />-->
+				<property name="IsEntityAnimal" value="true" />
+				<property name="HandItem" value="handAnimalZombieBear" />
+				<property name="WalkType" value="1" />
+				<property name="ModelType" value="Standard" />
+				<property name="ApproachSpeed" value="1.1" />
+				<property name="CanClimbLadders" value="false" />
+				<property name="PhysicsBody" value="bear" />
+				<property name="RootMotion" value="false" />
+				<property name="HasDeathAnim" value="true" />
+				<property name="MaxHealth" value="1200" />
+				<property name="ExperienceGain" value="2916" />
+				<property name="Weight" value="70" />
+				<property name="PushFactor" value="20" />
+				<property name="MaxTurnSpeed" value="180" />
+				<property name="MaxViewAngle" value="270" />
+				<!-- Animations -->
+				<property name="AnimationIdle" value="Fight Idle" />
+				<property name="AnimationSecondIdle" value="" />
+				<property name="AnimationMainAttack" value="Attack" />
+				<property name="AnimationSecondAttack" value="Attack With Ripping" />
+				<property name="AnimationJump" value="Jumping" />
+				<property name="AnimationPain" value="Hit Front" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Run" />
+				<property name="AnimationWalk" value="Walk" />
+				<!-- Default sounds for now -->
+				<property name="SoundHurt" value="Animals/Bear/bearpain" />
+				<property name="SoundDeath" value="Animals/Bear/beardeath" />
+				<property name="SoundRandom" value="Animals/Bear/bearroam" />
+				<property name="SoundSense" value="Animals/Bear/bearsense" />
+				<property name="SoundAlert" value="Animals/Bear/bearalert" />
+				<property name="SoundAttack" value="Animals/Bear/bearattack" />
+				<property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep" />
+				<property name="SoundGiveUp" value="Animals/Bear/beargiveup" />
+				<property name="ExperienceGain" value="2509" />
+				<property name="DeadBodyHitPoints" value="600" />
+				<!-- general AI task from xyth -->
+				<property name="AITarget-1" value="SetNearestEntityAsTarget" param1="EntityEnemyAnimal" />
+				<property name="AITask-1" value="BreakDoor" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param2="5" />
+				<property name="AITask-3" value="BlockingTargetTask" />
+				<property name="AITask-4" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityEnemyAnimal" />
+				<property name="AITarget-2" value="SetNearestEntityAsTarget" param1="EntityAnimalStag" />
+				<property name="AITask-6" value="BreakDoor" param2="5" />
+				<property name="AITask-7" value="BreakBlock" param2="5" />
+				<property name="AITask-8" value="BlockingTargetTask" />
+				<property name="AITask-9" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-10" value="ApproachAndAttackTarget" param1="EntityAnimalStag" />
+				<property name="AITarget-3" value="SetNearestEntityAsTarget" param1="EntityNPC" />
+				<property name="AITask-11" value="BreakDoor" param2="5" />
+				<property name="AITask-12" value="BreakBlock" param2="5" />
+				<property name="AITask-13" value="BlockingTargetTask" />
+				<property name="AITask-14" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-15" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITarget-4" value="SetNearestEntityAsTarget" param1="EntityPlayer" />
+				<property name="AITask-16" value="BreakDoor" param2="5" />
+				<property name="AITask-17" value="BreakBlock" param2="5" />
+				<property name="AITask-18" value="BlockingTargetTask" />
+				<!--				<property name="AITask-19" value="RangedAttackTarget" param1="1" param2="5"/> -->
+				<property name="AITask-19" value="RangedAttackTarget" param1="2" param2="0" />
+				<property name="AITask-20" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-21" value="SetAsTargetIfHurt" param1="EntityEnemyAnimal" />
+				<property name="AITask-22" value="SetAsTargetIfHurt" param1="EntityNPC" />
+				<property name="AITask-23" value="SetAsTargetIfHurt" param1="EntityPlayer" param2="60" />
+				<property name="AITask-24" value="ApproachSpot" />
+				<property name="AITask-25" value="Wander" />
+				<!-- animalBear -->
+				<drop event="Harvest" name="rawMeat" tool_category="Butcher" count="15" />
+				<drop event="Harvest" name="animalHide" tool_category="Butcher" count="15" />
+				<drop event="Harvest" name="animalFat" tool_category="Butcher" count="7" />
+				<drop event="Harvest" name="femur" tool_category="Butcher" count="4" />
+			</entity_class>
+			<entity_class name="Vendigo" extends="SDXTemplate">
+				<property name="Class" value="EntityZombieSDXManux, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?Vendigo" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="Idle1" />
+				<property name="AnimationSecondIdle" value="Idle2" />
+				<property name="AnimationMainAttack" value="Attack1" />
+				<property name="AnimationSecondAttack" value="Attack2" />
+				<property name="AnimationJump" value="Jump" />
+				<property name="AnimationPain" value="Damage" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Run" />
+				<property name="AnimationWalk" value="Walk" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Beast" extends="SDXTemplate">
+				<property name="Class" value="EntityZombieSDXManux, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?Beast" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="Idle1" />
+				<property name="AnimationMainAttack" value="Attack1" />
+				<property name="AnimationSecondAttack" value="Attack2" />
+				<property name="AnimationPain" value="Damage" />
+				<property name="AnimationJump" value="Jump" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Chase" />
+				<property name="AnimationWalk" value="Walk" />
+				<property name="AnimationSpecialAttack" value="Attack4" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Nightmare_c1" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?Nightmare_c1" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="Creature_armature|idle" />
+				<property name="AnimationMainAttack" value="Creature_armature|attack_2" />
+				<property name="AnimationSecondAttack" value="Creature_armature|attack_3" />
+				<property name="AnimationPain" value="Creature_armature|roar" />
+				<property name="AnimationJump" value="Creature_armature|jump" />
+				<property name="AnimationDeath" value="Creature_armature|death_1" />
+				<property name="AnimationRun" value="Creature_armature|Run" />
+				<property name="AnimationWalk" value="Creature_armature|walk" />
+				<property name="AnimationSpecialAttack" value="Creature_armature|bite" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Nightmare_c2" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?thc2" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="NC2_Armat|thc2_idle" />
+				<property name="AnimationMainAttack" value="NC2_Armat|thc2_attack1" />
+				<property name="AnimationSecondAttack" value="NC2_Armat|thc2_attack2" />
+				<property name="AnimationPain" value="NC2_Armat|thc2_roar" />
+				<property name="AnimationJump" value="NC2_Armat|thc2_jump" />
+				<property name="AnimationDeath" value="NC2_Armat|thc2_fall" />
+				<property name="AnimationRun" value="NC2_Armat|thc2_run" />
+				<property name="AnimationWalk" value="NC2_Armat|thc2_walk" />
+				<property name="AnimationSpecialAttack" value="NC_Arma|thc2_attack3" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Nightmare_c3" extends="SDXTemplate">
+				<!-- Make 'em fly! -->
+				<property name="Class" value="EntityVulture" />
+				<property name="Mesh" value="#Nightmares?thc3" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="thc3_arma|idle" />
+				<property name="AnimationMainAttack" value="thc3_arma|attack1" />
+				<property name="AnimationSecondAttack" value="thc3_arma|attack2" />
+				<property name="AnimationPain" value="thc3_arma|howl" />
+				<property name="AnimationDeath" value="thc3_arma|die1" />
+				<property name="AnimationRun" value="thc3_arma|run_forward" />
+				<property name="AnimationWalk" value="thc3_arma|walk_forward" />
+				<property name="AnimationSpecialAttack" value="thc3_arma|attack3" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Nightmare_c4" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?thc4" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="thc4_arma|idle" />
+				<property name="AnimationMainAttack" value="thc4_arma|do_attack1" />
+				<property name="AnimationSecondAttack" value="thc4_arma|do_attack2" />
+				<property name="AnimationPain" value="thc4_arma|st_roar" />
+				<property name="AnimationJump" value="thc4_arma|st_jump" />
+				<property name="AnimationDeath" value="thc4_arma|st_death" />
+				<property name="AnimationRun" value="thc4_arma|st_run" />
+				<property name="AnimationWalk" value="thc4_arma|st_walk" />
+				<property name="AnimationSpecialAttack" value="thc4_arma|do_attack3" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Nightmare_c5" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?thc5" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="thc5_armature_O|idle" />
+				<property name="AnimationMainAttack" value="thc5_armature_O|attack1" />
+				<property name="AnimationSecondAttack" value="thc5_armature_O|attack2" />
+				<property name="AnimationPain" value="thc5_armature_O|laugh" />
+				<property name="AnimationDeath" value="thc5_armature_O|death1" />
+				<property name="AnimationRun" value="thc5_armature_O|run" />
+				<property name="AnimationWalk" value="thc5_armature_O|walk" />
+				<property name="AnimationSpecialAttack" value="thc5_armature_O|attack3" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Ripper" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?Ripper" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="Idle3" />
+				<property name="AnimationSecondIdle" value="Idle2" />
+				<property name="AnimationMainAttack" value="Attack1" />
+				<property name="AnimationSecondAttack" value="Attack2" />
+				<property name="AnimationPain" value="Damage2" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Run" />
+				<property name="AnimationWalk" value="Walk2" />
+				<property name="AnimationJump" value="Jump" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>
+			<entity_class name="Insectoid" extends="SDXTemplate">
+				<property name="Class" value="EntityEnemyAnimalManu, Mods" />
+				<property name="MeshScale" value="0.5, 2" />
+				<property name="MeshColor" value="1.0, 0.612, 0.349" />
+				<property name="MeshEmissiveColor" value="1.0, 0.612, 0.349" />
+				
+				<property name="Mesh" value="#Nightmares?Insectoid" />
+				<property name="MaxHealth" value="1000" />
+				<!-- These are the animation map names. The value comes from the animation from Unity -->
+				<property name="AnimationIdle" value="Idle" />
+				<property name="AnimationMainAttack" value="Attack" />
+				<property name="AnimationPain" value="Damage" />
+				<property name="AnimationDeath" value="Death" />
+				<property name="AnimationRun" value="Chase" />
+				<property name="AnimationWalk" value="Walk" />
+				<property name="SoundRandom" value="afroShamanSounds" />
+				<property name="SoundAlert" value="afroShamanSounds" />
+				<property name="SoundAttack" value="afroShamanSounds" />
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath" />
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain" />
+				<property name="SoundSense" value="afroShamanSounds" />
+				<property name="LootListOnDeath" value="200" />
+			</entity_class>								
+		</append>
+	</config>
+</configs>

@@ -29,41 +29,26 @@
 			<!-- AI -->
 			<!--<property name="AIPackages" value="Human Basic, Bandit Ranged"/>-->
 			<property name="AITask-1" value="RangedAttackTarget2" 			param1="0" param2="5"/>
-			<property name="AITask-2" value="ApproachAndAttackTarget" 		param1="EntitySurvivor"/>
+			<property name="AITask-2" value="ApproachAndAttackTarget" 		param1="EntityNPC"/>
 			<property name="AITask-3" value="ApproachAndAttackTarget" 		param1="EntityPlayer"/>
 			<property name="AITask-4" value="ApproachAndAttackTarget" 		param1="EntityZombie"/>
-			<property name="AITask-5" value="ApproachAndAttackTarget" 		param1="EntityZombieCop"/>
-			<property name="AITask-6" value="ApproachAndAttackTarget" 		param1="EntityZombieDog"/>
-			<property name="AITask-7" value="ApproachAndAttackTarget" 		param1="EntityZombieCrawl"/>
-			<property name="AITask-8" value="ApproachAndAttackTarget" 		param1="EntityVulture"/>
-			<property name="AITask-9" value="ApproachAndAttackTarget" 		param1="EntityAnimalBear"/>
-			<property name="AITask-10" value="ApproachAndAttackTarget" 		param1="EntityAnimalStag"/>
-			<property name="AITask-11" value="ApproachAndAttackTarget" 		param1="EntityAnimalRabbit"/>
-			<property name="AITask-12" value="BreakDoor" />
-			<property name="AITask-13" value="BreakBlock" />
-			<property name="AITask-14" value="Swim"/>
-			<property name="AITask-15" value="ApproachSpot"/>
-			<property name="AITask-16" value="Wander"/>
-			<property name="AITarget-1" value="SetAsTargetIfHurt" 			param1="EntitySurvivor"/>
+			<property name="AITask-5" value="ApproachAndAttackTarget" 		param1="EntityAnimalStag"/>
+			<property name="AITask-6" value="ApproachAndAttackTarget" 		param1="EntityEnemyAnimal"/>
+			<property name="AITask-7" value="BreakDoor" />
+			<property name="AITask-8" value="BreakBlock" />
+			<property name="AITask-9" value="Swim"/>
+			<property name="AITask-10" value="ApproachSpot"/>
+			<property name="AITask-11" value="Wander"/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" 			param1="EntityNPC"/>
 			<property name="AITarget-2" value="SetAsTargetIfHurt" 			param1="EntityPlayer"/>
-			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityZombieCop"/>
-			<property name="AITarget-4" value="SetAsTargetIfHurt" 			param1="EntityZombieDog"/>
-			<property name="AITarget-5" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
-			<property name="AITarget-6" value="SetAsTargetIfHurt" 			param1="EntityZombieCrawl"/>
-			<property name="AITarget-7" value="SetAsTargetIfHurt" 			param1="EntityVulture"/>
-			<property name="AITarget-8" value="SetAsTargetIfHurt" 			param1="EntityAnimalBear"/>
-			<property name="AITarget-9" value="SetAsTargetIfHurt" 			param1="EntityAnimalStag"/>
-			<property name="AITarget-10" value="SetAsTargetIfHurt" 			param1="EntityAnimalRabbit"/>
-			<property name="AITarget-11" value="SetNearestEntityAsTarget" 	param1="EntitySurvivor"/>
-			<property name="AITarget-12" value="SetNearestEntityAsTarget" 	param1="EntityPlayer"/>
-			<property name="AITarget-13" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
-			<property name="AITarget-14" value="SetNearestEntityAsTarget" 	param1="EntityZombieCop"/>
-			<property name="AITarget-15" value="SetNearestEntityAsTarget" 	param1="EntityZombieDog"/>
-			<property name="AITarget-16" value="SetNearestEntityAsTarget" 	param1="EntityZombieCrawl"/>
-			<property name="AITarget-17" value="SetNearestEntityAsTarget" 	param1="EntityVulture"/>
-			<property name="AITarget-18" value="SetNearestEntityAsTarget" 	param1="EntityAnimalBear"/>
-			<property name="AITarget-19" value="SetNearestEntityAsTarget" 	param1="EntityAnimalStag"/>
-			<property name="AITarget-20" value="SetNearestEntityAsTarget" 	param1="EntityAnimalRabbit"/>
+			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
+			<property name="AITarget-4" value="SetAsTargetIfHurt" 			param1="EntityAnimalStag"/>
+			<property name="AITarget-5" value="SetAsTargetIfHurt" 			param1="EntityEnemyAnimal"/>
+			<property name="AITarget-6" value="SetNearestEntityAsTarget" 	param1="EntityNPC"/>
+			<property name="AITarget-7" value="SetNearestEntityAsTarget" 	param1="EntityPlayer"/>
+			<property name="AITarget-8" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
+			<property name="AITarget-9" value="SetNearestEntityAsTarget" 	param1="EntityAnimalStag"/>
+			<property name="AITarget-10" value="SetNearestEntityAsTarget" 	param1="EntityEnemyAnimal"/>
 
 			<!-- Movement -->
 			<property name="WanderSpeed" value="0.5"/>
@@ -203,36 +188,18 @@
 			<property name="AITask-1" value="RangedAttackTarget2" 			param1="0" param2="5"/>
 			<property name="AITask-2" value="ApproachAndAttackTarget" 		param1="EntityBandit"/>
 			<property name="AITask-3" value="ApproachAndAttackTarget" 		param1="EntityZombie"/>
-			<property name="AITask-4" value="ApproachAndAttackTarget" 		param1="EntityZombieCop"/>
-			<property name="AITask-5" value="ApproachAndAttackTarget" 		param1="EntityZombieDog"/>
-			<property name="AITask-6" value="ApproachAndAttackTarget" 		param1="EntityZombieCrawl"/>
-			<property name="AITask-7" value="ApproachAndAttackTarget" 		param1="EntityVulture"/>
-			<property name="AITask-8" value="ApproachAndAttackTarget" 		param1="EntityAnimalBear"/>
-			<property name="AITask-9" value="ApproachAndAttackTarget" 		param1="EntityAnimalStag"/>
-			<property name="AITask-10" value="ApproachAndAttackTarget" 		param1="EntityAnimalRabbit"/>
-			<property name="AITask-11" value="BreakDoor" />
-			<property name="AITask-12" value="BreakBlock" />
-			<property name="AITask-13" value="Swim"/>
-			<property name="AITask-14" value="ApproachSpot"/>
-			<property name="AITask-15" value="Wander"/>
+			<property name="AITask-4" value="ApproachAndAttackTarget" 		param1="EntityEnemy"/>
+			<property name="AITask-5" value="BreakDoor" />
+			<property name="AITask-6" value="BreakBlock" />
+			<property name="AITask-7" value="Swim"/>
+			<property name="AITask-8" value="ApproachSpot"/>
+			<property name="AITask-9" value="Wander"/>
 			<property name="AITarget-1" value="SetAsTargetIfHurt" 			param1="EntityBandit"/>
-			<property name="AITarget-2" value="SetAsTargetIfHurt" 			param1="EntityZombieCop"/>
-			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityZombieDog"/>
-			<property name="AITarget-4" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
-			<property name="AITarget-5" value="SetAsTargetIfHurt" 			param1="EntityZombieCrawl"/>
-			<property name="AITarget-6" value="SetAsTargetIfHurt" 			param1="EntityVulture"/>
-			<property name="AITarget-7" value="SetAsTargetIfHurt" 			param1="EntityAnimalBear"/>
-			<property name="AITarget-8" value="SetAsTargetIfHurt" 			param1="EntityAnimalStag"/>
-			<property name="AITarget-9" value="SetAsTargetIfHurt" 			param1="EntityAnimalRabbit"/>
-			<property name="AITarget-10" value="SetNearestEntityAsTarget" 	param1="EntityBandit"/>
-			<property name="AITarget-11" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
-			<property name="AITarget-12" value="SetNearestEntityAsTarget" 	param1="EntityZombieCop"/>
-			<property name="AITarget-13" value="SetNearestEntityAsTarget" 	param1="EntityZombieDog"/>
-			<property name="AITarget-14" value="SetNearestEntityAsTarget" 	param1="EntityZombieCrawl"/>
-			<property name="AITarget-15" value="SetNearestEntityAsTarget" 	param1="EntityVulture"/>
-			<property name="AITarget-16" value="SetNearestEntityAsTarget" 	param1="EntityAnimalBear"/>
-			<property name="AITarget-17" value="SetNearestEntityAsTarget" 	param1="EntityAnimalStag"/>
-			<property name="AITarget-18" value="SetNearestEntityAsTarget" 	param1="EntityAnimalRabbit"/>
+			<property name="AITarget-2" value="SetAsTargetIfHurt" 			param1="EntityZombie"/>
+			<property name="AITarget-3" value="SetAsTargetIfHurt" 			param1="EntityEnemy"/>
+			<property name="AITarget-4" value="SetNearestEntityAsTarget" 	param1="EntityBandit"/>
+			<property name="AITarget-5" value="SetNearestEntityAsTarget" 	param1="EntityZombie"/>
+			<property name="AITarget-6" value="SetNearestEntityAsTarget" 	param1="EntityEnemy"/>
 
 			<!-- Movement -->
 			<property name="WanderSpeed" value="0.5"/>
