@@ -38,16 +38,15 @@ public class VehicleWeapons : MonoBehaviour
 
     void Update()
     {
-        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
-        //if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
-        if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
-            return;
-
         if (entityVehicle == null || entityVehicle.player == null)
         {
             InitController();
             return;
         }
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+        //if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
+        if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
+            return;
 
         if (!entityVehicle.hasDriver)
             return;

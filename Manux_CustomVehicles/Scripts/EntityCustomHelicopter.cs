@@ -56,7 +56,6 @@ class EntityCustomHelicopter : EntityCustomVehicle
     public override void InitVehicle()
     {
         base.InitVehicle();
-        player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
 
         GetVehicleBones();
 

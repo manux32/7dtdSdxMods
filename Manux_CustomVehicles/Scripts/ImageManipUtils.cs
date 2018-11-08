@@ -18,7 +18,13 @@ class ImageManipUtils
 
     public static void WriteItemIconAtlasImageToDisc()
     {
-        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        //EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
+        if(player == null)
+        {
+            Debug.LogError("WriteItemIconAtlasImageToDisc: Cannot find Local Player, aborting!");
+            return;
+        }
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
         UIAtlas uiAtlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
         UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
@@ -132,15 +138,47 @@ class ImageManipUtils
         Texture[] projectTextures = (Texture[])Resources.FindObjectsOfTypeAll(typeof(Texture));
         foreach (Texture texture in projectTextures)
         {
-            DebugMsg("\t- " + texture.name);
-            if (texture.name == "UIAtlas")
+            //DebugMsg("\t- " + texture.name);
+            //if (texture.name == "UIAtlas")
+            if (texture.name.ToLower().Contains("atlas"))
             {
+                DebugMsg("\t- " + texture.name);
                 //DebugMsg("\t- " + texture.name, texture.path);
                 //texture2Dsrc = (Texture2D)texture;
                 //Texture2D text2D = (Texture2D)texture;
                 //texture2Dsrc = new Texture2D(text2D.width, text2D.height, text2D.format, text2D.mipmapCount > 1);
                 //texture2Dsrc.LoadRawTextureData(text2D.GetRawTextureData());
                 //texture2Dsrc.Apply();
+            }
+        }
+    }
+
+    public static void PrintSceneAtlases()
+    {
+        GameObject nguiRoot2D = GameObject.Find("/NGUI Root (2D)");
+        if (nguiRoot2D == null)
+        {
+            DebugMsg("StartGame_additions: Cannot find 'NGUI Root (2D)'");
+            return;
+        }
+
+        GameObject root = CustomVehiclesUtils.GetRootTransform(nguiRoot2D.transform).gameObject;
+
+        Component[] transforms = root.GetComponentsInChildren<Transform>();
+        DebugMsg("PrintSceneAtlases: Scene Atlases:");
+        foreach (Transform transform in transforms)
+        {
+            if (transform.name.ToLower().Contains("atlas"))
+            {
+                DebugMsg("- " + transform.name);
+                Component[] comps = transform.gameObject.GetComponents<Component>();
+                DebugMsg("Components:");
+                foreach (Component comp in comps)
+                {
+                    DebugMsg("\t- " + comp.name + " | type = " + comp.GetType().ToString());
+                    if (comp.GetType() == typeof(UIAtlas) || comp.GetType().IsSubclassOf(typeof(UIAtlas)))
+                        DebugMsg("\t- atlas: " + transform.name + " | comp = " + comp.name + " | type = " + comp.GetType().ToString());
+                }
             }
         }
     }

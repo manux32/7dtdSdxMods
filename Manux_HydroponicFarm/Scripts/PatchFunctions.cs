@@ -46,12 +46,13 @@ class TileEntityWorkstationPatchFunctions
             isPowered = BlockHydroponicFarmPower.IsBlockPoweredUp(powerBlockPos, chunk.ClrIdx);
 
             // Halt crafting UI
-            global::LocalPlayerUI playerUI = (GameManager.Instance.World.GetLocalPlayer() as global::EntityPlayerLocal).PlayerUI;
-            global::BlockValue block = GameManager.Instance.World.GetBlock(tew.ToWorldPos());
-            string text = string.Format("workstation_{0}", global::Block.list[block.type].GetBlockName());
+            EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
+            LocalPlayerUI playerUI = player.PlayerUI;
+            BlockValue block = GameManager.Instance.World.GetBlock(tew.ToWorldPos());
+            string text = string.Format("workstation_{0}", Block.list[block.type].GetBlockName());
             if (playerUI.windowManager.Contains(text))
             {
-                XUiC_WorkstationWindowGroup workstationWindowGroup = ((global::XUiC_WorkstationWindowGroup)((global::XUiWindowGroup)playerUI.windowManager.GetWindow(text)).Controller);
+                XUiC_WorkstationWindowGroup workstationWindowGroup = ((XUiC_WorkstationWindowGroup)((XUiWindowGroup)playerUI.windowManager.GetWindow(text)).Controller);
                 if (workstationWindowGroup.WorkstationData != null && workstationWindowGroup.WorkstationData.TileEntity == tew)
                 {
                     // The name of the XUiC_CraftingQueue field of XUiC_WorkstationWindowGroup is obfuscated so we find it by type to call it.

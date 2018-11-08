@@ -717,8 +717,8 @@ class TileEntityLootContainer_patchFunctions
         DebugMsg("TileEntityLootContainer.SetContainerSize:");
         //Vector2i MKZ;
         FieldInfo MKZ_field = null;
-        var listOfFieldNames = typeof(TileEntityLootContainer).GetFields();
-        //var listOfFieldNames = typeof(TileEntityLootContainer).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        //var listOfFieldNames = typeof(TileEntityLootContainer).GetFields();
+        var listOfFieldNames = typeof(TileEntityLootContainer).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (FieldInfo fieldInfo in listOfFieldNames)
         {
             if (fieldInfo.FieldType == typeof(Vector2i))
@@ -771,7 +771,8 @@ class UISprite_patchFunctions
 
     public static UIAtlas GetProperAtlas(UISprite sprite, UIAtlas atlas)
     {
-        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        //EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
         LocalPlayerUI uiforPlayer = null;
         if (player != null)
         {
@@ -796,7 +797,8 @@ class UISprite_patchFunctions
         if (GameManager.Instance == null || !GameManager.Instance.gameStateManager.IsGameStarted())
             return;
 
-        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        //EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
         LocalPlayerUI uiforPlayer = null;
         if (player != null)
         {
@@ -837,7 +839,8 @@ class XUiC_CompassWindow_patchFunctions
 
     public static void Update_addition(XUiC_CompassWindow xuic_CompassWindow)
     {
-        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        //EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
 
         foreach (UISprite sprite in xuic_CompassWindow.waypointSpriteList)
@@ -884,7 +887,7 @@ class MapObjectVehicle_patchFunctions : MapObjectVehicle
 }
 
 
-class ModManager_patchFunctions
+public class VehicleIcons_patchFunctions
 {
     static readonly bool showDebugLog = false;
 
@@ -1064,14 +1067,37 @@ class ModManager_patchFunctions
         PrintMapObjects(EnumMapObjectType.VendingMachine);
     }
 
-    
 
-    public static void GameStartDone_additions()
+    public static void ModifyUIAtlases()
     {
-        EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        DebugMsg("ModifyUIAtlases: vp_Gameplay.isMultiplayer = " + vp_Gameplay.isMultiplayer.ToString());
+        {
+            ModifyUIAtlas("UIAtlas");
+        }
+    }
+
+
+    public static void ModifyUIAtlas(string uiAtlasName)
+    {
+        DebugMsg("ModifyUIAtlas: " + uiAtlasName);
+        //ImageManipUtils.PrintProjectTextures();
+        //ImageManipUtils.PrintSceneAtlases();
+
+        //EntityPlayerLocal player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
+        if (player == null)
+        {
+            DebugMsg("ModifyUIAtlas: player is NULL");
+            return;
+        }
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
-        UIAtlas uiAtlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
-        UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
+        UIAtlas uiAtlas = uiforPlayer.xui.GetAtlasByName(uiAtlasName);
+        //UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
+        if (uiAtlas == null)
+        {
+            DebugMsg("ModifyUIAtlas: uiAtlas is NULL, aborting!: " + uiAtlasName);
+            return;
+        }
 
         // Add new ui_game_symbols icons positions to the UIAtlas
         AddNewGameSymbolsDataToUiAtlas(uiAtlas);
@@ -1083,9 +1109,14 @@ class ModManager_patchFunctions
         //ImageManipUtils.PrintItemIconAtlasesSprites();
 
         // Swap the UIAtlas image with our modified version
-        var uiIconsDestPath = Utils.GetGameDir("Mods/SDX/UI");
-        DebugMsg("Mods/SDX/UI path = " + uiIconsDestPath);
-        DirectoryInfo d = new DirectoryInfo(uiIconsDestPath);
+        var uiIconsPath = Utils.GetGameDir("Mods/SDX/UI");
+        DebugMsg("ModifyUIAtlas: uiIconsPath = " + uiIconsPath);
+        if(!Directory.Exists(uiIconsPath))
+        {
+            UnityEngine.Debug.LogError("ModifyUIAtlas: uiIconsPath does not exist, aborting! Vehicle Icons won't use the new ui_game_symbols");
+            return;
+        }
+        DirectoryInfo d = new DirectoryInfo(uiIconsPath);
         FileInfo[] Files = d.GetFiles("*.*");
 
         FieldInfo ZZfield = null;
@@ -1096,11 +1127,13 @@ class ModManager_patchFunctions
             if (fieldInfo.FieldType == typeof(List<UISpriteData>))
             {
                 ZZfield = fieldInfo;
+                DebugMsg("ModifyUIAtlas: found ZZ List<UISpriteData> Field");
             }
 
             if (fieldInfo.FieldType == typeof(Material))
             {
                 KZfield = fieldInfo;
+                DebugMsg("ModifyUIAtlas: found KZ Material Field");
             }
         }
 
@@ -1112,12 +1145,14 @@ class ModManager_patchFunctions
         }*/
 
         DebugMsg("Mods UI files:");
+        FileInfo uiAtlasImageFileInfo = null;
         foreach (FileInfo file in Files)
         {
             //DebugMsg("\t- " + file.FullName);
             //DebugMsg("\t- " + file.Name);
             if (Path.GetFileNameWithoutExtension(file.Name) == "UIAtlas")
             {
+                uiAtlasImageFileInfo = file;
                 UnityEngine.Debug.LogWarning("Found new UIAtlas in Custom Vehicles mod, switching texture image to new UIAtlas.");
                 byte[] fileData;
                 fileData = File.ReadAllBytes(file.FullName);
@@ -1140,6 +1175,10 @@ class ModManager_patchFunctions
                 DebugMsg("new texture settings (AFTER COMPRESS and APPLY): size = " + text2Dsrc.width.ToString() + " x " + text2Dsrc.height.ToString() + " | format = " + text2Dsrc.format.ToString() + " | mipMapBias = " + text2Dsrc.mipMapBias.ToString("0.0000") + " | filterMode = " + text2Dsrc.filterMode.ToString() + " | anisoLevel = " + text2Dsrc.anisoLevel.ToString() + " | wrapMode = " + text2Dsrc.wrapMode.ToString());
                 mat.mainTexture = text2Dsrc;
             }
+        }
+        if(uiAtlasImageFileInfo == null)
+        {
+            UnityEngine.Debug.LogError("ModifyUIAtlas: Cannot find UIAtlas image, aborting! Vehicle Icons won't use the new ui_game_symbols");
         }
     }
 }

@@ -30,8 +30,8 @@ public class CustomVehiclesAssetsCopyPatcher : IPatcherMod
     {
         Logging.LogInfo(" == Copying UI Icons == ");
 
-        CopyFolderFiles("UI", "${GameDir}\\Mods\\SDX\\UI");
-        CopyFolderFiles("UI\\Icons", "${GameDir}\\Mods\\SDX\\UI\\Icons");
+        CopyFolderFiles("UI", "${GameDir}/Mods/SDX/UI");
+        CopyFolderFiles("UI/Icons", "${GameDir}/Mods/SDX/UI/Icons");
     }
 
 
