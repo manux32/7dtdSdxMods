@@ -1166,6 +1166,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public void ForceIncrediblyStupidStorageSizeFuck()
     {
+        if (bag == null || lootContainer == null)
+            return;
+
         ItemStack[] oldStack = (ItemStack[])bag.GetSlots().Clone();
         //Vector2i size = LootContainer.lootList[this.GetLootList()].size;
         //bag.SetupSlots(ItemStack.CreateArray(size.x * size.y));

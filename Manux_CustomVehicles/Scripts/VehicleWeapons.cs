@@ -132,7 +132,7 @@ public class VehicleWeapons : MonoBehaviour
         //entityVehicle.playerInventory.RemoveItem(itemStack);
         uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
 
-        if (Steam.Network.IsServer)
+        //if (Steam.Network.IsServer)
         {
             Audio.Manager.BroadcastPlay(projectileLauncher.position, soundPath);
         }

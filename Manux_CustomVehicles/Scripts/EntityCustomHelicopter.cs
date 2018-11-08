@@ -302,8 +302,11 @@ class EntityCustomHelicopter : EntityCustomVehicle
         this.nativeBoxCollider.center = vehicleActivationCenter;
         this.nativeBoxCollider.size = vehicleActivationSize;
         hasDriver = false;
-        player.m_characterController.enabled = true;
-        player.m_characterController.detectCollisions = true;
+        if (player != null)
+        {
+            player.m_characterController.enabled = true;
+            player.m_characterController.detectCollisions = true;
+        }
         heliSimDummy.SetActive(false);
 
         //helicoCtrl.HelicopterSound.Stop();
@@ -314,38 +317,30 @@ class EntityCustomHelicopter : EntityCustomVehicle
 
     public new void FixedUpdate()
     {
-        // Try-catch for now because there is apparently an error in multi
-        //try
+        if (!helicoSettingsDone || !allBonesSet1Found)
         {
-            if (!helicoSettingsDone || !allBonesSet1Found)
-            {
-                InitVehicle();
-                return;
-            }
-
-            /*if (hasDriver)
-            {
-                this.IncomingRemoteSimulationInput = SimInput;
-            }*/
-            base.FixedUpdate();
-
-            if (!(this.AttachedEntities is EntityPlayerLocal) && helicoCtrl.IsOnGround)
-            {
-                return;
-            }
-
-            Vector3 newPos = heliSimDummy.transform.position;
-            this.transform.position = newPos;
-            this.SetPosition(newPos);
-            this.transform.rotation = heliSimDummy.transform.rotation;
-            this.SetRotation(heliSimDummy.transform.rotation.eulerAngles);
-
-            UpdateSimulation();
+            InitVehicle();
+            return;
         }
-        /*catch (System.Exception e)
+
+        /*if (hasDriver)
         {
-            Debug.LogError("An error occurred: " + e);
+            this.IncomingRemoteSimulationInput = SimInput;
         }*/
+        base.FixedUpdate();
+
+        if (!(this.AttachedEntities is EntityPlayerLocal) && helicoCtrl.IsOnGround)
+        {
+            return;
+        }
+
+        Vector3 newPos = heliSimDummy.transform.position;
+        this.transform.position = newPos;
+        this.SetPosition(newPos);
+        this.transform.rotation = heliSimDummy.transform.rotation;
+        this.SetRotation(heliSimDummy.transform.rotation.eulerAngles);
+
+        UpdateSimulation();
     }
 
 

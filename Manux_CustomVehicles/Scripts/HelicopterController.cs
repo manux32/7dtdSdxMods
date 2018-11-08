@@ -119,7 +119,7 @@ public class HelicopterController : MonoBehaviour
         TiltProcess();
         HeadlightMovement();
 
-        if(showDebugLog && Time.time - updatesDebugPrintDelay > lastDebugPrintTime)
+        if (showDebugLog && Time.time - updatesDebugPrintDelay > lastDebugPrintTime)
         {
             DebugMsg("Engine force = " + EngineForce.ToString("0.000"));
             DebugMsg("Adjusted Engine force Ratio = " + AdjEngineForceRatio.ToString("0.000"));
@@ -132,6 +132,10 @@ public class HelicopterController : MonoBehaviour
 
     private void HeadlightMovement()
     {
+        // May need to change this later, but for now it stops the spamming of NREs in the dedi log.
+        if (GameManager.IsDedicatedServer)
+            return;
+
         // Headlight movement from mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //headlightTargetPos = ray.GetPoint(100) + (Vector3.up * 20);
