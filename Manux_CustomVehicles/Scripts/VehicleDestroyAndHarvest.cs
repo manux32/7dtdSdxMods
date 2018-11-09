@@ -49,7 +49,7 @@ public class VehicleDestroyAndHarvest
 
     static bool showDebugLog = false;
 
-    public static new void DebugMsg(string msg)
+    public static void DebugMsg(string msg)
     {
         if (showDebugLog)
         {
@@ -257,8 +257,8 @@ public class VehicleDestroyAndHarvest
                         lastHitEntityId = entityAlive.entityId;
                         entityAlive.DamageEntity(damageSourceEntity, entityHitDamage, isCritical, isCritical? 3f : 2f);
 
-                        DebugMsg("Damage Entity: " + entityAlive.entityId + " | lastControllerVelocityMagnitude = " + lastControllerVelocityMagnitude.ToString("0.000") + " (hit speed ratio = " + entityHitSpeedRatio.ToString("0.000") 
-                            + ") | damage = " + entityHitDamage.ToString("0.000") + " (" + entityAlive.Health.ToString() + "/" + entityAlive.GetMaxHealth().ToString() + ") | hit transform name = " + raycastHit.transform.name + " | critical = " + isCritical.ToString());
+                        //DebugMsg("Damage Entity: " + entityAlive.entityId + " | lastControllerVelocityMagnitude = " + lastControllerVelocityMagnitude.ToString("0.000") + " (hit speed ratio = " + entityHitSpeedRatio.ToString("0.000") 
+                        //    + ") | damage = " + entityHitDamage.ToString("0.000") + " (" + entityAlive.Health.ToString() + "/" + entityAlive.GetMaxHealth().ToString() + ") | hit transform name = " + raycastHit.transform.name + " | critical = " + isCritical.ToString());
 
                         float vehDmg = (((float)entityAlive.GetMaxHealth()) / 3000.0f) * vehicleDamageFactor_entities * entityHitSpeedRatio;
                         DamageVehicle(vehDmg, 2f);
@@ -294,6 +294,8 @@ public class VehicleDestroyAndHarvest
 
                     /*if (blockName == "air" || (destroyBlocks.Contains("terrain") ? false : terrainBlocks.Contains(blockName)) || block.GetType().IsSubclassOf(typeof(BlockLiquid)) || block.GetType() == typeof(BlockLiquidv2) ||
                         block.GetType() == typeof(BlockGore))*/
+                    /*if (blockValue.ischild || blockName == "air" || block.GetType().IsSubclassOf(typeof(BlockLiquid)) || block.GetType() == typeof(BlockLiquidv2) || block.GetType() == typeof(BlockGore))
+                        continue;*/
                     if (blockName == "air" || block.GetType().IsSubclassOf(typeof(BlockLiquid)) || block.GetType() == typeof(BlockLiquidv2) || block.GetType() == typeof(BlockGore))
                         continue;
 
@@ -437,11 +439,11 @@ public class VehicleDestroyAndHarvest
                     // This is for debug printing remaining blocks that are not yet supported for destruction
                     else
                     {
-                        if (Time.time - debugBlocksPrintDelay > lastDebugBlocksPrint)
+                        /*if (Time.time - debugBlocksPrintDelay > lastDebugBlocksPrint)
                         {
                             DebugMsg("block = " + block.GetType().ToString() + " | " + blockName);
                             lastDebugBlocksPrint = Time.time;
-                        }
+                        }*/
                     }
                 }
             }
@@ -552,11 +554,13 @@ public class VehicleDestroyAndHarvest
             {
                 //addedToVehicleInv = entityVehicle.xuiC_VehicleContainer.AddItem(itemStack);
                 //XUiC_VehicleContainer vehicleContainer = entityVehicle.GetVehicleContainer();
-                XUiC_VehicleContainer vehicleContainer = EntityCustomVehicle.GetVehicleContainer(entityVehicle, entityVehicle.player, entityVehicle.vehicleXuiName);
-                if (vehicleContainer != null)
+                //XUiC_VehicleContainer vehicleContainer = EntityCustomVehicle.GetVehicleContainer(entityVehicle, entityVehicle.player, entityVehicle.vehicleXuiName);
+                //if (vehicleContainer != null)
+                if (entityVehicle.xuiC_VehicleContainer != null)
                 {
                     //addedToVehicleInv = entityVehicle.inventory.AddItem(itemStack);
-                    addedToVehicleInv = vehicleContainer.AddItem(itemStack);
+                    //addedToVehicleInv = vehicleContainer.AddItem(itemStack);
+                    addedToVehicleInv = entityVehicle.xuiC_VehicleContainer.AddItem(itemStack);
                 }
             }
             if (!addedToVehicleInv)

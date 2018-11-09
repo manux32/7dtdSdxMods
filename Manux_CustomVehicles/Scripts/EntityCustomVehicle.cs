@@ -24,14 +24,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public FieldInfo FI_bool_field = null;
     public FieldInfo TS_field = null;
     public MethodInfo set_RSQ_MethodInfo = null;
-    
+    // Obfuscated Vehicle Fields and Methods
+    public MethodInfo PZ_MethodInfo = null;
 
     #region Fields
 
     public EntityPlayerLocal player;
     //public LocalPlayerUI uiforPlayer;
     //public XUiM_PlayerInventory playerInventory;
-    //public XUiC_VehicleContainer xuiC_VehicleContainer;
+    public XUiC_VehicleContainer xuiC_VehicleContainer = null;
     public bool hasDriver = false;
     public CharacterController charCtrl = null;
     public Transform playerSpine1Bone = null;
@@ -80,6 +81,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public Transform missileLauncher2 = null;
     public Transform gunLauncher2 = null;
+
+    public VehiclePart gunPart = null;
+    public VehiclePart explosiveLauncherPart = null;
 
     public bool hasBuiltInStorage = false;
 
@@ -194,23 +198,31 @@ public abstract class EntityCustomVehicle : EntityMinibike
         FieldInfo[] listOfFieldNames;
         MethodInfo[] listOfMethodNames;
 
+        // Entity
         string FW_name = "FW";
         string QXQ_name = "QXQ";
+        // EntityVehicle
         string SI_name = "SI";
         string CI_name = "CI";
         string FI_name = "FI";
         //string TS_name = "TS";
         string set_RSQ_name = "set_RSQ";
-        DebugMsg("GameManager.IsDedicatedServer = " + GameManager.IsDedicatedServer.ToString());
-        if(GameManager.IsDedicatedServer)
+        // Vehicle
+        string PZ_name = "PZ";
+        //DebugMsg("GameManager.IsDedicatedServer = " + GameManager.IsDedicatedServer.ToString());
+        if (GameManager.IsDedicatedServer)
         {
+            // Entity
             FW_name = "ZV";
             QXQ_name = "KQA";
+            // EntityVehicle
             SI_name = "ES";
             CI_name = "JS";
             FI_name = "PS";
             //TS_name = "TS";
             set_RSQ_name = "set_YDA";
+            // Vehicle
+            PZ_name = "RH";
         }
         
         // Get hooks on Entity Obfuscated fields and methods
@@ -278,7 +290,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
             }
         }
 
-
         listOfMethodNames = typeof(EntityVehicle).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (MethodInfo methodInfo in listOfMethodNames)
         {
@@ -288,6 +299,20 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 if (set_RSQ_MethodInfo != null)
                 {
                     DebugMsg("Found method set_RSQ");
+                }
+            }
+        }
+
+        // Get hooks on Vehicle Obfuscated fields and methods
+        listOfMethodNames = typeof(Vehicle).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (MethodInfo methodInfo in listOfMethodNames)
+        {
+            if (methodInfo.Name == PZ_name)
+            {
+                PZ_MethodInfo = methodInfo;
+                if (PZ_MethodInfo != null)
+                {
+                    DebugMsg("Found method PZ");
                 }
             }
         }
@@ -667,7 +692,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
             player = GameManager.Instance.World.GetPrimaryPlayer();
             if (player == null)
             {
-                DebugMsg("GetPlayerSpine1Bone: player = null");
+                //DebugMsg("GetPlayerSpine1Bone: player = null");
                 return;
             }
         }
@@ -753,25 +778,34 @@ public abstract class EntityCustomVehicle : EntityMinibike
         //DebugMsg(this.EntityName + " (" + this.GetType().ToString() + "): OnDriverOn()");
         if (this.AttachedEntities == null)
         {
-            DebugMsg("OnDriverOn: this.AttachedEntities = null");
+            //DebugMsg("OnDriverOn: this.AttachedEntities = null");
             return;
         }
         player = this.AttachedEntities as EntityPlayerLocal;
+        hasDriver = true;
 
         GetPlayerSpine1Bone();
         XUiC_VehicleWindowGroup.ID = vehicleXuiName;
 
         if (bEnableCustomStorage)
         {
-            ForceIncrediblyStupidStorageSizeFuck();
+            ForceStorageSize();
             //DebugMsg("OnDriverOn lootList = " + this.GetLootList().ToString());
             //DebugMsg("OnDriverOn vehicle bag length = " + this.bag.GetSlots().Length.ToString());
         }
 
-        hasDriver = true;
+        if(PZ_MethodInfo != null)
+        {
+            object[] pz_params = new object[1] { "vehicleGun" };
+            gunPart = (VehiclePart)PZ_MethodInfo.Invoke(this.GetVehicle(), pz_params);
+            pz_params = new object[1] { "vehicleExplosiveLauncher" };
+            explosiveLauncherPart = (VehiclePart)PZ_MethodInfo.Invoke(this.GetVehicle(), pz_params);
+        }
+        
         vehicleCam.newThirdPcameraOffset = cameraOffset;
         if (player != null)
         {
+            xuiC_VehicleContainer = GetVehicleContainer(this, player, vehicleXuiName);
             player.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
         }
 
@@ -789,6 +823,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
         hasDriver = false;
         camAndPlayerOffsetsDone = false;
+        xuiC_VehicleContainer = null;
 
         if (bEnableCustomStorage && player != null)
         {
@@ -808,7 +843,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
     {
         base.FixedUpdate();
 
-        if(!controllerSettingsDone)
+        //if (GameManager.IsDedicatedServer)
+            //return;
+
+        if (!controllerSettingsDone)
         {
             SetCharCtrlAndBoxCollFromXml();
             return;
@@ -837,6 +875,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
         //vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
         if (bEnableDestroyAndHarvest)
         {
+            vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
             vehicleDestroyAndHarvest.FindAndKillSurroundingEntities();
             vehicleDestroyAndHarvest.lastControllerVelocityMagnitude = this.m_characterController.velocity.magnitude;
         }
@@ -1011,6 +1050,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
     {
         base.OnCollidedWithBlock(_world, _clrIdx, _blockPos, _blockValue);
 
+        //if (GameManager.IsDedicatedServer)
+            //return;
+
         if (!bEnableDestroyAndHarvest || !(this.AttachedEntities is EntityPlayerLocal))
             return;
 
@@ -1028,7 +1070,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
             //DebugMsg("lastHitBlockPos = " + lastHitBlockPos.ToString());
             player = this.AttachedEntities as EntityPlayerLocal;
             vehicleDestroyAndHarvest.isDestroyingBlocks = true;
-            vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
+            //vehicleDestroyAndHarvest.UpdateVehicleDestructionQuality();
             vehicleDestroyAndHarvest.FindAndKillSurroundingBlocks(_world, _clrIdx, _blockPos);
             lastHitBlockPos = _blockPos;
             //lastDestroyTime = Time.time;
@@ -1092,8 +1134,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public virtual bool HasGun()
     {
-        //DebugMsg("HasGun = " + (this.vehicle.GetPartItemValueByTag("vehicleGun").type != 0).ToString());
-        return this.vehicle.GetPartItemValueByTag("vehicleGun").type != 0;
+        ItemValue gunValue = this.vehicle.GetPartItemValueByTag("vehicleGun");
+        if (gunValue.type != 0 && gunPart != null && gunPart.GetHealthPercentage() > 0)
+            return true;
+        return false;
+    }
+
+    public virtual ItemValue GetGunItemValue()
+    {
+        return this.vehicle.GetPartItemValueByTag("vehicleGun");
     }
 
     public virtual bool HasGunAmmo()
@@ -1113,8 +1162,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public virtual bool HasExplosiveLauncher()
     {
-        //DebugMsg("HasExplosiveLauncher = " + (this.vehicle.GetPartItemValueByTag("vehicleExplosiveLauncher").type != 0).ToString());
-        return this.vehicle.GetPartItemValueByTag("vehicleExplosiveLauncher").type != 0;
+        ItemValue expLauncherValue = this.vehicle.GetPartItemValueByTag("vehicleExplosiveLauncher");
+        if (expLauncherValue.type != 0 && explosiveLauncherPart != null && explosiveLauncherPart.GetHealthPercentage() > 0)
+            return true;
+        return false;
+    }
+
+    public virtual ItemValue GetExplosiveLauncherItemValue()
+    {
+        return this.vehicle.GetPartItemValueByTag("vehicleExplosiveLauncher");
     }
 
     public virtual bool HasExplosiveLauncherAmmo()
@@ -1164,7 +1220,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     #region Other
 
-    public void ForceIncrediblyStupidStorageSizeFuck()
+    public void ForceStorageSize()
     {
         if (bag == null || lootContainer == null)
             return;
@@ -1210,7 +1266,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                         ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
                         XUiC_VehicleWindowGroup.ID = vehicleXuiName;
 
-                        ForceIncrediblyStupidStorageSizeFuck();
+                        ForceStorageSize();
 
                         windowManager.Open(vehicleXuiName, true, false, true);
 

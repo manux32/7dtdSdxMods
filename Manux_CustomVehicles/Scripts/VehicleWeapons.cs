@@ -38,6 +38,9 @@ public class VehicleWeapons : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsDedicatedServer)
+            return;
+
         if (entityVehicle == null || entityVehicle.player == null)
         {
             InitController();
@@ -70,10 +73,18 @@ public class VehicleWeapons : MonoBehaviour
 
     public void ShootProjectile(Transform projectileLauncher, string weaponSlotType, string soundPath, bool isGun)
     {
-        if (isGun && (!entityVehicle.HasGun() || !entityVehicle.HasGunAmmo()))
+        //if (isGun && (!entityVehicle.HasGun() || !entityVehicle.HasGunAmmo()))
+        if (isGun && !entityVehicle.HasGunAmmo())
+        {
+            GameManager.ShowTooltip(entityVehicle.player, "No Vehicle Gun Ammo");
             return;
-        if (!isGun && (!entityVehicle.HasExplosiveLauncher() || !entityVehicle.HasExplosiveLauncherAmmo()))
+        }
+        //if (!isGun && (!entityVehicle.HasExplosiveLauncher() || !entityVehicle.HasExplosiveLauncherAmmo()))
+        if (!isGun && !entityVehicle.HasExplosiveLauncherAmmo())
+        {
+            GameManager.ShowTooltip(entityVehicle.player, "No Vehicle Explosive Ammo");
             return;
+        }
 
         ItemValue ammoItem = entityVehicle.GetWeaponAmmoType(weaponSlotType);
         ItemStack itemStack = new ItemStack(ammoItem, 1);
@@ -89,13 +100,34 @@ public class VehicleWeapons : MonoBehaviour
         {
             projectile.parent = null;
         }
+
+        ItemValue launcherValue;
+        if (isGun)
+        {
+            launcherValue = entityVehicle.GetGunItemValue();
+            //DebugMsg("Gun: Quality = " + launcherValue.Quality.ToString() + " | UseTimes = " + launcherValue.UseTimes.ToString() + " | MaxUseTimes = " + launcherValue.MaxUseTimes.ToString() + " | GetHealthPercentage = " + entityVehicle.gunPart.GetHealthPercentage().ToString());
+            // Change weapons UseTimes (degrade weapon)
+            launcherValue.UseTimes += AttributeBase.GetVal<AttributeDegradationRate>(launcherValue, 1);
+            entityVehicle.gunPart.SetItemValue(launcherValue);
+        }
+        else
+        {
+            launcherValue = entityVehicle.GetExplosiveLauncherItemValue();
+            //DebugMsg("Explosive Launcher: Quality = " + launcherValue.Quality.ToString() + " | UseTimes = " + launcherValue.UseTimes.ToString() + " | MaxUseTimes = " + launcherValue.MaxUseTimes.ToString() + " | GetHealthPercentage = " + entityVehicle.explosiveLauncherPart.GetHealthPercentage().ToString());
+            // Change weapons UseTimes (degrade weapon)
+            launcherValue.UseTimes += AttributeBase.GetVal<AttributeDegradationRate>(launcherValue, 1);
+            entityVehicle.explosiveLauncherPart.SetItemValue(launcherValue);
+        }
+
         Utils.SetLayerRecursively(projectile.gameObject, (!(projectileLauncher != null)) ? 0 : projectileLauncher.gameObject.layer);
         BlockProjectileMoveScript blockProjectileMoveScript = projectile.gameObject.AddComponent<BlockProjectileMoveScript>();
         blockProjectileMoveScript.itemProjectile = ammoItem.ItemClass;
         blockProjectileMoveScript.itemValueProjectile = ammoItem;
-        blockProjectileMoveScript.itemValueLauncher = ItemValue.None.Clone();
+        //blockProjectileMoveScript.itemValueLauncher = ItemValue.None.Clone();
+        blockProjectileMoveScript.itemValueLauncher = launcherValue;
         blockProjectileMoveScript.itemActionProjectile = (ItemActionProjectile)((!(ammoItem.ItemClass.Actions[0] is ItemActionProjectile)) ? ammoItem.ItemClass.Actions[1] : ammoItem.ItemClass.Actions[0]);
-        blockProjectileMoveScript.AttackerEntityId = 0;
+        //blockProjectileMoveScript.AttackerEntityId = 0;
+        blockProjectileMoveScript.AttackerEntityId = entityVehicle.player.entityId;
 
         //Vector3 target = headlightTargetPos - projectileLauncher.position;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

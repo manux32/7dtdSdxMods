@@ -13,7 +13,8 @@
 				<property name="HoldType" value="45" />
 				<property name="EconomicValue" value="4000" />
 				<property class="Attributes">
-					<property name="DegradationMax" value="1200,6000" />
+					<property name="DegradationRate" value="12,16" />
+					<property name="DegradationMax" value="5600,14000" />
 				</property>
 				<property name="Group" value="Resources,Ammo/Weapons" />
 				<property name="CraftingSkillGroup" value="craftSkillGuns" />
@@ -30,7 +31,8 @@
 				<property name="HoldType" value="45" />
 				<property name="EconomicValue" value="6000" />
 				<property class="Attributes">
-					<property name="DegradationMax" value="1200,6000" />
+					<property name="DegradationRate" value="50,50" />
+					<property name="DegradationMax" value="5000,10000" />
 				</property>
 				<property name="Group" value="Resources,Ammo/Weapons" />
 				<property name="CraftingSkillGroup" value="craftSkillGuns" />
@@ -49,7 +51,8 @@
 				<property name="DegradationBreaksAfter" value="false" />
 				<property name="EconomicValue" value="6000" />
 				<property class="Attributes">
-					<property name="DegradationMax" value="1200,6000" />
+					<property name="DegradationRate" value="12,16" />
+					<property name="DegradationMax" value="5600,14000" />
 				</property>
 				<property name="Group" value="Ammo/Weapons" />
 				<property name="ActionSkillGroup" value="Rifles" />
@@ -68,7 +71,8 @@
 				<property name="Weight" value="100" />
 				<property name="EconomicValue" value="8000" />
 				<property class="Attributes">
-					<property name="DegradationMax" value="1200,6000" />
+					<property name="DegradationRate" value="50,50" />
+					<property name="DegradationMax" value="5000,10000" />
 				</property>
 				<property name="Group" value="Ammo/Weapons" />
 				<property name="ActionSkillGroup" value="Rifles" />
@@ -86,7 +90,8 @@
 				<property name="HoldType" value="45" />
 				<property name="EconomicValue" value="8000" />
 				<property class="Attributes">
-					<property name="DegradationMax" value="1200,6000" />
+					<property name="DegradationRate" value="50,50" />
+					<property name="DegradationMax" value="5000,10000" />
 				</property>
 				<property name="Group" value="Resources,Ammo/Weapons" />
 				<property name="CraftingSkillGroup" value="craftSkillGuns" />

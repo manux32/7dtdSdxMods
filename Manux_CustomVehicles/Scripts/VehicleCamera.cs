@@ -55,6 +55,9 @@ public class VehicleCamera : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsDedicatedServer)
+            return;
+
         if (entityVehicle == null || entityVehicle.player == null || entityVehicle.cameraOffset == null)
         {
             InitController();
@@ -88,7 +91,7 @@ public class VehicleCamera : MonoBehaviour
                     newThirdPcameraOffset.z += Mathf.Lerp(1.0f, 0.02f, thirdPcamLerpMult);
                 else
                     newThirdPcameraOffset.z += Mathf.Lerp(1.0f, 5.0f, thirdPcamLerpMult);
-                DebugMsg("thirdPcamLerpMult = " + thirdPcamLerpMult.ToString("0.0000"));
+                //DebugMsg("thirdPcamLerpMult = " + thirdPcamLerpMult.ToString("0.0000"));
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
             {
@@ -96,7 +99,7 @@ public class VehicleCamera : MonoBehaviour
                     newThirdPcameraOffset.z -= Mathf.Lerp(1.0f, 0.2f, thirdPcamLerpMult);
                 else
                     newThirdPcameraOffset.z -= Mathf.Lerp(1.0f, 5.0f, thirdPcamLerpMult);
-                DebugMsg("thirdPcamLerpMult = " + thirdPcamLerpMult.ToString("0.0000"));
+                //DebugMsg("thirdPcamLerpMult = " + thirdPcamLerpMult.ToString("0.0000"));
             }
 
             if (newThirdPcameraOffset.z > entityVehicle.cameraOffset.z / 3.0f)
@@ -129,6 +132,9 @@ public class VehicleCamera : MonoBehaviour
 
     public void LateUpdate()
     {
+        if (GameManager.IsDedicatedServer)
+            return;
+
         if (entityVehicle == null || entityVehicle.player == null)
         {
             InitController();
@@ -202,6 +208,9 @@ public class VehicleCamera : MonoBehaviour
 
     public void OnGUI()
     {
+        if (GameManager.IsDedicatedServer)
+            return;
+
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
         //if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
         if (!Event.current.type.Equals(EventType.Repaint) || GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
