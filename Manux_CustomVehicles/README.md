@@ -518,8 +518,9 @@ For doing all the ground work to find how to make a custom bike using the game u
 He's the one that originally initiated the forum thread we currently use for this mod. When I saw what he did with the RoadHog, it picked my interest. We shared a lot of knowledge and I then started to build this Vehicles mod: [**Custom Vehicles by Manux**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX)  
 
 ### TormentedEmu
-For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.  
-Thanks for her [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I initially used for running over zombies. The mod now had it's own system for running over zombies and creatures, and the way it behaves can be controlled via XML properties.  
+For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod.  
+And also for helping demistify some of the more obscur parts of coding something like this.  
+Thanks for her [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I initially used for running over zombies. The mod now has it's own system for running over zombies and creatures, and the way it behaves can be controlled via XML properties.  
 Thanks also for her great [**MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), that let's us open UIs like the Map, the backpack, or any other Character UIs, while driving.  
 
 ### Mumpfy
