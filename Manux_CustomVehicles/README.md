@@ -12,9 +12,14 @@ The mod already includes a bunch of functionnal vehicles. It can be compiled on 
 
 Sadly, it cannot be deployed on top of big mods that already modify the game's Assembly, because we don't have the source code for those mods, and SDX cannot compile on top of an already modified Assembly.
 
-**New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
-All Vehicles can also destroy and harvest the environment and buildings. You can control what gets destroyed and harvested  through XML properties on the vehicle's entityclass. You can also set it to harvest directly to the vehicle storage.  
-And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles! Actually all vehicles can now shoot bullets and explosives of all sorts. :stuck_out_tongue_winking_eye:  
+## Recently added features
+- Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
+- All Vehicles can also destroy and harvest the environment and buildings. You can control what gets destroyed and harvested  through XML properties on the vehicle's entityclass. You can also set it to harvest directly to the vehicle storage.  
+- And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles!  
+- Actually all vehicles can now shoot bullets and explosives of all sorts. :stuck_out_tongue_winking_eye: 2 new weapon parts slots have been added to all vehicles.
+- You can now make custom exclusive vehicle parts
+- Custom storage size
+- built-in storage
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
@@ -31,8 +36,8 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 
 ## Vids
 ### Bike, Quad, and Car
-| [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") | | [![weapons](http://img.youtube.com/vi/2hulHrWwcE8/0.jpg)](https://youtu.be/2hulHrWwcE8 "Weapons now on all Vehicles") |  
-|:---:|:---:|:---:|
+| [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") | [![weapons](http://img.youtube.com/vi/2hulHrWwcE8/0.jpg)](https://youtu.be/2hulHrWwcE8 "Weapons now on all Vehicles") |  
+|:---:|:---:|:---:|  
 |Custom Driveable Cars|All-Terrain Vehicles|Weapons now on all Vehicles|  
 
 ### The Beast
@@ -407,11 +412,32 @@ You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMiss
 This part is needed to be able to fire gun ammo.  
 You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet** 
 
-## Terms of use
-Some of the 3D Assets used to make the vehicles in this mod were purchased or downloaded for free, from various sites. Different licensing terms apply to the different Assets, see the list below.  
-I am not yet fully certain of how these licensing terms apply to what we do, but if your goal is to make a mod that includes my mod and those assets in it, it would be safer if you also purchased those assets.  
-I will contact Sketchfab to get clarifications on how this applies to us, modders...  
+# Terms of use  
+Since I now have all the information regarding the purchased Assets I have in my mod, here is the new Terms of Use for this mod:  
+## License
+**Creative Commons**  
+**Attribution-NonCommercial 4.0**  
+**International (CC BY-NC 4.0)**  
 
+## In summary:
+- This license lets you remix, tweak, and build upon my work __**non-commercially**__, as long as you credit me in your mod.
+- You don’t have to license your derivative works under the same licensing terms.  
+
+Please refer to the 2 links below for more information on the license:
+[**View License Deed**](https://creativecommons.org/licenses/by-nc/4.0/)  
+[**View Legal Code**](https://creativecommons.org/licenses/by-nc/4.0/legalcode)  
+
+## Additional Restrictions
+Some Assets in this mod were purchased from the [**Sketchfab**](https://sketchfab.com/) store.  
+See list below, in the [**Assets and their licenses**](#assets-and-their-licenses) section for more information on the licensing for each 3D Asset.  
+
+### The following additional restrictions apply for the assets that were purchased:  
+- You can only add those purchased 3D Assets in your mod, if they are included with my mod. (You do not need to re-purchase the Assets from Sketchfab)  
+- Those Assets can only be present in your mod if they are in a binary file, like a .unity3d resource file.  
+- You cannot extract those Assets using softwares like UABE, to modify them further, and then add them back to your mod.  
+- You cannot ask for money for your mod, if it includes my mod, and/or those Assets from my mod.  
+
+## Assets and their licenses
 ### The Beast (Loader)
 - **Original 3D Asset:** [**Wheel Loader**](https://skfb.ly/6toGS)
 - **Creator:** [**Renafox**](https://sketchfab.com/kryik1023)  
