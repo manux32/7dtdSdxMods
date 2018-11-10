@@ -302,6 +302,9 @@ You specify the custom storage per vehicle using a new "VehicleXuiName" XML prop
 <property name="LootListAlive" value="190" />
 ```
 
+### Open UIs while driving
+If you want to be able to open UIs like the Map, the backpack, or any other Character UIs, while driving, simply download [**Tormented Emu's MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), and add it to your SDX Mods directory.  
+
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can be done through xml.  
 But if you do that and rename vehicle parts slots, you will end up with many different bugs. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues.  
