@@ -450,8 +450,9 @@ See list below, in the [**Assets and their licenses**](#assets-and-their-license
 ### The following additional restrictions apply for the assets that were purchased:  
 - You can only add those purchased 3D Assets in your mod, if they are included with my mod. (You do not need to re-purchase the Assets from Sketchfab)  
 - Those Assets can only be present in your mod if they are in a binary file, like a .unity3d resource file.  
-- You cannot extract those Assets using softwares like UABE, to modify them further, and then add them back to your mod.  
+- You cannot extract those Assets from the binary files using Assets extraction softwares, to modify them further, and then add them back to your mod.  
 - You cannot ask for money for your mod, if it includes my mod, and/or those Assets from my mod.  
+- If you wish to make modifications to those purchased Assets, you have to purchase them from Sketchfab.
 
 ## Assets and their licenses
 ### The Beast (Loader)
