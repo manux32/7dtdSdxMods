@@ -287,6 +287,7 @@ You can define different storages sizes for the different vehicles. The mod curr
 - Small: 4x6
 - Medium: 5x9
 - Large: 8x10  
+
 If you also use my [Bigger Backpack mod](https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots), it will detect it and deploy bigger storage sizes:
 - Small: 6x9
 - Medium: 10x10
