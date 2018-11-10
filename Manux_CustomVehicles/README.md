@@ -8,7 +8,7 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
-The mod already includes a bunch of functionnal vehicles. It can be compiled on top of vanilla, or mixed with other SDX mod, to get whatever type of experience you are looking for.  
+The mod already includes a bunch of functionnal vehicles. It can be compiled on top of vanilla, or mixed with other SDX mods, to get whatever type of experience you are looking for.  
 
 Sadly, it cannot be deployed on top of big mods that already modify the game's Assembly, because we don't have the source code for those mods, and SDX cannot compile on top of an already modified Assembly.
 
@@ -24,16 +24,16 @@ If you want to build your own, I recommend starting with something simple like a
 You can grab Unity template scenes for a Custom Bike and a Custom Car [**here**](https://drive.google.com/drive/folders/1Ke6T4T10FMly86gZedYfcR0-j0TuCkG7?usp=sharing).  
 I can provide templates for other vehicles if needed, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).  
 
-**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section to, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms that add additionnal restrictions to what you can do with them.
+**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms that add additionnal restrictions to what you can do with them.
 
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
 
 ## Vids
 ### Bike, Quad, and Car
-| [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") |  
-|:---:|:---:|
-|Custom Driveable Cars|All-Terrain Vehicles|  
+| [![driveable cars](http://img.youtube.com/vi/jd1xWsgqwCg/0.jpg)](https://www.youtube.com/watch?v=jd1xWsgqwCg "Custom Driveable Cars") | [![all terrain vehicles](http://img.youtube.com/vi/au5lZz8cKmQ/0.jpg)](https://www.youtube.com/watch?v=au5lZz8cKmQ "All-Terrain Vehicles") | | [![weapons](http://img.youtube.com/vi/2hulHrWwcE8/0.jpg)](https://youtu.be/2hulHrWwcE8 "Weapons now on all Vehicles") |  
+|:---:|:---:|:---:|
+|Custom Driveable Cars|All-Terrain Vehicles|Weapons now on all Vehicles|  
 
 ### The Beast
 [![LoaderA](http://img.youtube.com/vi/MXkOzT_1-nM/0.jpg)](https://youtu.be/MXkOzT_1-nM "Custom Loader that destroys everything on its path") | [![LoaderB](http://img.youtube.com/vi/OehnLqXRZIU/0.jpg)](https://youtu.be/OehnLqXRZIU "Custom Loader vehicle: a horde killer") | [![LoaderC](http://img.youtube.com/vi/05JCymS6XHI/0.jpg)](https://youtu.be/05JCymS6XHI "The Beast now harvests what it destroys") | [![LoaderD](http://img.youtube.com/vi/tAwpDKaP1w0/0.jpg)](https://youtu.be/tAwpDKaP1w0 "Sneak peek of new destruction and underwater features") |  
@@ -48,6 +48,7 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 ## Installation  
 All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
 If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
+
 ### Updating the mod
 Because this mod is currently under construction, you should always delete the old version of the mod before copying the new one. Some files are sometimes deleted or renamed in a new update, and it would create errors or issues if you don't do that.
 
@@ -145,8 +146,7 @@ For example:
 ## Vehicles entity_class XML properties
 New XML properties are supported to control different apsects of your custom vehicles.  
 You have to add these in your vehicle's entity_class.  
-### Common to all vehicles
-#### Camera and Player controls
+### Camera and Player controls
 ```XML
 <property name="CameraOffset" value="0, 2, -8" />
 ```  
@@ -161,7 +161,7 @@ Is the 3rd person player visible on the vehicle.
 ```  
 3rd person player position and rotation offsets on the vehicle. Rotation also moves the player arround, so you need to play with values to achieve what you want.  
 
-#### CharacterController (vehicle movement and collider)
+### CharacterController (vehicle movement and collider)
 ```XML
 <property name="ColliderCenter" value="0, 2.07, -0.01" />
 <property name="ColliderRadius" value="2" />
@@ -175,9 +175,9 @@ If you add a CharacterController component to an object in Unity, you will see p
 To know what values to set for the ***ColliderCenter, ColliderRadius, and ColliderHeight***, you can simply add a CharacterController component to your custom vehicle's prefab root in Unity, and modify those values until it best fits the volume of your vehicle.  
 We are sadly stuck with the built-in capsule collider of the CharacterController component at this point, since this is what TFP uses for drivable vehicles. A Capsule collider is limited in how well you can adjust it to the extents of your vehicle, just fit it as best as you can.  
 **Note:** Make sure to remove that CharacterController component from you prefab before exporting, to not cause undesired effects in the game.  
-The best is to add it to another object if you want to keep it in your Unity scene. Just make sure that object in not in you prefab hierarchy and that it has the same transform position and rotation as your prefab root when you want to tweak it for changing the XML values.
+The best is to add it to another object if you want to keep it in your Unity scene. Just make sure that object is not in you prefab hierarchy and that it has the same transform position and rotation as your prefab root when you want to tweak it for changing the XML values.
 
-#### All-terrain vehicles settings
+### All-terrain vehicles settings
 ```XML
 <property name="ColliderSkinWidth" value="0.0001" />
 <property name="ControllerSlopeLimit" value="90" />
@@ -191,9 +191,10 @@ The above are for making all-terrain vehicles that can climb objects.
 From what I understand, a step of **1.0** lets you climb over a single block. If you have a taller vehicle like the Loader, you can set it higher to be able to climb over 2-3-4 blocks. But never set it higher than the Character Controller’s height (***ColliderHeight*** XML property).  
 
 ***ColliderSkinWidth*** Can be left to the default value that shows in Unity: **0.08**.  
-But putting the minimum value of **0.0001** can help it climb better.  
+But putting a smaller value like **0.025** can help it climb better.  
+Don't put too small of a value, otherwise, your vehicle might get stuck when it collides with other colliders. 
 
-#### Vehicles UI activation volume
+### Vehicles UI activation volume
 ```XML
 <property name="VehicleActivationCenter" value="0, 2, -0.05" />
 <property name="VehicleActivationSize" value="3, 4, 6" />
@@ -230,6 +231,63 @@ It also kills zombies and other creatures when you drive over them.
 <property name="HarvestXPFactor" value="0.5" />
 ```  
 
+### Built-in Storage
+A Vehicle can have "built-in" storage, which means that you don't need a shopping basket part in order to have storage in it.  
+The Cicada Car and the Helicopter have built-in storage. Other vehicles require a storage part like the shopping basket.  
+Add the new "_**is_built-in_storage**_" XML property to the storage part of a your vehicle xml definition in order to enable this feature. And also remove the existing "_**slot_type**_" property from it.  
+For example:  
+```XML
+<property class="storage">
+        <property name="class" value="Storage" />
+        <property name="is_built-in_storage" value="true" />
+        <property name="parent_part" value="chassis" />
+</property>
+```
+
+When you do this, it means that you now have one less part slot on your vehicle. To avoid any bugs with this, you need to add an additionnal empty slot in your vehicle xml, like this:
+```XML
+<property class="empty1">
+        <property name="class" value="Empty, Mods" />
+        <property name="slot_type" value="empty" />
+        <property name="parent_part" value="chassis" />
+</property>
+```
+
+## Empty slots
+On top of having built-in storage, the Helicopter also emliminates another vehicle part, the wheels.  
+In this case, we need to add 2 empty slots in its vehicle xml. You should give different names to each empty slots, like this:  
+```XML
+<property class="empty1">
+        <property name="class" value="Empty, Mods" />
+        <property name="slot_type" value="empty" />
+        <property name="parent_part" value="chassis" />
+</property>
+<property class="empty2">
+        <property name="class" value="Empty, Mods" />
+        <property name="slot_type" value="empty" />
+        <property name="parent_part" value="chassis" />
+</property>
+```
+
+### Custom Vehicles Storage Size
+You can define different storages sizes for the different vehicles. The mod currently includes 3 storage sizes:  
+- Small: 4x6
+- Medium: 5x9
+- Large: 8x10  
+If you also use my [Bigger Backpack mod](https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots), it will detect it and deploy bigger storage sizes:
+- Small: 6x9
+- Medium: 10x10
+- Large: 12x15  
+
+To define new custom storages, you need to create a custom xui.xml vehicle window_group that includes a new windows.xml window for the storage.  
+You also need a custom lootcontainer that is set to the same number of rows and columns as your new storage window.  
+Check the ui_edits.xml file in this mod for examples on the ones that ship with the mod.   
+You specify the custom storage per vehicle using a new "VehicleXuiName" XML property for the xui.xml window_group and use the existing "LootListAlive" property for the lootcontainer:  
+```XML
+<property name="VehicleXuiName" value="vehicleMediumStorage" />
+<property name="LootListAlive" value="190" />
+```
+
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can be done through xml.  
 But if you do that and rename vehicle parts slots, you will end up with many different bugs. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues.  
@@ -262,6 +320,53 @@ _Example:_
 - Also add this new property to the part item. This will prevent using that part in regular vehicle slots.  
 ```XML
 <property name="IsVehicleCustomPart" value="true" />
+```  
+RoadHog example:
+```XML
+<property class="vehicleGun">
+        <property name="class" value="Gun, Mods" />
+        <property name="display_name" value="vehicle50calGun" />
+        <property name="slot_type" value="vehicleGun" />
+        <property name="custom_slot_type" value="vehicle50calGun" />
+        <property name="mesh" value="50calMachineGun" />
+        <property name="transform" value="Origin/handlebar_root/handlebar_joint/vehicleGun_joint" />
+        <property name="part_damage_reduction" value="0.5" />
+        <property name="parent_part" value="handlebars" />
+</property>
+<property class="vehicleExplosiveLauncher">
+        <property name="class" value="ExplosiveLauncher, Mods" />
+        <property name="display_name" value="vehicleGrenadeLauncher" />
+        <property name="slot_type" value="vehicleExplosiveLauncher" />
+        <property name="custom_slot_type" value="vehicleGrenadeLauncher" />
+        <property name="mesh" value="GrenadeLauncher" />
+        <property name="transform" value="Origin/handlebar_root/handlebar_joint/vehicleExplosiveLauncher_joint" />
+        <property name="part_damage_reduction" value="0.5" />
+        <property name="parent_part" value="handlebars" />
+</property>
+```  
+
+Helicopter example:
+```XML
+<property class="vehicleGun">
+        <property name="class" value="Gun, Mods" />
+        <property name="display_name" value="helicopterGun" />
+        <property name="slot_type" value="vehicleGun" />
+        <property name="custom_slot_type" value="helicopterGun" />
+        <property name="mesh" value="helicopterGun" />
+        <property name="transform" value="helicopterGun" />
+        <property name="part_damage_reduction" value="0.5" />
+        <property name="parent_part" value="chassis" />
+</property>
+<property class="vehicleExplosiveLauncher">
+        <property name="class" value="ExplosiveLauncher, Mods" />
+        <property name="display_name" value="helicopterMissileLauncher" />
+        <property name="slot_type" value="vehicleExplosiveLauncher" />
+        <property name="custom_slot_type" value="helicopterMissileLauncher" />
+        <property name="mesh" value="helicopterMissileLauncher" />
+        <property name="transform" value="helicopterMissileLauncher" />
+        <property name="part_damage_reduction" value="0.5" />
+        <property name="parent_part" value="chassis" />
+</property>
 ```  
 
 ### Professional High-Powered Bike Parts
