@@ -524,7 +524,7 @@ Thanks for her [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mod
 Thanks also for her great [**MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), that let's us open UIs like the Map, the backpack, or any other Character UIs, while driving.  
 
 ### Mumpfy
-A very talented visual artist that it also a 7d2d modder. He retextured some of the coolest Vehicles of this mod to make them fit better in the mood of the game. They look awesome!
+A very talented visual artist that is also a 7d2d modder. He retextured some of the coolest Vehicles of this mod to make them fit better in the mood of the game. They look awesome!
 He retextured the following vehicles so far: 
 - Dust2Death's RoadHog
 - The Beast
