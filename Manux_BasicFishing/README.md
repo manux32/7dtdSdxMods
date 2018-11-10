@@ -57,5 +57,5 @@ The mods were adapted to what I wanted, especially making it easier to bait the 
 - Right-click on the ground with your Fishing Trap to put a Fishing Trap Livewell there. Than loot it!
 
 ## Potential conflicts:
-This mod adds 2 new lootcontainers in **loot.xml**, IDs **145-146**.  
+This mod adds 2 new lootcontainers in **loot.xml**, IDs **195-196**.  
 If you are using mods that already use those lootcontainers IDs, you will need to change them either in this mod or in the other mods. You need to change both the ID of the lootcontainer in **loot.xml**, but also the ID on the block that points to it in **blocks.xml** (the value of the property **LootList** of the block).
