@@ -425,7 +425,8 @@ This part is needed to be able to fire missiles.
 You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMissile.png) **Helicopter Missiles**  
 #### ![heliGun](Icons/helicopterGun.png) Helicopter Gun
 This part is needed to be able to fire gun ammo.  
-You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet** 
+You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet**  
+
 
 # Terms of use  
 Since I now have all the information regarding the purchased Assets I have in my mod, here is the new Terms of Use for this mod:  
@@ -438,7 +439,7 @@ Since I now have all the information regarding the purchased Assets I have in my
 - This license lets you remix, tweak, and build upon my work __**non-commercially**__, as long as you credit me in your mod.
 - You don’t have to license your derivative works under the same licensing terms.  
 
-Please refer to the 2 links below for more information on the license:
+Please refer to the 2 links below for more information on the license:  
 [**View License Deed**](https://creativecommons.org/licenses/by-nc/4.0/)  
 [**View Legal Code**](https://creativecommons.org/licenses/by-nc/4.0/legalcode)  
 
