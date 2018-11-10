@@ -12,7 +12,7 @@ The mod already includes a bunch of functionnal vehicles. It can be compiled on 
 
 Sadly, it cannot be deployed on top of big mods that already modify the game's Assembly, because we don't have the source code for those mods, and SDX cannot compile on top of an already modified Assembly.
 
-## Recently added features
+### Recently added features
 - Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
 - All Vehicles can also destroy and harvest the environment and buildings. You can control what gets destroyed and harvested  through XML properties on the vehicle's entityclass. You can also set it to harvest directly to the vehicle storage.  
 - And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles!  
@@ -21,6 +21,7 @@ Sadly, it cannot be deployed on top of big mods that already modify the game's A
 - Custom storage size
 - built-in storage
 
+### Building your own vehicles
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
 I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.  
@@ -29,8 +30,10 @@ If you want to build your own, I recommend starting with something simple like a
 You can grab Unity template scenes for a Custom Bike and a Custom Car [**here**](https://drive.google.com/drive/folders/1Ke6T4T10FMly86gZedYfcR0-j0TuCkG7?usp=sharing).  
 I can provide templates for other vehicles if needed, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).  
 
-**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms that add additionnal restrictions to what you can do with them.
+### Mod Terms of Use and License
+Please check the [**Terms of Use**](#terms-of-use) section, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms that add additionnal restrictions to what you can do with them.
 
+### Special Thanks
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
 
