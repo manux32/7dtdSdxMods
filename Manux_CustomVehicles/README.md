@@ -63,8 +63,10 @@ Make sure you also deploy that mod for this one to work.
 The SDX Launcher shouldn't let you build if you don't have it or don't have it enabled.   
 
 ## Multiplayer
-The mod is not really functionnal for multi-player currently. There is lots of animation update issues, and other bugs.  
-I will try to fix those issues in the future, but I'm not sure when and how much work it will require.  
+The mod is currently fully functional for Single Player games.  
+And I am also currently working on making it work for Multiplayer.  
+The latest version is functional for MP, but it has not yet fully been tested at all levels.  
+If you try it in multiplayer and find problems, please report them on the mod's [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
 
 ## Vehicle Controls
 All Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional Controls, see lists below.
