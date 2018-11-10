@@ -8,19 +8,23 @@
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
+The mod already includes a bunch of functionnal vehicles. It can be compiled on top of vanilla, or mixed with other SDX mod, to get whatever type of experience you are looking for.  
+
+Sadly, it cannot be deployed on top of big mods that already modify the game's Assembly, because we don't have the source code for those mods, and SDX cannot compile on top of an already modified Assembly.
+
 **New:**  Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
-The Beast (Loader) is currently the only vehicle that can destroy and harvest the environment and buildings, but I will make that availlable to all vehicles in the near future...  You can currently control what gets destroyed and harvested for The Beast, all defined through XML properties. You can also set it to harvest directly to the vehicle storage.  
+All Vehicles can also destroy and harvest the environment and buildings. You can control what gets destroyed and harvested  through XML properties on the vehicle's entityclass. You can also set it to harvest directly to the vehicle storage.  
 And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles! Actually all vehicles can now shoot bullets and explosives of all sorts. :stuck_out_tongue_winking_eye:  
 
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
 It also contains examples of custom vehicle parts. Check-out the [**Custom Vehicle Parts section**](#custom-vehicle-parts).  
 I will eventually try to make tutorials or youtube vids to help you build your own, if there is enough demand for it.  
 
-I you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad, Loader and Helicopter are more complex on the rigging side.  
+If you want to build your own, I recommend starting with something simple like a custom bike. The Car, Quad, Loader and Helicopter are more complex on the rigging side.  
 You can grab Unity template scenes for a Custom Bike and a Custom Car [**here**](https://drive.google.com/drive/folders/1Ke6T4T10FMly86gZedYfcR0-j0TuCkG7?usp=sharing).  
 I can provide templates for other vehicles if needed, just ask me on the [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).  
 
-**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms.
+**IMPORTANT:** Please check the [**Terms of Use**](#terms-of-use) section to, especially if you want to include this mod and it's 3D assets in another mod that you will distribute. Some of the vehicles were built from purchased 3D assets, and are under licensing terms that add additionnal restrictions to what you can do with them.
 
 Special Thanks to **DUST2DEATH** for making the ball roll on this one.  
 See the complete ***Special Thanks*** section [**here**](#special-thanks).  
@@ -105,10 +109,7 @@ XML Example:
 </entity_class>
 ```
 ### EntityCustomLoader
-This is the new kid on the block and is still experimental. The code will most likely change a lot in the near future. But the base is there.  
-This one is even more complex than the Custom Cars. It requires more advanced rigging know-how.  
-It currently supports additionnal XML properties to control [**destruction/harvesting**](#only-on-loader-for-now) of the vehicle. It can destroy and harvest almost anything, all controllable via XML.  
-It also kills zombies and other creatures when you drive over them.  
+This one is even more complex than the Custom Cars. It requires more advanced rigging know-how. The current code is partially hardcoded for The Beast. I might make it more flexible in the future, to be able to make other types of construction vehicles with it.
 XML Example:
 ```XML
 <entity_class name="loader">
@@ -117,7 +118,7 @@ XML Example:
 </entity_class>
 ```
 ### EntityCustomHelicopter
-Yes, we now have a class for Helicopters! Still very experimental and currently harcoded for this Helicopter's Rig. But I will make it more flexible for any types of helicopter soon...  
+Yes, we now have a class for Helicopters! Still a bit experimental and currently harcoded for this Helicopter's Rig. But I will try to make it more flexible for any types of helicopter in the future...  
 XML Example:
 ```XML
 <entity_class name="helicopter">
@@ -127,7 +128,7 @@ XML Example:
 ```
 
 ### ItemActionSpawnCustomVehicle
-This is class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
+This class is there to be able to spawn a custom vehicle from the custom Chassis item of the vehicle.  
 The class is common to all vehicles, the vehicle to spawn is defined through the ***VehicleToSpawn*** XML property.  
 For example:  
 ```XML
@@ -141,7 +142,7 @@ For example:
 </item>
 ```
 
-## Vehicles entity_class new XML properties
+## Vehicles entity_class XML properties
 New XML properties are supported to control different apsects of your custom vehicles.  
 You have to add these in your vehicle's entity_class.  
 ### Common to all vehicles
@@ -200,19 +201,34 @@ But putting the minimum value of **0.0001** can help it climb better.
 There is another collider(Box collider) present on vehicles. It does not colide with the environment, it's only there to define the volume for the activation UI of the vechicles.  
 Just like for the CharacterController above, you can make a dummy Box Collider in your Unity scene to know what values to put in there.  
 
-### Only on Loader for now
+### Underwater
+```XML
+<property name="WaterCraft" value="true" />
+<property name="Airtight" value="true" />
+```
+**Watercraft:** Can the vehicle go on/in the water.
+**Airtight:** Is the vehicle "airtight" when under water.  If set to True, the player will still be able to breath when driving underwater.
+
+### Detroy and Harvest
+Additionnal XML properties to control destruction and harvesting of the environment with the vehicle. It can destroy and harvest pretty much anything, all controllable per vehicle via XML.  
+It also kills zombies and other creatures when you drive over them.  
 ```XML
 <property name="EntityDamage" value="1000" />
+<property name="EntityHitMinSpeed" value="1" />
+<property name="EntityCriticalHitMinSpeed" value="1" />
 <property name="BlockDamage" value="10000" />
+<property name="VehicleDamageFactor_blocks" value="4" />
+<property name="VehicleDamageFactor_entities" value="4" />
 <property name="DestructionRadius" value="3" />
+<property name="DestructionStartHeight" value="1" />
 <property name="DestructionHeight" value="3" />
 <property name="DestructionHarvestBonus" value="1.4" />
-<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
-<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fence,buildings,debris,poleOrPillar,bench,car,furniture,devices,curb,snow,trap,terrain,lootCtn" />
+<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fenceOrDoor,buildings,softDebris,hardDebris,poleOrPillar,car,furniture,devices,curb,trap,terrain,lootCtn" />
+<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fenceOrDoor,buildings,softDebris,hardDebris,poleOrPillar,bench,car,furniture,devices,curb,trap,terrain,lootCtn" />
 <property name="HarvestToVehicleInventory" value="true" />
+<property name="DestroyXPFactor" value="0.5" />
+<property name="HarvestXPFactor" value="0.5" />
 ```  
-The Loader currently supports additionnal XML properties to control the destruction, and harvesting. (Yes, it can harvest what it destroys!).  
-But I will most likely make this evolve a lot and transfer it to the EntityCustomBike class in order for all vehicles to be able to damage the environment and the Zombies, or other living humans, animals, and creatures.  
 
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can be done through xml.  
