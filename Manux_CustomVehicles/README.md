@@ -73,6 +73,12 @@ And I am also currently working on making it work for Multiplayer.
 The latest version is functional for MP, but it has not yet fully been tested at all levels.  
 If you try it in multiplayer and find problems, please report them on the mod's [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
 
+## Potential conflicts:
+This mod adds new lootcontainers in **loot.xml**, for the custom vehicle storages:  
+- IDs **189-191** for the regular mod.
+- IDs **192-194** when you also use my [**Bigger Backpack mod**](https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots).  
+If you are using mods that already use those lootcontainers IDs, you will need to change them either in this mod or in the other mods. You need to change both the ID of the lootcontainer in **loot.xml**, but also the ID on the block that points to it in **blocks.xml** (the value of the property **LootList** of the block), or if it's entities that point to them, you need to change their **LootListAlive** value in **entityclasses.xml**.
+
 ## Vehicle Controls
 Most Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional or replacement Controls, see lists below.
 ### All Vehicles
@@ -288,7 +294,7 @@ You can define different storages sizes for the different vehicles. The mod curr
 - Medium: 5x9
 - Large: 8x10  
 
-If you also use my [Bigger Backpack mod](https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots), it will detect it and deploy bigger storage sizes:
+If you also use my [**Bigger Backpack mod**](https://github.com/manux32/7dtdSdxMods/tree/master/Manux_BiggerBackPackMiniBikeContainersCraftingSlots), it will detect it and deploy bigger storage sizes:
 - Small: 6x9
 - Medium: 10x10
 - Large: 12x15  
