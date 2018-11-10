@@ -74,7 +74,7 @@ The latest version is functional for MP, but it has not yet fully been tested at
 If you try it in multiplayer and find problems, please report them on the mod's [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
 
 ## Vehicle Controls
-All Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional Controls, see lists below.
+Most Vehicles use the regular Keyboard Controls of the MiniBike. Some of them have additional or replacement Controls, see lists below.
 ### All Vehicles
 All vehicles now have additionnal controls for the camera and weapons. Vehicle Weapons and Ammo can be different per vehicle, all definable in xml. Custom parts can be defined for the weapons.
 - **Mouse Scroll-Wheel**: Zoom in-out in 3rd person view
@@ -90,6 +90,7 @@ The Beast's bucket's height determines how high/low objects can be destroyed and
 - **RightArrow**: Rotate the Bucket Up (Inward)  
 
 ### Helicopter
+The Helicopter does not use the Minibike base control scheme, it has it's own. But some of them are very similar to the MiniBike.
 - **LeftShift**: Lift/Increase main rotor speed
 - **Space**: Down/Decrease main rotor speed
 - **W**: Move/Tilt Forward
@@ -103,7 +104,6 @@ The Beast's bucket's height determines how high/low objects can be destroyed and
 ## Custom Vehicle C# classes  
 ### EntityCustomBike
 To make Custom Bikes (2 Wheels).  
-This is the parent class of all other Custom Vehicle classes. It's the main class that enables the abillity to control different aspects of the vehicle through new XML properties.  
 XML Example:
 ```XML
 <entity_class name="hellGoatBike">
@@ -113,7 +113,7 @@ XML Example:
 ```
 ### EntityCustomCar
 To make Custom Cars/Trucks/Quads (4 wheels).  
-Making Custom Cars is more complex than making Custom Bikes, it requires more rigging know-how. Tofunction, it requires additionnal bones and a different hierarchy than the Bikes.
+Making Custom Cars is more complex than making Custom Bikes, it requires more rigging know-how. To function, it requires additionnal bones and a different hierarchy than the Bikes, in order to have the 2 front wheels behave like a car.
 XML Example:
 ```XML
 <entity_class name="cicadaCar">
@@ -224,7 +224,8 @@ Just like for the CharacterController above, you can make a dummy Box Collider i
 
 ### Detroy and Harvest
 Additionnal XML properties to control destruction and harvesting of the environment with the vehicle. It can destroy and harvest pretty much anything, all controllable per vehicle via XML.  
-It also kills zombies and other creatures when you drive over them.  
+Vehicles also kills zombies and other creatures when you drive over them.  
+And Vehicles get damage from destroying blocks or killing zombies or creatures.   
 ```XML
 <property name="EntityDamage" value="1000" />
 <property name="EntityHitMinSpeed" value="1" />
