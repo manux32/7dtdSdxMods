@@ -459,14 +459,14 @@ See list below, in the [**Assets and their licenses**](#assets-and-their-license
 - **Creator:** [**Renafox**](https://sketchfab.com/kryik1023)  
 A very talented artist that created the original 3D Asset I used for making The Beast.  
 Check-out all the other [great models](https://sketchfab.com/kryik1023) she has for sale.  
-- **Asset acquisition: Sketchfab Purchase (25$)**  
+- **Asset acquisition: Sketchfab Purchase (25$ CAD)** (Canadian dollars)  
 - **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)   
 
 ### Quad
 - **Original 3D Asset:** [**ATV model practice**](https://skfb.ly/6x9oT)  
 - **Creator:** [**Mark Bai**](https://sketchfab.com/bcfbox)  
 A talented artist who did the very nice and cheap Sketchfab asset that I used for the Quad vehicle.  
-- **Asset acquisition: Sketchfab Purchase (4$)**  
+- **Asset acquisition: Sketchfab Purchase (4$ CAD)** (Canadian dollars)  
 - **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
  
 ### HellGoat Bike
