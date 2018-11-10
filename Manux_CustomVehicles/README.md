@@ -263,7 +263,7 @@ When you do this, it means that you now have one less part slot on your vehicle.
 </property>
 ```
 
-## Empty slots
+### Empty slots
 On top of having built-in storage, the Helicopter also emliminates another vehicle part, the wheels.  
 In this case, we need to add 2 empty slots in its vehicle xml. You should give different names to each empty slots, like this:  
 ```XML
