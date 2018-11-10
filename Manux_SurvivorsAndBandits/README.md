@@ -19,8 +19,10 @@ Bandits give you better loot thand Survivors.
 I learned how to make all of these by playing with the [**Bad Company**](https://7daystodie.com/forums/showthread.php?52099-Bad-Company) bandits. **Special thanks to them!**
 
 ## Potential conflicts:
-This mod adds **42** new lootcontainers in **loot.xml**. IDs **119-144** and **239-254**.  
-Yes, it's a lot! This is because there is a different corpse block for each type of weapon that the entities can carry. And Survivors and Bandits also have different corpses because the loot is different (Bandits have better loot). 
+This mod adds **42** new lootcontainers in **loot.xml**. IDs **199-240**.  
+Yes, it's a lot! This is because there is a different corpse block for each type of weapon that the entities can carry. And Survivors and Bandits also have different corpses because the loot is different (Bandits have better loot).  
+I assigned them to the highest lootcontainer IDs possible in order to try to avoid conflicts with other mods.  
+Sadly, the maximum loot ID number for lootcontainers is 254, so I could not really use higher numbers than the ones I chose. And I left a bit of room at the end for future additions.  
 
 If you are using mods that already use those lootcontainers IDs, you will need to change them either in this mod or in the other mods. You need to change both the ID of the lootcontainer in **loot.xml**, but also the ID on the block that points to it in **blocks.xml** (the value of the property **LootList** of the block).
 
