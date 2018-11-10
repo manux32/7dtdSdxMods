@@ -26,7 +26,7 @@ The device does not actually move arround to mine real blocks. It will just spaw
 
 ## Potential conflicts
 ### New Lootcontainers
-This mod adds 2 new lootcontainers in **loot.xml**, IDs **100-101**.  
+This mod adds 2 new lootcontainers in **loot.xml**, IDs **197-198**.  
 If you are using mods that already use those lootcontainers IDs, you will need to change them either in this mod or in the other mods. You need to change both the ID of the lootcontainer in **loot.xml**, but also the ID on the block that points to it in **blocks.xml** (the value of the property **LootList** of the block).
 
 ### Wrench and ClawHammer _Allowed_upgrade_items_
