@@ -11,6 +11,13 @@ Some of the mods are portions taken from other peoples mods, or contain adapted 
 All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
 If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
 
+# Terms of Use
+## License
+**Creative Commons**  
+**Attribution-NonCommercial 4.0**  
+**International (CC BY-NC 4.0)**  
+
+See the [**LICENSE file**](LICENSE.md) for Terms of Use details.
 
 # Highlights
 
