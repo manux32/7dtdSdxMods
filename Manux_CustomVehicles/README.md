@@ -305,11 +305,12 @@ You specify the custom storage per vehicle using a new "VehicleXuiName" XML prop
 ### Open UIs while driving
 If you want to be able to open UIs like the Map, the backpack, or any other Character UIs, while driving, simply download [**Tormented Emu's MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), and add it to your SDX Mods directory.  
 
+
 ## Custom Vehicle Parts
 You don't need this mod to make your own custom parts for vehicles, it can be done through xml.  
 But if you do that and rename vehicle parts slots, you will end up with many different bugs. TFP has code that hardcodes the parts slots names, so if you change the name of the vehicle slots, it will create issues.  
 
-But in the latest version of this mod I patched TFP's code, and added a new way of defining custom vehicle parts that fully work. This means that you can now make custom parts for all you vehicles, insurring that users can only use the parts meant for each vehicle. The custom parts can also change things like how fast your vehicle goes (engine), how robust it is, etc...
+In this mod, I patched TFP's code, and added a new way of defining custom vehicle parts that fully work. This means that you can now make exclusive custom parts for all your vehicles, while insurring that users can only use the parts meant for each vehicle. The custom parts can change things like how fast your vehicle goes (engine), how robust it is, etc...
 
 All the vehicle's custom parts in this mod now use this new system. Check the xmls to see examples.  
 Each vehicle always has a custom chassis item for items.xml, to be able to spawn that specific type of vehicle.  
@@ -390,7 +391,7 @@ Helicopter example:
 Professional High-Powered versions of the minibike parts, in order to build High-Powered Bikes or other Vehicles.  
 I initially wanted a faster bike especially for Random Gen maps where cities are pretty far from each other. I did these parts before making this mod, before knowing how to make fully custom vehicles. I was then just using them to have a HP minibike.  
 
-Only the Hell Goat bike currently uses the HP Bike parts. The new Loader also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.  
+Only the Hell Goat bike currently uses the HP Bike parts. The Beast also has a couple of custom parts, it's engine xml class extends from the bigEngine class below.  
 Based on those examples, you can use them for other vehicles or make new versions of some of the parts for different types of vehicles.
 I did not yet add any XML progression gates for being able to craft these items.   
 
@@ -406,7 +407,8 @@ Have better traction and reduced drag with these beautiful High Performance tire
 A beautiful deluxe comfy seat that drains less stamina when the bike is damaged. The seat is also more robust and will degrade slower.
 
 ### Loader Parts
-I did not yet add any recipes to craft these items, grab them from the creative menu.  
+I did not yet add any recipes to craft these items, grab them from the creative menu, or create your own recipes.  
+I also didn't do the xml parts needed to add those to lootcontainers in the world, or to find them at Traders. You also need to do this yourself for now.  
 
 #### ![loaderHandlebars](Icons/loaderHandlebars.png) Loader Handlebars
 I did this one to be able to have the Loader steering wheel turn much slower than Bikes.  
@@ -415,6 +417,7 @@ I did this one mainly to control the speed at which the loader moves, the gas co
 
 ### Helicopter parts
 The Helicopter has a built-in storage, it is always present, no vehicle part is needed. Same goes for the Cicada Car.  
+Those parts also have no recipes, cannot be found in the world or at traders. You need to add that to XMLs yourself for now.  
 #### ![heliEngine](Icons/helicopterEngine.png) Helicopter Engine
 I mainly made this to be able to control gas consumption. But it also makes a lot of sense to have a special engine for an helicopter.
 #### ![heliMissileLauncher](Icons/helicopterMissileLauncher.png) Helicopter Missile Launcher
