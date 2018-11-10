@@ -20,6 +20,8 @@ Sadly, it cannot be deployed on top of big mods that already modify the game's A
 - You can now make custom exclusive vehicle parts
 - Custom storage size
 - built-in storage
+- New UI buttons for Vehicle Storage: Take All, Drop All
+- New UI buttons for Player Backpack: Stash All, Stash all but first row
 
 ### Building your own vehicles
 The mod contains multiple different examples of already functionnal bikes and cars/trucks.  
