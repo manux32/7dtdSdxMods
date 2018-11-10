@@ -460,8 +460,7 @@ See list below, in the [**Assets and their licenses**](#assets-and-their-license
 A very talented artist that created the original 3D Asset I used for making The Beast.  
 Check-out all the other [great models](https://sketchfab.com/kryik1023) she has for sale.  
 - **Asset acquisition: Sketchfab Purchase (25$)**  
-- **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
-To be safe, you need to also purchase this asset if you want to include my mod and this asset in another mod that you distribute.  
+- **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)   
 
 ### Quad
 - **Original 3D Asset:** [**ATV model practice**](https://skfb.ly/6x9oT)  
@@ -469,7 +468,6 @@ To be safe, you need to also purchase this asset if you want to include my mod a
 A talented artist who did the very nice and cheap Sketchfab asset that I used for the Quad vehicle.  
 - **Asset acquisition: Sketchfab Purchase (4$)**  
 - **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
-To be safe, you need to also purchase this asset if you want to include my mod and this asset in another mod that you distribute.  
  
 ### HellGoat Bike
 - **Original 3D Asset:** [**Hell Motogoat**](https://skfb.ly/TCEV)  
@@ -517,14 +515,15 @@ To all the creators of the 3D Assets I used to make the vehicles. See the list i
 
 ### Dust2Death 
 For doing all the ground work to find how to make a custom bike using the game unused Road Hog asset.
-He's the one that originally initiated the forum thread we currently use for this mod. When I saw what he did with the RoadHog, it picked my interest. We joined force and the initiative evolved to this Vehicles mod: [**Custom Vehicles by Manux**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX)  
+He's the one that originally initiated the forum thread we currently use for this mod. When I saw what he did with the RoadHog, it picked my interest. We shared a lot of knowledge and I then started to build this Vehicles mod: [**Custom Vehicles by Manux**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX)  
 
 ### TormentedEmu
-For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.
-And thanks also for her great [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I am using in the first video above to run over zombies with the Cicada car.
+For making the Horse vehicle of the Medieval Mod, which has been a great code reference for me when building this mod. And also for helping demistify some of the more obscur parts of coding something like this.  
+Thanks for her [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I initially used for running over zombies. The mod now had it's own system for running over zombies and creatures, and the way it behaves can be controlled via XML properties.  
+Thanks also for her great [**MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), that let's us open UIs like the Map, the backpack, or any other Character UIs, while driving.  
 
 ### Mumpfy
-A very talented visual artist that it also a 7d2d modder. He retextured some of the coolest Vehicles to make them fit better in the mood of the game. They look awesome!
+A very talented visual artist that it also a 7d2d modder. He retextured some of the coolest Vehicles of this mod to make them fit better in the mood of the game. They look awesome!
 He retextured the following vehicles so far: 
 - Dust2Death's RoadHog
 - The Beast
