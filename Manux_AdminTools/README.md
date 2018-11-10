@@ -11,9 +11,18 @@ Some of them are pieces I took from the [**Bad Company**](https://7daystodie.com
 	- adminskill5
 	- adminskill15
 	- adminskill25
-	- adminskill50
-- **listspawnableentities console command**: A new console command to list all spawnable entities, with an optional "contains(string)" parameter:
-	- You will need **StompyNZ**'s [**ConsoleCmd**](https://github.com/7D2DSDX/Mods/tree/master/ConsoleCmd) mod for this feature to work.
+	- adminskill50  
+
+# New Console Commands
+You need **StompyNZ**'s [**ConsoleCmd**](https://github.com/7D2DSDX/Mods/tree/master/ConsoleCmd) mod for these new commands to work.
+
+- **getentityinfos**: lists infos on en entity. first param is the id of the entity:
+	- Command: *getentityinfos* or *gei*
+
+- **getentityprefabinfos**: lists infos on en entity prefab. first param is the id of the entity: 
+	- Command: *getentityprefabinfos* or *gepi*
+
+- **listspawnableentities**: list all spawnable entities, with an optional "contains(string)" parameter:
 	- Command: *listspawnableentities* or *lse*
 	- *lse* : lists all spawnable entities.
 	- *lse yoursearchstring* : to list all spawnable entities that contain the specified string.
