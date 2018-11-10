@@ -13,7 +13,7 @@ Some of them are pieces I took from the [**Bad Company**](https://7daystodie.com
 	- adminskill25
 	- adminskill50  
 
-# New Console Commands
+## New Console Commands
 You need **StompyNZ**'s [**ConsoleCmd**](https://github.com/7D2DSDX/Mods/tree/master/ConsoleCmd) mod for these new commands to work.
 
 - **getentityinfos**: lists infos on en entity. first param is the id of the entity:
