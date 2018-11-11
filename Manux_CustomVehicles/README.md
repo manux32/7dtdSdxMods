@@ -444,7 +444,6 @@ Since I now have all the information regarding the purchased Assets I have in my
 ## In summary:
 - This license lets you remix, tweak, and build upon my work __**non-commercially**__, as long as you credit me in your mod.
 - You cannot ask for money for downloading your mod, if it includes my mod, or a modified version of my mod. Having a link for voluntary donations for you mod is ok.
-- You don’t have to license your derivative works under the same licensing terms.
 
 Please refer to the 2 links below for more information on the license:  
 [**View License Deed**](https://creativecommons.org/licenses/by-nc/4.0/)  
