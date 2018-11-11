@@ -443,7 +443,8 @@ Since I now have all the information regarding the purchased Assets I have in my
 
 ## In summary:
 - This license lets you remix, tweak, and build upon my work __**non-commercially**__, as long as you credit me in your mod.
-- You don’t have to license your derivative works under the same licensing terms.  
+- You cannot ask for money for downloading your mod, if it includes my mod, or a modified version of my mod. Having a link for voluntary donations for you mod is ok.
+- You don’t have to license your derivative works under the same licensing terms.
 
 Please refer to the 2 links below for more information on the license:  
 [**View License Deed**](https://creativecommons.org/licenses/by-nc/4.0/)  
@@ -458,7 +459,7 @@ See list below, in the [**Assets and their licenses**](#assets-and-their-license
 - You cannot distribute those 3D Assets individually, or as part of your mod, if you are not including my mod or a modified version of my mod.
 - Those Assets can only be present in your mod if they are in a binary file, like a .unity3d resource file. 
 - You cannot extract those Assets from the binary files using Assets extraction softwares, to modify them further, and then add them back to your mod. 
-- You cannot ask for money for your mod, if it includes my mod, a modified version of my mod, and/or those Assets from my mod. 
+- You cannot ask for money for downloading your mod, if it includes my mod, a modified version of my mod, and/or those Assets from my mod. Having a link for voluntary donations for you mod is ok.
 - If you wish to include those purchased assets individually, or make modifications to them, you have to purchase them from Sketchfab.
 
 ## Assets and their licenses  
