@@ -454,11 +454,12 @@ Some Assets in this mod were purchased from the [**Sketchfab**](https://sketchfa
 See list below, in the [**Assets and their licenses**](#assets-and-their-licenses) section for more information on the licensing for each 3D Asset.  
 
 ### The following additional restrictions apply for the assets that were purchased:  
-- You can only add those purchased 3D Assets in your mod, if they are included with my mod. (You do not need to re-purchase the Assets from Sketchfab)  
-- Those Assets can only be present in your mod if they are in a binary file, like a .unity3d resource file.  
-- You cannot extract those Assets from the binary files using Assets extraction softwares, to modify them further, and then add them back to your mod.  
-- You cannot ask for money for your mod, if it includes my mod, and/or those Assets from my mod.  
-- If you wish to make modifications to those purchased Assets, you have to purchase them from Sketchfab.
+- If you include those 3D Assets in your mod along with my mod or a modified version of my mod, you do not need to re-purchase them from Sketchfab.
+- You cannot distribute those 3D Assets individually, or as part of your mod, if you are not including my mod or a modified version of my mod.
+- Those Assets can only be present in your mod if they are in a binary file, like a .unity3d resource file. 
+- You cannot extract those Assets from the binary files using Assets extraction softwares, to modify them further, and then add them back to your mod. 
+- You cannot ask for money for your mod, if it includes my mod, a modified version of my mod, and/or those Assets from my mod. 
+- If you wish to include those purchased assets individually, or make modifications to them, you have to purchase them from Sketchfab.
 
 ## Assets and their licenses
 ### The Beast (Loader)
