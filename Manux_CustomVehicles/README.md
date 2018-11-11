@@ -461,8 +461,9 @@ See list below, in the [**Assets and their licenses**](#assets-and-their-license
 - You cannot ask for money for your mod, if it includes my mod, a modified version of my mod, and/or those Assets from my mod. 
 - If you wish to include those purchased assets individually, or make modifications to them, you have to purchase them from Sketchfab.
 
-## Assets and their licenses
-### The Beast (Loader)
+## Assets and their licenses  
+### Purchased Assets  
+#### The Beast (Loader)
 - **Original 3D Asset:** [**Wheel Loader**](https://skfb.ly/6toGS)
 - **Creator:** [**Renafox**](https://sketchfab.com/kryik1023)  
 A very talented artist that created the original 3D Asset I used for making The Beast.  
@@ -470,14 +471,15 @@ Check-out all the other [great models](https://sketchfab.com/kryik1023) she has 
 - **Asset acquisition: Sketchfab Purchase (25$ CAD)** (Canadian dollars)  
 - **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)   
 
-### Quad
+#### Quad
 - **Original 3D Asset:** [**ATV model practice**](https://skfb.ly/6x9oT)  
 - **Creator:** [**Mark Bai**](https://sketchfab.com/bcfbox)  
 A talented artist who did the very nice and cheap Sketchfab asset that I used for the Quad vehicle.  
 - **Asset acquisition: Sketchfab Purchase (4$ CAD)** (Canadian dollars)  
 - **Licensing type:** [**Sketchfab Standard**](https://sketchfab.com/licenses)  
- 
-### HellGoat Bike
+
+### Free Assets  
+#### HellGoat Bike
 - **Original 3D Asset:** [**Hell Motogoat**](https://skfb.ly/TCEV)  
 - **Creator:** [**chervinin**](https://sketchfab.com/chervinin)  
 A great artist who did this amazing asset that I am using for the Hell Goat Bike vehicle. 
@@ -491,8 +493,8 @@ This mod is public and free, the derived asset is not used in any commercial way
 - Skinning of the meshes on a simple bone structure to be able to animate it in the game.
 - Addition of lightbulbs in the eyes of the Goat skull, for when the lights of the vehicle are turned on. Looks awesome!  
 
-### Helicopter
-#### Original Helicopter 3D Model and Movement Controller code
+#### Helicopter
+##### Original Helicopter 3D Model and Movement Controller code
 - **Original Assets:** [**Base Helicopter Controller**](https://assetstore.unity.com/packages/tools/physics/base-helicopter-controller-40107)  
 I used most of the Helicopter 3D Model to make the Helicopter vehicle, and also used the Controllers code base to make the Helicopter move.  
 - **Creator:** [**Sun Cube Studio**](https://www.facebook.com/suncubestudio/)  
@@ -500,14 +502,14 @@ A talented person/group who did the wonderful and free Unity Asset Store Base He
 - **Asset acquisition: Unity3D Asset Store Free Download**  
 - **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
 
-#### Helicopter cockpit interior  
+##### Helicopter cockpit interior  
 - **Original 3D Asset:** [**Military Helicopter**](https://assetstore.unity.com/packages/3d/vehicles/air/military-helicopter-3922)  
 I only used the interior cockpit of the 3D Asset to put it in the other Helicopter 3D model above, because that one didn't have any interior cockpit.
 - **Creator:** [**Duane's Mind**](https://assetstore.unity.com/publishers/678)  
 - **Asset acquisition: Unity3D Asset Store Free Download**  
 - **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
 
-### Cicada Car
+#### Cicada Car
 - **Original 3D Asset:** [**Retro Cartoon Cars - Cicada**](https://assetstore.unity.com/packages/3d/vehicles/land/retro-cartoon-cars-cicada-96158)  
 This asset has been used to make my fist custom car vehicle. A bit too cartoony for the style of the game, but I kept it because I like it a lot, it's like the minibike of cars. And the player looks so funny when driving it.  
 - **Creator:** [**Retro Valorem**](https://assetstore.unity.com/publishers/22495)  
