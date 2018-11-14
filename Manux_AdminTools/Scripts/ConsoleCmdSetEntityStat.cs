@@ -64,7 +64,7 @@ class ConsoleCmdSetEntityStat : ConsoleCmdAbstract
             if (float.TryParse(_params[2], out value))
             {
                 // special case to modify the wetness level of an entity
-                if (_params[1] == "waterlevel")
+                if (_params[1].ToLower() == "waterlevel")
                 {
                     entityAlive.Stats.SetWaterLevel(value);
                 }
