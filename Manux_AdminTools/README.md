@@ -26,4 +26,19 @@ You need **StompyNZ**'s [**ConsoleCmd**](https://github.com/7D2DSDX/Mods/tree/ma
 	- Command: *listspawnableentities* or *lse*
 	- *lse* : lists all spawnable entities.
 	- *lse yoursearchstring* : to list all spawnable entities that contain the specified string.
+- **setentitystat**: Sets an Entity Stat:
+	- Command: *setentitystat* or *ses*  
+	- *ses 'entity id' 'entity stat name' 'new entity stat value'*  
+	- Supported Entity Stats:  
+		- health
+		- stamina
+		- sickness
+		- gassiness
+		- speedmodifier
+		- wellness
+		- coretemp
+		- food
+		- water
+		- waterlevel
+
 	
