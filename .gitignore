@@ -503,3 +503,11 @@ TakeAndReplace/README.md
 TakeAndReplace/Resources/CrawBar.unity3d
 TakeAndReplace/Scripts/PickUpAndReplace.cs
 TakeAndReplace/Text/Localization.txt
+Platform/Configs/Platform.xml
+Platform/mod.xml
+Platform/PatchScripts/PlatformPatcher.cs
+Platform/PatchScripts/TraderTeleportPatcher.cs
+Platform/Resources/Platform.unity3d
+Platform/Scripts/BlockPlatform.cs
+Platform/Scripts/DefencePlatformController.cs
+Platform/Scripts/TraderTeleportPatchFunctions.cs
