@@ -480,6 +480,14 @@ You need this type of Ammo in your backpack: ![heliMissile](Icons/helicopterMiss
 This part is needed to be able to fire gun ammo.  
 You need this type of ammo in your backpack: ![heliGunAmmo](Icons/helicopterBullet.png) **Helicopter Bullet**  
 
+### Small Boat parts
+The Small Boat has a custom engine and propellers to replace the wheels.  
+Those parts also have no recipes, cannot be found in the world or at traders. You need to add that to XMLs yourself for now.  
+#### ![Small Boat Engine](Icons/smallBoatEngine.png) Small Boat Engine
+Replaces the small engine.  
+#### ![Small Boat Propellers](Icons/smallBoatPropellers.png) Small Boat Propellers
+Replaces the wheels.  
+
 
 # Terms of use  
 Since I now have all the information regarding the purchased Assets I have in my mod, here is the new Terms of Use for this mod:  
@@ -531,7 +539,7 @@ A talented artist who did the very nice and cheap Sketchfab asset that I used fo
 - **Creator:** [**chervinin**](https://sketchfab.com/chervinin)  
 A great artist who did this amazing asset that I am using for the Hell Goat Bike vehicle. 
 - **Asset acquisition: Free Sketchfab Download**  
-- **Licensing type:** [**Creative Commons Attribution 4.0**](https://creativecommons.org/licenses/by/4.0/)  
+- **Licensing type:** [**Creative Commons Attribution CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/)  
 I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
 This mod is public and free, the derived asset is not used in any commercial way.  
 - Polygon reduction on all meshes.
@@ -563,6 +571,46 @@ This asset has been used to make my fist custom car vehicle. A bit too cartoony 
 A great artist who did this cute, and free Unity Asset Store 3D Asset.  
 - **Asset acquisition: Unity3D Asset Store Free Download**  
 - **Licensing type:** [**Asset Store Terms of Service and EULA**](https://unity3d.com/legal/as_terms)  
+
+#### Small Boat
+- **Original 3D Asset:** [**boat**](https://skfb.ly/6quTp)  
+- **Creator:** [**gromorg**](https://sketchfab.com/gromorg)  
+A good artist who did the great little boat model I'm using for the Small Boat vehicle. 
+- **Asset acquisition: Free Sketchfab Download**  
+- **Licensing type:** [**Creative Commons Attribution CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/)  
+I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
+This mod is public and free, the derived asset is not used in any commercial way.  
+- Added a textured mesh for the boat motor in the back.  
+- Added a textured mesh for the small battery in the back.  
+- Added a textured mesh for the light in front of the Vehicle to be able to turn the vehicle light on/off.  
+- Combine the texture maps to be compatible with the Unity Shaders (Roughness map as the alpha channel of Metallic map)  
+- Skinning of the meshes on a simple bone structure to be able to animate it in the game.  
+
+#### Vehicle Gun
+- **Original 3D Asset:** [**.308 Machine Gun**](https://skfb.ly/JpM8)  
+- **Creator:** [**Johnathon Goswick**](https://sketchfab.com/goswick3)  
+A talented artist who has many nice models on Sketchfab. He did the great little .308 Machine Gun I'm using as the Gun Weapon for most vehicles.  
+- **Asset acquisition: Free Sketchfab Download**  
+- **Licensing type:** [**Creative Commons Attribution CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/)  
+I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
+This mod is public and free, the derived asset is not used in any commercial way.  
+- Removed the wooden parts of the mesh to make it fit better as a vehicle weapon.  
+- Merged the meshes.  
+- Combine the texture maps to be compatible with the Unity Shaders (Roughness map as the alpha channel of Metallic map)  
+- Skinning of the meshes on a simple bone structure to be able to animate it in the game.  
+
+#### Vehicle Grenade Launcher
+- **Original 3D Asset:** [**Grenade Launcher Free low-poly 3D model**](https://www.cgtrader.com/free-3d-models/military/gun/grenade-launcher--6)  
+- **Creator:** [**arslan-9912**](https://www.cgtrader.com/arslan-9912)  
+A very talented artist who has many nice models on CG Trader. He did the great little Grenade Launcher I'm using as the Grenade Launcher Weapon for most vehicles.  
+- **Asset acquisition: Free CG Trader Download**  
+- **Licensing type:** [**CG Trader Royalty Free License**](https://www.cgtrader.com/pages/terms-and-conditions#general-terms-of-licensing)  
+I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
+This mod is public and free, the derived asset is not used in any commercial way.  
+- Removed the wooden parts of the mesh to make it fit better as a vehicle weapon.  
+- Merged the meshes.  
+- Combine the texture maps to be compatible with the Unity Shaders (Roughness map as the alpha channel of Metallic map)  
+- Skinning of the meshes on a simple bone structure to be able to animate it in the game.  
 
 
 ## Special Thanks
