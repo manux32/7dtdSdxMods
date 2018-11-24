@@ -71,7 +71,7 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 |First Boat Vehicle|  
 
 ## Installation  
-**Availlable for A16 only** (for now...)
+**Availlable for A16 only** (for now...)  
 All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
 If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
 
