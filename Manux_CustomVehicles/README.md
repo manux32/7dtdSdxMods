@@ -1,11 +1,14 @@
 <!--Read this in github to have all the visuals and formatting: https://github.com/manux32/7dtdSdxMods/tree/master/Manux_HPMiniBike-->
 
 # Custom Vehicles 
-| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
-|:---:|:---:|:---:|:---:|:---:|:---:|  
-| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) | Helicopter |
+| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) | ![img](Icons/smallBoatChassis.png) |  
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
+| Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) | Helicopter | Small Boat |  
 
-The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks.  
+### Game Version: Availlable for A16 only (for now...)  
+
+### Intro
+The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks, and even Boats!  
 You can make all-terrain vehicles that can climb small and medium objects, and control the camera distance, and player position/orientation on the vehicle.  
 
 The mod already includes a bunch of functionnal vehicles. It can be compiled on top of vanilla, or mixed with other SDX mods, to get whatever type of experience you are looking for.  
@@ -13,6 +16,13 @@ The mod already includes a bunch of functionnal vehicles. It can be compiled on 
 Sadly, it cannot be deployed on top of big mods that already modify the game's Assembly, because we don't have the source code for those mods, and SDX cannot compile on top of an already modified Assembly.
 
 ### Recently added features
+- The mod is now **MP compatible**. It's not perfect in MP because of some of the game's limitations with Vehicles, but the mod seems to work without issues.
+- New **Boat** Vehicle! This is now my favorite vehicle! You can even fish from it if you use my Fishing mod or any other Fishing mod. You can also spawn the chassis directly on water.  
+- Any vehicle can be set to float on water. But only the Boat creates a Floating Block platform when you stop driving it on water. Use the new vehicle entity_class _<property name="FloatsOnWater" value="true" />_ node to enable it.
+- New **Feet IK** and **Head LookAt** features when driving the vehicle. The Small Boat is the only one using those new features for now.   
+- The **Airtight** feature has been improved. Vehicles that have it enabled now keep you at ideal temperature, and you slowly dry off if you were wet when entering it.  
+- Show remaining Vehicle Weapons Ammo on HUD  
+- Individual Vehicle icons now show up in all UIs  
 - Thanks to **Three8**, all vehicles now have the abillity to go underwater (controlled via XML properties).  
 - All Vehicles can also destroy and harvest the environment and buildings. You can control what gets destroyed and harvested  through XML properties on the vehicle's entityclass. You can also set it to harvest directly to the vehicle storage.  
 - And we now have our first flying vehicle, the Helicopter. This is still a bit experimental, but it works, and it's so much fun! And it also now shoots bullets and missiles!  
@@ -55,7 +65,13 @@ See the complete ***Special Thanks*** section [**here**](#special-thanks).
 |:---:|:---:|  
 |A little surprise to cheer your Monday up!|Monday's surprise part 2|  
 
+### Water
+[![Small Boat A](http://img.youtube.com/vi/DYWiii4KhVA/0.jpg)](https://youtu.be/DYWiii4KhVA "First Boat Vehicle") |  
+|:---:|  
+|First Boat Vehicle|  
+
 ## Installation  
+**Availlable for A16 only** (for now...)
 All my mods are built for being compiled and deployed with [**SDX Launcher version 0.72c**](https://github.com/SphereII/SDXWorkshop/blob/master/SDX0.7.2c.zip).  
 If you don't know what SDX is, go [**here**](https://7daystodie.com/forums/showthread.php?72888-7D2D-SDX-Tutorials-and-Modding-Kit), and make sure you do the tutorials to know how to create an SDX mods build environment.  
 
@@ -69,8 +85,7 @@ The SDX Launcher shouldn't let you build if you don't have it or don't have it e
 
 ## Multiplayer
 The mod is currently fully functional for Single Player games.  
-And I am also currently working on making it work for Multiplayer.  
-The latest version is functional for MP, but it has not yet fully been tested at all levels.  
+The latest version seems to also be fully functional for Multi Player games.  
 If you try it in multiplayer and find problems, please report them on the mod's [**forum thread**](https://7daystodie.com/forums/showthread.php?87828-Custom-Vehicles-by-Manux-SDX).
 
 ## Potential conflicts:
@@ -144,6 +159,15 @@ XML Example:
         <property name="Class" value="EntityCustomHelicopter, Mods" />
         ...
 </entity_class>
+```  
+### EntityCustomBoat
+And we now have a class for Boats too! Still a bit experimental and currently partially harcoded for the new Small Boat vehicle. But I will try to make it more flexible for any types of Boat in the future...  
+XML Example:
+```XML
+<entity_class name="smallBoat">
+        <property name="Class" value="EntityCustomBoat, Mods" />
+        ...
+</entity_class>
 ```
 
 ### ItemActionSpawnCustomVehicle
@@ -165,19 +189,38 @@ For example:
 New XML properties are supported to control different apsects of your custom vehicles.  
 You have to add these in your vehicle's entity_class.  
 ### Camera and Player controls
+
+To control how far the camera is when driving the vehicle  
 ```XML
 <property name="CameraOffset" value="0, 2, -8" />
 ```  
-To control how far the camera is when driving the vehicle
+
+Is the 3rd person player visible on the vehicle.  
 ```XML
 <property name="3rdPersonModelVisible" value="false" />
 ```  
-Is the 3rd person player visible on the vehicle.  
+
+3rd person player position and rotation offsets on the vehicle. Rotation also moves the player arround, so you need to play with values to achieve what you want.  
 ```XML
 <property name="PlayerPositionOffset" value="0, 0, 0.15" />
 <property name="PlayerRotationOffset" value="15, 0, 0" />
 ```  
-3rd person player position and rotation offsets on the vehicle. Rotation also moves the player arround, so you need to play with values to achieve what you want.  
+
+Custom Vehicle Exit Position for the Player. Offset from the Vehicle position.
+```XML
+<property name="PlayerExitPosition" value="0, 2, 0" />
+```
+
+New IK Features for Feet and Head Lookat.  
+```XML
+<property name="PlayerLookForward" value="true" />
+<property name="ParentLeftHandIKtoChassis" value="false" />
+<property name="ParentRightHandIKtoChassis" value="true" />
+<property name="left_foot_ik_position" value="0.08, 0.19, -2.289" />
+<property name="right_foot_ik_position" value="0.08, 0.16, -1.829" />
+<property name="left_foot_ik_rotation" value="-9.814, -90, 0" />
+<property name="right_foot_ik_rotation" value="-9.814, -90, 0" />
+```  
 
 ### CharacterController (vehicle movement and collider)
 ```XML
@@ -220,13 +263,17 @@ Don't put too small of a value, otherwise, your vehicle might get stuck when it 
 There is another collider(Box collider) present on vehicles. It does not colide with the environment, it's only there to define the volume for the activation UI of the vechicles.  
 Just like for the CharacterController above, you can make a dummy Box Collider in your Unity scene to know what values to put in there.  
 
-### Underwater
+### Water features  
 ```XML
 <property name="WaterCraft" value="true" />
 <property name="Airtight" value="true" />
+<property name="FloatsOnWater" value="true" />
+<property name="FloatHeight" value="0.05" />
 ```
-**Watercraft:** Can the vehicle go on/in the water.
-**Airtight:** Is the vehicle "airtight" when under water.  If set to True, the player will still be able to breath when driving underwater.
+**Watercraft:** Can the vehicle go on/in the water.  
+**Airtight:** Is the vehicle "airtight" when under water.  If set to True, the player will still be able to breath when driving underwater. The feature now also keeps the player at ideal temperature when driving (heater and air conditionning), and you will slowly dry up if you were wet before entering the vehicle.  
+**FloatsOnWater:** Can the vehicle float on water. Only currently used on the Small Boat, but any vehicle can now float. Only the Small Boat creates a vehicle platform when you stop driving it on water. You can Fish from that platform.   
+**FloatHeight** The offset of the Vehicle from Water when it's floating.
 
 ### Detroy and Harvest
 Additionnal XML properties to control destruction and harvesting of the environment with the vehicle. It can destroy and harvest pretty much anything, all controllable per vehicle via XML.  
@@ -532,6 +579,9 @@ For making the Horse vehicle of the Medieval Mod, which has been a great code re
 And also for helping demistify some of the more obscur parts of coding something like this.  
 Thanks for her [**MinibikeImpact**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeImpact) mod that I initially used for running over zombies. The mod now has it's own system for running over zombies and creatures, and the way it behaves can be controlled via XML properties.  
 Thanks also for her great [**MinibikeOpenUI mod**](https://github.com/TormentedEmu/7DTD-SDX-Mods/tree/master/MinibikeOpenUI), that let's us open UIs like the Map, the backpack, or any other Character UIs, while driving.  
+
+### [HAL9000](https://www.youtube.com/channel/UCemM152wfyOsGCBaSkDaDCQ)
+**HAL9000** has been giving me great technical advice recently, helping me especially with understanding how to deal with the Multi Player code.  He is an amazing modder and the father of the SDX Launcher we use to build SDX mods for the game. He's a great mentor, thank you so much Master **HAL9000**!
 
 ### Mumpfy
 A very talented visual artist that is also a 7d2d modder. He retextured some of the coolest Vehicles of this mod to make them fit better in the mood of the game. They look awesome!
