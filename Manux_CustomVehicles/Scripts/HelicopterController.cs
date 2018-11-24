@@ -274,4 +274,10 @@ public class HelicopterController : MonoBehaviour
     {
         IsOnGround = false;
     }
+
+    private void OnCollisionStay()
+    {
+        if (IsOnGround && EngineForce > 5f)
+            IsOnGround = false;
+    }
 }

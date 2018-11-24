@@ -3,8 +3,8 @@ using System.Reflection;
 using UnityEngine;
 using System.IO;
 using System.Xml;
-using System.IO;
 using SDX.Core;
+using System;
 
 class Vehicle_patchFunctions
 {
@@ -680,6 +680,131 @@ class ItemClass_patchFunctions
 }*/
 
 
+/*public class XUiC_VehicleStats_patchFunctions : XUiC_VehicleStats
+{
+    // Obfuscated Entity Fields and Methods
+    public FieldInfo TKW_bool_field = null;
+    
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public void FindObfuscatedFieldsAndMethods()
+    {
+        FieldInfo[] listOfFieldNames;
+        MethodInfo[] listOfMethodNames;
+
+        string TKW_name = "TKW";
+
+        if (GameManager.IsDedicatedServer)
+        {
+            TKW_name = "YCV";
+        }
+
+        // Get hooks on Entity Obfuscated fields and methods
+        listOfFieldNames = typeof(Entity).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.Name == TKW_name)
+            {
+                TKW_bool_field = fieldInfo;
+                if (TKW_bool_field != null)
+                {
+                    DebugMsg("Found field TKW");
+                }
+            }
+        }
+
+    }
+
+    public bool GetBindingValue_patched(ref string value, global::BindingItem binding)
+    {
+        FindObfuscatedFieldsAndMethods();
+
+        string fieldName = binding.FieldName;
+        switch (fieldName)
+        {
+            case "vehiclename":
+                value = global::Localization.Get(global::XUiM_Vehicle.GetEntityName(base.xui), string.Empty).ToUpper();
+                return true;
+            case "customvehicleicon":
+                //value = global::Localization.Get(global::XUiM_Vehicle.GetEntityName(base.xui), string.Empty).ToUpper();
+                if (this.Vehicle != null && this.Vehicle.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+                {
+                    value = this.Vehicle.GetMapIcon();
+                    return true;
+                }
+                value = "ui_game_symbol_minibike";
+                return true;
+            case "vehiclestatstitle":
+                value = global::Localization.Get("xuiStats", string.Empty);
+                return true;
+            case "speed":
+                value = ((int)global::XUiM_Vehicle.GetSpeed(base.xui)).ToString();
+                return true;
+            case "speedtitle":
+                value = global::Localization.Get("xuiSpeed", string.Empty);
+                return true;
+            case "speedtext":
+                value = global::XUiM_Vehicle.GetSpeedText(base.xui);
+                return true;
+            case "noise":
+                value = global::XUiM_Vehicle.GetNoise(base.xui);
+                return true;
+            case "noisetitle":
+                value = global::Localization.Get("xuiNoise", string.Empty);
+                return true;
+            case "protection":
+                value = ((int)global::XUiM_Vehicle.GetProtection(base.xui)).ToString();
+                return true;
+            case "protectiontitle":
+                value = global::Localization.Get("xuiDefense", string.Empty);
+                return true;
+            case "storage":
+                value = "BASKET";
+                return true;
+            case "locktype":
+                value = "NONE";
+                return true;
+            case "fuel":
+                value = ((int)global::XUiM_Vehicle.GetFuelLevel(base.xui)).ToString();
+                return true;
+            case "fueltitle":
+                value = global::Localization.Get("xuiGas", string.Empty);
+                return true;
+            case "passengers":
+                value = global::XUiM_Vehicle.GetPassengers().ToString();
+                return true;
+            case "passengerstitle":
+                value = global::Localization.Get("xuiSeats", string.Empty);
+                return true;
+            case "potentialfuelfill":
+                //if (!this.TKW)
+                if(this.TKW_bool_field != null && !(bool)this.TKW_bool_field.GetValue(this))
+                {
+                    value = "0";
+                }
+                else
+                {
+                    global::Vehicle vehicle = base.xui.vehicle.GetVehicle();
+                    value = ((vehicle.GetFuelLevel() + 2f) / vehicle.GetMaxFuelLevel()).ToCultureInvariantString();
+                }
+                return true;
+            case "fuelfill":
+                value = global::XUiM_Vehicle.GetFuelFill(base.xui).ToCultureInvariantString();
+                return true;
+        }
+        return false;
+    }
+}*/
+
+
 class XUiC_VehicleWindowGroup_patchFunctions
 {
     static readonly bool showDebugLog = false;
@@ -692,15 +817,368 @@ class XUiC_VehicleWindowGroup_patchFunctions
         }
     }
 
+
     // for different size storage to fallback to the default XUiC_VehicleWindowGroup.ID value ("vehicle"), when the window is closed.
-    public static void OnClose_addition()
+    static public void OnClose_addition()
     {
         XUiC_VehicleWindowGroup.ID = "vehicle";
+    }
+
+    // For showing the custom vehicle name and icons in the UI
+    public static void OnOpen_addition(XUiC_VehicleWindowGroup vehicleWindowGroup)
+    {
+        try
+        {
+            //if (this.CurrentVehicleEntity == null)
+            if (vehicleWindowGroup.xui.vehicle == null)
+            {
+                DebugMsg("XUiC_VehicleWindowGroup_patchFunctions: CurrentVehicleEntity is NULL");
+                return;
+            }
+
+            //if (!this.CurrentVehicleEntity.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+            if (!vehicleWindowGroup.xui.vehicle.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+            {
+                DebugMsg("XUiC_VehicleWindowGroup_patchFunctions: CurrentVehicleEntity is NOT an EntityCustomVehicle");
+                return;
+            }
+
+            FieldInfo THZ_XUiC_VehicleStats_field = null;
+            FieldInfo AUW_XUiC_VehicleFrameWindow_field = null;
+            FieldInfo JUW_string_field = null;
+
+            FieldInfo[] listOfFieldNames;
+
+            string THZ_name = "THZ";
+            string AUW_name = "AUW";
+            string JUW_name = "JUW";
+
+            if (GameManager.IsDedicatedServer)
+            {
+                THZ_name = "YKH";
+                AUW_name = "ZIV";
+                JUW_name = "PIV";
+            }
+
+            // Get hooks on Entity Obfuscated fields and methods
+            listOfFieldNames = typeof(XUiC_VehicleWindowGroup).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (FieldInfo fieldInfo in listOfFieldNames)
+            {
+                if (fieldInfo.Name == THZ_name)
+                {
+                    THZ_XUiC_VehicleStats_field = fieldInfo;
+                    if (THZ_XUiC_VehicleStats_field != null)
+                    {
+                        DebugMsg("Found field THZ_XUiC_VehicleStats_field");
+                    }
+                }
+                if (fieldInfo.Name == AUW_name)
+                {
+                    AUW_XUiC_VehicleFrameWindow_field = fieldInfo;
+                    if (AUW_XUiC_VehicleFrameWindow_field != null)
+                    {
+                        DebugMsg("Found field AUW_XUiC_VehicleFrameWindow_field");
+                    }
+                }
+                if (fieldInfo.Name == JUW_name)
+                {
+                    JUW_string_field = fieldInfo;
+                    if (JUW_string_field != null)
+                    {
+                        DebugMsg("Found field JUW_string_field");
+                    }
+                }
+            }
+
+            if(JUW_string_field != null)
+            {
+                JUW_string_field.SetValue(vehicleWindowGroup, Localization.Get(vehicleWindowGroup.xui.vehicle.EntityName, string.Empty));
+            }
+
+            if (AUW_XUiC_VehicleFrameWindow_field == null)
+                return;
+
+            XUiC_VehicleFrameWindow frameWindow = (XUiC_VehicleFrameWindow)AUW_XUiC_VehicleFrameWindow_field.GetValue(vehicleWindowGroup);
+            if (frameWindow != null)
+            {
+                XUiV_Sprite vehicleSprite = (XUiV_Sprite)frameWindow.GetChildById("windowIcon").ViewComponent;
+                if (vehicleSprite != null)
+                {
+                    vehicleSprite.SpriteName = vehicleWindowGroup.xui.vehicle.GetMapIcon();
+                }
+            }
+
+            if (THZ_XUiC_VehicleStats_field == null)
+                return;
+
+            XUiC_VehicleStats statsWindow = (XUiC_VehicleStats)THZ_XUiC_VehicleStats_field.GetValue(vehicleWindowGroup);
+            if (statsWindow != null)
+            {
+                XUiV_Sprite vehicleSprite = (XUiV_Sprite)statsWindow.GetChildById("windowIcon").ViewComponent;
+                if (vehicleSprite != null)
+                {
+                    vehicleSprite.SpriteName = vehicleWindowGroup.xui.vehicle.GetMapIcon();
+                }
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("An error occurred: " + e);
+        }
     }
 }
 
 
-class TileEntityLootContainer_patchFunctions
+/*class StabilityCalculator_patchFunctions
+{
+    static bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public static void GetYZObfuscatedMethod(StabilityCalculator stabilityCalculator, ref MethodInfo YZ_Method)
+    {
+        MethodInfo[] listOfMethodNames;
+
+        string YZ_name = "YZ";
+
+        if (GameManager.IsDedicatedServer)
+        {
+            YZ_name = "MH";
+        }
+        
+        listOfMethodNames = typeof(StabilityCalculator).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (MethodInfo methodInfo in listOfMethodNames)
+        {
+            if (methodInfo.Name == YZ_name && methodInfo.GetParameters().Length == 3)
+            {
+                YZ_Method = methodInfo;
+                if (YZ_Method != null)
+                {
+                    DebugMsg("Found StabilityCalculator YZ_Method");
+                    break;
+                }
+            }
+        }
+    }
+
+    //public static List<Vector3i> Invoke_YZ_MethodInfo(StabilityCalculator stabilityCalculator, MethodInfo YZ_MethodInfo, params object[] yz_params)
+    public static List<Vector3i> Invoke_YZ_MethodInfo(StabilityCalculator stabilityCalculator, MethodInfo YZ_MethodInfo, ref object[] yz_params)
+    {
+        ParameterInfo[] parameters = YZ_MethodInfo.GetParameters();
+        bool hasParams = false;
+        if (parameters.Length > 0)
+            hasParams = parameters[parameters.Length - 1].GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0;
+
+        if (hasParams)
+        {
+            int lastParamPosition = parameters.Length - 1;
+
+            object[] realParams = new object[parameters.Length];
+            for (int i = 0; i < lastParamPosition; i++)
+                realParams[i] = yz_params[i];
+
+            Type paramsType = parameters[lastParamPosition].ParameterType.GetElementType();
+            Array extra = Array.CreateInstance(paramsType, yz_params.Length - lastParamPosition);
+            for (int i = 0; i < extra.Length; i++)
+                extra.SetValue(yz_params[i + lastParamPosition], i);
+
+            realParams[lastParamPosition] = extra;
+
+            yz_params = realParams;
+        }
+
+        return (List<Vector3i>)YZ_MethodInfo.Invoke(stabilityCalculator, yz_params);
+    }
+
+    public static List<Vector3i> YZ_patch(StabilityCalculator stabilityCalculator, Vector3i vector3i)
+    {
+        try
+        {
+            MethodInfo YZ_MethodInfo = null;
+            GetYZObfuscatedMethod(stabilityCalculator, ref YZ_MethodInfo);
+            
+            if (YZ_MethodInfo != null)
+            {
+                float num = 0;
+                object[] yz_params = new object[3] { vector3i, 20, num };
+                List < Vector3i > result = Invoke_YZ_MethodInfo(stabilityCalculator, YZ_MethodInfo, ref yz_params);
+                num = (float)yz_params[2];
+                return result;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("An error occurred: " + e);
+        }
+
+        return new List<Vector3i>();
+    }
+}*/
+
+
+class EntityStats_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public static void GetWaterLevelObfuscatedField(EntityStats entityStats, ref FieldInfo IZ_float_field)
+    {
+        //FieldInfo IZ_float_field = null;
+
+        FieldInfo[] listOfFieldNames;
+
+        string IZ_name = "IZ";
+
+        if (GameManager.IsDedicatedServer)
+        {
+            IZ_name = "SH";
+        }
+
+        // Get hooks on Entity Obfuscated fields and methods
+        listOfFieldNames = typeof(EntityStats).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.Name == IZ_name)
+            {
+                IZ_float_field = fieldInfo;
+                if (IZ_float_field != null)
+                {
+                    //DebugMsg("Found field IZ_float_field");
+                }
+            }
+        }
+
+        //return IZ_float_field;
+    }
+
+    public static void SetWaterLevel(EntityStats entityStats, float value)
+    {
+        FieldInfo IZ_float_field = null;
+        GetWaterLevelObfuscatedField(entityStats, ref IZ_float_field);
+
+        if (IZ_float_field != null)
+        {
+            IZ_float_field.SetValue(entityStats, value);
+        }
+    }
+
+    public static float GetWaterLevel(EntityStats entityStats)
+    {
+        if (entityStats.Entity != null && entityStats.Entity.GetType() == typeof(EntityPlayerLocal) && entityStats.Entity.AttachedToEntity != null && entityStats.Entity.AttachedToEntity.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+        {
+            //DebugMsg("GetWaterLevel: AIRTIGHT VEHICLE!");
+            EntityCustomVehicle vehicle = (EntityCustomVehicle)entityStats.Entity.AttachedToEntity;
+            if(vehicle.IsAirtight() && vehicle.airtightSettingsDone)
+                return vehicle.currentPlayerWetness;
+        }
+
+        FieldInfo IZ_float_field = null;
+        GetWaterLevelObfuscatedField(entityStats, ref IZ_float_field);
+
+        if (IZ_float_field != null)
+        {
+            return (float)IZ_float_field.GetValue(entityStats);
+        }
+
+        return 0f;
+    }
+
+
+    public static void AdjustAirtightWaterLevel(EntityStats entityStats)
+    {
+        if (entityStats.Entity != null && entityStats.Entity.GetType() == typeof(EntityPlayerLocal) && entityStats.Entity.AttachedToEntity != null && entityStats.Entity.AttachedToEntity.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+        {
+            ((EntityCustomVehicle)entityStats.Entity.AttachedToEntity).AdjustAirtightWaterLevel();
+        }
+    }
+}
+
+
+/*class EntityMoveHelper_patchFunctions
+{
+    static readonly bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public static FieldInfo GetEntityAliveObfuscatedField()
+    {
+        FieldInfo KZ_EntityAlive_field = null;
+
+        FieldInfo[] listOfFieldNames;
+
+        string KZ_name = "KZ";
+
+        if (GameManager.IsDedicatedServer)
+        {
+            KZ_name = "CH";
+        }
+
+        // Get hooks on Entity Obfuscated fields and methods
+        listOfFieldNames = typeof(EntityMoveHelper).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.Name == KZ_name)
+            {
+                KZ_EntityAlive_field = fieldInfo;
+                if (KZ_EntityAlive_field != null)
+                {
+                    DebugMsg("Found field KZ_EntityAlive_field");
+                }
+            }
+        }
+
+        return KZ_EntityAlive_field;
+    }
+
+    public static bool onUpdateMoveHelper_addition(EntityMoveHelper entityMoveHelper, bool originalValue)
+    {
+        DebugMsg("onUpdateMoveHelper_addition");
+        FieldInfo KZ_EntityAlive_field = GetEntityAliveObfuscatedField();
+        EntityAlive entityAlive = null;
+
+        if (KZ_EntityAlive_field != null)
+        {
+            entityAlive = (EntityAlive)KZ_EntityAlive_field.GetValue(entityMoveHelper);
+        }
+        else
+        {
+            DebugMsg("onUpdateMoveHelper_addition: entityAlive is NULL");
+        }
+
+        DebugMsg("onUpdateMoveHelper_addition: entityAlive = " + entityAlive.ToString());
+
+        if (entityAlive != null && entityAlive.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+        {
+            EntityCustomVehicle vehicle = (EntityCustomVehicle)entityAlive;
+            if (vehicle.floatsOnWater)
+                return true;
+        }
+
+        return originalValue;
+    }
+}*/
+
+
+/*class TileEntityLootContainer_patchFunctions
 {
     static readonly bool showDebugLog = false;
 
@@ -752,10 +1230,10 @@ class TileEntityLootContainer_patchFunctions
             tileEntityLootContainer.items = ItemStack.CreateArray(_containerSize.x * _containerSize.y);
         }
     }
-}
+}*/
 
 
-class UISprite_patchFunctions
+/*class UISprite_patchFunctions
 {
     static readonly bool showDebugLog = false;
 
@@ -822,10 +1300,10 @@ class UISprite_patchFunctions
         }
         //sprite.atlas = uiforPlayer.xui.GetAtlasByName("UIAtlas");
     }
-}
+}*/
 
 
-class XUiC_CompassWindow_patchFunctions
+/*class XUiC_CompassWindow_patchFunctions
 {
     static readonly bool showDebugLog = false;
 
@@ -856,7 +1334,7 @@ class XUiC_CompassWindow_patchFunctions
             }
         }
     }
-}
+}*/
 
 class MapObjectVehicle_patchFunctions : MapObjectVehicle
 {
@@ -1068,6 +1546,46 @@ public class VehicleIcons_patchFunctions
     }
 
 
+
+    public static void HideVehicleWeaponsAmmoUI()
+    {
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
+        if (player == null)
+        {
+            DebugMsg("HideVehicleWeaponsAmmoUI: player is NULL");
+            return;
+        }
+
+        GameObject vehicleAmmoUIRoot = null;
+        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        GUIWindowManager windowManager = uiforPlayer.windowManager;
+        XUiC_HUDStatBar hudStatBar = (XUiC_HUDStatBar)((XUiWindowGroup)windowManager.GetWindow("toolbelt")).Controller.GetChildByType<XUiC_HUDStatBar>();
+
+        string msg = "HideVehicleWeaponsAmmoUI: hudStatBarWinGroup children controllers:\n";
+        XUiController hudStatBarWinGroup = hudStatBar.WindowGroup.Controller;
+        foreach (XUiController controller in hudStatBarWinGroup.Children)
+        {
+            msg += ("- " + controller.ToString() + " | type = " + controller.GetType() + " | viewComponent ID = " + controller.viewComponent.ID + " | viewComponent type = " + controller.viewComponent.GetType().ToString() + "\n");
+            if (controller.viewComponent.ID == "HUDRightStatBars")
+            {
+                msg += "  Components:\n";
+                Transform[] transforms = controller.viewComponent.UiTransform.gameObject.GetComponentsInChildren<Transform>(true);
+                foreach (Transform transform in transforms)
+                {
+                    msg += ("\t- " + transform.gameObject.name + " | " + transform.GetType() + "\n");
+
+                    if (transform.name == "hudVehicleWeaponsAmmo")
+                    {
+                        vehicleAmmoUIRoot = transform.gameObject;
+                        vehicleAmmoUIRoot.SetActive(false);
+                    }
+                }
+            }
+        }
+        //DebugMsg(msg);
+    }
+
+
     public static void ModifyUIAtlases()
     {
         DebugMsg("ModifyUIAtlases: vp_Gameplay.isMultiplayer = " + vp_Gameplay.isMultiplayer.ToString());
@@ -1090,6 +1608,9 @@ public class VehicleIcons_patchFunctions
             DebugMsg("ModifyUIAtlas: player is NULL");
             return;
         }
+
+        //HideVehicleWeaponsAmmoUI();
+
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
         UIAtlas uiAtlas = uiforPlayer.xui.GetAtlasByName(uiAtlasName);
         //UIAtlas itemIconAtlas = uiforPlayer.xui.GetAtlasByName("itemIconAtlas");
@@ -1304,6 +1825,172 @@ class XUiC_BackpackWindow_patchFunctions : XUiC_BackpackWindow
             }
         }
     }
+}
+
+
+class XUiC_HUDStatBar_patchFunctions : XUiC_HUDStatBar
+{
+    // Obfuscated Fields and Methods
+    //public FieldInfo PPZ_HUDStatTypes_field = null;
+    //public MethodInfo HJQ_MethodInfo = null;
+    //public MethodInfo SDQ_MethodInfo = null;
+
+    public GameObject vehicleAmmoUIRoot = null;
+
+    static bool showDebugLog = false;
+
+    public static void DebugMsg(string msg)
+    {
+        if (showDebugLog)
+        {
+            UnityEngine.Debug.Log(msg);
+        }
+    }
+
+    public void OnOpen_addition()
+    {
+        if (this.WindowGroup == null || this.WindowGroup.Controller == null)
+            return;
+
+        string msg = "HideVehicleWeaponsAmmoUI: hudStatBarWinGroup children controllers:\n";
+        XUiController hudStatBarWinGroup = this.WindowGroup.Controller;
+        foreach (XUiController controller in hudStatBarWinGroup.Children)
+        {
+            msg += ("- " + controller.ToString() + " | type = " + controller.GetType() + " | viewComponent ID = " + controller.viewComponent.ID + " | viewComponent type = " + controller.viewComponent.GetType().ToString() + "\n");
+            if (controller.viewComponent.ID == "HUDRightStatBars")
+            {
+                bool isPlayerDrivingCustomVehicle = false;
+                EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
+                if (player != null && player.AttachedToEntity != null && player.AttachedToEntity.GetType().IsSubclassOf(typeof(EntityCustomVehicle)))
+                {
+                    isPlayerDrivingCustomVehicle = true;
+                }
+
+                msg += "  Components:\n";
+                Transform[] transforms = controller.viewComponent.UiTransform.gameObject.GetComponentsInChildren<Transform>(true);
+                foreach (Transform transform in transforms)
+                {
+                    msg += ("\t- " + transform.gameObject.name + " | " + transform.GetType() + "\n");
+
+                    if (transform.name == "hudVehicleWeaponsAmmo")
+                    {
+                        vehicleAmmoUIRoot = transform.gameObject;
+                        //vehicleAmmoUIRoot.SetActive(false);
+                        vehicleAmmoUIRoot.SetActive(isPlayerDrivingCustomVehicle);
+                    }
+                }
+            }
+        }
+        DebugMsg(msg);
+    }
+
+    public void OnClose_addition()
+    {
+        if (vehicleAmmoUIRoot != null)
+        {
+            vehicleAmmoUIRoot.SetActive(false);
+        }
+    }
+
+
+    /*public void FindObfuscatedFieldsAndMethods()
+    {
+        FieldInfo[] listOfFieldNames;
+        MethodInfo[] listOfMethodNames;
+
+        string PPZ_name = "PPZ";
+        string HJQ_name = "HJQ";
+        string SDQ_name = "SDQ";
+        if (GameManager.IsDedicatedServer)
+        {
+            PPZ_name = "QRH";
+            HJQ_name = "XLA";
+            SDQ_name = "EJA";
+        }
+
+        listOfFieldNames = typeof(XUiC_HUDStatBar).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.Name == PPZ_name)
+            {
+                PPZ_HUDStatTypes_field = fieldInfo;
+                if (PPZ_HUDStatTypes_field != null)
+                {
+                    DebugMsg("Found field PPZ");
+                }
+            }
+        }
+
+        listOfMethodNames = typeof(Entity).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (MethodInfo methodInfo in listOfMethodNames)
+        {
+            if (methodInfo.Name == HJQ_name)
+            {
+                HJQ_MethodInfo = methodInfo;
+                if (HJQ_MethodInfo != null)
+                {
+                    DebugMsg("Found method HJQ");
+                }
+            }
+
+            if (methodInfo.Name == SDQ_name)
+            {
+                SDQ_MethodInfo = methodInfo;
+                if (SDQ_MethodInfo != null)
+                {
+                    DebugMsg("Found method SDQ");
+                }
+            }
+        }
+    }
+
+    public override void OnOpen()
+    {
+        base.OnOpen();
+
+        FindObfuscatedFieldsAndMethods();
+        //if (this.PPZ == global::HUDStatTypes.ActiveItem)
+        if (PPZ_HUDStatTypes_field != null && (HUDStatTypes)PPZ_HUDStatTypes_field.GetValue(this) == global::HUDStatTypes.ActiveItem)
+        {
+            //base.xui.PlayerInventory.OnBackpackItemsChanged += this.HJQ;
+            //base.xui.PlayerInventory.OnToolbeltItemsChanged += this.SDQ;
+
+            if (HJQ_MethodInfo != null)
+            {
+                base.xui.PlayerInventory.OnBackpackItemsChanged += (XUiEvent_BackpackItemsChanged)System.Delegate.CreateDelegate(typeof(XUiEvent_BackpackItemsChanged), HJQ_MethodInfo);
+            }
+            if (SDQ_MethodInfo != null)
+            {
+                base.xui.PlayerInventory.OnToolbeltItemsChanged += (XUiEvent_ToolbeltItemsChanged)System.Delegate.CreateDelegate(typeof(XUiEvent_ToolbeltItemsChanged), SDQ_MethodInfo);
+            }
+
+            if (this.Vehicle.GetType() == typeof(EntityCustomVehicle))
+            {
+                //EntityCustomVehicle vehicle = this.Vehicle as EntityCustomVehicle;
+                //XUiC_VehicleContainer vehicleContainer = (XUiC_VehicleContainer)this.xui.FindWindowGroupByName(vehicle.vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
+                //vehicleContainer.OnBagItemChangedInternal += (XUiEvent_BackpackItemsChanged)System.Delegate.CreateDelegate(typeof(XUiEvent_BackpackItemsChanged), HJQ_MethodInfo);
+            }
+        }
+        this.IsDirty = true;
+        base.RefreshBindings(true);
+    }
+
+    public override void OnClose()
+    {
+        base.OnClose();
+        //base.xui.PlayerInventory.OnBackpackItemsChanged -= this.HJQ;
+        //base.xui.PlayerInventory.OnToolbeltItemsChanged -= this.SDQ;
+
+        FindObfuscatedFieldsAndMethods();
+        if (HJQ_MethodInfo != null)
+        {
+            base.xui.PlayerInventory.OnBackpackItemsChanged -= (XUiEvent_BackpackItemsChanged)System.Delegate.CreateDelegate(typeof(XUiEvent_BackpackItemsChanged), HJQ_MethodInfo);
+        }
+        if (SDQ_MethodInfo != null)
+        {
+            base.xui.PlayerInventory.OnToolbeltItemsChanged -= (XUiEvent_ToolbeltItemsChanged)System.Delegate.CreateDelegate(typeof(XUiEvent_ToolbeltItemsChanged), SDQ_MethodInfo);
+        }
+    }*/
 }
 
 

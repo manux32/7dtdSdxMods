@@ -103,12 +103,12 @@
 				<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fenceOrDoor,buildings,softDebris,hardDebris,poleOrPillar,car,furniture,devices,curb,trap,terrain,lootCtn" />
 				<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,tree,rock,bigBoulder,rareOres,tire,fenceOrDoor,buildings,softDebris,hardDebris,poleOrPillar,bench,car,furniture,devices,curb,trap,terrain,lootCtn" />
 				<property name="HarvestToVehicleInventory" value="true" />
-				<!--<property name="DestroyXPFactor" value="0.5" />
-				<property name="HarvestXPFactor" value="0.5" />-->
 				<property name="DestroyXPFactor" value="0.5" />
 				<property name="HarvestXPFactor" value="0.5" />
 				<property name="WaterCraft" value="true" />
 				<property name="Airtight" value="true" />
+				<property name="FloatsOnWater" value="false" />
+				<property name="FloatHeight" value="0.9" />
 				<!-- different size storage (supposed to work now, but please report any issues with them) -->
 				<property name="VehicleXuiName" value="vehicleLargeStorage" />
 				<property name="LootListAlive" value="191" />

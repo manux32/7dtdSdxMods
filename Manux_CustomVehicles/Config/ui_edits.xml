@@ -24,6 +24,26 @@
 		</append>
 	</config>
 	
+	<config name="buffs">
+		<set xpath="/buffs/buff[@id='cannotBreath']/@mutex">drowning,airtight</set>
+		<remove xpath="/buffs/buff[@id='drowning']"/>
+		<remove xpath="/buffs/buff[@id='wet']"/>
+		<insertAfter xpath="/buffs/buff[@id='cannotBreath']">
+			<buff id="stopAirtight" duration="1" stack="discard" actions="debuff(airtight);debuff(airtightWarming);debuff(airtightCooling)" name_key="stopAirtight"/>
+			<buff id="airtightWarming" duration="0" stack="discard" mutex="stopAirtight" requires="airtight" buffif="coretemp less 65" debuffif="coretemp greater 70" name_key="airtightWarming" description_key="airtightWarmingDesc" icon="ui_game_symbol_coffee">
+				<modify id="0" stat="coretemp" amount="1" rate="1" />
+			</buff>
+			<buff id="airtightCooling" duration="0" stack="discard" mutex="stopAirtight" requires="airtight" buffif="coretemp greater 75" debuffif="coretemp less 70" name_key="airtightCooling" description_key="airtightCoolingDesc" icon="ui_game_symbol_cold">
+				<modify id="0" stat="coretemp" amount="-1" rate="1" />
+			</buff>
+			<buff id="airtight" duration="0" stack="discard" mutex="stopAirtight" actions="debuff(cannotBreath);debuff(cannotBreatheWrn);debuff(drowning)" name_key="airtight" description_key="airtightDesc" tooltip_key="airtightDesc" icon="manux_ui_game_symbol_oxygen_source"/>			
+			<buff id="drowning" duration="0" stack="discard" mutex="airtight" actions="damage(0,4,0,0);debuff(burningSmall);debuff(burning);debuff(burningMolotov)" type="drowning" icon="ui_game_symbol_oxygen" name_key="drowning" description_key="drowningDesc" tooltip_key="drowningTooltip">
+				<modify id="1" stat="health" amount="-14" rate="4" />
+			</buff>
+			<buff id="wet" notificationClass="WetBuffNotification" duration="0" stack="discard" mutex="airtight" buffif="waterLevel greater 0" debuffif="waterLevel equals 0" icon="ui_game_symbol_wet" name_key="wet" description_key="wetDesc" tooltip_key="wetTooltip" />
+		</insertAfter>
+	</config>
+	
 	<config name="xui">
 		<insertAfter xpath="/xui/ruleset/window_group[@name='vehicle']">
 			<window_group name="vehicleSmallStorage" controller="XUiC_VehicleWindowGroup">
@@ -52,7 +72,7 @@
 			<!-- MANUX Custom Vehicles: adding 2 new parts slots -->
 			<window name="windowCustomVehicle" width="380" height="733" panel="Left" controller="VehicleFrameWindow" cursor_area="true">
 				<panel name="header" pos="3,0" height="43" depth="1" backgroundspritename="ui_game_panel_header">
-					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_vehicle" />
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="manux_ui_game_symbol_cicada" />
 					
 					<label style="header.name" text="{vehiclenamequality}" />
 					<sprite depth="2" width="112" pos="264, -31" height="10" type="sliced" color="[black]" />
@@ -92,7 +112,7 @@
 		<insertAfter xpath="/windows/window[@name='windowVehicleStats']">
 			<window name="windowCustomVehicleStats" width="480" height="133" panel="Right" controller="VehicleStats" cursor_area="true" >
 				<panel name="header" height="43" depth="1" backgroundspritename="ui_game_panel_header">
-					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" atlas="ItemIconAtlas" sprite="manux_ui_game_symbol_vehicle"/>
+					<sprite depth="2" name="windowIcon" style="icon32px" pos="5,-5" sprite="manux_ui_game_symbol_cicada" />
 					<label style="header.name" text="{vehiclename} {vehiclestatstitle}" />
 				</panel>
 				<rect name="content" depth="0" pos="0,-46" height="94">
@@ -241,8 +261,47 @@
 			</window>
 		</insertBefore>
 		
+		<insertAfter xpath="/windows/window[@name='HUDRightStatBars']/rect[@controller='CollectedItemList']">
+			<grid name="hudVehicleWeaponsAmmo" pos="-177,250" rows="2" cols="1" width="168" cell_width="168" cell_height="46" repeat_content="false" side="right">
+				<rect name="hudVehicleGunAmmo" width="168" height="43">
+					<sprite depth="3" pos="3,0" name="BarContent" sprite="ui_game_popup" height="43" width="162" />
+					<sprite depth="4" name="Icon" atlas="ItemIconAtlas" sprite="50calVehicleBullet" size="36,32" pos="130,-6" color="{staticoncolor}" foregroundlayer="true" />
+					<label depth="6" name="TextContent" text="100" pos="15,-8" font_size="28" color="[white]" justify="center" height="30" />
+				</rect>
+				<rect name="hudVehicleExplosiveLauncherAmmo" width="168" height="43">
+					<sprite depth="3" pos="3,0" name="BarContent" sprite="ui_game_popup" height="43" width="162" />
+					<sprite depth="4" name="Icon" atlas="ItemIconAtlas" sprite="vehicleGrenade" size="36,32" pos="130,-6" color="{staticoncolor}" foregroundlayer="true" />
+					<label depth="6" name="TextContent" text="100" pos="15,-8" font_size="28" color="[white]" justify="center" height="30" />
+				</rect>
+				<rect name="vehicleHealthIcon" width="168" height="43">
+					<sprite depth="4" name="customVehicleIcon" sprite="ui_game_symbol_minibike" size="32,32" pos="130,-110" foregroundlayer="true" />
+				</rect>
+			</grid>
+			<!--<rect name="vehicleCollectedItemList" pos="-444,31" side="right" controller="VehicleCollectedItemList" pivot="BottomLeft">
+				<panel width="168" height="43" name="item" visible="false" pivot="right" disableautobackground="true" pos="70, 0">
+					<sprite depth="3" pos="0,0" name="Background" sprite="ui_game_popup" height="43" width="162" pivot="center" />
+					<sprite depth="4" name="Icon" atlas="ItemIconAtlas" size="36,32" pos="50,0" pivot="center" foregroundlayer="true" />
+					<label depth="6" name="TextContent" font_size="28" color="[white]" justify="center" height="30" pivot="center" />
+					<sprite depth="6" pos="0,16" width="32" height="32" name="Negative" sprite="" color="[red]" />
+				</panel>
+			</rect>-->
+		</insertAfter>
+		
+		<remove xpath="/windows/window[@name='HUDRightStatBars']/grid[@name='hud']/rect[@stat_type='VehicleHealth']"/>
+		<insertAfter xpath="/windows/window[@name='HUDRightStatBars']/grid[@name='hud']/rect[@stat_type='VehicleFuel']">
+			<rect name="vehicleHealth" width="168" height="43" controller="HUDStatBar" stat_type="VehicleHealth" visible="{statvisible}">
+				<sprite depth="1" name="border" color="0,0,0,100" height="43" type="sliced" />
+				<sprite depth="2" pos="3,-3" name="background" height="37" width="162" color="64,64,64,100" type="sliced" />
+				<sprite depth="3" pos="3,-3" name="BarContent" sprite="{statimage|once}" type="filled" height="37" width="162" flip="Horizontally" />
+				<sprite depth="4" name="Icon" sprite="ui_game_symbol_minibike" size="32,32" pos="130,-6" foregroundlayer="true" />
+				<label depth="6" name="TextContent" pos="15,-8" font_size="28" color="[white]" justify="center" text="{statcurrentwithmax}" height="30" />
+			</rect>
+		</insertAfter>
+		
 	</config>
+	
 	<config name="XUi/controls">
+	
 		<insertAfter xpath="/controls/vehicle_part_slot">
 			<!-- MANUX Custom Vehicles: Making parts slots smaller to fit 2 additionnal ones -->
 			<custom_vehicle_part_slot>
@@ -284,5 +343,7 @@
 				</rect>
 			</vehicle_item_stack_inventory>
 		</insertAfter>
+		
 	</config>
+	
 </configs>

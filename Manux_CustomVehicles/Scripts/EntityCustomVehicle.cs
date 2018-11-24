@@ -5,9 +5,17 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
+/* From HAL: MP utilities
+    var isServer = Steam.Network.IsServer; //Dedi or p2p host
+    var isClient = Steam.Network.IsClient; //Connected to someone else but don't know who
+    var isMultiplayer = Steam.Network.IsClient || GamePrefs.GetInt(EnumGamePrefs.ServerMaxPlayerCount) > 1; //can this game be MP? 
+    var isMultiplayerActive = isMultiplayer && GameManager.Instance.World.GetPlayers().Count > 1; //is this game currently MP (i.e. it may be a p2p with only 1 player - that's not SP, that's MP with one player)
+*/
 
 public abstract class EntityCustomVehicle : EntityMinibike
 {
+    public bool bCanDoLateUpdate;
+
     public static bool bEnableCustomStorage = true;
     //public static bool bEnableNewUiButtons = true;
     //public static bool bEnableCustomVehicleIcons = true;
@@ -16,23 +24,28 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public static bool bEnableVehicleWeapons = true;
 
     // Obfuscated Entity Fields and Methods
-    public FieldInfo FW_bool_field = null;
-    public MethodInfo QXQ_MethodInfo = null;
+    public FieldInfo FW_bool_field = null;                      // IsInWater()
+    public MethodInfo QXQ_MethodInfo = null;                    // called at the beginning of Entity.Update()
     // Obfuscated EntityVehicle Fields and Methods
-    public FieldInfo SI_bool_field = null;
-    public FieldInfo CI_MovementInput_field = null;
-    public FieldInfo FI_bool_field = null;
-    public FieldInfo TS_field = null;
-    public MethodInfo set_RSQ_MethodInfo = null;
+    public FieldInfo SI_bool_field = null;                      // Entity is Attached to Vehicle
+    public FieldInfo CI_MovementInput_field = null;             // (unused)
+    public FieldInfo FI_bool_field = null;                      // Not sure, only seems read and written in Update()
+    public FieldInfo TS_field = null;                           // Vehicle pos for sound when opening vehicle
+    public FieldInfo ZS_float_field = null;                     // related to GS.bWheelSpinForward (unused)
+    public FieldInfo GS_VehicleSimulationInput_field = null;    // (unused)
+    public MethodInfo set_RSQ_MethodInfo = null;                // (unused)
     // Obfuscated Vehicle Fields and Methods
-    public MethodInfo PZ_MethodInfo = null;
+    public FieldInfo LZ_float_field = null;                     // Vehicle Max Speed field
+    public MethodInfo PZ_MethodInfo = null;                     // Vehicle Get Part by Name
 
     #region Fields
 
     public EntityPlayerLocal player;
-    //public LocalPlayerUI uiforPlayer;
+    public LocalPlayerUI uiforPlayer = null;
     //public XUiM_PlayerInventory playerInventory;
     public XUiC_VehicleContainer xuiC_VehicleContainer = null;
+    public Vector3 collectedItemListDefaultPos;
+
     public bool hasDriver = false;
     public CharacterController charCtrl = null;
     public Transform playerSpine1Bone = null;
@@ -45,6 +58,28 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public Vector3 playerOffsetRot;
     public bool hasPlayerOffsetPos;
     public bool hasPlayerOffsetRot;
+
+    public bool parentLeftHandIKtoChassis = false;
+    public bool parentRightHandIKtoChassis = false;
+
+    // Player feet IK
+    public Animator playerAnimator = null;
+    public Transform headLookAtTarget = null;
+    public Transform leftFootIKTarget = null;
+    public Transform rightFootIKTarget = null;
+    public CustomPlayerIKController customPlayerIKController = null;
+    public Vector3 playerLeftFootIKPos = Vector3.zero;
+    public Vector3 playerLeftFootIKRot = Vector3.zero;
+    public Vector3 playerRightFootIKPos = Vector3.zero;
+    public Vector3 playerRightFootIKRot = Vector3.zero;
+    public bool hasPlayerLeftFootIKPos;
+    public bool hasPlayerLeftFootIKRot;
+    public bool hasPlayerRightFootIKPos;
+    public bool hasPlayerRightFootIKRot;
+
+    public Vector3 playerExitPos;
+    public bool hasPlayerExitPos;
+    public bool bPlayerLookForward;
 
     public Vector3 colliderCenter;
     public float colliderRadius;
@@ -87,17 +122,31 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public bool hasBuiltInStorage = false;
 
+    public XUiC_HUDStatBar hudStatBar = null;
+
     // Destroy/Harvest
     public VehicleDestroyAndHarvest vehicleDestroyAndHarvest = null;
     public int destructionStartHeight = 1;
     public Vector3i lastHitBlockPos;
 
     public string vehicleXuiName = "vehicle";
-    public Vector2i storageSize = new Vector2i(3,6);
+    public Vector2i storageSize = new Vector2i(3, 6);
 
     // Three8's WaterCraft
     bool isAirtight;
     bool isWaterCraft;
+    public bool floatsOnWater;
+    public float floatHeight = 0.5f;
+    public float lastGoodFloatYPos = 0f;
+    public bool isFloatingOnWater = false;
+    public float onWaterStartTime = -1;
+    public bool isLeveled;
+
+    public float playerWetnessBeforeEnter;
+    public float currentPlayerWetness;
+    public float lastWetnessTime = -1;
+    public float lastWetnessSetTime = -1;
+    public bool airtightSettingsDone = false;
 
     static bool showDebugLog = false;
 
@@ -117,10 +166,9 @@ public abstract class EntityCustomVehicle : EntityMinibike
     {
         FindObfuscatedFieldsAndMethods();
 
-        //player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
         player = GameManager.Instance.World.GetPrimaryPlayer();
         //uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
-        if(player != null)
+        if (player != null)
             DebugMsg("initial player.vp_FPCamera.Position3rdPersonOffset = " + player.vp_FPCamera.Position3rdPersonOffset.ToString("0.0000"));
 
         if (bEnableDestroyAndHarvest)
@@ -160,7 +208,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
         DebugMsg("Init this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
         DebugMsg("Init lootListIndex = " + this.lootContainer.lootListIndex.ToString() + " | size = " + this.lootContainer.GetContainerSize().ToString());*/
 
-        
 
         /*//base.Init(_entityClass);
         EntityClass entityClass = EntityClass.list[this.entityClass];
@@ -193,7 +240,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
         MI = this.PhysicsTransform.GetComponent<CharacterController>();*/
     }
 
-    public void FindObfuscatedFieldsAndMethods()
+    public virtual void FindObfuscatedFieldsAndMethods()
     {
         FieldInfo[] listOfFieldNames;
         MethodInfo[] listOfMethodNames;
@@ -205,9 +252,12 @@ public abstract class EntityCustomVehicle : EntityMinibike
         string SI_name = "SI";
         string CI_name = "CI";
         string FI_name = "FI";
-        //string TS_name = "TS";
+        string ZS_name = "ZS";
+        //TS_name = "TS";
         string set_RSQ_name = "set_RSQ";
+        string GS_name = "GS";
         // Vehicle
+        string LZ_name = "LZ";
         string PZ_name = "PZ";
         //DebugMsg("GameManager.IsDedicatedServer = " + GameManager.IsDedicatedServer.ToString());
         if (GameManager.IsDedicatedServer)
@@ -219,12 +269,15 @@ public abstract class EntityCustomVehicle : EntityMinibike
             SI_name = "ES";
             CI_name = "JS";
             FI_name = "PS";
+            ZS_name = "AD";
             //TS_name = "TS";
             set_RSQ_name = "set_YDA";
+            GS_name = "UD";
             // Vehicle
+            LZ_name = "UH";
             PZ_name = "RH";
         }
-        
+
         // Get hooks on Entity Obfuscated fields and methods
         listOfFieldNames = typeof(Entity).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (FieldInfo fieldInfo in listOfFieldNames)
@@ -288,6 +341,22 @@ public abstract class EntityCustomVehicle : EntityMinibike
                     DebugMsg("Found field TS");
                 }
             }
+            else if (fieldInfo.Name == ZS_name)
+            {
+                ZS_float_field = fieldInfo;
+                if (ZS_float_field != null)
+                {
+                    DebugMsg("Found field ZS_float_field");
+                }
+            }
+            else if (fieldInfo.Name == GS_name)
+            {
+                GS_VehicleSimulationInput_field = fieldInfo;
+                if (GS_VehicleSimulationInput_field != null)
+                {
+                    DebugMsg("Found field GS_VehicleSimulationInput_field");
+                }
+            }
         }
 
         listOfMethodNames = typeof(EntityVehicle).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
@@ -304,6 +373,19 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }
 
         // Get hooks on Vehicle Obfuscated fields and methods
+        listOfFieldNames = typeof(Vehicle).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo fieldInfo in listOfFieldNames)
+        {
+            if (fieldInfo.Name == LZ_name)
+            {
+                LZ_float_field = fieldInfo;
+                if (LZ_float_field != null)
+                {
+                    DebugMsg("Found field LZ");
+                }
+            }
+        }
+
         listOfMethodNames = typeof(Vehicle).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (MethodInfo methodInfo in listOfMethodNames)
         {
@@ -338,7 +420,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
         if (entityClass.Properties.Values.ContainsKey("3rdPersonModelVisible"))
         {
             bool thirdPVisible;
-            if(bool.TryParse(entityClass.Properties.Values["3rdPersonModelVisible"], out thirdPVisible));
+            if (bool.TryParse(entityClass.Properties.Values["3rdPersonModelVisible"], out thirdPVisible))
             {
                 thirdPersonModelVisible = thirdPVisible;
             }
@@ -356,6 +438,74 @@ public abstract class EntityCustomVehicle : EntityMinibike
             if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["PlayerRotationOffset"], out playerOffsetRot))
             {
                 hasPlayerOffsetRot = true;
+            }
+        }
+
+        if (entityClass.Properties.Values.ContainsKey("PlayerExitPosition"))
+        {
+            if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["PlayerExitPosition"], out playerExitPos))
+            {
+                hasPlayerExitPos = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("PlayerLookForward"))
+        {
+            bool plookForward;
+            if (bool.TryParse(entityClass.Properties.Values["PlayerLookForward"], out plookForward))
+            {
+                bPlayerLookForward = plookForward;
+            }
+
+        }
+        if (entityClass.Properties.Values.ContainsKey("ParentLeftHandIKtoChassis"))
+        {
+            bool lHandIkToChassis;
+            if (bool.TryParse(entityClass.Properties.Values["ParentLeftHandIKtoChassis"], out lHandIkToChassis))
+            {
+                parentLeftHandIKtoChassis = lHandIkToChassis;
+            }
+
+        }
+        if (entityClass.Properties.Values.ContainsKey("ParentRightHandIKtoChassis"))
+        {
+            bool rHandIkToChassis;
+            if (bool.TryParse(entityClass.Properties.Values["ParentRightHandIKtoChassis"], out rHandIkToChassis))
+            {
+                parentRightHandIKtoChassis = rHandIkToChassis;
+            }
+
+        }
+
+        if (entityClass.Properties.Values.ContainsKey("left_foot_ik_position"))
+        {
+            if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["left_foot_ik_position"], out playerLeftFootIKPos))
+            {
+                DebugMsg("\tplayerLeftFootIKPos = " + playerLeftFootIKPos.ToString("0.000"));
+                hasPlayerLeftFootIKPos = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("left_foot_ik_rotation"))
+        {
+            if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["left_foot_ik_rotation"], out playerLeftFootIKRot))
+            {
+                DebugMsg("\tplayerLeftFootIKRot = " + playerLeftFootIKRot.ToString("0.000"));
+                hasPlayerLeftFootIKRot = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("right_foot_ik_position"))
+        {
+            if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["right_foot_ik_position"], out playerRightFootIKPos))
+            {
+                DebugMsg("\tplayerRightFootIKPos = " + playerRightFootIKPos.ToString("0.000"));
+                hasPlayerRightFootIKPos = true;
+            }
+        }
+        if (entityClass.Properties.Values.ContainsKey("right_foot_ik_rotation"))
+        {
+            if (CustomVehiclesUtils.StringVectorToVector3(entityClass.Properties.Values["right_foot_ik_rotation"], out playerRightFootIKRot))
+            {
+                DebugMsg("\tplayerRightFootIKRot = " + playerRightFootIKRot.ToString("0.000"));
+                hasPlayerRightFootIKRot = true;
             }
         }
 
@@ -441,16 +591,30 @@ public abstract class EntityCustomVehicle : EntityMinibike
         {
             bool.TryParse(entityClass.Properties.Values["Airtight"], out isAirtight);
         }
+        if (entityClass.Properties.Values.ContainsKey("FloatsOnWater"))
+        {
+            bool floats;
+            if (bool.TryParse(entityClass.Properties.Values["FloatsOnWater"], out floats))
+            {
+                DebugMsg("\tfloatsOnWater = " + floats.ToString());
+                floatsOnWater = floats;
+            }
 
-        // Experimental different size storage
+        }
+        if (entityClass.Properties.Values.ContainsKey("FloatHeight"))
+        {
+            float floatH;
+            if (float.TryParse(entityClass.Properties.Values["FloatHeight"], out floatH))
+            {
+                DebugMsg("\tfloatHeight = " + floatH.ToString());
+                floatHeight = floatH;
+            }
+
+        }
+
+        // Different size storage
         if (entityClass.Properties.Values.ContainsKey("VehicleXuiName"))
         {
-            //entityClass.Properties.Values["vehicleXuiName"];
-            //GUIWindowManager windowManager = uiforPlayer.windowManager;
-            //XUiC_VehicleWindowGroup.ID = entityClass.Properties.Values["vehicleXuiName"];
-            //XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(entityClass.Properties.Values["vehicleXuiName"])).Controller);
-            //xuic_vehicleWindowGroup.CurrentVehicleEntity = this;
-            //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(XUiC_VehicleWindowGroup.ID).GetChildByType<XUiC_VehicleContainer>();
             vehicleXuiName = entityClass.Properties.Values["VehicleXuiName"];
         }
         bool bStrgSizeFound = false;
@@ -464,7 +628,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 DebugMsg("\tnew storageSize = " + storageSize.ToString());
             }
         }
-        if(!bStrgSizeFound)
+        if (!bStrgSizeFound)
         {
             storageSize = LootContainer.lootList[this.GetLootList()].size;
             DebugMsg("\tstorageSize xml property not found, setting default = " + storageSize.ToString());
@@ -500,7 +664,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                     if (this.nativeCollider != null)
                     {
                         dbgMsg += ("\tthis.nativeCollider = " + this.nativeCollider.ToString() + "|" + this.nativeCollider.GetType().ToString() + "|" + this.nativeCollider.GetInstanceID().ToString() + "\n");
-                        if(nativeBoxCollider == null)
+                        if (nativeBoxCollider == null)
                         {
                             this.nativeBoxCollider = this.nativeCollider as BoxCollider;
                         }
@@ -516,7 +680,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
     {
         string dbgMsg = (this.EntityName + " (" + this.GetType().ToString() + "):\nSet CharacterController settings from xml:\n");
         charCtrl = GetCharacterController();
-        if(charCtrl == null)
+        if (charCtrl == null)
         {
             DebugMsg("CharacterController is NULL");
             return;
@@ -686,7 +850,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public void GetPlayerSpine1Bone()
     {
-        if(player == null)
+        if (player == null)
         {
             //player = GameManager.Instance.World.GetLocalPlayer() as EntityPlayerLocal;
             player = GameManager.Instance.World.GetPrimaryPlayer();
@@ -716,17 +880,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public static XUiC_VehicleContainer GetVehicleContainer(EntityVehicle _vehicle, EntityPlayerLocal _player, string _vehicleXuiName)
     {
-        //GUIWindowManager windowManager = uiforPlayer.windowManager;
-        //((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow("vehicle")).Controller).CurrentVehicleEntity = this;
-        //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(XUiC_VehicleWindowGroup.ID).GetChildByType<XUiC_VehicleContainer>();
-
-        /*GUIWindowManager windowManager = uiforPlayer.windowManager;
-        //((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
-        //return (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
-        XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller);
-        xuic_vehicleWindowGroup.CurrentVehicleEntity = this;
-        return (XUiC_VehicleContainer)xuic_vehicleWindowGroup.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();*/
-
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(_player);
         GUIWindowManager windowManager = uiforPlayer.windowManager;
         ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(_vehicleXuiName)).Controller).CurrentVehicleEntity = _vehicle;
@@ -740,8 +893,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     protected override void Start()
     {
+        this.onGround = true;
+
         base.Start();
-        
+
         InitVehicle();
         if (bEnableDestroyAndHarvest)
         {
@@ -775,6 +930,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
     public virtual void OnDriverOn()
     {
+        hasDriver = true;
         //DebugMsg(this.EntityName + " (" + this.GetType().ToString() + "): OnDriverOn()");
         if (this.AttachedEntities == null)
         {
@@ -782,7 +938,6 @@ public abstract class EntityCustomVehicle : EntityMinibike
             return;
         }
         player = this.AttachedEntities as EntityPlayerLocal;
-        hasDriver = true;
 
         GetPlayerSpine1Bone();
         XUiC_VehicleWindowGroup.ID = vehicleXuiName;
@@ -794,26 +949,81 @@ public abstract class EntityCustomVehicle : EntityMinibike
             //DebugMsg("OnDriverOn vehicle bag length = " + this.bag.GetSlots().Length.ToString());
         }
 
-        if(PZ_MethodInfo != null)
+        if (PZ_MethodInfo != null)
         {
             object[] pz_params = new object[1] { "vehicleGun" };
             gunPart = (VehiclePart)PZ_MethodInfo.Invoke(this.GetVehicle(), pz_params);
             pz_params = new object[1] { "vehicleExplosiveLauncher" };
             explosiveLauncherPart = (VehiclePart)PZ_MethodInfo.Invoke(this.GetVehicle(), pz_params);
         }
-        
-        vehicleCam.newThirdPcameraOffset = cameraOffset;
-        if (player != null)
-        {
-            xuiC_VehicleContainer = GetVehicleContainer(this, player, vehicleXuiName);
-            player.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
-        }
 
+
+        vehicleCam.newThirdPcameraOffset = cameraOffset;
         if (!vehicleCam.is3rdPersonView)
         {
             vehicleCam.ToggleFirstAnd3rdPersonView(false, true);
         }
         //DebugMsg("Game Cam parent = " + player.vp_FPCamera.transform.parent.name + " (pos = " + player.vp_FPCamera.transform.position + " | vehicle pos = " + this.position + ")");
+
+
+        if (player == null)
+            return;
+
+        playerAnimator = player.emodel.GetModelTransform().GetComponentInChildren<Animator>();
+        CheckHandsIKparenting();
+        CreateCustomIKTargets();
+
+        uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+        collectedItemListDefaultPos = uiforPlayer.xui.CollectedItemList.viewComponent.UiTransform.localPosition;
+        uiforPlayer.xui.CollectedItemList.viewComponent.UiTransform.localPosition = new Vector3(collectedItemListDefaultPos.x - 177, collectedItemListDefaultPos.y, collectedItemListDefaultPos.z);
+
+        GUIWindowManager windowManager = uiforPlayer.windowManager;
+        hudStatBar = (XUiC_HUDStatBar)((XUiWindowGroup)windowManager.GetWindow("toolbelt")).Controller.GetChildByType<XUiC_HUDStatBar>();
+        //DebugMsg("type = " + hudStatBar.GetType().ToString() + " | viewComponent.ID = " + hudStatBar.viewComponent.ID.ToString() + " | viewComponent.GetType = " + hudStatBar.viewComponent.GetType().ToString());
+
+        xuiC_VehicleContainer = GetVehicleContainer(this, player, vehicleXuiName);
+        player.vp_FPCamera.Position3rdPersonOffset = cameraOffset;
+
+        //vehicleWeapons.OnDriverOn();
+        vehicleWeapons.gameWasPaused = true;
+        vehicleWeapons.gamePausedTime = Time.time;
+
+        //if (bEnableDestroyAndHarvest)
+        {
+            //vehicleDestroyAndHarvest.VehicleCollectedItemList = (XUiC_VehicleCollectedItemList)((XUiWindowGroup)windowManager.GetWindow("toolbelt")).Controller.GetChildByType<XUiC_VehicleCollectedItemList>();
+            //vehicleDestroyAndHarvest.GetVehicleCollectedItemListForPlayer();
+        }
+
+        if (IsAirtight())
+        {
+            /*DebugMsg("OnDriverOn Player buffs BEFORE Buff:");
+            foreach (Buff buff in player.Stats.Buffs)
+            {
+                DebugMsg("Player buff = " + buff.Name);
+            }*/
+
+            playerWetnessBeforeEnter = player.Stats.WaterLevel;
+            currentPlayerWetness = playerWetnessBeforeEnter;
+            lastWetnessTime = Time.time;
+            lastWetnessSetTime = lastWetnessTime;
+            //DebugMsg("OnDriverOn playerWetnessBeforeEnter = " + playerWetnessBeforeEnter.ToString());
+
+            MultiBuffClassAction airtightBuff = MultiBuffClassAction.NewAction("airtight");
+            airtightBuff.Execute(-1, player, false, EnumBodyPartHit.None, null);
+
+            if (player.isHeadUnderwater(0f))
+            {
+                Audio.Manager.BroadcastPlay(player, "player1drownsurface");
+            }
+
+            /*DebugMsg("OnDriverOn Player buffs AFTER Buff:");
+            foreach (Buff buff in player.Stats.Buffs)
+            {
+                DebugMsg("Player buff = " + buff.Name);
+            }*/
+
+            airtightSettingsDone = true;
+        }
     }
 
     public virtual void OnDriverOff()
@@ -825,26 +1035,87 @@ public abstract class EntityCustomVehicle : EntityMinibike
         camAndPlayerOffsetsDone = false;
         xuiC_VehicleContainer = null;
 
-        if (bEnableCustomStorage && player != null)
+        if (player == null)
+            player = GameManager.Instance.World.GetPrimaryPlayer();
+
+        if (player == null)
+            return;
+
+        DisableCustomIKTargets();
+        if (hasPlayerExitPos)
+        {
+            //Vector3 playerExitPos = new Vector3(this.transform.position.x, this.transform.position.y + 2f, this.transform.position.z);
+            Vector3 exitPos = this.transform.position + playerExitPos;
+            player.transform.position = exitPos;
+            player.SetPosition(exitPos);
+        }
+
+        if (bEnableCustomStorage)
         {
             XUiC_VehicleWindowGroup.ID = "vehicle";
-            LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
+            //LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player);
             GUIWindowManager windowManager = uiforPlayer.windowManager;
             XUiC_VehicleWindowGroup xuic_vehicleWindowGroup = (XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller;
             if (xuic_vehicleWindowGroup.CurrentVehicleEntity != null)
             {
                 xuic_vehicleWindowGroup.CurrentVehicleEntity.SetIsInteracting(false, null);
             }
+
             xuic_vehicleWindowGroup.xui.vehicle = null;
+            uiforPlayer.xui.CollectedItemList.viewComponent.UiTransform.localPosition = collectedItemListDefaultPos;
+
+            vehicleWeapons.OnDriverOff();
+        }
+
+        if (IsAirtight())
+        {
+            airtightSettingsDone = false;
+
+            /*DebugMsg("Player buffs BEFORE Debuff:");
+            foreach (Buff buff in player.Stats.Buffs)
+            {
+                DebugMsg("Player buff = " + buff.Name);
+            }*/
+
+            //DebugMsg("OnDriverOff IsInWater2 = " + IsInWater2().ToString());
+            //DebugMsg("OnDriverOff player.isHeadUnderwater = " + player.isHeadUnderwater(0f).ToString());
+
+            MultiBuffClassAction stopAirtightBuff = MultiBuffClassAction.NewAction("stopAirtight");
+            stopAirtightBuff.Execute(-1, player, false, EnumBodyPartHit.None, null);
+
+            //player.onUnderwaterStateChanged(player.isHeadUnderwater(0f));
+            if (player.isHeadUnderwater(0f))
+            {
+                MultiBuffClassAction cannotBreathBuff = MultiBuffClassAction.NewAction("cannotBreath");
+                cannotBreathBuff.Execute(-1, player, false, EnumBodyPartHit.None, null);
+            }
+            else
+            {
+                //DebugMsg("OnDriverOff playerWetnessBeforeEnter = " + playerWetnessBeforeEnter.ToString());
+                //DebugMsg("OnDriverOff player Wetness = " + player.Stats.WaterLevel.ToString());
+                //if (playerWetnessBeforeEnter == 0f)
+                {
+                    player.Stats.SetWaterLevel(currentPlayerWetness);
+                }
+            }
+
+            /*DebugMsg("Player buffs AFTER Rmove Buff:");
+            foreach (Buff buff in player.Stats.Buffs)
+            {
+                DebugMsg("Player buff = " + buff.Name);
+            }*/
         }
     }
 
+
     public new void FixedUpdate()
     {
+        bCanDoLateUpdate = true;
+
         base.FixedUpdate();
 
         //if (GameManager.IsDedicatedServer)
-            //return;
+        //return;
 
         if (!controllerSettingsDone)
         {
@@ -861,7 +1132,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
             return;
         }
 
-        if(!hasDriver)
+        if (!hasDriver)
         {
             OnDriverOn();
         }
@@ -917,6 +1188,123 @@ public abstract class EntityCustomVehicle : EntityMinibike
         }*/
     }
 
+
+    public void AdjustAirtightWaterLevel()
+    {
+        if (Time.time == lastWetnessTime || Time.time - 1f < lastWetnessSetTime)
+            return;
+        //DebugMsg("AdjustAirtightWaterLevel: Time = " + Time.time.ToString() + " | lastWetnessSetTime = " + lastWetnessSetTime.ToString());
+        //DebugMsg("AdjustAirtightWaterLevel: currentPlayerWetness = " + currentPlayerWetness.ToString() + " | playerWetnessBeforeEnter = " + playerWetnessBeforeEnter.ToString());
+
+        if (IsAirtight() && currentPlayerWetness > 0f)
+        {
+            //DebugMsg("AdjustAirtightWaterLevel: currentPlayerWetness = " + currentPlayerWetness.ToString() + " | playerWetnessBeforeEnter = " + playerWetnessBeforeEnter.ToString());
+            currentPlayerWetness = Mathf.Clamp(currentPlayerWetness - 0.01f, 0, 1);
+            player.Stats.SetWaterLevel(currentPlayerWetness);
+            lastWetnessSetTime = Time.time;
+        }
+        lastWetnessTime = Time.time;
+    }
+
+    public void LateUpdate()
+    {
+        if (!hasDriver || !bCanDoLateUpdate)
+            return;
+
+        // Floating vehicles
+        if (floatsOnWater)
+        {
+            /*if (!hasWaterArround())
+            {
+                //DebugMsg("No water arround!");
+                onWaterStartTime = -1;
+                return;
+            }
+
+            if (!IsOnWater())
+            {
+                isFloatingOnWater = false;
+            }*/
+
+            isLeveled = true;
+            if (Vector3.Angle(this.transform.up, Vector3.up) > 10)
+            {
+                isFloatingOnWater = false;
+                isLeveled = false;
+            }
+
+            Vector3 newPos;
+            if (isFloatingOnWater)
+            {
+                /*if(!IsOnWater() || hasWaterAbove())
+                {
+                    isFloatingOnWater = false;
+                    //onWaterStartTime = -1;
+                    return;
+                }*/
+                if (Time.time - 2f > onWaterStartTime)
+                {
+                    if (!IsOnWater() || hasWaterAbove())
+                    {
+                        isFloatingOnWater = false;
+                        onWaterStartTime = -1;
+                        return;
+                    }
+                }
+
+                this.onGround = true;
+                //DebugMsg("floatsOnWater: isFloatingOnWater");
+                newPos = new Vector3(this.transform.position.x, lastGoodFloatYPos, this.transform.position.z);
+                this.transform.position = newPos;
+                this.SetPosition(newPos);
+                return;
+            }
+
+            //DebugMsg("floatsOnWater: IsInWater2 " + IsInWater2().ToString());
+            if (IsInWater2())
+            {
+                if (onWaterStartTime == -1)
+                {
+                    onWaterStartTime = Time.time;
+                }
+
+                if (!isFloatingOnWater && Time.time - 2f > onWaterStartTime)
+                {
+                    //DebugMsg("Not floating on water yet, dropping!");
+                    this.onGround = false;
+
+                    onWaterStartTime = Time.time;
+                }
+                else
+                {
+                    this.onGround = true;
+                }
+                //DebugMsg("floatsOnWater: Moving floating vehicle UP");
+
+                /*if (this.isHeadUnderwater())
+                {
+                    newPos = new Vector3(this.transform.position.x, this.transform.position.y + (Time.deltaTime * 10f), this.transform.position.z);
+                }
+                else
+                {
+                    newPos = new Vector3(this.transform.position.x, this.transform.position.y + (Time.deltaTime * 0.15f), this.transform.position.z);
+                }*/
+                newPos = new Vector3(this.transform.position.x, this.transform.position.y + (Time.deltaTime * 5f), this.transform.position.z);
+                this.transform.position = newPos;
+                this.SetPosition(newPos);
+
+                if (!isFloatingOnWater && !hasWaterAbove() && isLeveled)
+                {
+                    //DebugMsg("floatsOnWater: setting isFloatingOnWater");
+                    isFloatingOnWater = true;
+                    lastGoodFloatYPos = this.transform.position.y;
+                }
+            }
+        }
+
+        bCanDoLateUpdate = false;
+    }
+
     // Overriding Update() for Three8's WaterCraft
     public new void Update()
     {
@@ -932,7 +1320,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
         {
             if (this.movableChunkObserver == null)
             {
-                this.movableChunkObserver = new global::MovableSharedChunkObserver(this.world.m_SharedChunkObserverCache);
+                this.movableChunkObserver = new MovableSharedChunkObserver(this.world.m_SharedChunkObserverCache);
             }
             this.movableChunkObserver.SetPosition(this.position);
         }
@@ -951,16 +1339,16 @@ public abstract class EntityCustomVehicle : EntityMinibike
         {
             //this.SI = false;
             //this.CI = null;
-            if(SI_bool_field != null)
+            if (SI_bool_field != null)
                 SI_bool_field.SetValue(this, false);
             if (CI_MovementInput_field != null)
                 CI_MovementInput_field.SetValue(this, null);
         }
         if (this.AttachedEntities != null && this.AttachedEntities.IsDead())
         {
-            ((global::EntityAlive)this.AttachedEntities).SetHandIKTargets(null, null);
+            ((EntityAlive)this.AttachedEntities).SetHandIKTargets(null, null);
             this.AttachedEntities.SetAttachedTo(0, null);
-            this.vehicle.EmitEvent(global::VPIgnition.Action.TurnOff);
+            this.vehicle.EmitEvent(VPIgnition.Action.TurnOff);
             //this.SI = false;
             //this.CI = null;
             if (SI_bool_field != null)
@@ -986,7 +1374,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 //this.FI = true;
                 if (FI_bool_field != null)
                     FI_bool_field.SetValue(this, true);
-                this.vehicle.EmitEvent(global::Vehicle.Event.Disabled);
+                this.vehicle.EmitEvent(Vehicle.Event.Disabled);
                 //this.set_RSQ(false);
 
                 if (set_RSQ_MethodInfo != null)
@@ -996,8 +1384,8 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 }
                 if (this.AttachedEntities != null)
                 {
-                    ((global::EntityAlive)this.AttachedEntities).SetHandIKTargets(null, null);
-                    this.vehicle.EmitEvent(global::VPIgnition.Action.TurnOff);
+                    ((EntityAlive)this.AttachedEntities).SetHandIKTargets(null, null);
+                    this.vehicle.EmitEvent(VPIgnition.Action.TurnOff);
                     //this.SI = false;
                     //this.CI = null;
                     if (SI_bool_field != null)
@@ -1009,19 +1397,11 @@ public abstract class EntityCustomVehicle : EntityMinibike
                     base.AttachEntity(0, null);
                 }
             }
-            else
-            {
-                if (IsAirtight() && player != null)
-                {
-                    player.Stats.Debuff("cannotBreath");
-                    player.Stats.Debuff("drowning");
-                }
-            }
         }
         //else if (this.FI && this.AttachedEntities != null)
         else if (FI_field_value && this.AttachedEntities != null)
         {
-            this.vehicle.EmitEvent(global::Vehicle.Event.Enabled);
+            this.vehicle.EmitEvent(Vehicle.Event.Enabled);
             //this.FI = false;
             if (FI_bool_field != null)
                 FI_bool_field.SetValue(this, false);
@@ -1029,6 +1409,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
         this.vehicle.Update(Time.deltaTime);
     }
 
+    // Override for Entity.IsInWater() FW field
     public override void OnUpdateEntity()
     {
         base.OnUpdateEntity();
@@ -1051,16 +1432,16 @@ public abstract class EntityCustomVehicle : EntityMinibike
         base.OnCollidedWithBlock(_world, _clrIdx, _blockPos, _blockValue);
 
         //if (GameManager.IsDedicatedServer)
-            //return;
+        //return;
 
-        if (!bEnableDestroyAndHarvest || !(this.AttachedEntities is EntityPlayerLocal))
+        if (!hasDriver || !bEnableDestroyAndHarvest || !(this.AttachedEntities is EntityPlayerLocal))
             return;
 
-        if (!hasDriver)
+        /*if (!hasDriver)
         {
             //DebugMsg("OnCollidedWithBlock: call OnDriverOn()");
             OnDriverOn();
-        }
+        }*/
 
         //if (hasDestructionRadius && _blockPos != lastHitBlockPos && blockDamage != 0 && !this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, 1.5f, 0f), Vector3.one)))
         //if (vehicleDestroyAndHarvest.blockDamage != 0 && !vehicleDestroyAndHarvest.isDestroyingBlocks && Time.time - destroyDelay > lastDestroyTime && vehicleDestroyAndHarvest.hasDestructionRadius && _blockPos != lastHitBlockPos)
@@ -1108,12 +1489,48 @@ public abstract class EntityCustomVehicle : EntityMinibike
         return base.isHeadUnderwater();
     }*/
 
-    protected override bool isHeadUnderwater()
+    public virtual bool IsInWater2()
+    {
+        return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, floatHeight + 0.7f, 0f), Vector3.one * 0.1f));
+    }
+
+    public virtual bool IsOnWater()
+    {
+        //return this.world.IsLiquidInBounds(new Bounds(this.position, Vector3.one * 0.1f));
+        return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, floatHeight + 0.6f, 0f), Vector3.one * 0.1f));
+        //return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, -1f, 0f), new Vector3(2f, 2f, 2f)));
+        //return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, -1f, 0f), new Vector3(3f, 0.1f, 3f)));
+    }
+
+    public virtual bool hasWaterBelow()
+    {
+        return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, -1f, 0f), new Vector3(3f, 0.1f, 3f)));
+    }
+
+    public virtual bool hasWaterAbove()
+    {
+        //return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, floatHeight + 0.8f, 0f), new Vector3(10f, 0.1f, 10f)));
+        //return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, 1f, 0f), new Vector3(10f, 0.1f, 10f)));
+        return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, floatHeight + 0.8f, 0f), Vector3.one * 0.1f));
+    }
+
+    public virtual bool hasWaterArround()
+    {
+        //return this.world.IsLiquidInBounds(new Bounds(this.position, new Vector3(20f, 20f, 20f)));
+        return this.world.IsLiquidInBounds(new Bounds(this.position + new Vector3(0f, -4f, 0f), new Vector3(12f, 12f, 12f)));
+    }
+
+    public virtual bool hasLandArround()
+    {
+        return CustomVehiclesUtils.IsLandInBounds(new Bounds(this.position, new Vector3(6f, 1f, 6f)));
+    }
+
+    /*protected override bool isHeadUnderwater()
     {
         if (IsWaterCraft() && IsAirtight())
             return false;
         return base.isHeadUnderwater();
-    }
+    }*/
 
     /*public override bool HXQ()
     {
@@ -1148,7 +1565,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
     public virtual bool HasGunAmmo()
     {
         ItemValue itemValue = GetWeaponAmmoType("vehicleGun");
-        if(itemValue != null)
+        if (itemValue != null)
         {
             LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(this.player);
             ItemStack itemStack = new ItemStack(itemValue, 1);
@@ -1233,6 +1650,33 @@ public abstract class EntityCustomVehicle : EntityMinibike
         this.lootContainer.SetContainerSize(storageSize, false);
     }
 
+    public override EntityActivationCommand[] GetActivationCommands(Vector3i _tePos, EntityAlive _entityFocusing)
+    {
+        string @string = GamePrefs.GetString(EnumGamePrefs.PlayerId);
+        bool flag = this.IsOwner(@string);
+
+        //DebugMsg("GetActivationCommands isDriveable() = " + this.isDriveable().ToString());
+        DebugMsg("EntityActivationCommand: isInteractionLocked = " + isInteractionLocked.ToString() + " | isDriveable = " + isDriveable().ToString() + " | IsOwner = " + flag.ToString() + " | hasLock = " + hasLock().ToString() + " | isAllowedUser = " + isAllowedUser(@string).ToString());
+
+        if (this.IsDead())
+        {
+            return new EntityActivationCommand[0];
+        }
+        return new EntityActivationCommand[]
+        {
+            new EntityActivationCommand("drive", "drive", !this.isInteractionLocked && this.isDriveable() && (!this.isLocked || flag || !this.hasLock() || this.isAllowedUser(@string))),
+            new EntityActivationCommand("service", "service", !this.isInteractionLocked && (flag || !this.hasLock())),
+            new EntityActivationCommand("repair", "wrench", !this.isInteractionLocked && this.vehicle.GetRepairAmountNeeded() > 0),
+            new EntityActivationCommand("lock", "lock", !this.isInteractionLocked && this.hasLock() && !this.isLocked && flag),
+            new EntityActivationCommand("unlock", "unlock", !this.isInteractionLocked && this.hasLock() && this.isLocked && flag),
+            new EntityActivationCommand("keypad", "keypad", !this.isInteractionLocked && this.hasLock() && (flag || this.vehicle.PasswordHash != 0)),
+            new EntityActivationCommand("refuel", "gas", !this.isInteractionLocked && this.hasGasCan(_entityFocusing) && this.hasEngine() && this.needsFuel()),
+            new EntityActivationCommand("take", "hand", !this.isInteractionLocked && this.HasChassis() && this.vehicle.GetPartCount() == 1),
+            new EntityActivationCommand("horn", "horn", this.hasHandlebars())
+        };
+    }
+
+
     public override bool OnEntityActivated(int _indexInBlockActivationCommands, Vector3i _tePos, EntityAlive _entityFocusing)
     {
         EntityPlayerLocal entityPlayerLocal = _entityFocusing as EntityPlayerLocal;
@@ -1246,10 +1690,18 @@ public abstract class EntityCustomVehicle : EntityMinibike
             case 0:
                 if (!(uiforPlayer != null) || !uiforPlayer.windowManager.IsWindowOpen("windowpaging"))
                 {
+                    //DebugMsg("About to enter vehicle");
                     string @string = GamePrefs.GetString(EnumGamePrefs.PlayerId);
+                    //DebugMsg("OnEntityActivated isDriveable() = " + this.isDriveable().ToString());
                     if (this.AttachedEntities == null && _entityFocusing.AttachedToEntity == null && this.isDriveable() && (!this.isLocked || this.IsOwner(@string) || !this.hasLock() || this.isAllowedUser(@string)) && !Physics.CapsuleCast(this.position, this.position, this.m_characterController.radius, Vector3.up, 1f, 65536))
+                    //if (this.AttachedEntities == null && _entityFocusing.AttachedToEntity == null && this.isDriveable() && (!this.isLocked || this.IsOwner(@string) || !this.hasLock() || this.isAllowedUser(@string)) && !(!IsInWater2() && Physics.CapsuleCast(this.position, this.position, this.m_characterController.radius, Vector3.up, 1f, 65536)))
+                    //if (this.AttachedEntities == null && _entityFocusing.AttachedToEntity == null && this.isDriveable() && (!this.isLocked || this.IsOwner(@string) || !this.hasLock() || this.isAllowedUser(@string)))
                     {
+                        //DebugMsg("Entering vehicle");
                         _entityFocusing.SetAttachedTo(0, this);
+                    }
+                    {
+                        //DebugMsg("NOT entering vehicle. There must be some problem.");
                     }
                 }
                 break;
@@ -1257,10 +1709,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 {
                     if (bEnableCustomStorage)
                     {
-                        // Experimental different size storage
-                        DebugMsg("this.GetLootList() = " + this.GetLootList().ToString());
-                        DebugMsg("this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
-                        DebugMsg("lootListIndex = " + this.lootContainer.lootListIndex.ToString() + " | size = " + this.lootContainer.GetContainerSize().ToString());
+                        // Different size storage
+                        //DebugMsg("this.GetLootList() = " + this.GetLootList().ToString());
+                        //DebugMsg("this.lootContainer.items.Length = " + this.lootContainer.items.Length.ToString());
+                        //DebugMsg("lootListIndex = " + this.lootContainer.lootListIndex.ToString() + " | size = " + this.lootContainer.GetContainerSize().ToString());
 
                         GUIWindowManager windowManager = uiforPlayer.windowManager;
                         ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
@@ -1270,10 +1722,10 @@ public abstract class EntityCustomVehicle : EntityMinibike
 
                         windowManager.Open(vehicleXuiName, true, false, true);
 
-                        DebugMsg("XUiC_VehicleWindowGroup.ID = " + XUiC_VehicleWindowGroup.ID);
-                        DebugMsg("vehicleXuiName = " + vehicleXuiName);
-                        DebugMsg("vehicle bag length = " + this.bag.GetSlots().Length.ToString());
-                        DebugMsg("vehicle storageSize = " + storageSize.ToString());
+                        //DebugMsg("XUiC_VehicleWindowGroup.ID = " + XUiC_VehicleWindowGroup.ID);
+                        //DebugMsg("vehicleXuiName = " + vehicleXuiName);
+                        //DebugMsg("vehicle bag length = " + this.bag.GetSlots().Length.ToString());
+                        //DebugMsg("vehicle storageSize = " + storageSize.ToString());
                     }
                     else
                     {
@@ -1283,7 +1735,7 @@ public abstract class EntityCustomVehicle : EntityMinibike
                     }
 
                     //this.TS = _tePos;
-                    if(TS_field != null)
+                    if (TS_field != null)
                     {
                         TS_field.SetValue(this, _tePos);
                     }
@@ -1324,18 +1776,29 @@ public abstract class EntityCustomVehicle : EntityMinibike
                 {
                     ItemValue partItemValueByTag = this.vehicle.GetPartItemValueByTag("chassis");
                     ItemStack itemStack = new ItemStack(partItemValueByTag, 1);
-                    DebugMsg("Taking chassis: hasBuiltInStorage = " + hasBuiltInStorage.ToString());
+                    //DebugMsg("Taking chassis: hasBuiltInStorage = " + hasBuiltInStorage.ToString());
                     if (uiforPlayer.xui.PlayerInventory.AddItem(itemStack, true))
                     {
                         // When taking the chassis, if it has built in storage, take all storage content.
                         if (HasBuiltInStorage())
                         {
-                            DebugMsg("Taking storage content");
+                            //DebugMsg("Taking storage content");
                             GUIWindowManager windowManager = uiforPlayer.windowManager;
                             ((XUiC_VehicleWindowGroup)((XUiWindowGroup)windowManager.GetWindow(vehicleXuiName)).Controller).CurrentVehicleEntity = this;
-                            XUiC_VehicleContainer xuiC_VehicleContainer =(XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
+                            XUiC_VehicleContainer xuiC_VehicleContainer = (XUiC_VehicleContainer)uiforPlayer.xui.FindWindowGroupByName(vehicleXuiName).GetChildByType<XUiC_VehicleContainer>();
                             xuiC_VehicleContainer.TakeAll();
                         }
+
+                        // Destroy dummy boat if it exists
+                        if (this.GetType() == typeof(EntityCustomBoat))
+                        {
+                            EntityCustomBoat boat = (EntityCustomBoat)this;
+                            if (boat.bHasBoatDummy)
+                            {
+                                boat.DestroyDummyBoat();
+                            }
+                        }
+
                         this.vehicle.SetPartInSlot("chassis", ItemValue.None.Clone());
                         this.syncPartData();
                     }
@@ -1349,6 +1812,26 @@ public abstract class EntityCustomVehicle : EntityMinibike
     }
 
 
+    /*public override AttachedToEntitySlotInfo GetAttachedToInfo(int _slotIdx)
+    {
+        AttachedToEntitySlotInfo attachedToEntitySlotInfo = base.GetAttachedToInfo(_slotIdx);
+        return attachedToEntitySlotInfo;*/
+
+        //if(!hasPlayerExitPos)
+        //    return attachedToEntitySlotInfo;
+
+        /*if (attachedToEntitySlotInfo.exitPositions.Count > 0)
+        {
+            attachedToEntitySlotInfo.exitPositions[0].exitPosition = playerExitPos;
+        }*/
+        /*foreach(AttachedToEntitySlotExitPosition exitPos in attachedToEntitySlotInfo.exitPositions)
+        {
+            exitPos.exitPosition = playerExitPos;
+        }
+
+        return attachedToEntitySlotInfo;*/
+    //}
+
     public override void OnEntityUnload()
     {
         if (autoGeneratedWeaponLaunchers)
@@ -1356,8 +1839,118 @@ public abstract class EntityCustomVehicle : EntityMinibike
             Destroy(gunLauncher.gameObject);
             Destroy(missileLauncher.gameObject);
         }
+
+        if(customPlayerIKController != null)
+        {
+            Destroy(customPlayerIKController);
+        }
+        if(leftFootIKTarget != null)
+        {
+            Destroy(leftFootIKTarget.gameObject);
+        }
+        if (rightFootIKTarget != null)
+        {
+            Destroy(rightFootIKTarget.gameObject);
+        }
+        if(headLookAtTarget != null)
+        {
+            Destroy(headLookAtTarget.gameObject);
+        }
+
         base.OnEntityUnload();
     }
+
+
+    public virtual void  CreateCustomIKTargets()
+    {
+        if (player == null || player.emodel.GetModelTransform() == null)
+            return;
+
+        if (!hasPlayerLeftFootIKPos && !hasPlayerLeftFootIKRot && !hasPlayerRightFootIKPos && !hasPlayerRightFootIKRot)
+            return;
+
+        if (customPlayerIKController == null)
+        {
+            if (playerAnimator != null && playerAnimator.gameObject.GetComponent<CustomPlayerIKController>() == null)
+            {
+                customPlayerIKController = playerAnimator.gameObject.AddComponent<CustomPlayerIKController>();
+            }
+            else
+            {
+                customPlayerIKController = playerAnimator.gameObject.GetComponent<CustomPlayerIKController>();
+            }
+        }
+
+        Quaternion newQuat = new Quaternion();
+
+        if (bPlayerLookForward)
+        {
+            if (headLookAtTarget == null)
+            {
+                headLookAtTarget = new GameObject("headLookAtTarget").transform;
+                headLookAtTarget.SetParent(this.transform);
+                headLookAtTarget.localPosition = new Vector3(-75, 1, 100);
+                headLookAtTarget.localRotation = Quaternion.identity;
+            }
+
+            customPlayerIKController.headTarget = headLookAtTarget;
+        }
+
+        if (hasPlayerLeftFootIKPos || hasPlayerLeftFootIKRot)
+        {
+            if(leftFootIKTarget == null)
+            {
+                leftFootIKTarget = new GameObject("leftFootIKTarget").transform;
+                leftFootIKTarget.SetParent(this.transform);
+                leftFootIKTarget.localPosition = playerLeftFootIKPos;
+                newQuat.eulerAngles = playerLeftFootIKRot;
+                leftFootIKTarget.localRotation = newQuat;
+            }
+
+            customPlayerIKController.leftFootTarget = leftFootIKTarget;
+        }
+        if (hasPlayerRightFootIKPos || hasPlayerRightFootIKRot)
+        {
+            if (rightFootIKTarget == null)
+            {
+                rightFootIKTarget = new GameObject("rightFootIKTarget").transform;
+                rightFootIKTarget.SetParent(this.transform);
+                rightFootIKTarget.localPosition = playerRightFootIKPos;
+                newQuat.eulerAngles = playerRightFootIKRot;
+                rightFootIKTarget.localRotation = newQuat;
+            }
+
+            customPlayerIKController.rightFootTarget = rightFootIKTarget;
+        }
+    }
+
+    public virtual void DisableCustomIKTargets()
+    {
+        if(customPlayerIKController != null)
+        {
+            customPlayerIKController.headTarget = null;
+            customPlayerIKController.leftFootTarget = null;
+            customPlayerIKController.rightFootTarget = null;
+        }
+    }
+
+    public virtual void CheckHandsIKparenting()
+    {
+        if (player != null)
+        {
+            Transform rightHandIK = this.vehicle.GetRightHandIK();
+            Transform leftHandIK = this.vehicle.GetLeftHandIK();
+            if (parentLeftHandIKtoChassis && leftHandIK != null)
+            {
+                leftHandIK.SetParent(this.transform);
+            }
+            if (parentRightHandIKtoChassis && rightHandIK != null)
+            {
+                rightHandIK.SetParent(this.transform);
+            }
+        }
+    }
+
 
     #endregion
 }

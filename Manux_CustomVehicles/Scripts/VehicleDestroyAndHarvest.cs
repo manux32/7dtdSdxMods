@@ -7,6 +7,8 @@ public class VehicleDestroyAndHarvest
 {
     EntityCustomVehicle entityVehicle = null;
 
+    public XUiC_VehicleCollectedItemList VehicleCollectedItemList;
+
     public float vehicleDurabilityMax;
     public float vehicleDurabilityPercent;
 
@@ -192,6 +194,53 @@ public class VehicleDestroyAndHarvest
         }
     }
 
+
+    public void GetVehicleCollectedItemListForPlayer()
+    {
+        if (entityVehicle != null && entityVehicle.player != null && entityVehicle.hudStatBar != null && entityVehicle.uiforPlayer != null)
+        {
+
+            GUIWindowManager windowManager = entityVehicle.uiforPlayer.windowManager;
+            VehicleCollectedItemList = (XUiC_VehicleCollectedItemList)entityVehicle.hudStatBar.WindowGroup.Controller.GetChildByType<XUiC_VehicleCollectedItemList>();
+
+            if (VehicleCollectedItemList != null)
+                DebugMsg("GetVehicleCollectedItemListForPlayer: VehicleCollectedItemList = " + VehicleCollectedItemList.ToString());
+
+            string msg = "GetVehicleCollectedItemListForPlayer: hudStatBarWinGroup children controllers:\n";
+            XUiController hudStatBarWinGroup = entityVehicle.hudStatBar.WindowGroup.Controller;
+            foreach (XUiController controller in hudStatBarWinGroup.Children)
+            {
+                msg += ("- " + controller.ToString() + " | type = " + controller.GetType() + " | viewComponent ID = " + controller.viewComponent.ID + " | viewComponent type = " + controller.viewComponent.GetType().ToString() + "\n");
+                if (controller.viewComponent.ID == "HUDRightStatBars")
+                {
+                    //VehicleCollectedItemList = (XUiC_VehicleCollectedItemList)controller.GetChildByType<XUiC_VehicleCollectedItemList>();
+                    XUiController yo = controller.GetChildById("vehicleCollectedItemList");
+                    if (yo != null)
+                    {
+                        //VehicleCollectedItemList = yo.viewComponent.Controller;
+                        msg += ("yo.viewComponent.Controller = " + yo.ToString() + "\n");
+                    }
+                    if (VehicleCollectedItemList != null)
+                        msg += ("VehicleCollectedItemList = " + VehicleCollectedItemList.ToString());
+                    //XUiController childById = controller.GetChildById("vehicleCollectedItemList");
+
+                    /*msg += "  Components:\n";
+                    Transform[] transforms = controller.viewComponent.UiTransform.gameObject.GetComponentsInChildren<Transform>(true);
+                    foreach (Transform transform in transforms)
+                    {
+                        msg += ("\t- " + transform.gameObject.name + " | " + transform.GetType() + "\n");
+
+                        if (transform.name == "vehicleCollectedItemList")
+                        {
+                            //VehicleCollectedItemList 
+                        }
+                    }*/
+                }
+            }
+            DebugMsg(msg);
+        }
+    }
+
     public void UpdateVehicleDestructionQuality()
     {
         vehicleDurabilityMax = entityVehicle.GetVehicle().GetVehicleMaxDurability();
@@ -208,16 +257,16 @@ public class VehicleDestroyAndHarvest
 
     public void FindAndKillSurroundingEntities()
     {
-            //if (entityDamage == 0 || entityVehicle.lastControllerVelocityMagnitude < 5f || Time.time - entityHitAgainDelay < lastEntityHitTime)
-            if (entityDamage == 0 || lastControllerVelocityMagnitude < entityHitMinSpeed)
-            {
-                //DebugMsg("NOT damaging entity: entityDamage = " + entityDamage.ToString() + " | lastControllerVelocityMagnitude = " + entityVehicle.lastControllerVelocityMagnitude.ToString("0.000"));
-                return;
-            }
-            else
-            {
-                //DebugMsg("lastControllerVelocityMagnitude = " + entityVehicle.lastControllerVelocityMagnitude.ToString("0.000"));
-            }
+        //if (entityDamage == 0 || entityVehicle.lastControllerVelocityMagnitude < 5f || Time.time - entityHitAgainDelay < lastEntityHitTime)
+        if (entityDamage == 0 || lastControllerVelocityMagnitude < entityHitMinSpeed)
+        {
+            //DebugMsg("NOT damaging entity: entityDamage = " + entityDamage.ToString() + " | lastControllerVelocityMagnitude = " + entityVehicle.lastControllerVelocityMagnitude.ToString("0.000"));
+            return;
+        }
+        else
+        {
+            //DebugMsg("lastControllerVelocityMagnitude = " + entityVehicle.lastControllerVelocityMagnitude.ToString("0.000"));
+        }
 
         // Try-catch for now because of an error with Bandits and survivors
         try
@@ -548,6 +597,7 @@ public class VehicleDestroyAndHarvest
 
         if (UnityEngine.Random.value <= num2 && num > 0)
         {
+            LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
             ItemStack itemStack = new ItemStack(itemValue, num);
             bool addedToVehicleInv = false;
             if (harvestToVehicleInventory && entityVehicle.HasStorage())
@@ -560,12 +610,37 @@ public class VehicleDestroyAndHarvest
                 {
                     //addedToVehicleInv = entityVehicle.inventory.AddItem(itemStack);
                     //addedToVehicleInv = vehicleContainer.AddItem(itemStack);
+                    ItemStack itemStackClone = itemStack.Clone();
                     addedToVehicleInv = entityVehicle.xuiC_VehicleContainer.AddItem(itemStack);
+                    //Debug.Log("Harvest: " + itemStack.itemValue.ItemClass.GetItemName() + "(" + itemStack.count.ToString() + ")");
+                    //Debug.Log("Harvest Clone: " + itemStackClone.itemValue.ItemClass.GetItemName() + "(" + itemStackClone.count.ToString() + ")");
+                    //if (addedToVehicleInv)
+                    {
+                        //uiforPlayer.xui.CollectedItemList.viewComponent.IsVisible = true;
+                        //uiforPlayer.xui.CollectedItemList.AddItemStack(itemStackClone, false);
+                        //uiforPlayer.xui.CollectedItemList.
+                        //uiforPlayer.xui.CollectedItemList.IsDirty = true;
+                        //uiforPlayer.xui.CollectedItemList.viewComponent.IsDirty = true;
+                        //uiforPlayer.xui.CollectedItemList.Update(Time.deltaTime);
+                        //uiforPlayer.xui.CollectedItemList.viewComponent.Update(Time.deltaTime);
+                        //uiforPlayer.xui.CollectedItemList.Parent.IsDirty = true;
+                        //itemStack.count = 0;
+
+                        //entityVehicle.hudStatBar.xui.CollectedItemList.viewComponent.IsVisible = true;
+                        //entityVehicle.hudStatBar.xui.CollectedItemList.PrefabItems.gameObject.SetActive(true);
+                        //entityVehicle.hudStatBar.xui.CollectedItemList.AddItemStack(itemStackClone, false);
+                        //entityVehicle.hudStatBar.IsDirty = true;
+                        /*if (VehicleCollectedItemList != null)
+                        {
+                            VehicleCollectedItemList.AddItemStack(itemStackClone, false);
+                        }*/
+                    }
                 }
             }
             if (!addedToVehicleInv)
             {
-                LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+                //LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+
                 //if (!entityVehicle.playerInventory.AddItem(itemStack, true))
                 //if (!entityVehicle.player.inventory.AddItem(itemStack))
                 if (!uiforPlayer.xui.PlayerInventory.AddItem(itemStack, true))

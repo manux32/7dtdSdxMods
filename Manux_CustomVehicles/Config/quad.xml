@@ -47,6 +47,8 @@
 				<property name="HarvestXPFactor" value="0.5" />
 				<property name="WaterCraft" value="true" />
 				<property name="Airtight" value="false" />
+				<property name="FloatsOnWater" value="false" />
+				<property name="FloatHeight" value="0.35" />
 				<!-- different size storage (supposed to work now, but please report any issues with them) -->
 				<property name="VehicleXuiName" value="vehicleMediumStorage" />
 				<property name="LootListAlive" value="190" />

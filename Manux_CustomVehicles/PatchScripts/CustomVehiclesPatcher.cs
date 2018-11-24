@@ -32,6 +32,7 @@ class CustomVehiclesPatcher : IPatcherMod
         FieldDefinition field;
         TypeDefinition gameClass;
         MethodDefinition gameMethod;
+        TypeReference voidTypeRef = module.TypeSystem.Void;
 
         Console.WriteLine("==Custom Vehicles Patcher===");
 
@@ -75,9 +76,16 @@ class CustomVehiclesPatcher : IPatcherMod
         //gameMethod = gameClass.Methods.First(d => d.Name == "setupEntitySlotInfo");
         //SetMethodToPublic(gameMethod);
 
+        //gameClass = module.Types.First(d => d.Name == "Entity");
+        //gameMethod = gameClass.Methods.First(d => d.Name == "onUnderwaterStateChanged");
+        //SetMethodToPublic(gameMethod);
+
         gameClass = module.Types.First(d => d.Name == "EntityPlayerLocal");
         gameMethod = gameClass.Methods.First(d => d.Name == "updateCameraPosition");
         SetMethodToPublic(gameMethod);
+
+        //gameMethod = gameClass.Methods.First(d => d.Name == "onUnderwaterStateChanged");
+        //SetMethodToPublic(gameMethod);
 
         if (bEnableCustomVehicleParts)
         {
@@ -166,7 +174,6 @@ class CustomVehiclesPatcher : IPatcherMod
             /*FieldDefinition takeAllLabelField = new FieldDefinition("takeAllLabel", FieldAttributes.Private, module.Import(typeof(XUiV_Label)));
             gameClass.Fields.Add(takeAllLabelField);*/
 
-            TypeReference voidTypeRef = module.TypeSystem.Void;
             MethodDefinition onButtonTakeAll = new MethodDefinition("OnButtonTakeAll", MethodAttributes.Public | MethodAttributes.Virtual | MethodAttributes.HideBySig, voidTypeRef) { HasThis = true };
             TypeReference onPressEventArgsTypeDef = module.Types.First(d => d.Name == "OnPressEventArgs");
             onButtonTakeAll.Parameters.Add(new ParameterDefinition(xuiControllerTypeDef) { Name = "xuiController" });
@@ -197,21 +204,89 @@ class CustomVehiclesPatcher : IPatcherMod
             gameClass.Methods.Add(onButtonStashAllButFirst);
         }
 
+        /*// Add a new field to XUi for storing the new XUiC_VehicleCollectedItemList
+        gameClass = module.Types.First(d => d.Name == "XUi");
+        //FieldDefinition vehicleCollectedItemListField = new FieldDefinition("VehicleCollectedItemList", FieldAttributes.Public, module.Import(typeof(string)));
+        //TypeReference xuic_VehicleCollectedItemList_typeRef = XUiC_VehicleCollectedItemList;
+        TypeDefinition xuic_VehicleCollectedItemList_typeDef = new TypeDefinition("global", "XUiC_VehicleCollectedItemList", TypeAttributes.Class);
+        //SDX.Core.GlobalVariables.
+        //var xuic_VehicleCollectedItemList_typeDef = module.Types.First(d => d.Name == "XUiC_VehicleCollectedItemList");
+        //var xuic_VehicleCollectedItemList_typeDef = module.Types.First(d => d.Name == "XUiC_CollectedItemList");
+        FieldDefinition vehicleCollectedItemListField = new FieldDefinition("VehicleCollectedItemList", FieldAttributes.Public, xuic_VehicleCollectedItemList_typeDef);
+        SetFieldToPublic(vehicleCollectedItemListField);
+        gameClass.Fields.Add(vehicleCollectedItemListField);*/
+
+        // Add a new EntityStats.set_WaterLevel method field
+        /*gameClass = module.Types.First(d => d.Name == "EntityStats");
+        TypeReference floatTypeRef = module.Import(typeof(float));
+        //MethodDefinition set_WaterLevel = new MethodDefinition("set_WaterLevel", MethodAttributes.Public | MethodAttributes.HideBySig, voidTypeRef) { HasThis = true };
+        var gameProperty = gameClass.Properties.First(d => d.Name == "WaterLevel");
+        //var newSetter = new PropertyDefinition("set_WaterLevel", PropertyAttributes.None, voidTypeRef);
+        //newSetter.Parameters.Add(new ParameterDefinition(floatTypeRef) { Name = "value" });
+        MethodDefinition set_WaterLevel = new MethodDefinition("set_WaterLevel", MethodAttributes.Public | MethodAttributes.HideBySig, voidTypeRef) { HasThis = true };
+        set_WaterLevel.Parameters.Add(new ParameterDefinition(floatTypeRef) { Name = "value" });
+        //gameClass.Methods.Add(set_WaterLevel);
+        gameProperty.SetMethod = set_WaterLevel;*/
+
+        /*gameClass = module.Types.First(d => d.Name == "EntityStats");
+        TypeReference floatTypeRef = module.Import(typeof(float));
+        MethodDefinition setWaterLevelMethod = new MethodDefinition("SetWaterLevel", MethodAttributes.Public | MethodAttributes.HideBySig, voidTypeRef) { HasThis = true };
+        setWaterLevelMethod.Parameters.Add(new ParameterDefinition(floatTypeRef) { Name = "value" });
+        gameClass.Methods.Add(setWaterLevelMethod);*/
+
+        bool bHasSetWaterLevel = false;
+        gameClass = module.Types.First(d => d.Name == "EntityStats");
+        foreach (var method in gameClass.Methods)
+        {
+            if (method.Name == "SetWaterLevel")
+            {
+                bHasSetWaterLevel = true;
+            }
+        }
+
+        if (!bHasSetWaterLevel)
+        {
+            TypeReference floatTypeRef = module.Import(typeof(float));
+            MethodDefinition setWaterLevelMethod = new MethodDefinition("SetWaterLevel", MethodAttributes.Public | MethodAttributes.HideBySig, voidTypeRef) { HasThis = true };
+            setWaterLevelMethod.Parameters.Add(new ParameterDefinition(floatTypeRef) { Name = "value" });
+            gameClass.Methods.Add(setWaterLevelMethod);
+        }
+
         return true;
     }
 
     private void HookMethods(ModuleDefinition gameModule, ModuleDefinition modModule)
     {
+        TypeDefinition gameClass;
+        MethodDefinition gameMethod;
+        TypeDefinition myClass;
+        MethodReference myMethod;
+
         Instruction first;
         Instruction last;
         ILProcessor pro;
 
+        /*gameClass = gameModule.Types.First(d => d.Name == "XUi");
+        var newClass = modModule.Types.First(d => d.Name == "XUiC_VehicleCollectedItemList");
+        gameModule.Types.Add(newClass);
+        FieldDefinition vehicleCollectedItemListField = new FieldDefinition("VehicleCollectedItemList", FieldAttributes.Public, newClass);
+        SetFieldToPublic(vehicleCollectedItemListField);
+        gameClass.Fields.Add(vehicleCollectedItemListField);*/
+
+        /*// TEST FOR HAL
+        // Add a new field to ItemClass for storing IsVehicleCustomPart
+        gameClass = gameModule.Types.First(d => d.Name == "ItemClass");
+        FieldDefinition isVehicleCustomPartField = new FieldDefinition("bIsVehicleCustomPart", FieldAttributes.Public, gameModule.Import(typeof(bool)));
+        SetFieldToPublic(isVehicleCustomPartField);
+        gameClass.Fields.Add(isVehicleCustomPartField);
+        isVehicleCustomPartField.Constant = false;*/
+
         // Modify Vehicle.HasWheels()
-        var gameClass = gameModule.Types.First(d => d.Name == "Vehicle");
-        var gameMethod = gameClass.Methods.First(d => d.Name == "HasWheels");
+        gameClass = gameModule.Types.First(d => d.Name == "Vehicle");
+        gameMethod = gameClass.Methods.First(d => d.Name == "HasWheels");
  
-        var myClass = modModule.Types.First(d => d.Name == "Vehicle_patchFunctions");
-        var myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "HasWheels"));
+        myClass = modModule.Types.First(d => d.Name == "Vehicle_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "HasWheels"));
 
         var gameInstructions = gameMethod.Body.Instructions;
         gameInstructions.Clear();
@@ -219,6 +294,7 @@ class CustomVehiclesPatcher : IPatcherMod
         gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
         gameInstructions.Add(Instruction.Create(OpCodes.Call, myMethod));
         gameInstructions.Add(Instruction.Create(OpCodes.Ret));
+
 
         // Modify Vehicle.HasStorage()
         gameMethod = gameClass.Methods.First(d => d.Name == "HasStorage");
@@ -417,6 +493,17 @@ class CustomVehiclesPatcher : IPatcherMod
             pro = gameMethod.Body.GetILProcessor();
 
             pro.InsertBefore(first, Instruction.Create(OpCodes.Call, myMethod));
+
+            // Insert custom function in XUiC_VehicleWindowGroup.OnOpen()
+            gameMethod = gameClass.Methods.First(d => d.Name == "OnOpen");
+            myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnOpen_addition"));
+
+            gameInstructions = gameMethod.Body.Instructions;
+            first = gameInstructions.First();
+            pro = gameMethod.Body.GetILProcessor();
+
+            pro.InsertBefore(gameInstructions[7], Instruction.Create(OpCodes.Ldarg_0));
+            pro.InsertBefore(gameInstructions[8], Instruction.Create(OpCodes.Call, myMethod));
 
             // Modify TileEntityLootContainer.SetContainerSize()
             /*gameClass = gameModule.Types.First(d => d.Name == "TileEntityLootContainer");
@@ -631,6 +718,135 @@ class CustomVehiclesPatcher : IPatcherMod
                 }
             }
         }
+
+        /*// Modify XUiC_HUDStatBar.OnOpen() and XUiC_HUDStatBar.OnClose()
+        gameClass = gameModule.Types.First(d => d.Name == "XUiC_HUDStatBar");
+        gameMethod = gameClass.Methods.First(d => d.Name == "OnOpen");
+        myClass = modModule.Types.First(d => d.Name == "XUiC_HUDStatBar_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnOpen"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        gameInstructions.Clear();
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Callvirt, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));
+
+        gameMethod = gameClass.Methods.First(d => d.Name == "OnClose");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnClose"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        gameInstructions.Clear();
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Callvirt, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));*/
+
+        // Add custom function call at the end of XUiC_HUDStatBar.OnOpen()
+        gameClass = gameModule.Types.First(d => d.Name == "XUiC_HUDStatBar");
+        gameMethod = gameClass.Methods.First(d => d.Name == "OnOpen");
+        myClass = modModule.Types.First(d => d.Name == "XUiC_HUDStatBar_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnOpen_addition"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        last = gameInstructions.Last();
+        pro = gameMethod.Body.GetILProcessor();
+
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Ldarg_0));
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Callvirt, myMethod));
+
+        gameMethod = gameClass.Methods.First(d => d.Name == "OnClose");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "OnClose_addition"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        last = gameInstructions.Last();
+        pro = gameMethod.Body.GetILProcessor();
+
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Ldarg_0));
+        pro.InsertBefore(last, Instruction.Create(OpCodes.Callvirt, myMethod));
+
+        /*// Replace the content of XUiC_VehicleStats.GetBindingValue()
+        gameClass = gameModule.Types.First(d => d.Name == "XUiC_VehicleStats");
+        gameMethod = gameClass.Methods.First(d => d.Name == "GetBindingValue");
+        myClass = modModule.Types.First(d => d.Name == "XUiC_VehicleStats_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "GetBindingValue_patched"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        gameInstructions.Clear();
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_1));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_2));
+        gameInstructions.Add(Instruction.Create(OpCodes.Callvirt, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));*/
+
+        // Add instructions to our new EntityStats.SetWaterLevel method
+        gameClass = gameModule.Types.First(d => d.Name == "EntityStats");
+        gameMethod = gameClass.Methods.First(d => d.Name == "SetWaterLevel");
+        myClass = modModule.Types.First(d => d.Name == "EntityStats_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "SetWaterLevel"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_1));
+        gameInstructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));
+
+        // Change EntityStats_patchFunctions.get_WaterLevel
+        gameMethod = gameClass.Methods.First(d => d.Name == "get_WaterLevel");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "GetWaterLevel"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        gameInstructions.Clear();
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));
+
+        // Insert method EntityStats_patchFunctions.AdjustAirtightWaterLevel in EntityStats.Tick method
+        gameMethod = gameClass.Methods.First(d => d.Name == "Tick");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "AdjustAirtightWaterLevel"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        pro = gameMethod.Body.GetILProcessor();
+
+        pro.InsertBefore(gameInstructions[333], Instruction.Create(OpCodes.Ldarg_0));
+        pro.InsertBefore(gameInstructions[334], Instruction.Create(OpCodes.Call, myMethod));
+
+        // Insert method EntityMoveHelper_patchFunctions.onUpdateMoveHelper_addition in EntityMoveHelper.onUpdateMoveHelper
+        /*gameClass = gameModule.Types.First(d => d.Name == "EntityMoveHelper");
+        gameMethod = gameClass.Methods.First(d => d.Name == "onUpdateMoveHelper");
+        myClass = modModule.Types.First(d => d.Name == "EntityMoveHelper_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "onUpdateMoveHelper_addition"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        pro = gameMethod.Body.GetILProcessor();
+
+        VariableDefinition flag2Var = null;
+        flag2Var = gameInstructions[238].Operand as VariableDefinition;
+
+        pro.InsertBefore(gameInstructions[239], Instruction.Create(OpCodes.Ldarg_0));
+        pro.InsertBefore(gameInstructions[240], Instruction.Create(OpCodes.Ldloc_S, flag2Var));
+        pro.InsertBefore(gameInstructions[241], Instruction.Create(OpCodes.Call, myMethod));
+        pro.InsertBefore(gameInstructions[242], Instruction.Create(OpCodes.Stloc_S, flag2Var));*/
+
+        // Change StabilityCalculator.YZ obfuscated method to avoid a stupid null ref
+        /*gameClass = gameModule.Types.First(d => d.Name == "StabilityCalculator");
+        if (IsDedi())
+            gameMethod = gameClass.Methods.First(d => d.Name == "MH");
+        else
+            gameMethod = gameClass.Methods.First(d => d.Name == "YZ");
+        myClass = modModule.Types.First(d => d.Name == "StabilityCalculator_patchFunctions");
+        myMethod = gameModule.Import(myClass.Methods.First(d => d.Name == "YZ_patch"));
+
+        gameInstructions = gameMethod.Body.Instructions;
+        gameInstructions.Clear();
+
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_0));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ldarg_1));
+        gameInstructions.Add(Instruction.Create(OpCodes.Call, myMethod));
+        gameInstructions.Add(Instruction.Create(OpCodes.Ret));*/
     }
 
     private void SetAccessLevels(ModuleDefinition module)

@@ -1,0 +1,335 @@
+<configs>
+	<config name="blocks">
+		<append xpath="/blocks">
+			<!-- MANUX's Small Boat: Dummy Boat Block, to be able to stop on water and fish from boat --> 
+			<block id="" name="smallBoatDummyBlock">
+				<property name="Class" value="DummyBoat, Mods" />
+				<property name="CustomIcon" value="smallBoatChassis" />
+				<property name="Material" value="metal" />
+				<property name="StabilitySupport" value="true" />
+				<property name="Shape" value="ModelEntity" />
+				<property name="Model" value="#SmallBoat?SmallBoatDummyBlockPrefab" />
+				<property name="ModelOffset" value="0,0,0" />
+				<property name="MultiBlockDim" value="2,1,6" />
+				<property name="ImposterExclude" value="true" />
+				<property name="ImposterDontBlock" value="true" />
+				<property name="OnlySimpleRotations" value="true" />
+				<property name="IsTerrainDecoration" value="true" />
+				<property name="Place" value="Spotlight" />
+				<property name="PassThroughDamage" value="true" />
+				<property name="LightOpacity" value="0" />
+				<property name="UseGlobalUV" value="Local" />
+				<!--<property name="CanPickup" value="true" />-->
+				<property name="CreativeMode" value="None" />
+				<drop event="Destroy" count="0" />
+				<drop event="Fall" count="0" />
+			</block>
+		</append>
+	</config>
+
+	<config name="items">	
+		<append xpath="/items">
+			<!-- MANUX's Small Boat --> 
+			<item id="" name="smallBoatChassis">
+				<property name="VehicleSlotType" value="chassis" />
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="HoldingItemHidden" value="true" />
+				<property name="Meshfile" value="#SmallBoat?SmallBoatChassisPrefab" />
+				<property name="Material" value="metal" />
+				<property name="RepairTools" value="repairKit" />
+				<property name="HoldType" value="7" />
+				<property name="EconomicValue" value="1000" />
+				<property class="Attributes">
+					<property name="VehicleDamagePassedToPlayer" value="0.7, 0.1" />
+					<property name="DegradationRate" value="10,10" />
+					<property name="DegradationMax" value="1200,6000" />
+				</property>
+				<property class="Action1">
+					<property name="Class" value="SpawnCustomVehicle, Mods" />
+					<property name="VehicleToSpawn" value="smallBoat"/>
+				</property>
+				<property name="Group" value="Resources" />
+				<property name="CraftingSkillGroup" value="craftSkillScience" />
+			</item>
+
+			<item id="" name="smallBoatEngine">
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="VehicleSlotType" value="engine"/>
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="Material" value="Msteel"/>
+				<property name="RepairTools" value="repairKit"/>
+				<property name="HoldType" value="45"/>
+				<property name="Stacknumber" value="1"/>
+				<property name="Weight" value="100"/>
+				<property name="EconomicValue" value="1500"/>
+				<property name="Group" value="Resources"/>
+				<property name="DegradationBreaksAfter" value="false"/>
+				<property class="Attributes">
+					<property name="DegradationMax" value="1000,6000"/>
+					<!--<property name="VehicleNoise" value="1,0.1"/>-->
+					<property name="VehicleNoise" value="2,0.2"/>
+					<property name="VehicleMaxSpeed" value="5,18"/>
+					<property name="VehicleAcceleration" value="7,14"/>
+					<property name="VehicleMetersPerLiter" value="8,12"/>
+					<property name="VehicleIdleSecondsPerLiter" value="6,12"/>
+					<property name="VehicleStartDelayInSeconds" value="1,0.1"/>
+					<property name="VehicleStartChance" value="0.5,0.99"/>
+					<!--<property name="VehicleTankSize" value="1000, 2000"/>-->
+					<property name="VehicleTankSize" value="750, 1500"/>
+				</property>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+			
+			<item id="" name="smallBoatPropellers">
+				<property name="VehicleSlotType" value="wheel"/>
+				<property name="IsVehicleCustomPart" value="true" />
+				<property name="Meshfile" value="Items/Misc/sackPrefab"/>
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+				<property name="Material" value="metal"/>
+				<property name="RepairTools" value="repairKit"/>
+				<property name="HoldType" value="45"/>
+				<property name="Weight" value="30"/>
+				<property name="EconomicValue" value="500"/>
+				<property class="Attributes">
+					<property name="VehicleTraction" value="0.1,1"/>
+					<property name="VehicleDrag" value="0.02,0.01"/>
+					<property name="DegradationMax" value="1200,6000"/>
+				</property>
+				<property name="Group" value="Resources"/>
+				<property name="CraftingSkillGroup" value="craftSkillScience"/>
+			</item>
+			
+		</append>
+	</config>
+	<config name="entityclasses">
+		<append xpath="/entity_classes">	
+			<!-- MANUX's Small Boat --> 
+			<entity_class name="smallBoat">
+				<property name="Class" value="EntityCustomBoat, Mods" />
+				<property name="Parent" value="Cars" />
+				
+				<property name="CameraOffset" value="0, -0.2, -7" />
+				<property name="3rdPersonModelVisible" value="true" />
+				<property name="PlayerPositionOffset" value="0.25, -0.2, -2.1" />
+				<property name="PlayerRotationOffset" value="0, -90, 0" />
+				
+				<property name="PlayerExitPosition" value="0, 2, 0" />
+				<property name="PlayerLookForward" value="true" />
+				<property name="ParentLeftHandIKtoChassis" value="false" />
+				<property name="ParentRightHandIKtoChassis" value="true" />
+				<property name="left_foot_ik_position" value="0.08, 0.19, -2.289" />
+				<property name="right_foot_ik_position" value="0.08, 0.16, -1.829" />
+				<property name="left_foot_ik_rotation" value="-9.814, -90, 0" />
+				<property name="right_foot_ik_rotation" value="-9.814, -90, 0" />
+				
+				<property name="ColliderCenter" value="0, 1.11, 0" />
+				<property name="ColliderRadius" value="1.1" />
+				<property name="ColliderHeight" value="2" />
+				<property name="ColliderSkinWidth" value=" 0.08" />
+				<property name="ControllerSlopeLimit" value="90" />
+				<property name="ControllerStepOffset" value="1" />
+				<property name="VehicleActivationCenter" value="0, 0.5, 0" />
+				<property name="VehicleActivationSize" value="2, 1, 6" />
+				
+				<property name="EntityDamage" value="75" />
+				<property name="EntityHitMinSpeed" value="5" />
+				<property name="EntityCriticalHitMinSpeed" value="15" />
+				<property name="BlockDamage" value="10000" />
+				<property name="VehicleDamageFactor_blocks" value="4" />
+				<property name="VehicleDamageFactor_entities" value="4" />
+				<property name="DestructionRadius" value="1" />
+				<property name="DestructionStartHeight" value="1" />
+				<property name="DestructionHeight" value="2" />
+				<property name="DestructionHarvestBonus" value="1.4" />
+				<property name="DestroyBlocks" value="grass,plant,cactus,shrubOrBush,softDebris" />
+				<property name="HarvestBlocks" value="plant,cactus,shrubOrBush,softDebris" />
+				<property name="HarvestToVehicleInventory" value="true" />
+				<property name="DestroyXPFactor" value="0.5" />
+				<property name="HarvestXPFactor" value="0.5" />
+				
+				<property name="WaterCraft" value="true" />
+				<property name="Airtight" value="false" />
+				<property name="FloatsOnWater" value="true" />
+				<property name="FloatHeight" value="0.05" />
+				
+				<property name="VehicleXuiName" value="vehicleMediumStorage" />
+				<property name="LootListAlive" value="190" />
+				
+				<property name="Prefab" value="Minibike" />
+				<property name="MaxHealth" value="1000000" />
+				<property name="SurfaceCategory" value="metal" />
+				<property name="IgnoreTrigger" value="true" />
+				<property name="IsEnemyEntity" value="false" />
+				<property name="Explosion.ParticleIndex" value="6" />
+				<property name="Explosion.RadiusBlocks" value="6" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="RotateToGround" value="true" />
+				<property name="Faction" value="none" />
+				<property name="MapIcon" value="manux_ui_game_symbol_small_boat" />
+				<property name="CompassIcon" value="manux_ui_game_symbol_small_boat" />
+			</entity_class>
+		</append>
+	</config>
+	
+	<config name="vehicles">
+		<append xpath="/vehicles">
+			<!-- MANUX's Small Boat --> 
+			<vehicle name="smallBoat">
+				<property name="prefab" value="#SmallBoat?SmallBoatPrefab" />
+				<property name="gravity_multiplier" value="1" />
+				<property class="chassis">
+					<property name="required" value="true" />
+					<property name="class" value="Chassis" />
+					<property name="display_name" value="smallBoatChassis" />
+					<property name="slot_type" value="chassis" />
+					<property name="custom_slot_type" value="smallBoatChassis" />
+					<property name="mesh" value="chassis" />
+					<property name="transform" value="Origin" />
+					<property name="shocks_offset_min" value="chassis/minPos" />
+					<property name="shocks_offset_max" value="chassis/maxPos" />
+					<property name="part_damage_reduction" value="0.5" />
+				</property>
+				<property class="handlebars">
+					<property name="required" value="true" />
+					<property name="class" value="Steering" />
+					<property name="display_name" value="steering" />
+					<property name="slot_type" value="handlebars" />
+					<property name="mesh" value="handlebar" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint" />
+					<property name="steer_rotate_min" value="Origin/handlebar_root/rotateMin" />
+					<property name="steer_rotate_max" value="Origin/handlebar_root/rotateMax" />
+					<property name="left_hand_ik_position" value="0.089, 0.253, 0.712" />
+					<property name="right_hand_ik_position" value="0.297, -0.063, 1.4" />
+					<property name="left_hand_ik_rotation" value="10.099, -92.816, -3.923" />
+					<property name="right_hand_ik_rotation" value="63.601, -22.633, -17.498" />
+					<property name="part_damage_reduction" value="0.25" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				
+				<property class="wheel0">
+					<property name="class" value="Wheel" />
+					<property name="display_name" value="wheel" />
+					<property name="parent_part" value="wheel1" />
+					<property name="mesh" value="propellers" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/propeller_right_joint_root" />
+					<property name="shocks_offset_min" value="body/chassis/wheel/minPos" />
+					<property name="shocks_offset_max" value="body/chassis/wheel/maxPos" />
+				</property>
+				<property class="wheel1">
+					<property name="required" value="true" />
+					<property name="class" value="Wheel" />
+					<property name="display_name" value="smallBoatPropellers" />
+					<property name="slot_type" value="wheel" />
+					<property name="custom_slot_type" value="smallBoatPropellers" />
+					<property name="parent_part" value="handlebars" />
+					<property name="mesh" value="propellers" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/propeller_left_joint_root" />
+					<property name="shocks_offset_min" value="body/handlebars/wheel/minPos" />
+					<property name="shocks_offset_max" value="body/handlebars/wheel/maxPos" />
+					<property name="part_damage_reduction" value="0.1" />
+				</property>
+				
+				<property class="driver">
+					<property name="required" value="true" />
+					<property name="class" value="Seat" />
+					<property name="display_name" value="driverSeat" />
+					<property name="slot_type" value="seat" />
+					<property name="mesh" value="seat" />
+					<property name="transform" value="seat" />
+					<property name="attachment_pose" value="0" />
+					<property name="left_foot_ik_target" value="body/chassis/leftFoot" />
+					<property name="right_foot_ik_target" value="body/chassis/rightFoot" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="battery">
+					<property name="required" value="true" />
+					<property name="class" value="Battery" />
+					<property name="display_name" value="battery" />
+					<property name="slot_type" value="battery" />
+					<property name="mesh" value="battery" />
+					<property name="transform" value="battery" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="engine">
+					<property name="required" value="true" />
+					<property name="class" value="Engine" />
+					<property name="display_name" value="smallBoatEngine" />
+					<property name="slot_type" value="engine" />
+					<property name="custom_slot_type" value="smallBoatEngine" />
+					<property name="mesh" value="engine_small" />
+					<property name="transform" value="engine_small" />
+					<property name="particle_transform" value="Origin/handlebar_root/handlebar_joint/MinibikeParticles/p_engine_fire" />
+					<property name="sound_start" value="Vehicles/Minibike/minibike_start_" />
+					<property name="sound_shut_off" value="Vehicles/Minibike/minibike_shutoff_" />
+					<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/minibike_empty_" />
+					<property name="sound_idle_loop" value="Vehicles/Minibike/minibike_idle_lp_" />
+					<property name="sound_accelerate" value="Vehicles/Minibike/minibike_accel_" />
+					<property name="sound_decelerate" value="Vehicles/Minibike/minibike_decel_" />
+					<property name="sound_running_loop" value="Vehicles/Minibike/minibike_run_lp_" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="handlebars" />
+				</property>
+				<property class="exhaust">
+					<property name="class" value="Exhaust" />
+					<property name="parent_part" value="handlebars" />
+					<property name="particle_transform" value="Origin/handlebar_root/handlebar_joint/MinibikeParticles/p_engine" />
+				</property>
+				<property class="horn">
+					<property name="class" value="Horn" />
+					<property name="parent_part" value="handlebars" />
+					<property name="sound_honk" value="vehicle/minibike/minibike_horn" />
+				</property>
+				<property class="storage">
+					<property name="class" value="Storage" />
+					<property name="display_name" value="basket" />
+					<property name="slot_type" value="basket" />
+					<property name="mesh" value="basket" />
+					<property name="transform" value="basket" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="headlight">
+					<property name="class" value="Headlight" />
+					<property name="parent_part" value="chassis" />
+					<property name="transform" value="Origin/headlight" />
+				</property>
+				<property class="fuelTank">
+					<property name="class" value="FuelTank" />
+					<property name="parent_part" value="engine" />
+				</property>
+				<property class="lock">
+					<property name="class" value="Lock" />
+					<property name="slot_type" value="lock" />
+					<property name="part_damage_reduction" value="0.75" />
+					<property name="parent_part" value="chassis" />
+				</property>
+				<property class="ignition">
+					<property name="class" value="Ignition" />
+					<property name="parent_part" value="engine" />
+				</property>
+				<property class="vehicleGun">
+					<property name="class" value="Gun, Mods" />
+					<property name="display_name" value="vehicle50calGun" />
+					<property name="slot_type" value="vehicleGun" />
+					<property name="custom_slot_type" value="vehicle50calGun" />
+					<property name="mesh" value="50calMachineGun" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/vehicleGun_joint" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="handlebars" />
+				</property>
+				<property class="vehicleExplosiveLauncher">
+					<property name="class" value="ExplosiveLauncher, Mods" />
+					<property name="display_name" value="vehicleGrenadeLauncher" />
+					<property name="slot_type" value="vehicleExplosiveLauncher" />
+					<property name="custom_slot_type" value="vehicleGrenadeLauncher" />
+					<property name="mesh" value="GrenadeLauncher" />
+					<property name="transform" value="Origin/handlebar_root/handlebar_joint/vehicleExplosiveLauncher_joint" />
+					<property name="part_damage_reduction" value="0.5" />
+					<property name="parent_part" value="handlebars" />
+				</property>
+			</vehicle>
+		</append>
+	</config>
+</configs>

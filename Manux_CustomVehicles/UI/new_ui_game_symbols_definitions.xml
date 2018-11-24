@@ -6,4 +6,6 @@
 	<ui_game_symbol name="manux_ui_game_symbol_hellgoatbike" 			atlas_pos="1611,294" />
 	<ui_game_symbol name="manux_ui_game_symbol_roadhog" 				atlas_pos="1611,359" />
 	<ui_game_symbol name="manux_ui_game_symbol_cicada" 					atlas_pos="1611,424" />
+	<ui_game_symbol name="manux_ui_game_symbol_oxygen_source" 			atlas_pos="1676,424" />
+	<ui_game_symbol name="manux_ui_game_symbol_small_boat" 				atlas_pos="1676,359" />
 </ui_game_symbols>

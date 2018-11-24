@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class VehicleWeapons : MonoBehaviour
 {
+    public bool gameWasPaused = false;
+    public float gamePausedTime = -1;
     public Entity entity = null;
     EntityCustomVehicle entityVehicle = null;
 
@@ -12,6 +14,27 @@ public class VehicleWeapons : MonoBehaviour
     public float lastGunShoot = -1;
     public float missileShootDelay = 1.2f;
     public float lastMissileShoot = -1;
+
+    public XUiV_Grid gunAmmoGrid = null;
+    //public XUiV_Rect gunAmmoRect = null;
+    public XUiV_Sprite gunAmmoSprite = null;
+    public XUiV_Label gunAmmoLabel = null;
+    public XUiV_Grid explosiveAmmoGrid = null;
+    //public XUiV_Rect explosiveAmmoRect = null;
+    public XUiV_Sprite explosiveAmmoSprite = null;
+    public XUiV_Label explosiveAmmoLabel = null;
+
+    public ItemValue gunAmmoItemValue = null;
+    public ItemValue explosiveAmmoItemValue = null;
+
+    public GameObject vehicleAmmoUIRoot = null;
+    //public GameObject gunAmmoUIRoot = null;
+    //public GameObject explosiveAmmoUIRoot = null;
+    public UISprite gunAmmoUISprite = null;
+    public UILabel gunAmmoUILabel = null;
+    public UISprite explosiveAmmoUISprite = null;
+    public UILabel explosiveAmmoUILabel = null;
+    public UISprite miniBikeDefaultSprite = null;
 
     static bool showDebugLog = false;
 
@@ -35,6 +58,132 @@ public class VehicleWeapons : MonoBehaviour
         entityVehicle = entity as EntityCustomVehicle;
     }
 
+    public void OnDriverOn()
+    {
+        //InitController();
+
+        if (entityVehicle != null && entityVehicle.player != null && entityVehicle.hudStatBar != null)
+        {
+            string msg = "VehicleWeapons.OnDriverOn: hudStatBarWinGroup children controllers:\n";
+            XUiController hudStatBarWinGroup = entityVehicle.hudStatBar.WindowGroup.Controller;
+            foreach (XUiController controller in hudStatBarWinGroup.Children)
+            {
+                msg += ( "- " + controller.ToString() + " | type = " + controller.GetType() + " | viewComponent ID = " + controller.viewComponent.ID + " | viewComponent type = " + controller.viewComponent.GetType().ToString() + "\n");
+                if (controller.viewComponent.ID == "HUDRightStatBars")
+                {
+                    msg += "  Components:\n";
+                    Transform[] transforms = controller.viewComponent.UiTransform.gameObject.GetComponentsInChildren<Transform>(true);
+                    foreach (Transform transform in transforms)
+                    {
+                        msg += ("\t- " + transform.gameObject.name + " | " + transform.GetType() + "\n");
+
+                        if (transform.name == "hudVehicleWeaponsAmmo")
+                        {
+                            vehicleAmmoUIRoot = transform.gameObject;
+                            vehicleAmmoUIRoot.SetActive(true);
+                        }
+
+                        if (transform.name == "vehicleHealthIcon")
+                        {
+                            UISprite[] vehicleHealthSprites = transform.gameObject.GetComponentsInChildren<UISprite>(true);
+                            if (vehicleHealthSprites.Length > 0)
+                            {
+                                vehicleHealthSprites[0].spriteName = entityVehicle.GetMapIcon();
+                                msg += ("\t\t- vehicleHealthSprite = " + vehicleHealthSprites[0].spriteName + "\n");
+                            }
+                        }
+
+                        if (transform.name == "vehicleHealth")
+                        {
+                            UISprite[] vehicleHealthSprites = transform.gameObject.GetComponentsInChildren<UISprite>(true);
+                            foreach(UISprite sprite in vehicleHealthSprites)
+                            {
+                                if (sprite.gameObject.name == "Icon")
+                                {
+                                    miniBikeDefaultSprite = sprite;
+                                    miniBikeDefaultSprite.spriteName = "";
+                                }
+                            }
+                        }
+
+                        if (transform.name == "hudVehicleGunAmmo")
+                        {
+                            //gunAmmoUIRoot = transform.gameObject;
+                            //gunAmmoUIRoot.SetActive(entityVehicle.HasGun() && entityVehicle.HasGunAmmo());
+                            bool bShowGun = entityVehicle.HasGun() && entityVehicle.HasGunAmmo();
+                            Component[] comps = transform.gameObject.GetComponentsInChildren<Component>();
+                            foreach(Component comp in comps)
+                            {
+                                if (comp.name == "BarContent" && comp.GetType() == typeof(UISprite))
+                                {
+                                    ((UISprite)comp).enabled = bShowGun;
+                                }
+                                if (comp.name == "Icon" && comp.GetType() == typeof(UISprite))
+                                {
+                                    msg += ("\t\t- " + comp.gameObject.name + " | " + comp.GetType() + "\n");
+                                    gunAmmoUISprite = (UISprite)comp;
+
+                                    gunAmmoItemValue = entityVehicle.GetWeaponAmmoType("vehicleGun");
+                                    gunAmmoUISprite.spriteName = gunAmmoItemValue.ItemClass.GetIconName();
+                                    gunAmmoUISprite.enabled = bShowGun;
+                                }
+                                if (comp.name == "TextContent" && comp.GetType() == typeof(UILabel))
+                                {
+                                    msg += ("\t\t- " + comp.gameObject.name + " | " + comp.GetType() + "\n");
+                                    gunAmmoUILabel = (UILabel)comp;
+                                    gunAmmoUILabel.text = entityVehicle.uiforPlayer.xui.PlayerInventory.GetItemCount(gunAmmoItemValue.ItemClass.Id).ToString();
+                                    gunAmmoUILabel.enabled = bShowGun;
+                                }
+                            }
+                        }
+                        if (transform.name == "hudVehicleExplosiveLauncherAmmo")
+                        {
+                            //explosiveAmmoUIRoot = transform.gameObject;
+                            //explosiveAmmoUIRoot.SetActive(entityVehicle.HasExplosiveLauncher() && entityVehicle.HasExplosiveLauncherAmmo());
+                            bool bShowEL = entityVehicle.HasExplosiveLauncher() && entityVehicle.HasExplosiveLauncherAmmo();
+                            Component[] comps = transform.gameObject.GetComponentsInChildren<Component>();
+                            foreach (Component comp in comps)
+                            {
+                                if (comp.name == "BarContent" && comp.GetType() == typeof(UISprite))
+                                {
+                                    ((UISprite)comp).enabled = bShowEL;
+                                }
+                                if (comp.name == "Icon" && comp.GetType() == typeof(UISprite))
+                                {
+                                    msg += ("\t\t- " + comp.gameObject.name + " | " + comp.GetType() + "\n");
+                                    explosiveAmmoUISprite = (UISprite)comp;
+
+                                    explosiveAmmoItemValue = entityVehicle.GetWeaponAmmoType("vehicleExplosiveLauncher");
+                                    explosiveAmmoUISprite.spriteName = explosiveAmmoItemValue.ItemClass.GetIconName();
+                                    explosiveAmmoUISprite.enabled = bShowEL;
+                                }
+                                if (comp.name == "TextContent" && comp.GetType() == typeof(UILabel))
+                                {
+                                    msg += ("\t\t- " + comp.gameObject.name + " | " + comp.GetType() + "\n");
+                                    explosiveAmmoUILabel = (UILabel)comp;
+                                    explosiveAmmoUILabel.text = entityVehicle.uiforPlayer.xui.PlayerInventory.GetItemCount(explosiveAmmoItemValue.ItemClass.Id).ToString();
+                                    explosiveAmmoUILabel.enabled = bShowEL;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            DebugMsg(msg);
+        }
+    }
+
+    public void OnDriverOff()
+    {
+        if(vehicleAmmoUIRoot != null)
+        {
+            vehicleAmmoUIRoot.SetActive(false);
+        }
+        if (miniBikeDefaultSprite != null)
+        {
+            miniBikeDefaultSprite.spriteName = "ui_game_symbol_minibike";
+        }
+    }
 
     void Update()
     {
@@ -46,24 +195,39 @@ public class VehicleWeapons : MonoBehaviour
             InitController();
             return;
         }
+
         LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
         //if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || entityVehicle.uiforPlayer.windowManager.IsModalWindowOpen())
         if (GameManager.Instance.IsPaused() || GameManager.Instance.m_GUIConsole.isInputActive || uiforPlayer.windowManager.IsModalWindowOpen())
+        {
+            if (GameManager.Instance.IsPaused())
+            {
+                DebugMsg("GAME WAS PAUSED!");
+                gameWasPaused = true;
+                gamePausedTime = Time.time;
+            }
             return;
+        }
 
         if (!entityVehicle.hasDriver)
             return;
 
-        if (!(entityVehicle.HasGun() || entityVehicle.HasExplosiveLauncher()))
-            return;
+        if (gameWasPaused && Time.time - 0.2f > gamePausedTime)
+        {
+            OnDriverOn();
+            gameWasPaused = false;
+        }
 
-        if (Input.GetMouseButton(0) && Time.time - gunShootDelay > lastGunShoot)
+        //if (!(entityVehicle.HasGun() || entityVehicle.HasExplosiveLauncher()))
+            //return;
+
+        if (entityVehicle.HasGun() && Input.GetMouseButton(0) && Time.time - gunShootDelay > lastGunShoot)
         {
             //DebugMsg("Left-click");
             ShootProjectile(entityVehicle.gunLauncher, "vehicleGun", "Weapons/Ranged/AK47/ak47_fire_start", true);
             lastGunShoot = Time.time;
         }
-        if (Input.GetMouseButton(1) && Time.time - missileShootDelay > lastMissileShoot)
+        if (entityVehicle.HasExplosiveLauncher() && Input.GetMouseButton(1) && Time.time - missileShootDelay > lastMissileShoot)
         {
             //DebugMsg("Right-click");
             ShootProjectile(entityVehicle.missileLauncher, "vehicleExplosiveLauncher", "Weapons/Ranged/M136/m136_fire", false);
@@ -109,6 +273,10 @@ public class VehicleWeapons : MonoBehaviour
             // Change weapons UseTimes (degrade weapon)
             launcherValue.UseTimes += AttributeBase.GetVal<AttributeDegradationRate>(launcherValue, 1);
             entityVehicle.gunPart.SetItemValue(launcherValue);
+            if (gunAmmoUILabel != null)
+            {
+                gunAmmoUILabel.text = (entityVehicle.uiforPlayer.xui.PlayerInventory.GetItemCount(gunAmmoItemValue.ItemClass.Id) - 1).ToString();
+            }
         }
         else
         {
@@ -117,6 +285,10 @@ public class VehicleWeapons : MonoBehaviour
             // Change weapons UseTimes (degrade weapon)
             launcherValue.UseTimes += AttributeBase.GetVal<AttributeDegradationRate>(launcherValue, 1);
             entityVehicle.explosiveLauncherPart.SetItemValue(launcherValue);
+            if (explosiveAmmoUILabel != null)
+            {
+                explosiveAmmoUILabel.text = (entityVehicle.uiforPlayer.xui.PlayerInventory.GetItemCount(explosiveAmmoItemValue.ItemClass.Id) - 1).ToString();
+            }
         }
 
         Utils.SetLayerRecursively(projectile.gameObject, (!(projectileLauncher != null)) ? 0 : projectileLauncher.gameObject.layer);
@@ -148,7 +320,7 @@ public class VehicleWeapons : MonoBehaviour
         }
 
 
-        LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
+        //LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(entityVehicle.player);
         if (isGun)
         {
             ParticleEffect pe = new ParticleEffect("nozzleflash_ak", projectileLauncher.position, Quaternion.Euler(0f, 180f, 0f), 1f, Color.white, "Pistol_Fire", projectileLauncher);
@@ -157,12 +329,14 @@ public class VehicleWeapons : MonoBehaviour
             SpawnParticleEffect(pe, -1);
             SpawnParticleEffect(pe2, -1);
             //entityVehicle.playerInventory.RemoveItem(itemStack);
-            uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
+            //uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
+            entityVehicle.uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
             return;
         }
 
         //entityVehicle.playerInventory.RemoveItem(itemStack);
-        uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
+        //uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
+        entityVehicle.uiforPlayer.xui.PlayerInventory.RemoveItem(itemStack);
 
         //if (Steam.Network.IsServer)
         {

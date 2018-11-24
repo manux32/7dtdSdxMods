@@ -12,6 +12,7 @@
 	
 	<!-- This references any config files that SDX needs to merge into your files -->
 	<config_mods>
+		<import file="Config\common.xml" />
 		<import file="Config\minibikePlus.xml" />
 		<import file="Config\proBikeParts.xml" />
 		<import file="Config\vehicleWeapons.xml" />
@@ -23,6 +24,7 @@
 		<import file="Config\quad.xml" />
 		<import file="Config\theBeast.xml" />
 		<import file="Config\helicopter.xml" />
+		<import file="Config\smallBoat.xml" />
 		<import file="Config\ui_edits.xml" />
 		<import file="Config\ui_edits_forBiggerBackPackMod.xml" />
     </config_mods>

@@ -1,0 +1,63 @@
+<configs>
+
+	<config name="materials">
+		<append xpath="/materials">
+			<!-- MANUX Custom Vehicles: Not used anymore -->
+			<material id="waterSupport">				
+				<property name="damage_category" value="water" />
+				<property name="surface_category" value="water" />
+				<property name="Hardness" type="float" value="1" />
+				<property name="stepsound" value="water" />
+				<property name="stability_glue" value="320" />
+				<property name="Mass" type="int" value="20" />
+				<property name="MaxDamage" value="0" />
+				<property name="lightopacity" value="3" />
+				<property name="StabilitySupport" value="true" />
+				<property name="collidable" value="true" />
+			</material>
+		</append>
+	</config>
+	
+	<config name="blocks">
+		<append xpath="/blocks">
+			<!-- MANUX Custom Vehicles -->
+			<block id="" name="waterSupportBlock">	
+				<property name="Class" value="WaterSupport, Mods" />
+				<property name="Material" value="wood_regular" />
+				<property name="PassThroughDamage" value="true" />
+				<property name="Texture" value="241" />
+				<property name="Shape" value="New" />
+				<property name="LightOpacity" value="0" />
+				<property name="Model" value="pole_square_centered" />
+				<property name="ImposterExclude" value="true" />
+				<property name="UseGlobalUV" value="Local" />
+				<property name="CreativeMode" value="None" />
+				<drop event="Harvest" count="0" />
+				<drop event="Destroy" count="0" />
+				<drop event="Fall" count="0" />
+			</block>
+			
+			<!-- MANUX Custom Vehicles: Not used anymore, was before I found how to make a fake boat block for when the player exits the boat -->
+			<block id="" name="boatDeckBlock">
+				<property name="CreativeMode" value="None" />
+				<property name="CanPickup" value="false" />
+				<property name="Mesh" value="opaque" />
+				<property name="Shape" value="New" />
+				<property name="Model" value="cube_frame" />
+				<!--<property name="Model" value="cube_half" />-->
+				<property name="Texture" value="241" />
+				<property name="UseGlobalUV" value="Local" />
+				<property name="Frame" />
+				<property name="Material" value="wood_weak" />
+				<property name="LightOpacity" value="0" />				
+				<property name="ImposterExclude" value="true" />
+				<property name="ImposterDontBlock" value="true" />
+				<property name="Collide" value="movement,melee,rocket" />
+				<drop event="Destroy" count="0" />
+				<drop event="Fall" count="0" />
+			</block>
+			
+		</append>
+	</config>
+	
+</configs>

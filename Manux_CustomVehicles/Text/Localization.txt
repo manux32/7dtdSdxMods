@@ -41,3 +41,12 @@ vehicleGrenade,items,Ammo,EnChanged,Vehicle Grenade
 tankShell,items,Ammo,EnChanged,Tank Shell
 minibikePlus,items,Part,EnChanged,MiniBike-Plus
 minibikePlusChassis,items,Part,EnChanged,MiniBike-Plus Chassis
+airtightDesc,buffs,Buff,EnChanged,You can breath underwater with this vehicle.
+airtightWarming,buffs,Buff,EnChanged,Airtight Warming
+airtightWarmingDesc,buffs,Buff,EnChanged,This AirTight Vehicle keeps you warm.
+airtightCooling,buffs,Buff,EnChanged,Airtight Cooling
+airtightCoolingDesc,buffs,Buff,EnChanged,This AirTight Vehicle keeps you cool.
+smallBoat,items,Part,EnChanged,Small Boat
+smallBoatChassis,items,Part,EnChanged,Small Boat Chassis
+smallBoatEngine,items,Part,EnChanged,Small Boat Engine
+smallBoatPropellers,items,Part,EnChanged,Small Boat Propellers
