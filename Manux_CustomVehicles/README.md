@@ -594,7 +594,8 @@ A talented artist who has many nice models on Sketchfab. He did the great little
 - **Licensing type:** [**Creative Commons Attribution CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/)  
 I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
 This mod is public and free, the derived asset is not used in any commercial way.  
-- Removed the wooden parts of the mesh to make it fit better as a vehicle weapon.  
+- Removed the wooden parts of the mesh to make it fit better as a vehicle weapon. 
+- Added a textured mesh to have an anchor to attach to vehicles.  
 - Merged the meshes.  
 - Combine the texture maps to be compatible with the Unity Shaders (Roughness map as the alpha channel of Metallic map)  
 - Skinning of the meshes on a simple bone structure to be able to animate it in the game.  
@@ -607,10 +608,11 @@ A very talented artist who has many nice models on CG Trader. He did the great l
 - **Licensing type:** [**CG Trader Royalty Free License**](https://www.cgtrader.com/pages/terms-and-conditions#general-terms-of-licensing)  
 I made the changes listed below to the Asset in order to be able to integrate it in this mod for the 7 days to die game.  
 This mod is public and free, the derived asset is not used in any commercial way.  
-- Removed the wooden parts of the mesh to make it fit better as a vehicle weapon.  
+- Removed the gun stock and handle to make it fit better as a vehicle weapon.  
+- Added a textured mesh to have an anchor to attach to vehicles.  
 - Merged the meshes.  
-- Combine the texture maps to be compatible with the Unity Shaders (Roughness map as the alpha channel of Metallic map)  
 - Skinning of the meshes on a simple bone structure to be able to animate it in the game.  
+- The texture on my version does not look the same as in the link above. Maybe I downloaded an older version or another version from another site, can't remember.  
 
 
 ## Special Thanks
