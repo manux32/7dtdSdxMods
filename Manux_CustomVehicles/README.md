@@ -369,8 +369,8 @@ All the vehicle's custom parts in this mod now use this new system. Check the xm
 Each vehicle always has a custom chassis item for items.xml, to be able to spawn that specific type of vehicle.  
 I made the icons show the whole vehicle so you know what you are spawning:  
 
-| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) |
-|:---:|:---:|:---:|:---:|:---:|:---:|  
+| ![img](Icons/roadHogChassis.png) | ![img](Icons/hellGoatBikeChassis.png) | ![img](Icons/quadChassis.png) | ![img](Icons/cicadaCarChassis.png) | ![img](Icons/loaderChassis.png) | ![img](Icons/helicopterChassis.png) | ![img](Icons/smallBoatChassis.png) |  
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 
 ### 2 New weapon parts slots
 In the last version I added 2 new parts slots to be able to have 2 weapons per vehicle: a machine gun and an explosive launcher.  
