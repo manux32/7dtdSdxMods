@@ -18,7 +18,7 @@ Sadly, it cannot be deployed on top of big mods that already modify the game's A
 ### Recently added features
 - The mod is now **MP compatible**. It's not perfect in MP because of some of the game's limitations with Vehicles, but the mod seems to work without issues.
 - New **Boat** Vehicle! This is now my favorite vehicle! You can even fish from it if you use my Fishing mod or any other Fishing mod. You can also spawn the chassis directly on water.  
-- Any vehicle can be set to float on water. But only the Boat creates a Floating Block platform when you stop driving it on water. Use the new vehicle entity_class _<property name="FloatsOnWater" value="true" />_ node to enable it.
+- Any vehicle can be set to float on water. But only the Boat creates a Floating Block platform when you stop driving it on water. Use the new vehicle entity_class _<property name="FloatsOnWater" value="true" />_ node to enable floating on water.
 - New **Feet IK** and **Head LookAt** features when driving the vehicle. The Small Boat is the only one using those new features for now.   
 - The **Airtight** feature has been improved. Vehicles that have it enabled now keep you at ideal temperature, and you slowly dry off if you were wet when entering it.  
 - Show remaining Vehicle Weapons Ammo on HUD  
