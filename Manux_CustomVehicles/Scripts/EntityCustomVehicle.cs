@@ -745,6 +745,22 @@ public abstract class EntityCustomVehicle : EntityMinibike
     }
 
 
+    public void PrintHierarchyDetails()
+    {
+        string msg = "Vehicle Hierarchy Details:\n";
+        Transform[] transforms = this.RootTransform.gameObject.GetComponentsInChildren<Transform>();
+        foreach(Transform t in transforms)
+        {
+            msg += "\t- " + t.name + ":\n";
+            Component[] comps = t.gameObject.GetComponentsInChildren<Component>();
+            foreach (Component c in comps)
+            {
+                msg += "\t\t- " + c.GetType().ToString() + ":\n";
+            }
+        }
+        DebugMsg(msg);
+    }
+
     public static Transform GetRootTransform(Transform fromTransform, string stopAtString)
     {
         if (fromTransform.parent != null)
