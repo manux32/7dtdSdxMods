@@ -5,7 +5,13 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|  
 | Dust2Death's Road Hog | Hell Goat Bike | Quad | Cicada Car | The Beast (Loader) | Helicopter | Small Boat |  
 
-### Game Version: Availlable for A16 only (for now...)  
+### Game Version: 
+#### A16
+- This is the full mod version and it's currently only availlable for A16.
+#### A17
+I made an XML-only modlet for A17 which includes some of my vehicles. I will not port the full mod to A17 until after A17 stable ships.
+- [**A17 modlet**](https://github.com/manux32/7d2d_A17_modlets/tree/master/manux_CustomVehicles_A17_modlet)
+- [**A17 modlet - SDX version**](https://github.com/manux32/7d2d_A17_sdx_mods/tree/master/manux_CustomVehicles_A17_modlet)
 
 ### Intro
 The Custom Vehicles mod is there to help you build your own custom vehicles, from custom Bikes to custom Cars, Quads, Trucks, and even Boats!  
